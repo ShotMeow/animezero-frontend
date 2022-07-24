@@ -11,9 +11,7 @@ const Header: FC = () => {
 		<header className={styles.header}>
 			<Link href='/'>
 				<a>
-					<h1>
 						Anime<span>Zero</span>
-					</h1>
 				</a>
 			</Link>
 			<Nav />

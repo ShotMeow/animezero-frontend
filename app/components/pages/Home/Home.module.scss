@@ -1,0 +1,60 @@
+.welcome {
+  @apply flex flex-col justify-center;
+  height: 70vh;
+
+  .info {
+    @apply space-y-4;
+
+    .bread {
+      @apply flex items-center gap-2;
+
+      > strong {
+        @apply text-xl border-b-2 border-primary
+      }
+
+      > span {
+        @apply text-gray-600;
+      }
+    }
+
+    .about {
+      @apply space-y-4;
+
+      > h1 {
+        @apply text-4xl;
+
+        > span {
+          @apply text-primary;
+        }
+      }
+
+      > p {
+        @apply text-gray-600 text-lg;
+      }
+    }
+
+    .action {
+      @apply flex items-center gap-6;
+
+      .circle {
+        @apply relative flex h-3 w-3;
+
+        > div:first-child {
+          @apply animate-ping absolute h-full w-full rounded-full bg-primary opacity-75;
+        }
+
+        > div:last-child {
+          @apply rounded-full h-3 w-3 bg-primary;
+        }
+      }
+
+      > p {
+        @apply text-lg;
+
+        > span {
+          @apply font-bold;
+        }
+      }
+    }
+  }
+}
