@@ -1,0 +1,31 @@
+.nav {
+	> ul {
+		display: flex;
+
+		> li {
+			> a {
+				@apply relative;
+				display: block;
+				padding: 20px 15px;
+
+				&.active {
+					@apply bg-gray-800 border-b-2 border-primary;
+					background-color: #0f0f0f !important;
+				}
+
+				&::before {
+					@apply w-full h-0.5 bg-primary absolute left-0 -bottom-0.5 opacity-0 transition-opacity duration-500;
+					content: '';
+				}
+
+				&:hover {
+					@apply bg-gray-900;
+				}
+
+				&:hover::before {
+					@apply opacity-100;
+				}
+			}
+		}
+	}
+}

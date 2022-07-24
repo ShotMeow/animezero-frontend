@@ -1,0 +1,12 @@
+.header {
+	@apply flex justify-between items-center gap-4;
+	> a {
+		> h1 {
+			@apply text-white font-bold text-2xl;
+
+			> span {
+				@apply text-primary;
+			}
+		}
+	}
+}

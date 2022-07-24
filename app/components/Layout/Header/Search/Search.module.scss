@@ -1,0 +1,19 @@
+.search {
+	@apply w-full;
+
+	> .action {
+		@apply flex;
+
+		> input {
+			@apply rounded-l-md px-2 py-3 w-full text-black;
+
+			&::placeholder {
+				@apply text-gray-600;
+			}
+		}
+
+		> button {
+			@apply flex items-center justify-center bg-gray-800 rounded-r-md p-3;
+		}
+	}
+}
