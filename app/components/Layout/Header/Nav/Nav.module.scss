@@ -1,15 +1,13 @@
 .nav {
 	> ul {
-		display: flex;
+		@apply flex;
 
 		> li {
 			> a {
-				@apply relative;
-				display: block;
-				padding: 20px 15px;
+				@apply block relative px-4 py-5;
 
 				&.active {
-					@apply bg-gray-800 border-b-2 border-primary;
+					@apply border-b-2 border-primary;
 					background-color: #0f0f0f !important;
 				}
 
