@@ -1,0 +1,30 @@
+.recommendations {
+	> header {
+		@apply p-12;
+	}
+
+	@media (max-width: 500px) {
+		@apply p-2;
+	}
+
+	> footer {
+		@apply grid gap-12;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: repeat(2, 300px);
+
+		> article:first-child {
+			grid-row-start: 1;
+			grid-row-end: 3;
+		}
+
+		> article:nth-child(2) {
+			grid-row-start: 1;
+			grid-row-end: 2;
+		}
+
+		> article:last-child {
+			grid-row-start: 2;
+			grid-row-end: 3;
+		}
+	}
+}

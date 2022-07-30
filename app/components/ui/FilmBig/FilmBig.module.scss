@@ -1,0 +1,27 @@
+.film_big {
+	@apply relative bg-cover flex flex-col justify-between p-8;
+	box-shadow: inset 0px -250px 100px rgba(0, 0, 0, 0.5);
+
+	.tags {
+		> div {
+			@apply flex gap-3;
+		}
+		@apply flex justify-between;
+	}
+
+	.about {
+		@apply z-10 flex justify-between items-end;
+
+		> div:first-child {
+			@apply w-3/4 space-y-2;
+
+			> h3 {
+				@apply text-xl font-bold;
+			}
+		}
+	}
+
+	button {
+		@apply py-4 px-14;
+	}
+}
