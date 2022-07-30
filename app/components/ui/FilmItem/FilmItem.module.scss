@@ -1,0 +1,43 @@
+.film {
+	@apply flex flex-col gap-2;
+	width: 200px;
+	&:hover {
+		> header {
+			> img {
+				opacity: 0.6;
+			}
+			> button {
+				transform: translateY(-10px);
+			}
+		}
+	}
+
+	> header {
+		@apply relative;
+
+		> img {
+			@apply w-full rounded-t-md;
+			transition: all 0.5s ease;
+			height: 280px;
+		}
+
+		> span {
+			@apply absolute top-4 -right-2 bg-primary rounded-sm px-3;
+		}
+
+		> button {
+			@apply absolute bottom-0 left-10 overflow-hidden;
+			transition: all 0.5s ease;
+			transform: translateY(200px);
+		}
+	}
+
+	> footer {
+		> h3 {
+			@apply font-semibold;
+		}
+		> p {
+			@apply text-gray-400;
+		}
+	}
+}

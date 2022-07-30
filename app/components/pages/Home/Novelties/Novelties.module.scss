@@ -1,0 +1,15 @@
+.novelties {
+	@apply bg-gray-800 p-12 space-y-8;
+
+	@media (max-width: 500px) {
+		@apply p-2;
+	}
+
+	> header {
+		@apply flex justify-between;
+	}
+
+	> footer {
+		@apply flex justify-between;
+	}
+}
