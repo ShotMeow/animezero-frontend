@@ -1,0 +1,11 @@
+.subtitle {
+  @apply flex items-center gap-4;
+
+  > .icon {
+    @apply bg-primary p-2 rounded-md;
+  }
+
+  > h2 {
+    @apply text-xl;
+  }
+}

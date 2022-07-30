@@ -1,60 +1,104 @@
 .welcome {
-  @apply flex flex-col justify-center;
-  height: 70vh;
+	@apply relative flex flex-col justify-center;
+	height: 70vh;
 
-  .info {
-    @apply space-y-4;
+	.info {
+		@apply space-y-4;
 
-    .bread {
-      @apply flex items-center gap-2;
+		.bread {
+			@apply flex items-center gap-2;
 
-      > strong {
-        @apply text-xl border-b-2 border-primary
-      }
+			> strong {
+				@apply text-xl border-b-2 border-primary;
+			}
 
-      > span {
-        @apply text-gray-600;
-      }
-    }
+			> span {
+				@apply text-gray-600;
+			}
+		}
 
-    .about {
-      @apply space-y-4;
+		.about {
+			@apply space-y-4;
 
-      > h1 {
-        @apply text-4xl;
+			> h1 {
+				@apply text-4xl;
 
-        > span {
-          @apply text-primary;
-        }
-      }
+				> span {
+					@apply text-primary;
+				}
+			}
 
-      > p {
-        @apply text-gray-600 text-lg;
-      }
-    }
+			> p {
+				@apply text-gray-600 text-lg;
+			}
+		}
 
-    .action {
-      @apply flex items-center gap-6;
+		.action {
+			@apply flex items-center gap-6;
 
-      .circle {
-        @apply relative flex h-3 w-3;
+			@media (max-width: 400px) {
+				@apply flex-col items-start;
+			}
 
-        > div:first-child {
-          @apply animate-ping absolute h-full w-full rounded-full bg-primary opacity-75;
-        }
+			> div {
+				@apply flex items-center gap-4;
+			}
 
-        > div:last-child {
-          @apply rounded-full h-3 w-3 bg-primary;
-        }
-      }
+			.circle {
+				@apply relative flex h-3 w-3;
 
-      > p {
-        @apply text-lg;
+				> div:first-child {
+					@apply animate-ping absolute h-full w-full rounded-full bg-primary opacity-75;
+				}
 
-        > span {
-          @apply font-bold;
-        }
-      }
-    }
-  }
+				> div:last-child {
+					@apply rounded-full h-3 w-3 bg-primary;
+				}
+			}
+
+			> p {
+				@apply text-lg;
+
+				> span {
+					@apply font-bold;
+				}
+			}
+		}
+	}
+
+	.films {
+		@apply absolute right-0 top-0 h-full overflow-hidden;
+
+		> div {
+			@apply flex gap-9;
+			transform: rotate(-30deg) translate(100px, -100px);
+
+			> div:first-child {
+				animation: move 50s;
+			}
+
+			> div:nth-child(2) {
+				animation: move 40s;
+			}
+
+			> div:last-child {
+				animation: move 60s;
+			}
+
+			img {
+				@apply rounded-md space-y-4 my-16;
+				width: 180px;
+				height: 240px;
+			}
+		}
+	}
+}
+
+@keyframes move {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-500px);
+	}
 }

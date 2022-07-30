@@ -1,8 +1,8 @@
 .header {
 	@apply flex justify-between items-center gap-4;
 
-	@media (max-width: 1024px) {
-		padding: 10px;
+	@media (max-width: 1023px) {
+		padding: 10px 0px;
 	}
 
 	> .menu, .search {
@@ -14,7 +14,7 @@
 	> a {
 		@apply text-white font-bold text-2xl;
 
-		@media (max-width: 1024px) {
+		@media (max-width: 1023px) {
 			@apply text-3xl;
 		}
 

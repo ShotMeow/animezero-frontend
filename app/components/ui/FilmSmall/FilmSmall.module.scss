@@ -1,0 +1,31 @@
+.film_small {
+	@apply flex;
+
+	> div:first-child {
+		@apply bg-cover bg-center;
+		width: 40%;
+	}
+
+	.about {
+		@apply flex flex-col gap-3 bg-gray-900 p-8;
+		width: 60%;
+
+		> .tags {
+			@apply flex gap-3;
+		}
+
+		> h3 {
+			@apply text-lg font-bold;
+		}
+
+		> p {
+			@apply text-gray-400;
+			height: 40%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;
+		}
+	}
+}
