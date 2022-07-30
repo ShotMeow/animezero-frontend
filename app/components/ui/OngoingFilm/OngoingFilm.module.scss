@@ -1,0 +1,29 @@
+.ongoing_film {
+	@apply flex gap-4 w-3/4;
+	height: 240px;
+
+	> img {
+		@apply object-cover rounded-md;
+		width: 180px;
+	}
+
+	> div {
+		@apply flex flex-col gap-2 justify-between items-start;
+
+		> h3 {
+			@apply text-lg font-bold;
+		}
+
+		.ganres {
+			> a {
+				@apply text-primary;
+			}
+		}
+
+		.ages {
+			> span {
+				@apply font-bold;
+			}
+		}
+	}
+}
