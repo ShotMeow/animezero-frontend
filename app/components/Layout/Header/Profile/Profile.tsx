@@ -6,7 +6,7 @@ import styles from './Profile.module.scss'
 
 const Profile: FC = () => {
 	return (
-		<Button className={styles.profile}>
+		<Button important='primary' className={styles.profile}>
 			<BiLogIn size={20} />
 			Войти
 		</Button>
