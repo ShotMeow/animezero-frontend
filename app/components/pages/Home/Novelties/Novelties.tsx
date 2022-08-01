@@ -17,11 +17,31 @@ const Novelties: FC<{ newest: IFilm[] }> = ({ newest }) => {
 				<Subtitle title='Новинки'>
 					<MdGraphicEq size={24} />
 				</Subtitle>
-				<Button>Показать все</Button>
+				<Button important='primary'>Показать все</Button>
 			</header>
 			<footer>
 				<Swiper
-					slidesPerView={6}
+					slidesPerView={'auto'}
+					breakpoints={{
+						320: {
+							slidesPerView: 1
+						},
+						550: {
+							slidesPerView: 2
+						},
+						768: {
+							slidesPerView: 3
+						},
+						1024: {
+							slidesPerView: 4
+						},
+						1280: {
+							slidesPerView: 5
+						},
+						1536: {
+							slidesPerView: 6
+						}
+					}}
 					spaceBetween={30}
 					autoplay={{
 						delay: 5000,
@@ -34,6 +54,7 @@ const Novelties: FC<{ newest: IFilm[] }> = ({ newest }) => {
 					{newest.map(film => (
 						<SwiperSlide key={film.id}>
 							<FilmItem
+								id={film.id}
 								title={film.title}
 								image_url={film.poster}
 								grade={film.rating}
