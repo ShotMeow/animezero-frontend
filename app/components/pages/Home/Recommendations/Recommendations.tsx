@@ -4,9 +4,9 @@ import { BiStar } from 'react-icons/bi'
 import Subtitle from '@/components/ui/Subtitle/Subtitle'
 import FilmBig from '@/components/ui/FilmBig/FilmBig'
 import FilmSmall from '@/components/ui/FilmSmall/FilmSmall'
-import { IFilm } from '@/services/films.interface'
+import { IBaseFilm } from '@/services/films.interface'
 
-const Recommendations: FC<{ recommended: IFilm[] }> = ({ recommended }) => {
+const Recommendations: FC<{ recommended: IBaseFilm[] }> = ({ recommended }) => {
 	return (
 		<section className={styles.recommendations}>
 			<header className={styles.heading}>
@@ -16,6 +16,7 @@ const Recommendations: FC<{ recommended: IFilm[] }> = ({ recommended }) => {
 			</header>
 			<footer>
 				<FilmBig
+					id={recommended[0].id}
 					title={recommended[0].title}
 					description={recommended[0].description}
 					imageUrl={recommended[0].poster}
@@ -23,11 +24,13 @@ const Recommendations: FC<{ recommended: IFilm[] }> = ({ recommended }) => {
 				/>
 
 				<FilmSmall
+					id={recommended[1].id}
 					title={recommended[1].title}
 					description={recommended[1].description}
 					imageUrl={recommended[1].poster}
 				/>
 				<FilmSmall
+					id={recommended[2].id}
 					title={recommended[2].title}
 					description={recommended[2].description}
 					imageUrl={recommended[2].poster}
