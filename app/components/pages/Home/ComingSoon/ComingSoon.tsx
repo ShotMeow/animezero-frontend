@@ -16,16 +16,22 @@ const ComingSoon: FC<{ ongoing: IFilm[] }> = ({ ongoing }) => {
 				<Subtitle title='Скоро выйдет'>
 					<BiAtom size={24} />
 				</Subtitle>
-				<Button>Показать все</Button>
+				<Button important='primary'>Показать все</Button>
 			</header>
 			<footer>
 				<Swiper
-					slidesPerView={2}
+					slidesPerView={'auto'}
+					breakpoints={{
+						1280: {
+							slidesPerView: 2
+						}
+					}}
 					autoplay={{
 						delay: 5000,
 						disableOnInteraction: false,
 						stopOnLastSlide: true
 					}}
+					loop
 					modules={[Autoplay]}
 				>
 					{ongoing.map(film => (
