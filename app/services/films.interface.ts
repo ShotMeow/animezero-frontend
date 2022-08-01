@@ -1,6 +1,16 @@
 export type BlockTypes = 'best' | 'newest' | 'ongoing' | 'recommended'
 
-export interface IFilm {
+interface IFilmType {
+	id: number
+	name: string
+	value: string
+}
+
+export interface IFilm extends IBaseFilm {
+	type?: IFilmType
+}
+
+export interface IBaseFilm {
 	id: number
 	playerLink: string
 	title: string
@@ -18,5 +28,9 @@ export interface IHomePage {
 	best: IFilm[]
 	newest: IFilm[]
 	ongoing: IFilm[]
-	recommended: IFilm[]
+	recommended: IBaseFilm[]
+}
+
+export interface ICurrentFilm {
+	film: IFilm
 }
