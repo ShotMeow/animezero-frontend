@@ -1,5 +1,5 @@
 .film_small {
-	@apply flex;
+	@apply flex h-full;
 
 	> div:first-child {
 		@apply bg-cover bg-center;
@@ -12,6 +12,10 @@
 
 		> .tags {
 			@apply flex gap-3;
+
+			@media (max-width: 420px) {
+				@apply flex-col text-center;
+			}
 		}
 
 		> h3 {
