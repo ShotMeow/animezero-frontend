@@ -3,13 +3,11 @@ import Button from '@/components/ui/Button/Button'
 import { FiPlay } from 'react-icons/fi'
 import styles from './Welcome.module.scss'
 import { IFilm } from '@/services/films.interface'
-import { sliceArrayHelper } from '../../../../helpers/slice-array.helper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper'
+import { sliceArrayHelper } from '@/helpers/slice-array.helper'
+import Link from 'next/link'
 
 const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
 	const films = sliceArrayHelper(best, best.length / 3)
-	console.log(films)
 	return (
 		<section className={styles.welcome}>
 			<div className={styles.info}>
@@ -27,7 +25,7 @@ const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
 					</p>
 				</div>
 				<div className={styles.action}>
-					<Button>
+					<Button important='primary'>
 						<FiPlay color='white' size={20} />
 						Перейти к просмотру
 					</Button>
@@ -46,23 +44,29 @@ const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
 				<div>
 					<div>
 						{films[0].map(film => (
-							<a href='#' key={film.id}>
-								<img src={film.poster} alt={film.title} />
-							</a>
+							<Link href={`films/${film.id}`} key={film.id}>
+								<a>
+									<img src={film.poster} alt={film.title} />
+								</a>
+							</Link>
 						))}
 					</div>
 					<div>
 						{films[1].map(film => (
-							<a href='#' key={film.id}>
-								<img src={film.poster} alt={film.title} />
-							</a>
+							<Link href={`films/${film.id}`} key={film.id}>
+								<a>
+									<img src={film.poster} alt={film.title} />
+								</a>
+							</Link>
 						))}
 					</div>
 					<div>
 						{films[2].map(film => (
-							<a href='#' key={film.id}>
-								<img src={film.poster} alt={film.title} />
-							</a>
+							<Link href={`films/${film.id}`} key={film.id}>
+								<a>
+									<img src={film.poster} alt={film.title} />
+								</a>
+							</Link>
 						))}
 					</div>
 				</div>
