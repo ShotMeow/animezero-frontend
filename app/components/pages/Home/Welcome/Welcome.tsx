@@ -31,8 +31,8 @@ const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
 					</Button>
 					<div>
 						<div className={styles.circle}>
-							<div></div>
-							<div></div>
+							<div />
+							<div />
 						</div>
 						<p>
 							<span>1</span> смотрят
