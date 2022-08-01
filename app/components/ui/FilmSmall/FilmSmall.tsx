@@ -10,7 +10,7 @@ const FilmSmall: FC<IFilmSmall> = ({ id, title, imageUrl, description }) => {
 		<Link href={`films/${id}`}>
 			<a>
 				<article className={styles.film_small}>
-					<div style={{ backgroundImage: `url(${imageUrl})` }}></div>
+					<div style={{ backgroundImage: `url(${imageUrl})` }} />
 					<div className={styles.about}>
 						<div className={styles.tags}>
 							<Tag title='Топ-100' />
