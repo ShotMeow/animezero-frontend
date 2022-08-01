@@ -3,7 +3,7 @@ import Home from '@/components/pages/Home/Home'
 import { FilmsService } from '@/services/films.service'
 import { IHomePage } from '@/services/films.interface'
 
-const HomePage: NextPage = props => {
+const HomePage: NextPage<IHomePage> = props => {
 	return <Home {...props} />
 }
 
