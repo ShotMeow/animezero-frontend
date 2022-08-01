@@ -4,15 +4,22 @@ import styles from './FilmItem.module.scss'
 import Link from 'next/link'
 import Button from '@/components/ui/Button/Button'
 
-const FilmItem: FC<IFilmSmall> = ({ title, image_url, grade, year, genre }) => {
+const FilmItem: FC<IFilmSmall> = ({
+	id,
+	title,
+	image_url,
+	grade,
+	year,
+	genre
+}) => {
 	return (
-		<Link href='/'>
+		<Link href={`films/${id}`}>
 			<a>
 				<article className={styles.film}>
+					<span>{grade}</span>
 					<header>
 						<img src={image_url} alt={title} />
-						<span>{grade}</span>
-						<Button>Смотреть</Button>
+						<Button important='primary'>Смотреть</Button>
 					</header>
 					<footer>
 						<h3>{title}</h3>
