@@ -1,3 +1,7 @@
 import { ButtonHTMLAttributes } from 'react'
 
-export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
+type ImportantType = 'primary' | 'secondary'
+
+export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+	important: ImportantType
+}

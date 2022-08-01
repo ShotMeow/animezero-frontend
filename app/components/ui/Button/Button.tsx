@@ -6,10 +6,19 @@ import styles from './Button.module.scss'
 const Button: FC<PropsWithChildren<IButton>> = ({
 	children,
 	className,
+	important,
 	...rest
 }) => {
 	return (
-		<button className={cn(styles.button, className)} {...rest}>
+		<button
+			className={cn(
+				styles.button,
+				{ [styles.primary]: important === 'primary' },
+				{ [styles.secondary]: important === 'secondary' },
+				className
+			)}
+			{...rest}
+		>
 			{children}
 		</button>
 	)
