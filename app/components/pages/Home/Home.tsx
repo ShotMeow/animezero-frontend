@@ -4,15 +4,20 @@ import Welcome from '@/components/pages/Home/Welcome/Welcome'
 import Novelties from '@/components/pages/Home/Novelties/Novelties'
 import Recommendations from '@/components/pages/Home/Recommendations/Recommendations'
 import ComingSoon from '@/components/pages/Home/ComingSoon/ComingSoon'
-import { IHomePage } from '@/services/films.interface'
+import { IFilm } from '@/services/films.interface'
 
-const Home: FC<IHomePage> = ({ best, newest, recommended, ongoing }) => {
+const Home: FC<{
+	best: IFilm[]
+	newest: IFilm[]
+	ongoing: IFilm[]
+	recommended: IFilm[]
+}> = ({ best, newest, recommended, ongoing }) => {
 	return (
 		<Layout title='AnimeZero'>
-			<Welcome best={best} />
-			<Novelties newest={newest} />
-			<Recommendations recommended={recommended} />
-			<ComingSoon ongoing={ongoing} />
+			<Welcome films={best} />
+			<Novelties films={newest} />
+			{recommended[0] && <Recommendations films={recommended} />}
+			<ComingSoon films={ongoing} />
 		</Layout>
 	)
 }

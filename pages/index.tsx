@@ -1,9 +1,14 @@
 import { GetStaticProps, NextPage } from 'next'
 import Home from '@/components/pages/Home/Home'
 import { FilmsService } from '@/services/films.service'
-import { IHomePage } from '@/services/films.interface'
+import { IFilm } from '@/services/films.interface'
 
-const HomePage: NextPage<IHomePage> = props => {
+const HomePage: NextPage<{
+	best: IFilm[]
+	newest: IFilm[]
+	ongoing: IFilm[]
+	recommended: IFilm[]
+}> = props => {
 	return <Home {...props} />
 }
 
@@ -17,11 +22,16 @@ export const getStaticProps: GetStaticProps = async () => {
 		])
 		return {
 			props: {
-				best: films.data.best,
-				newest: films.data.newest,
-				ongoing: films.data.ongoing,
-				recommended: films.data.recommended
-			} as IHomePage,
+				best: films.data.best as IFilm[],
+				newest: films.data.newest as IFilm[],
+				ongoing: films.data.ongoing as IFilm[],
+				recommended: films.data.recommended as IFilm[]
+			} as {
+				best: IFilm[]
+				newest: IFilm[]
+				ongoing: IFilm[]
+				recommended: IFilm[]
+			},
 			revalidate: 10
 		}
 	} catch (e) {
@@ -31,7 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
 				newest: [],
 				ongoing: [],
 				recommended: []
-			} as IHomePage
+			}
 		}
 	}
 }
