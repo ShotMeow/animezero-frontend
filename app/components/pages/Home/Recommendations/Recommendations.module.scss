@@ -7,10 +7,6 @@
 		}
 	}
 
-	@media (max-width: 500px) {
-		@apply p-2;
-	}
-
 	> footer {
 		@apply grid gap-12;
 		grid-template-columns: 2fr 1fr;
