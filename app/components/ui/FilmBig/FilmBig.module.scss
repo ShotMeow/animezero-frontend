@@ -2,6 +2,10 @@
 	@apply relative h-full bg-cover bg-center flex flex-col justify-between p-8 space-y-4;
 	box-shadow: inset 0px -250px 100px rgba(0, 0, 0, 0.5);
 
+	@media (max-width: 340px) {
+		@apply p-4;
+	}
+
 	.tags {
 		> div {
 			@apply flex gap-3;
