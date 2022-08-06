@@ -5,18 +5,22 @@ import Subtitle from '@/components/ui/Subtitle/Subtitle'
 import { IFilm } from '@/services/films.interface'
 import OngoingFilm from '@/components/ui/OngoingFilm/OngoingFilm'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
 import styles from './ComingSoon.module.scss'
 import { Autoplay } from 'swiper'
+import Link from 'next/link'
 
-const ComingSoon: FC<{ ongoing: IFilm[] }> = ({ ongoing }) => {
+const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 	return (
 		<section className={styles.coming_soon}>
 			<header>
-				<Subtitle title='Скоро выйдет'>
+				<Subtitle title='Онгоинги'>
 					<BiAtom size={24} />
 				</Subtitle>
-				<Button important='primary'>Показать все</Button>
+				<Link href={'ongoing'}>
+					<a>
+						<Button important='primary'>Показать все</Button>
+					</a>
+				</Link>
 			</header>
 			<footer>
 				<Swiper
@@ -34,16 +38,9 @@ const ComingSoon: FC<{ ongoing: IFilm[] }> = ({ ongoing }) => {
 					loop
 					modules={[Autoplay]}
 				>
-					{ongoing.map(film => (
+					{films.map(film => (
 						<SwiperSlide key={film.id}>
-							<OngoingFilm
-								title={film.title}
-								imageUrl={film.poster}
-								year={film.year}
-								ganres={film.genres}
-								minimalAge={film.minimalAge}
-								key={film.id}
-							/>
+							<OngoingFilm film={film} />
 						</SwiperSlide>
 					))}
 				</Swiper>
