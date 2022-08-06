@@ -74,17 +74,17 @@
 			@apply pb-4;
 			> ul {
 				> li {
-					@apply grid;
-					grid-template-columns: 130px 1fr;
+					@apply grid text-lg text-gray-400;
+					grid-template-columns: 160px 1fr;
 					justify-content: start;
 					align-items: start;
-
-					> span:first-child {
-						@apply text-lg font-bold;
+					> p {
+						overflow: hidden;
+						text-overflow: clip;
 					}
 
-					> span:last-child {
-						@apply flex flex-wrap text-lg text-gray-400 gap-2;
+					> span:first-child {
+						@apply text-lg font-bold text-white;
 					}
 				}
 			}

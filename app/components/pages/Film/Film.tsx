@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ICurrentFilm } from '@/services/films.interface'
+import { IFilm } from '@/services/films.interface'
 import Layout from '@/components/Layout/Layout'
 import Button from '@/components/ui/Button/Button'
 import { BiPlus } from 'react-icons/bi'
@@ -7,7 +7,7 @@ import { BiPlus } from 'react-icons/bi'
 import styles from './Film.module.scss'
 import { AiFillEye } from 'react-icons/ai'
 
-const Film: FC<ICurrentFilm> = ({ film }) => {
+const Film: FC<{ film: IFilm }> = ({ film }) => {
 	return (
 		<Layout title={`AnimeZero - ${film.title}`}>
 			<div className={styles.page}>
@@ -43,24 +43,24 @@ const Film: FC<ICurrentFilm> = ({ film }) => {
 								<span>{film.year} г.</span>
 							</li>
 							<li>
-								<span>Страна</span>
-								<span>Япония</span>
-							</li>
-							<li>
-								<span>Жанры</span>
+								<span>Режиссеры</span>
 								<span>
-									{film.genres.map((ganre, id) =>
-										ganre === film.genres[film.genres.length - 1] ? (
-											<span key={id}>{ganre}</span>
-										) : (
-											<span key={id}>{ganre},</span>
-										)
-									)}
+									{film.directors.map(director => director.name).join(', ')}
 								</span>
 							</li>
 							<li>
-								<span>Режиссер</span>
-								<span>Ясухито Кикути</span>
+								<span>Страна</span>
+								<span>
+									{film.countries.map(country => country.name).join(', ')}
+								</span>
+							</li>
+							<li>
+								<span>Жанры</span>
+								<p>{film.genres.map(genre => genre.name).join(', ')}</p>
+							</li>
+							<li>
+								<span>Длительность</span>
+								<span>{film.duration} минут</span>
 							</li>
 						</ul>
 					</div>
