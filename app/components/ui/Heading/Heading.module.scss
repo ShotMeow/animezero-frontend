@@ -1,0 +1,35 @@
+.heading {
+	@apply space-y-4 pt-20 pb-4 w-1/2;
+
+	@media (max-width: 1024px) {
+		@apply w-full;
+	}
+
+	.bread {
+		@apply flex items-center gap-2;
+
+		> strong {
+			@apply text-xl border-b-2 border-primary;
+		}
+
+		> span {
+			@apply text-gray-600;
+		}
+	}
+
+	.about {
+		@apply space-y-4;
+
+		> h1 {
+			@apply text-4xl;
+
+			> span {
+				@apply text-primary;
+			}
+		}
+
+		> p {
+			@apply text-gray-600 text-lg;
+		}
+	}
+}
