@@ -1,0 +1,13 @@
+.holder {
+	@apply mt-4 mb-16;
+	strong {
+		@apply text-primary;
+	}
+	ol {
+		@apply list-decimal pl-8;
+	}
+
+	> * {
+		@apply mb-3 text-lg;
+	}
+}
