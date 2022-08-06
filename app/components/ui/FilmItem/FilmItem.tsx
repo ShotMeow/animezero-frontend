@@ -1,35 +1,34 @@
 import { FC } from 'react'
-import { IFilmSmall } from '@/components/ui/FilmItem/FilmItem.interface'
 import styles from './FilmItem.module.scss'
 import Link from 'next/link'
 import Button from '@/components/ui/Button/Button'
+import { IFilm } from '@/services/films.interface'
 
-const FilmItem: FC<IFilmSmall> = ({
-	id,
-	title,
-	image_url,
-	grade,
-	year,
-	genre
-}) => {
+const FilmItem: FC<{ film: IFilm }> = ({ film }) => {
 	return (
-		<Link href={`films/${id}`}>
-			<a>
-				<article className={styles.film}>
-					<span>{grade}</span>
-					<header>
-						<img src={image_url} alt={title} />
-						<Button important='primary'>Смотреть</Button>
-					</header>
-					<footer>
-						<h3>{title}</h3>
-						<p>
-							{year} {genre}
-						</p>
-					</footer>
-				</article>
-			</a>
-		</Link>
+		<article>
+			<Link href={`films/${film.id}`}>
+				<a>
+					<div className={styles.film}>
+						{Number.isInteger(film.rating) ? (
+							<span>{film.rating}.0</span>
+						) : (
+							<span>{film.rating}</span>
+						)}
+						<header>
+							<img src={film.poster} alt={film.title} />
+							<Button important='primary'>Смотреть</Button>
+						</header>
+						<footer>
+							<h3>{film.title}</h3>
+							<p>
+								{film.year} {film.genres[0].name}
+							</p>
+						</footer>
+					</div>
+				</a>
+			</Link>
+		</article>
 	)
 }
 
