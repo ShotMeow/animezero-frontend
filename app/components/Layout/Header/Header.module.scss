@@ -2,10 +2,11 @@
 	@apply flex justify-between items-center gap-4;
 
 	@media (max-width: 1023px) {
-		padding: 10px 0px;
+		padding: 10px 0;
 	}
 
-	> .menu, .search {
+	> .menu,
+	.search {
 		@media (min-width: 1024px) {
 			display: none;
 		}
