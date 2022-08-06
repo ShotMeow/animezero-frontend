@@ -1,5 +1,5 @@
 .button {
-	@apply flex items-center gap-2 bg-primary px-5 py-3 rounded-md;
+	@apply flex items-center gap-2 bg-primary px-5 py-3 rounded-sm;
 
 	&.primary {
 		@apply bg-primary;
