@@ -1,16 +1,28 @@
 export type BlockTypes = 'best' | 'newest' | 'ongoing' | 'recommended'
 
-interface IFilmType {
+export interface IType {
 	id: number
 	name: string
 	value: string
 }
 
-export interface IFilm extends IBaseFilm {
-	type?: IFilmType
+export interface IGenre {
+	id: number
+	name: string
+	value: string
 }
 
-export interface IBaseFilm {
+export interface IDirector {
+	id: number
+	name: string
+}
+
+export interface ICountry {
+	id: number
+	name: string
+}
+
+export interface IFilm {
 	id: number
 	playerLink: string
 	title: string
@@ -21,16 +33,29 @@ export interface IBaseFilm {
 	rating: number
 	minimalAge?: number
 	duration: number
-	genres: string[]
+	genres: IGenre[]
+	type: IType
+	directors: IDirector[]
+	countries: ICountry[]
 }
 
-export interface IHomePage {
-	best: IFilm[]
-	newest: IFilm[]
-	ongoing: IFilm[]
-	recommended: IBaseFilm[]
+export interface IGetAllByParams {
+	statuses?: string
+	genres?: string
+	type?: 'film' | 'serial'
+	years?: string
+	rating?: 'asc' | 'desc'
+	title?: 'asc' | 'desc'
+	page?: number
 }
 
-export interface ICurrentFilm {
-	film: IFilm
+export interface IStatus {
+	id: number
+	name: string
+	value: string
+}
+
+export interface IFilter {
+	genres: IGenre[]
+	statuses: IStatus[]
 }
