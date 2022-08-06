@@ -1,9 +1,9 @@
 import { GetServerSideProps, NextPage } from 'next'
 import Film from '@/components/pages/Film/Film'
-import { ICurrentFilm, IFilm } from '@/services/films.interface'
+import { IFilm } from '@/services/films.interface'
 import { FilmsService } from '@/services/films.service'
 
-const FilmPage: NextPage<ICurrentFilm> = ({ film }) => {
+const FilmPage: NextPage<{ film: IFilm }> = ({ film }) => {
 	return <Film film={film} />
 }
 
@@ -13,13 +13,13 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 		return {
 			props: {
 				film: film.data as IFilm
-			} as ICurrentFilm
+			} as { film: IFilm }
 		}
 	} catch (e) {
 		return {
 			props: {
-				film: {} as IFilm
-			} as ICurrentFilm
+				film: {}
+			}
 		}
 	}
 }
