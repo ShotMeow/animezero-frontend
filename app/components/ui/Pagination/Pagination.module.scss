@@ -1,0 +1,17 @@
+.pagination {
+	@apply inline-block bg-gray-800 rounded-md p-2;
+	> ul {
+		@apply flex items-center gap-4;
+		> li {
+			&.active {
+				> button {
+					@apply text-white bg-primary px-1 rounded-md;
+				}
+			}
+
+			> button {
+				@apply font-bold text-lg text-gray-400;
+			}
+		}
+	}
+}
