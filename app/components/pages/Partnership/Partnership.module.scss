@@ -1,0 +1,20 @@
+.partner {
+	@apply mb-60;
+	> p {
+		@apply text-lg mb-6;
+	}
+	> div {
+		@apply flex items-center gap-6;
+		> button {
+			@apply px-14 py-4;
+		}
+		> p {
+			> a {
+				@apply text-primary pl-2;
+				&:hover {
+					@apply underline;
+				}
+			}
+		}
+	}
+}
