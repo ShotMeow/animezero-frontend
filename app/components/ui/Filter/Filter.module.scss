@@ -1,0 +1,12 @@
+.filter {
+	@apply mb-8 px-8 py-4 bg-gray-800;
+	> h4 {
+		@apply text-xl;
+	}
+	> div {
+		@apply flex flex-wrap my-4 gap-6 mb-8;
+	}
+	> button {
+		@apply flex items-center gap-2 text-lg text-gray-400;
+	}
+}
