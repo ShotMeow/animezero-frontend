@@ -9,15 +9,20 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { Autoplay } from 'swiper'
 import { IFilm } from '@/services/films.interface'
+import Link from 'next/link'
 
-const Novelties: FC<{ newest: IFilm[] }> = ({ newest }) => {
+const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 	return (
 		<section className={styles.novelties}>
 			<header>
 				<Subtitle title='Новинки'>
 					<MdGraphicEq size={24} />
 				</Subtitle>
-				<Button important='primary'>Показать все</Button>
+				<Link href={'novelties'}>
+					<a>
+						<Button important='primary'>Показать все</Button>
+					</a>
+				</Link>
 			</header>
 			<footer>
 				<Swiper
@@ -51,16 +56,9 @@ const Novelties: FC<{ newest: IFilm[] }> = ({ newest }) => {
 					loop
 					modules={[Autoplay]}
 				>
-					{newest.map(film => (
+					{films.map(film => (
 						<SwiperSlide key={film.id}>
-							<FilmItem
-								id={film.id}
-								title={film.title}
-								image_url={film.poster}
-								grade={film.rating}
-								year={film.year}
-								genre={film.genres[0]}
-							/>
+							<FilmItem film={film} />
 						</SwiperSlide>
 					))}
 				</Swiper>

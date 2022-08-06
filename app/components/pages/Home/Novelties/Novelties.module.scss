@@ -7,6 +7,12 @@
 
 	> header {
 		@apply flex justify-between;
+
+		button {
+			@media (max-width: 480px) {
+				@apply px-2;
+			}
+		}
 	}
 
 	> footer {
