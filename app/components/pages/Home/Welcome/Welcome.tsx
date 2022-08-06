@@ -6,8 +6,8 @@ import { IFilm } from '@/services/films.interface'
 import { sliceArrayHelper } from '@/helpers/slice-array.helper'
 import Link from 'next/link'
 
-const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
-	const films = sliceArrayHelper(best, best.length / 3)
+const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
+	const filmsArray: IFilm[][] = sliceArrayHelper(films, films.length / 3)
 	return (
 		<section className={styles.welcome}>
 			<div className={styles.info}>
@@ -43,7 +43,7 @@ const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
 			<div className={styles.films}>
 				<div>
 					<div>
-						{films[0].map(film => (
+						{filmsArray[0].map(film => (
 							<Link href={`films/${film.id}`} key={film.id}>
 								<a>
 									<img src={film.poster} alt={film.title} />
@@ -52,7 +52,7 @@ const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
 						))}
 					</div>
 					<div>
-						{films[1].map(film => (
+						{filmsArray[1].map(film => (
 							<Link href={`films/${film.id}`} key={film.id}>
 								<a>
 									<img src={film.poster} alt={film.title} />
@@ -61,7 +61,7 @@ const Welcome: FC<{ best: IFilm[] }> = ({ best }) => {
 						))}
 					</div>
 					<div>
-						{films[2].map(film => (
+						{filmsArray[2].map(film => (
 							<Link href={`films/${film.id}`} key={film.id}>
 								<a>
 									<img src={film.poster} alt={film.title} />
