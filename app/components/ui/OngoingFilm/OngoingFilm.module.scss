@@ -5,6 +5,10 @@
 		@apply w-full;
 	}
 
+	@media (max-width: 460px) {
+		@apply flex-col items-center;
+	}
+
 	> img {
 		@apply object-cover rounded-md;
 		width: 180px;
@@ -14,18 +18,18 @@
 	> div {
 		@apply flex flex-col gap-2 justify-between items-start;
 		@media (max-width: 460px) {
-			@apply justify-start gap-6;
+			@apply justify-start gap-6 items-center;
 		}
 
 		> h3 {
 			@apply text-lg font-bold;
 		}
 
-		.ganres {
+		.genres {
 			@media (max-width: 460px) {
 				@apply hidden;
 			}
-			> a {
+			> span:last-child {
 				@apply text-primary;
 			}
 		}

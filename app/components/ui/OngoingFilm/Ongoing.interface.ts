@@ -1,7 +1,9 @@
+import { IGenre } from '@/services/films.interface'
+
 export interface IOngoingFilm {
 	title: string
 	imageUrl: string
 	year: number
-	ganres: string[]
+	genres: IGenre[]
 	minimalAge?: number
 }

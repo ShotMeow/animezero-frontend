@@ -1,41 +1,23 @@
 import { FC } from 'react'
-import { IOngoingFilm } from '@/components/ui/OngoingFilm/Ongoing.interface'
 import styles from './OngoingFilm.module.scss'
 import Button from '@/components/ui/Button/Button'
 import { ageCompileHelper } from '@/helpers/age-compile.helper'
-const OngoingFilm: FC<IOngoingFilm> = ({
-	title,
-	imageUrl,
-	minimalAge,
-	year,
-	ganres
-}) => {
-	const currentGanres = [ganres[0], ganres[1], ganres[2]]
+import { IFilm } from '@/services/films.interface'
+const OngoingFilm: FC<{ film: IFilm }> = ({ film }) => {
+	const genres = [film.genres[0].name, film.genres[1].name]
 	return (
 		<article className={styles.ongoing_film}>
-			<img src={imageUrl} alt={title} />
+			<img src={film.poster} alt={film.title} />
 			<div>
 				<h3>
-					{title} ({year})
+					{film.title} ({film.year})
 				</h3>
-				<p className={styles.ganres}>
+				<p className={styles.genres}>
 					<span>Жанры: </span>
-					{currentGanres.map(ganre =>
-						ganre === currentGanres[currentGanres.length - 1] ? (
-							<a key={ganre} href='#'>
-								{' '}
-								{ganre}
-							</a>
-						) : (
-							<a key={ganre} href='#'>
-								{' '}
-								{ganre},
-							</a>
-						)
-					)}
+					<span>{genres.map(genre => genre).join(', ')}</span>
 				</p>
 				<p className={styles.ages}>
-					Возрастной рейтинг: <span>{ageCompileHelper(minimalAge)}</span>
+					Возрастной рейтинг: <span>{ageCompileHelper(film.minimalAge)}</span>
 				</p>
 				<Button important='primary'>Отслеживать</Button>
 			</div>
