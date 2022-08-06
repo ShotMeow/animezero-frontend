@@ -1,0 +1,10 @@
+.project {
+	@apply my-4 mb-60;
+	> h3 {
+		@apply text-2xl;
+	}
+
+	> p {
+		@apply my-4;
+	}
+}
