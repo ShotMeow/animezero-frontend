@@ -19,12 +19,12 @@ const Footer: FC = () => {
 							</Link>
 						</li>
 						<li>
-							<Link href='films'>
+							<Link href={'films'}>
 								<a>Фильмы</a>
 							</Link>
 						</li>
 						<li>
-							<Link href='serials'>
+							<Link href={'serials'}>
 								<a>Сериалы</a>
 							</Link>
 						</li>
@@ -34,22 +34,22 @@ const Footer: FC = () => {
 					<h3>Пользователям и партнёрам</h3>
 					<ul>
 						<li>
-							<Link href='partnership'>
+							<Link href={'partnership'}>
 								<a>Сотрудничество</a>
 							</Link>
 						</li>
 						<li>
-							<Link href='project'>
+							<Link href={'project'}>
 								<a>О проекте</a>
 							</Link>
 						</li>
 						<li>
-							<Link href='confidentiality'>
+							<Link href={'privacy'}>
 								<a>Политика конфиденциальности</a>
 							</Link>
 						</li>
 						<li>
-							<Link href='right_holder'>
+							<Link href={'right_holder'}>
 								<a>Для правообладателей</a>
 							</Link>
 						</li>
@@ -77,7 +77,7 @@ const Footer: FC = () => {
 				</div>
 				<div>
 					<h3>Поддержка</h3>
-					<Button>Написать в чате</Button>
+					<Button important='primary'>Написать в чате</Button>
 				</div>
 			</div>
 			<p>© 2022 AnimeZero. Все права защищены.</p>
