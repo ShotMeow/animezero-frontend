@@ -1,18 +1,41 @@
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
 import NextProgressBar from 'nextjs-progressbar'
+import { Provider } from 'react-redux'
+import { persistor, store } from '../app/store/store'
+import { PersistGate } from 'redux-persist/integration/react'
+import ReduxToastrLib from 'react-redux-toastr'
+import { AuthProvider } from '../app/providers/AuthProvider'
+import { TypeComponentAuthFields } from '../app/providers/private-route.interface'
 
-function MyApp({ Component, pageProps }: AppProps) {
+type TypeAppProps = AppProps & TypeComponentAuthFields
+
+function MyApp({ Component, pageProps }: TypeAppProps) {
 	return (
-		<div>
+		<>
 			<NextProgressBar
 				color='#643FFE'
 				startPosition={0.3}
 				stopDelayMs={200}
 				height={3}
 			/>
-			<Component {...pageProps} />
-		</div>
+			<Provider store={store}>
+				<PersistGate persistor={persistor} loading={null}>
+					<AuthProvider Component={Component}>
+						<ReduxToastrLib
+							newestOnTop={false}
+							preventDuplicates
+							progressBar
+							closeOnToastrClick
+							timeOut={4000}
+							transitionIn={'fadeIn'}
+							transitionOut={'fadeOut'}
+						/>
+						<Component {...pageProps} />
+					</AuthProvider>
+				</PersistGate>
+			</Provider>
+		</>
 	)
 }
 

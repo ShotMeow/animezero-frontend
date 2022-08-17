@@ -24,6 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
 	try {
 		const { data: films } = await FilmsService.getAllByFilter({
+			type: 'film',
 			...params
 		})
 		const { data: genres } = await FilmsService.getGenres()

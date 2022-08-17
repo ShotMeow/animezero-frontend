@@ -23,6 +23,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 	}
 	try {
 		const { data: serials } = await FilmsService.getAllByFilter({
+			type: 'serial',
 			...params
 		})
 		const { data: genres } = await FilmsService.getGenres()

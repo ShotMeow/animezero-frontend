@@ -28,6 +28,9 @@
       "@/services/*": [
         "services/*"
       ],
+      "@/providers/&": [
+        "providers/*"
+      ],
       "@/utils/*": [
         "utils/*"
       ],
@@ -36,6 +39,9 @@
       ],
       "@/assets/*": [
         "assets/*"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
       ]
     }
   },

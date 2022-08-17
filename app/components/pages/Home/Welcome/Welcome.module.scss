@@ -2,7 +2,7 @@
 	@apply relative flex flex-col justify-center overflow-hidden py-48;
 
 	@media (max-width: 1023px) {
-		@apply py-24;
+		@apply py-24 px-2;
 	}
 
 	.info {
@@ -82,18 +82,15 @@
 
 			> div:first-child {
 				animation: move 80s infinite;
-				animation-timing-function: linear;
 			}
 
 			> div:nth-child(2) {
 				@apply mt-40;
 				animation: move 30s infinite;
-				animation-timing-function: linear;
 			}
 
 			> div:last-child {
 				animation: move 50s infinite;
-				animation-timing-function: linear;
 			}
 
 			img {

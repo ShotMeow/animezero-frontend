@@ -1,0 +1,25 @@
+.input {
+	@apply relative w-full text-white;
+	> label {
+		@apply text-gray-600 flex flex-col gap-2;
+		> input {
+			@apply text-white bg-gray-900 px-2 py-3 rounded-sm;
+		}
+	}
+}
+
+.error {
+	@apply text-red-600 top-20 mt-2 flex items-center gap-2;
+
+	.circle {
+		@apply relative flex h-2 w-2;
+
+		> div:first-child {
+			@apply animate-ping absolute h-full w-full rounded-full bg-red-500 opacity-75;
+		}
+
+		> div:last-child {
+			@apply rounded-full h-2 w-2 bg-red-600;
+		}
+	}
+}

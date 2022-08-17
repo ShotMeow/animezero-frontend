@@ -1,8 +1,9 @@
 .heading {
 	@apply space-y-4 pt-20 pb-4 w-1/2;
+	word-wrap: anywhere;
 
 	@media (max-width: 1024px) {
-		@apply w-full;
+		@apply px-2 pt-6 w-full;
 	}
 
 	.bread {

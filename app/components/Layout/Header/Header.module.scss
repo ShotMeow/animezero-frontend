@@ -1,26 +1,36 @@
 .header {
-	@apply flex justify-between items-center gap-4;
-
-	@media (max-width: 1023px) {
-		padding: 10px 0;
-	}
-
-	> .menu,
-	.search {
-		@media (min-width: 1024px) {
-			display: none;
-		}
-	}
-
-	> a {
-		@apply text-white font-bold text-2xl;
+	> div:first-child {
+		@apply fixed top-0 w-full container mx-auto z-50 flex bg-black justify-between items-center gap-4;
 
 		@media (max-width: 1023px) {
-			@apply text-3xl;
+			@apply hidden;
 		}
 
-		> span {
-			@apply text-primary;
+		button {
+			@apply relative z-50;
+		}
+
+		@media (max-width: 1023px) {
+			padding: 10px 0;
+		}
+
+		> .menu,
+		.search {
+			@media (min-width: 1024px) {
+				display: none;
+			}
+		}
+
+		> a {
+			@apply text-white font-bold text-2xl;
+
+			@media (max-width: 1023px) {
+				@apply text-3xl;
+			}
+
+			> span {
+				@apply text-primary;
+			}
 		}
 	}
 }

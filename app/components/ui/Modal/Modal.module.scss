@@ -1,0 +1,63 @@
+.modal {
+	@apply overflow-y-auto fixed w-full h-full top-0 z-50 flex items-center justify-center;
+	background-color: rgba(0, 0, 0, 0.6);
+	animation: fadeIn 1s;
+	> div {
+		@apply flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
+		width: 480px;
+		animation: sizeIn 1s;
+		> form {
+			@apply w-full flex flex-col items-center gap-4;
+			> div:first-child {
+				@apply flex flex-col items-center gap-2;
+				> h3 {
+					@apply text-2xl font-bold;
+				}
+				> p {
+					@apply text-gray-400;
+				}
+			}
+			> div:nth-child(2) {
+				@apply flex w-full flex-col gap-4;
+				> button {
+					@apply w-full justify-center mt-4 mb-6;
+				}
+			}
+			> div:last-child {
+				@apply w-full flex justify-between;
+
+				@media (max-width: 420px) {
+					@apply flex-col items-center gap-6;
+				}
+
+				> p {
+					@apply text-gray-600;
+				}
+
+				> button {
+					@apply font-bold;
+				}
+			}
+		}
+	}
+}
+
+@keyframes sizeIn {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

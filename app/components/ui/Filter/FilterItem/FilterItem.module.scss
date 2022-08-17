@@ -1,10 +1,15 @@
 .filter {
 	@apply relative;
+
+	@media (max-width: 767px) {
+		@apply flex flex-col items-center;
+	}
+
 	> label {
 		@apply text-lg;
 	}
 	> button {
-		@apply relative z-40 px-6 py-4 mt-2 bg-gray-700 flex items-center justify-between;
+		@apply relative z-30 px-6 py-4 mt-2 bg-gray-700 flex items-center justify-between;
 		width: 285px;
 		height: 60px;
 
@@ -22,10 +27,6 @@
 			@apply cursor-pointer px-6 py-4 text-center;
 			&:hover {
 				@apply bg-gray-900 text-primary;
-			}
-
-			.active {
-				@apply text-primary;
 			}
 		}
 	}

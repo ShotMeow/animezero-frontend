@@ -5,6 +5,7 @@ import styles from './Welcome.module.scss'
 import { IFilm } from '@/services/films.interface'
 import { sliceArrayHelper } from '@/helpers/slice-array.helper'
 import Link from 'next/link'
+import { randomFilmHelper } from '@/helpers/random-film.helper'
 
 const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 	const filmsArray: IFilm[][] = sliceArrayHelper(films, films.length / 3)
@@ -25,10 +26,14 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 					</p>
 				</div>
 				<div className={styles.action}>
-					<Button important='primary'>
-						<FiPlay color='white' size={20} />
-						Перейти к просмотру
-					</Button>
+					<Link href={`films/${randomFilmHelper(films)}`}>
+						<a>
+							<Button important='primary'>
+								<FiPlay color='white' size={20} />
+								Перейти к просмотру
+							</Button>
+						</a>
+					</Link>
 					<div>
 						<div className={styles.circle}>
 							<div />

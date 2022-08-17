@@ -5,9 +5,6 @@ module.exports = {
 		'./components/**/*.{js,ts,jsx,tsx}'
 	],
 	theme: {
-		container: {
-			padding: '10px'
-		},
 		extend: {
 			colors: {
 				primary: '#643FFE',
@@ -20,6 +17,9 @@ module.exports = {
 					800: '#0F0F0F',
 					900: '#0a0a0a'
 				}
+			},
+			boxShadow: {
+				xl: '0 0px 60px -15px rgba(0, 0, 0, 0.3)'
 			}
 		}
 	},

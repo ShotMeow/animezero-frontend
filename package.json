@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 5000",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -17,8 +17,12 @@
     "nextjs-progressbar": "^0.0.14",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.34.0",
     "react-icons": "^4.4.0",
+    "react-loading-skeleton": "^3.1.0",
     "react-redux": "^8.0.2",
+    "react-redux-toastr": "^7.6.9",
+    "redux-persist": "^6.0.0",
     "sass": "^1.54.0",
     "swiper": "^8.3.2"
   },
@@ -26,6 +30,8 @@
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
+    "@types/react-redux-toastr": "^7.6.2",
+    "@types/redux-persist": "^4.3.1",
     "autoprefixer": "^10.4.7",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.3",

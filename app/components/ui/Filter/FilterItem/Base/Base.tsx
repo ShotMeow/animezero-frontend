@@ -2,7 +2,6 @@ import { FC, useState } from 'react'
 import styles from '@/components/ui/Filter/FilterItem/FilterItem.module.scss'
 import { Listbox } from '@headlessui/react'
 import { IoIosArrowDown } from 'react-icons/io'
-import cn from 'classnames'
 import {
 	IElement,
 	IFilterItem
@@ -40,13 +39,7 @@ const Base: FC<IFilterItem> = ({ type, title, elements }) => {
 				<Listbox.Options>
 					{elements.map(element => (
 						<Listbox.Option key={element.id} value={element}>
-							{({ selected }) => (
-								<li
-									className={cn(styles.element, { [styles.active]: selected })}
-								>
-									{element.name}
-								</li>
-							)}
+							<li className={styles.element}>{element.name}</li>
 						</Listbox.Option>
 					))}
 				</Listbox.Options>

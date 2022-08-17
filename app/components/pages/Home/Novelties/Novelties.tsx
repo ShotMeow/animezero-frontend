@@ -50,8 +50,7 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 					spaceBetween={30}
 					autoplay={{
 						delay: 5000,
-						disableOnInteraction: false,
-						stopOnLastSlide: true
+						disableOnInteraction: false
 					}}
 					loop
 					modules={[Autoplay]}

@@ -24,7 +24,11 @@ export const FilmsService = {
 		return axiosClassic.get(`/film/status`)
 	},
 
-	async getTypes() {
-		return axiosClassic.get(`/film/type`)
+	async getFilmsBySearchTerm(searchTerm: string) {
+		return axiosClassic.get('/film/search', {
+			params: {
+				query: searchTerm
+			}
+		})
 	}
 }

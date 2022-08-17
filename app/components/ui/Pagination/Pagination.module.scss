@@ -1,7 +1,12 @@
 .pagination {
-	@apply inline-block bg-gray-800 rounded-md p-2;
+	@apply bg-gray-800 rounded-md p-2;
+
 	> ul {
 		@apply flex items-center gap-4;
+
+		@media (max-width: 400px) {
+			@apply gap-3;
+		}
 		> li {
 			&.active {
 				> button {

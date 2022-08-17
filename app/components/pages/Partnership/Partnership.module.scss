@@ -1,10 +1,20 @@
 .partner {
 	@apply mb-60;
+
+	@media (max-width: 1023px) {
+		@apply px-2 mb-10;
+	}
+
 	> p {
 		@apply text-lg mb-6;
 	}
 	> div {
 		@apply flex items-center gap-6;
+
+		@media (max-width: 540px) {
+			@apply flex-col items-start;
+		}
+
 		> button {
 			@apply px-14 py-4;
 		}

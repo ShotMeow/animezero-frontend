@@ -1,9 +1,5 @@
 .search {
-	@apply w-full;
-
-	@media (max-width: 1023px) {
-		display: none;
-	}
+	@apply relative w-full;
 
 	> .action {
 		@apply flex;
@@ -19,5 +15,17 @@
 		> button {
 			@apply flex items-center justify-center bg-gray-800 rounded-r-md p-3;
 		}
+	}
+}
+
+.result {
+	@apply absolute bg-black w-full z-50 py-6 rounded-lg;
+
+	> div {
+		@apply flex flex-col gap-4;
+	}
+
+	h5 {
+		@apply text-gray-600 px-6 text-lg;
 	}
 }

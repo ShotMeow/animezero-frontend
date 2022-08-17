@@ -15,7 +15,7 @@ export const AuthService = {
 		password: string,
 		password_repeat: string
 	) {
-		const response = await axiosClassic.post<IAuthData>(`/user`, {
+		const response = await axiosClassic.post<IAuthData>(`/user/register`, {
 			login,
 			email,
 			password,

@@ -31,9 +31,8 @@ const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 						}
 					}}
 					autoplay={{
-						delay: 5000,
-						disableOnInteraction: false,
-						stopOnLastSlide: true
+						delay: 6000,
+						disableOnInteraction: false
 					}}
 					loop
 					modules={[Autoplay]}

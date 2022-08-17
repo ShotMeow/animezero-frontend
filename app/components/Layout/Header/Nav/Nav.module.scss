@@ -1,12 +1,13 @@
 .nav {
-	@media (max-width: 1023px) {
-		display: none;
-	}
-
 	> ul {
 		@apply flex;
 
 		> li {
+			&:first-child {
+				@media (max-width: 1023px) {
+					display: none !important;
+				}
+			}
 			> a {
 				@apply block relative px-4 py-5;
 

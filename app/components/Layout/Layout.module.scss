@@ -1,3 +1,11 @@
 .layout {
 	@apply container mx-auto;
+
+	main {
+		@apply mt-20;
+
+		@media (max-width: 1023px) {
+			@apply mt-0;
+		}
+	}
 }
