@@ -46,7 +46,7 @@ const Login: FC = () => {
 					})}
 					error={errors.password}
 					label='И пароль :)'
-					type={passwordType}
+					type='password'
 					placeholder='Пароль'
 				/>
 				<Button disabled={isLoading} important='primary'>
