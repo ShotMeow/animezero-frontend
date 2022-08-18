@@ -1,5 +1,10 @@
 .page {
 	@apply my-10 flex gap-8;
+
+	@media (max-width: 1279px) {
+		@apply px-4;
+	}
+
 	> .poster {
 		@apply space-y-4;
 		width: 25%;

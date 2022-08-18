@@ -1,3 +1,5 @@
 export interface IAuthData {
-	token: string
+	data: {
+		token: string
+	}
 }

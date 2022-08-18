@@ -1,5 +1,4 @@
-import { IAuthData } from '@/services/auth/auth.helper'
-
-export interface IAuthInitialState extends IAuthData {
+export interface IAuthInitialState {
+	token: string
 	isLoading: boolean
 }

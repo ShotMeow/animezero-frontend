@@ -1,11 +1,16 @@
 .modal {
 	@apply overflow-y-auto fixed w-full h-full top-0 z-50 flex items-center justify-center;
 	background-color: rgba(0, 0, 0, 0.6);
-	animation: fadeIn 1s;
+	animation: fadeIn 0.3s;
 	> div {
 		@apply flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
 		width: 480px;
-		animation: sizeIn 1s;
+		animation: sizeIn 0.2s;
+
+		@media (max-width: 500px) {
+			@apply h-full w-full;
+		}
+
 		> form {
 			@apply w-full flex flex-col items-center gap-4;
 			> div:first-child {

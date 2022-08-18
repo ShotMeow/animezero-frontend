@@ -14,9 +14,8 @@ const Ongoing: FC<{ films: IFilm[] }> = ({ films }) => {
 				description='На данной странице вы можете увидеть список самых актуальных выходящих аниме.'
 			/>
 			<section className={styles.films}>
-				{films.map(film => (
-					<OngoingFilm film={film} key={film.id} />
-				))}
+				{films.length &&
+					films.map(film => <OngoingFilm film={film} key={film.id} />)}
 			</section>
 		</Layout>
 	)

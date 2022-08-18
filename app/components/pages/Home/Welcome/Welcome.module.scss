@@ -2,7 +2,7 @@
 	@apply relative flex flex-col justify-center overflow-hidden py-48;
 
 	@media (max-width: 1023px) {
-		@apply py-24 px-2;
+		@apply py-10 px-4;
 	}
 
 	.info {

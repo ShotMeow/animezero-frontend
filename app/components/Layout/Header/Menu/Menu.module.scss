@@ -7,7 +7,7 @@
 		@apply relative flex flex-col items-center gap-6 py-2 z-50 justify-between bg-black;
 
 		@media (max-width: 1023px) {
-			@apply px-2;
+			@apply px-4;
 		}
 
 		> a {
@@ -29,7 +29,7 @@
 			@apply flex items-center justify-between w-full container mx-auto;
 			> button,
 			a {
-				@apply flex items-center text-sm flex-col gap-1;
+				@apply flex items-center text-xs flex-col gap-1;
 				background: none !important;
 				padding: 10px 5px !important;
 			}

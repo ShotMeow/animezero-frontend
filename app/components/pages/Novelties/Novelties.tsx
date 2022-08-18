@@ -14,9 +14,8 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 				description='На данной странице вы можете увидеть аниме, недавно появившиеся в нашем кинотеатре.'
 			/>
 			<section className={styles.films}>
-				{films.map(film => (
-					<FilmItem film={film} key={film.id} />
-				))}
+				{films.length &&
+					films.map(film => <FilmItem film={film} key={film.id} />)}
 			</section>
 		</Layout>
 	)

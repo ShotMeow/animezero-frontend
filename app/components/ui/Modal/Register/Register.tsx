@@ -59,7 +59,11 @@ const Register: FC = () => {
 				/>
 				<Field
 					{...register('password', {
-						required: 'Введите пароль'
+						required: 'Введите пароль',
+						minLength: {
+							value: 8,
+							message: 'Пароль слишком короткий'
+						}
 					})}
 					error={errors.password}
 					label='И пароль :)'

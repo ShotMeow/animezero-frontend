@@ -23,5 +23,13 @@ export const AuthService = {
 		})
 
 		return response.data
+	},
+	async verify(query: any) {
+		await axiosClassic.get(`/email/verify/${query.id}/${query.hash}`, {
+			params: {
+				expires: query.expires,
+				signature: query.signature
+			}
+		})
 	}
 }
