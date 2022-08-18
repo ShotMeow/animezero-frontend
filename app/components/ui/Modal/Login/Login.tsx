@@ -6,7 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { ILoginFields } from '@/components/ui/Modal/Modal.interface'
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
-import { changeType } from '../../../../store/modal/modal.slice'
+import { changeType, setIsShow } from '../../../../store/modal/modal.slice'
 
 const Login: FC = () => {
 	const dispatch = useTypedDispatch()
@@ -22,6 +22,7 @@ const Login: FC = () => {
 	})
 
 	const onLoginSubmit: SubmitHandler<ILoginFields> = data => {
+		dispatch(setIsShow())
 		login(data)
 	}
 	return (

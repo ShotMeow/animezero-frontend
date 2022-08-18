@@ -29,6 +29,7 @@ const Register: FC = () => {
 			return setError('repeat_password', {
 				message: 'Пароли не совпадают'
 			})
+		dispatch(changeType('login'))
 		registerAction(data)
 	}
 

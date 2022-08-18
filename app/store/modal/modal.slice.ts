@@ -11,6 +11,7 @@ export const modalSlice = createSlice({
 	initialState,
 	reducers: {
 		setIsShow(state) {
+			state.type = 'login'
 			state.isShow = !state.isShow
 		},
 		changeType(state, action) {
