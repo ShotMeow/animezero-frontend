@@ -12,7 +12,7 @@ const Partnership: FC = () => {
 				title='Партнерам'
 				description='Наш кинотеатр всегда рад новым партнерам. За поддержку нашего портала мы будем рады предоставить эксклюзивные предложения и надежные прозрачные взаимоотношения.'
 			/>
-			<div className={styles.partner}>
+			<section className={styles.partner}>
 				<p>
 					Получить более подробную информацию о партнерской программе вы можете
 					обратившись в чате:
@@ -24,7 +24,7 @@ const Partnership: FC = () => {
 						<a href='mailto:admin@animezero.ru'>admin@animezero.ru</a>
 					</p>
 				</div>
-			</div>
+			</section>
 		</Layout>
 	)
 }

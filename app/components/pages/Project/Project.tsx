@@ -14,7 +14,7 @@ const Project: FC = () => {
 				title='О нас'
 				description='AnimeZero - один из крупнейших онлайн-кинотеатров в России, посвященный аниме.'
 			/>
-			<div className={styles.project}>
+			<section className={styles.project}>
 				<h3>Огромный выбор фильмов и сериалов</h3>
 				<p>
 					В нашем каталоге вы найдете огромную коллекцию аниме фильмов и
@@ -24,7 +24,7 @@ const Project: FC = () => {
 					просмотр аниме.
 				</p>
 				<Image src={quality} alt='Качество' />
-			</div>
+			</section>
 		</Layout>
 	)
 }

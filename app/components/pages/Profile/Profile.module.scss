@@ -1,0 +1,49 @@
+.profile {
+	@apply pb-20 grid gap-8;
+	grid-template-columns: 1fr 5fr;
+	> .aside {
+		> img {
+			@apply object-cover rounded-md;
+			width: 250px;
+			height: 250px;
+		}
+		> h3 {
+			@apply text-2xl font-bold mt-4;
+		}
+		> p {
+			@apply text-gray-600 font-light;
+		}
+		> ul {
+			@apply space-y-4 mt-6;
+			> li {
+				> a {
+					@apply text-lg text-gray-300;
+					&.active {
+						@apply font-bold text-white;
+					}
+				}
+			}
+		}
+	}
+	> div {
+		width: 30%;
+		> h2 {
+			@apply text-2xl font-bold;
+		}
+		> form {
+			@apply grid gap-6 items-start mt-6;
+			> label {
+				@apply text-xl font-bold flex flex-col gap-2 space-y-3;
+				input {
+					@apply text-base font-normal;
+				}
+			}
+			> label:last-child {
+				@apply flex;
+			}
+			> button {
+				@apply justify-center;
+			}
+		}
+	}
+}

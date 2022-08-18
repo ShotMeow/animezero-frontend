@@ -1,9 +1,10 @@
 import { NextPageAuth } from '../app/providers/private-route.interface'
+import Profile from '@/components/pages/Profile/Profile'
 
-const Profile: NextPageAuth = () => {
-	return <div></div>
+const ProfilePage: NextPageAuth = () => {
+	return <Profile />
 }
 
-Profile.isOnlyUser = true
+ProfilePage.isOnlyUser = true
 
-export default Profile
+export default ProfilePage

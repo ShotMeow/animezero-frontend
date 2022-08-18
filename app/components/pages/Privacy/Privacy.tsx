@@ -11,7 +11,7 @@ const Privacy: FC = () => {
 				title='Политика конфиденциальности'
 				description='Мы уверяем вас, что данные, оставленные на нашем сайте не будут подвергаться распространению.'
 			/>
-			<div className={styles.conf}>
+			<section className={styles.conf}>
 				<ol>
 					<li>
 						<h4>Общие положения</h4>
@@ -689,7 +689,7 @@ const Privacy: FC = () => {
 						</ol>
 					</li>
 				</ol>
-			</div>
+			</section>
 		</Layout>
 	)
 }

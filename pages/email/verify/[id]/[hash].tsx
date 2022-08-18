@@ -1,12 +1,17 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { AuthService } from '@/services/auth/auth.service'
+import { api } from '../../../../app/store/api/api'
+import { IVerify } from '@/services/auth/auth.helper'
 
 const Hash: FC = () => {
 	const router = useRouter()
-	const query = router.query
+	const [verify] = api.useLazyVerifyQuery(router.query)
 
-	AuthService.verify(query)
+	useEffect(() => {
+		if (router.isReady) {
+			verify(router.query as unknown as IVerify)
+		}
+	}, [router.isReady])
 
 	return <></>
 }

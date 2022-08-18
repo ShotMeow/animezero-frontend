@@ -1,5 +1,5 @@
 import { axiosClassic } from '../../api/axios'
-import { IAuthData } from '@/services/auth/auth.helper'
+import { IAuthData, IVerify } from '@/services/auth/auth.helper'
 
 export const AuthService = {
 	async logIn(login: string, password: string) {
@@ -24,7 +24,7 @@ export const AuthService = {
 
 		return response.data
 	},
-	async verify(query: any) {
+	async verify(query: IVerify) {
 		await axiosClassic.get(`/email/verify/${query.id}/${query.hash}`, {
 			params: {
 				expires: query.expires,
