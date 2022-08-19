@@ -11,7 +11,7 @@ export const errorCatch = (error: any): string =>
 			: error.response.data.message
 		: error.message
 
-export const toastError = (error: any, title = 'Error request') => {
+export const toastError = (error: any, title = 'Ошибка') => {
 	const message = errorCatch(error)
 	toastr.error(title, message)
 	throw message

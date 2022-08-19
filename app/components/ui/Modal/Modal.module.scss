@@ -19,11 +19,37 @@
 					@apply text-2xl font-bold;
 				}
 				> p {
-					@apply text-gray-400;
+					@apply text-gray-400 text-center;
 				}
 			}
 			> div:nth-child(2) {
 				@apply flex w-full flex-col gap-4;
+				> div {
+					@apply relative py-4;
+					> div {
+						@apply flex justify-between;
+						> div {
+							@apply flex gap-3;
+							> div {
+								@apply w-14 h-14 transition-all duration-300 bg-gray-900 rounded-md flex items-center justify-center text-lg font-bold;
+								&.active {
+									@apply bg-primary;
+								}
+							}
+						}
+					}
+					> input {
+						@apply absolute opacity-0 top-8 left-2 bg-inherit px-12 text-xl;
+						width: 110%;
+						letter-spacing: 3rem;
+					}
+				}
+				> .success {
+					@apply text-green-600 text-center;
+				}
+				> .error {
+					@apply text-red-600 text-center;
+				}
 				> button {
 					@apply w-full justify-center mt-4 mb-6;
 				}
@@ -40,7 +66,7 @@
 				}
 
 				> button {
-					@apply font-bold;
+					@apply text-primary font-bold;
 				}
 			}
 		}

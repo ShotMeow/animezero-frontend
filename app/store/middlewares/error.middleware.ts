@@ -5,7 +5,7 @@ import { toastError } from '@/utils/api.utils'
 export const rtkQueryErrorLogger: Middleware =
 	(api: MiddlewareAPI) => next => action => {
 		if (isRejectedWithValue(action)) {
-			toastError(action.error, 'RTK error')
+			toastError(action.error, 'Ошибка')
 		}
 
 		return next(action)

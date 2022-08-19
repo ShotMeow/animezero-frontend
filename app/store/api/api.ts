@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 import { API_URL } from '../../api/axios'
 import { TypeRootState } from '../store'
-import { IVerify } from '@/services/auth/auth.helper'
 import { IUser } from '@/types/user.interface'
 import { IFilm } from '@/services/films.interface'
 
@@ -17,10 +16,20 @@ export const api = createApi({
 		}
 	}),
 	endpoints: builder => ({
-		verify: builder.query<any, IVerify>({
-			query: query =>
-				`email/verify/${query.id}/${query.hash}?expires=${query.expires}&signature=${query.signature}`,
-			providesTags: () => [{ type: 'Auth' }]
+		verify: builder.mutation<void, string>({
+			query: code => ({
+				url: `email/verify`,
+				method: 'POST',
+				body: { code }
+			}),
+			invalidatesTags: ['Auth']
+		}),
+		resend: builder.mutation<void, void>({
+			query: () => ({
+				url: `email/resend`,
+				method: 'POST'
+			}),
+			invalidatesTags: ['Auth']
 		}),
 		profile: builder.query<IUser, any>({
 			query: () => `user/info`,
@@ -82,6 +91,10 @@ export const api = createApi({
 				method: 'DELETE'
 			}),
 			invalidatesTags: ['Films']
+		}),
+		logout: builder.query<any, any>({
+			query: () => 'user/logout',
+			providesTags: ['Auth']
 		})
 	})
 })

@@ -15,6 +15,7 @@ const Login: FC = () => {
 	const { isLoading } = useAuth()
 	const {
 		register,
+		setError,
 		formState: { errors },
 		handleSubmit
 	} = useForm<ILoginFields>({
@@ -22,8 +23,14 @@ const Login: FC = () => {
 	})
 
 	const onLoginSubmit: SubmitHandler<ILoginFields> = data => {
-		dispatch(setIsShow())
-		login(data)
+		try {
+			login(data)
+			dispatch(setIsShow())
+		} catch (e) {
+			setError('password', {
+				message: 'Неверный логин или пароль'
+			})
+		}
 	}
 	return (
 		<form onSubmit={handleSubmit(onLoginSubmit)}>

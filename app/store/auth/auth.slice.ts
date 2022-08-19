@@ -4,7 +4,11 @@ import { login, logout, register } from './auth.actions'
 
 const initialState: IAuthInitialState = {
 	token: '',
-	isLoading: false
+	isLoading: false,
+	user: {
+		login: '',
+		email: ''
+	}
 }
 
 export const authSlice = createSlice({
@@ -17,19 +21,22 @@ export const authSlice = createSlice({
 				state.isLoading = true
 			})
 			.addCase(register.fulfilled, (state, { payload }) => {
+				state.token = payload.token
 				state.isLoading = false
-				state.token = payload
+				state.user.login = payload.login
+				state.user.email = payload.email
 			})
 			.addCase(register.rejected, state => {
-				state.isLoading = false
 				state.token = ''
+				state.isLoading = false
 			})
 			.addCase(login.pending, state => {
 				state.isLoading = true
 			})
 			.addCase(login.fulfilled, (state, { payload }) => {
 				state.isLoading = false
-				state.token = payload
+				state.token = payload.token
+				state.user.login = payload.login
 			})
 			.addCase(login.rejected, state => {
 				state.isLoading = false
@@ -38,6 +45,8 @@ export const authSlice = createSlice({
 			.addCase(logout.rejected, state => {
 				state.isLoading = false
 				state.token = ''
+				state.user.login = ''
+				state.user.email = ''
 			})
 	}
 })
