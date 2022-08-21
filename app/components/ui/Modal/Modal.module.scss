@@ -27,7 +27,6 @@
 				> div {
 					@apply relative py-4;
 					> div {
-						@apply flex justify-between;
 						> div {
 							@apply flex gap-3;
 							> div {
@@ -71,6 +70,10 @@
 			}
 		}
 	}
+}
+
+.fields {
+	@apply flex justify-between;
 }
 
 @keyframes sizeIn {

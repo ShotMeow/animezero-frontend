@@ -50,7 +50,7 @@ const Verify: FC = () => {
 			</div>
 			<div>
 				<div>
-					<div>
+					<div className={styles.fields}>
 						<div>
 							<div className={cn({ [styles.active]: value[0] })}>
 								{value[0]}
