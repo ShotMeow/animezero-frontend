@@ -4,15 +4,12 @@ import Button from '@/components/ui/Button/Button'
 import { useTypedDispatch } from '@/hooks/useTypedDispatch'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ILoginFields } from '@/components/ui/Modal/Modal.interface'
-import { useActions } from '@/hooks/useActions'
-import { useAuth } from '@/hooks/useAuth'
-import { changeType, setIsShow } from '../../../../store/modal/modal.slice'
+import { changeType, setIsShow } from '@/store/modal/modal.slice'
+import { login } from '@/store/auth/auth.actions'
 
 const Login: FC = () => {
 	const dispatch = useTypedDispatch()
-	const { login } = useActions()
 
-	const { isLoading } = useAuth()
 	const {
 		register,
 		setError,
@@ -23,15 +20,15 @@ const Login: FC = () => {
 	})
 
 	const onLoginSubmit: SubmitHandler<ILoginFields> = data => {
-		try {
-			login(data)
-			dispatch(setIsShow())
-		} catch (e) {
-			setError('password', {
-				message: 'Неверный логин или пароль'
+		dispatch(login(data))
+			.then(() => {
+				dispatch(setIsShow())
 			})
-		}
+			.catch(() => {
+				setError('password', { message: 'Неверный логин или пароль' })
+			})
 	}
+
 	return (
 		<form onSubmit={handleSubmit(onLoginSubmit)}>
 			<div>
@@ -57,16 +54,11 @@ const Login: FC = () => {
 					type='password'
 					placeholder='Пароль'
 				/>
-				<Button disabled={isLoading} important='primary'>
-					Войти
-				</Button>
+				<Button important='primary'>Войти</Button>
 			</div>
 			<div>
 				<p>Ещё нет аккаунта?</p>
-				<button
-					onClick={() => dispatch(changeType('register'))}
-					disabled={isLoading}
-				>
+				<button onClick={() => dispatch(changeType('register'))}>
 					Зарегистрироватьтся
 				</button>
 			</div>

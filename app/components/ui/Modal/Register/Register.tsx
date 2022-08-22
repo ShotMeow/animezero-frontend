@@ -1,19 +1,14 @@
 import { FC } from 'react'
 import Field from '@/components/ui/Field/Field'
 import Button from '@/components/ui/Button/Button'
-import { changeType } from '../../../../store/modal/modal.slice'
+import { changeType } from '@/store/modal/modal.slice'
 import { useTypedDispatch } from '@/hooks/useTypedDispatch'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { IRegisterFields } from '@/components/ui/Modal/Modal.interface'
-import { useActions } from '@/hooks/useActions'
-import { useAuth } from '@/hooks/useAuth'
+import { register as registration } from '../../../../store/auth/auth.actions'
 
 const Register: FC = () => {
 	const dispatch = useTypedDispatch()
-
-	const { register: registerAction } = useActions()
-
-	const { isLoading } = useAuth()
 
 	const {
 		register,
@@ -25,18 +20,19 @@ const Register: FC = () => {
 	})
 
 	const onRegisterSubmit: SubmitHandler<IRegisterFields> = data => {
-		if (data.password !== data.repeat_password)
-			return setError('repeat_password', {
+		if (data.password !== data.password_repeat)
+			return setError('password_repeat', {
 				message: 'Пароли не совпадают'
 			})
-		try {
-			registerAction(data)
-			dispatch(changeType('verify'))
-		} catch (e) {
-			setError('email', {
-				message: 'Логин или почта занята'
+		dispatch(registration(data))
+			.then(() => {
+				dispatch(changeType('verify'))
 			})
-		}
+			.catch(() => {
+				setError('password_repeat', {
+					message: 'Ошибка на сервере. Попробуйте позже'
+				})
+			})
 	}
 
 	return (
@@ -78,24 +74,19 @@ const Register: FC = () => {
 					placeholder='Пароль'
 				/>
 				<Field
-					{...register('repeat_password', {
+					{...register('password_repeat', {
 						required: 'Повторите пароль'
 					})}
-					error={errors.repeat_password}
+					error={errors.password_repeat}
 					label='Точно запомнил?'
 					type='password'
 					placeholder='Подтвердите пароль'
 				/>
-				<Button disabled={isLoading} important='primary'>
-					Зарегистрироваться
-				</Button>
+				<Button important='primary'>Зарегистрироваться</Button>
 			</div>
 			<div>
 				<p>Уже есть аккаунт?</p>
-				<button
-					onClick={() => dispatch(changeType('login'))}
-					disabled={isLoading}
-				>
+				<button onClick={() => dispatch(changeType('login'))}>
 					Авторизоваться
 				</button>
 			</div>

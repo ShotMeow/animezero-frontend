@@ -4,7 +4,6 @@ import {
 	IRegisterFields
 } from '@/components/ui/Modal/Modal.interface'
 import { AuthService } from '@/services/auth/auth.service'
-import { toastError } from '@/utils/api.utils'
 import { toastr } from 'react-redux-toastr'
 
 export const login = createAsyncThunk<
@@ -19,7 +18,6 @@ export const login = createAsyncThunk<
 			login
 		}
 	} catch (error) {
-		toastError('Неверный логин или пароль')
 		return thunkApi.rejectWithValue(error)
 	}
 })
@@ -29,13 +27,13 @@ export const register = createAsyncThunk<
 	IRegisterFields
 >(
 	'user/register',
-	async ({ login, email, password, repeat_password }, thunkApi) => {
+	async ({ login, email, password, password_repeat }, thunkApi) => {
 		try {
 			const response = await AuthService.register(
 				login,
 				email,
 				password,
-				repeat_password
+				password_repeat
 			)
 			toastr.success(
 				'Регистрация',
@@ -48,7 +46,6 @@ export const register = createAsyncThunk<
 				email
 			}
 		} catch (error) {
-			toastError('Ошибка регистрации')
 			return thunkApi.rejectWithValue(error)
 		}
 	}

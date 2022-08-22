@@ -22,13 +22,5 @@ export const FilmsService = {
 
 	async getStatuses() {
 		return axiosClassic.get(`/film/status`)
-	},
-
-	async getFilmsBySearchTerm(searchTerm: string) {
-		return axiosClassic.get('/film/search', {
-			params: {
-				query: searchTerm
-			}
-		})
 	}
 }

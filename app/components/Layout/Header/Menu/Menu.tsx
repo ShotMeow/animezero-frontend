@@ -7,10 +7,20 @@ import { AiFillHome, AiFillTablet } from 'react-icons/ai'
 import { IoFilmSharp } from 'react-icons/io5'
 import { FaUserAlt } from 'react-icons/fa'
 import { useTypedDispatch } from '@/hooks/useTypedDispatch'
-import { setIsShow } from '../../../../store/modal/modal.slice'
+import { setIsShow } from '@/store/modal/modal.slice'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { useRouter } from 'next/router'
 
 const Menu: FC = () => {
 	const dispatch = useTypedDispatch()
+
+	const router = useRouter()
+
+	const login = useTypedSelector(store => store.auth.user.login)
+
+	const handleClick = () => {
+		login ? router.push('/profile') : dispatch(setIsShow())
+	}
 	return (
 		<div className={styles.menu}>
 			<header>
@@ -29,19 +39,19 @@ const Menu: FC = () => {
 							Главная
 						</a>
 					</Link>
-					<Link href={'films'}>
+					<Link href={'/films'}>
 						<a>
 							<IoFilmSharp size={20} />
 							Фильмы
 						</a>
 					</Link>
-					<Link href={'serials'}>
+					<Link href={'/serials'}>
 						<a>
 							<AiFillTablet size={20} />
 							Сериалы
 						</a>
 					</Link>
-					<Button onClick={() => dispatch(setIsShow())} important='secondary'>
+					<Button onClick={handleClick} important='secondary'>
 						<FaUserAlt size={20} />
 						Профиль
 					</Button>

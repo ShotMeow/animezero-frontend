@@ -11,7 +11,8 @@ export const api = createApi({
 		baseUrl: API_URL,
 		prepareHeaders: (headers, { getState }) => {
 			const token = (getState() as TypeRootState).auth.token
-			headers.set('Authorization', `Bearer ${token}`)
+			token && headers.set('Authorization', `Bearer ${token}`)
+			headers.set('Accept', 'application/json')
 			return headers
 		}
 	}),
@@ -35,7 +36,7 @@ export const api = createApi({
 			query: () => `user/info`,
 			providesTags: () => [{ type: 'Profile' }]
 		}),
-		showWatchedFilms: builder.query<IFilm[], any>({
+		showWatchedFilms: builder.query<{ data: IFilm[] }, void>({
 			query: () => `film/watched`,
 			providesTags: () => [{ type: 'Films' }]
 		}),
@@ -43,7 +44,7 @@ export const api = createApi({
 			query: film_id => ({
 				url: 'film/watched',
 				method: 'POST',
-				body: film_id
+				body: { film_id }
 			}),
 			invalidatesTags: ['Films']
 		}),
@@ -54,7 +55,7 @@ export const api = createApi({
 			}),
 			invalidatesTags: ['Films']
 		}),
-		showTrackedFilms: builder.query<IFilm[], any>({
+		showTrackedFilms: builder.query<{ data: IFilm[] }, void>({
 			query: () => `film/tracked`,
 			providesTags: () => [{ type: 'Films' }]
 		}),
@@ -62,7 +63,7 @@ export const api = createApi({
 			query: film_id => ({
 				url: 'film/tracked',
 				method: 'POST',
-				body: film_id
+				body: { film_id }
 			}),
 			invalidatesTags: ['Films']
 		}),
@@ -73,7 +74,7 @@ export const api = createApi({
 			}),
 			invalidatesTags: ['Films']
 		}),
-		showWantToWatchFilms: builder.query<IFilm[], any>({
+		showWantToWatchFilms: builder.query<{ data: IFilm[] }, void>({
 			query: () => `film/want-to-watch`,
 			providesTags: () => [{ type: 'Films' }]
 		}),
@@ -81,7 +82,7 @@ export const api = createApi({
 			query: film_id => ({
 				url: 'film/want-to-watch',
 				method: 'POST',
-				body: film_id
+				body: { film_id }
 			}),
 			invalidatesTags: ['Films']
 		}),

@@ -26,9 +26,12 @@
 		}
 	}
 	> div {
-		width: 30%;
 		> h2 {
 			@apply text-2xl font-bold;
+		}
+		> div {
+			@apply grid w-full mt-4;
+			grid-template-columns: repeat(5, 1fr);
 		}
 		> form {
 			@apply grid gap-6 items-start mt-6;

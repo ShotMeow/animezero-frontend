@@ -19,7 +19,7 @@ const Pagination: FC<{ links: ILink[] }> = ({ links }) => {
 		})
 	}
 	return (
-		<div className={styles.pagination}>
+		<article className={styles.pagination}>
 			<ul>
 				<li>
 					<button
@@ -52,7 +52,7 @@ const Pagination: FC<{ links: ILink[] }> = ({ links }) => {
 					</button>
 				</li>
 			</ul>
-		</div>
+		</article>
 	)
 }
 
