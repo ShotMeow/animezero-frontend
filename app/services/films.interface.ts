@@ -34,6 +34,7 @@ export interface IFilm {
 	minimalAge?: number
 	duration: number
 	genres: IGenre[]
+	status: IStatus
 	type: IType
 	directors: IDirector[]
 	countries: ICountry[]

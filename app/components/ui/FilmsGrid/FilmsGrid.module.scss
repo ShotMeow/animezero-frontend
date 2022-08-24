@@ -1,12 +1,9 @@
-.films {
-	@apply flex flex-col items-end;
-
-	@media (max-width: 551px) {
-		@apply items-center;
-	}
+.grid {
+	@apply flex flex-col items-end gap-6;
 
 	.container {
-		@apply grid w-full;
+		@apply w-full;
+		display: grid;
 		grid-template-columns: repeat(6, 1fr);
 
 		@media (max-width: 1535px) {
@@ -32,5 +29,13 @@
 		> article {
 			@apply mb-8;
 		}
+
+		> a > article {
+			@apply mx-auto;
+		}
+	}
+
+	@media (max-width: 551px) {
+		@apply items-center;
 	}
 }

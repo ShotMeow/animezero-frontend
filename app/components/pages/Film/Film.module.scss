@@ -26,13 +26,26 @@
 			@apply hidden;
 		}
 		> img {
-			@apply rounded-md;
+			@apply w-full rounded-md;
 		}
 
 		> div {
 			@apply flex justify-between gap-2;
 
-			> button {
+			.menu {
+				@apply relative text-xl;
+				> button {
+					@apply bg-gray-800 h-full rounded-md;
+				}
+				> div {
+					@apply text-base absolute right-0 mt-2;
+					> button {
+						@apply bg-gray-800 w-full rounded-md px-8 py-3 mb-2 flex items-center gap-2;
+					}
+				}
+			}
+
+			button {
 				@apply px-4 transition-all text-gray-600;
 
 				&:hover {

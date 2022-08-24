@@ -1,12 +1,19 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 
 import styles from './Search.module.scss'
 import { BiSearch } from 'react-icons/bi'
 import { useSearch } from '@/hooks/useSearch'
 import SearchTermItem from '@/components/ui/SearchTermItem/SearchTermItem'
+import { useOutside } from '@/hooks/useOutside'
 
 const Search: FC = () => {
 	const { data, handleSearch, searchTerm, isSuccess } = useSearch()
+	const { ref, setIsShow, isShow } = useOutside(true)
+
+	useEffect(() => {
+		setIsShow(isSuccess)
+	}, [isSuccess])
+
 	return (
 		<div className={styles.search}>
 			<label className={styles.action}>
@@ -20,8 +27,8 @@ const Search: FC = () => {
 					<BiSearch color='white' size={24} />
 				</button>
 			</label>
-			{isSuccess && (
-				<div className={styles.result}>
+			{isSuccess && isShow && (
+				<div ref={ref} className={styles.result}>
 					{data?.length ? (
 						<div>
 							<h5>Фильмы и сериалы</h5>

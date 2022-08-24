@@ -1,13 +1,15 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { IFilm } from '@/services/films.interface'
 import Layout from '@/components/Layout/Layout'
 import Button from '@/components/ui/Button/Button'
 import { BiPlus } from 'react-icons/bi'
 
 import styles from './Film.module.scss'
-import { AiFillEye } from 'react-icons/ai'
+import { AiFillBell, AiFillEye } from 'react-icons/ai'
 import { api } from '@/store/api/api'
 import { useAuth } from '@/hooks/useAuth'
+import { Menu } from '@headlessui/react'
+import { IoEllipsisHorizontalSharp } from 'react-icons/io5'
 
 const Film: FC<{ film: IFilm }> = ({ film }) => {
 	const [addWatchedFilm] = api.useAddWatchedFilmsMutation()
@@ -16,16 +18,16 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 
 	const { token } = useAuth()
 
-	useEffect(() => {
-		token && addWatchedFilm(film.id)
-	}, [])
-
-	const onTrackedFilm = () => {
+	const handleTracking = () => {
 		addTrackedFilm(film.id)
 	}
 
-	const onWantToWatchFilm = () => {
+	const handleWantToWatch = () => {
 		addWantToWatchFilm(film.id)
+	}
+
+	const handleWatched = () => {
+		addWatchedFilm(film.id)
 	}
 
 	return (
@@ -35,13 +37,41 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 					<img src={film.poster} alt={film.title} />
 					{token && (
 						<div>
-							<Button onClick={onWantToWatchFilm} important='secondary'>
+							<Button onClick={handleWantToWatch} important='secondary'>
 								<BiPlus size={20} />
 								Буду смотреть
 							</Button>
-							<Button onClick={onTrackedFilm} important='secondary'>
-								<AiFillEye size={20} />
-							</Button>
+							{film.status.value === 'released' ? (
+								<Button onClick={handleTracking} important='secondary'>
+									<AiFillEye size={20} />
+								</Button>
+							) : (
+								<div className={styles.menu}>
+									<Menu>
+										<Menu.Button>
+											<IoEllipsisHorizontalSharp size={20} />
+										</Menu.Button>
+										<Menu.Items>
+											<Menu.Item>
+												{() => (
+													<button onClick={handleTracking}>
+														<AiFillBell size={20} />
+														Отслеживать
+													</button>
+												)}
+											</Menu.Item>
+											<Menu.Item>
+												{() => (
+													<button onClick={handleWatched}>
+														<AiFillEye size={20} />
+														Просмотрено
+													</button>
+												)}
+											</Menu.Item>
+										</Menu.Items>
+									</Menu>
+								</div>
+							)}
 						</div>
 					)}
 				</div>

@@ -93,9 +93,9 @@ export const api = createApi({
 			}),
 			invalidatesTags: ['Films']
 		}),
-		logout: builder.query<any, any>({
+		logout: builder.mutation<void, void>({
 			query: () => 'user/logout',
-			providesTags: ['Auth']
+			invalidatesTags: ['Auth']
 		})
 	})
 })
