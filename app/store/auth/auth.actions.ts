@@ -18,7 +18,9 @@ export const login = createAsyncThunk<
 			login
 		}
 	} catch (error) {
-		return thunkApi.rejectWithValue(error)
+		thunkApi.rejectWithValue(error)
+		// @ts-ignore
+		return error.response.data.error
 	}
 })
 

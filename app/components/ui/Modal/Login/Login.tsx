@@ -20,13 +20,19 @@ const Login: FC = () => {
 	})
 
 	const onLoginSubmit: SubmitHandler<ILoginFields> = data => {
-		dispatch(login(data))
-			.then(() => {
+		dispatch(login(data)).then(data => {
+			// @ts-ignore
+			if (data.payload.message === 'Please verify your email.') {
+				dispatch(changeType('verify'))
+			} else if (
+				// @ts-ignore
+				!data.payload.message
+			) {
 				dispatch(setIsShow())
-			})
-			.catch(() => {
+			} else {
 				setError('password', { message: 'Неверный логин или пароль' })
-			})
+			}
+		})
 	}
 
 	return (
