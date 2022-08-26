@@ -1,34 +1,35 @@
 .nav {
-	> ul {
-		@apply flex;
+  > ul {
+    @apply flex;
 
-		> li {
-			&:first-child {
-				@media (max-width: 1023px) {
-					display: none !important;
-				}
-			}
-			> a {
-				@apply block relative px-4 py-5;
+    > li {
+      &:first-child {
+        @media (max-width: 1023px) {
+          display: none !important;
+        }
+      }
 
-				&.active {
-					@apply border-b-2 border-primary;
-					background-color: #0f0f0f !important;
-				}
+      > a {
+        @apply block relative px-4 py-5;
 
-				&::before {
-					@apply w-full h-0.5 bg-primary absolute left-0 -bottom-0.5 opacity-0 transition-opacity duration-500;
-					content: '';
-				}
+        &.active {
+          @apply border-b-2 border-primary;
+          background-color: #0f0f0f !important;
+        }
 
-				&:hover {
-					@apply bg-gray-900;
-				}
+        &::before {
+          @apply w-full h-0.5 bg-primary absolute left-0 -bottom-0.5 opacity-0 transition-opacity duration-500;
+          content: '';
+        }
 
-				&:hover::before {
-					@apply opacity-100;
-				}
-			}
-		}
-	}
+        &:hover {
+          @apply bg-gray-900;
+        }
+
+        &:hover::before {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
 }

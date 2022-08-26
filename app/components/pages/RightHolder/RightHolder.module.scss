@@ -1,18 +1,19 @@
 .holder {
-	@apply mt-4 mb-16;
+  @apply mt-4 mb-16;
 
-	@media (max-width: 1023px) {
-		@apply px-4 mb-10;
-	}
+  @media (max-width: 1023px) {
+    @apply px-4 mb-10;
+  }
 
-	strong {
-		@apply text-primary;
-	}
-	ol {
-		@apply list-decimal pl-8;
-	}
+  strong {
+    @apply text-primary;
+  }
 
-	> * {
-		@apply mb-3 text-lg;
-	}
+  ol {
+    @apply list-decimal pl-8;
+  }
+
+  > * {
+    @apply mb-3 text-lg;
+  }
 }

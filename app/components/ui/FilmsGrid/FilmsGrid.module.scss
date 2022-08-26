@@ -2,7 +2,7 @@
 	@apply flex flex-col items-end gap-6;
 
 	.container {
-		@apply w-full;
+		@apply w-full gap-6;
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
 

@@ -1,38 +1,38 @@
 .menu {
-	@media (min-width: 1023px) {
-		@apply hidden;
-	}
+  @media (min-width: 1023px) {
+    @apply hidden;
+  }
 
-	> header {
-		@apply relative flex flex-col items-center gap-6 py-2 z-50 justify-between bg-black;
+  > header {
+    @apply relative flex flex-col items-center gap-6 py-2 z-50 justify-between bg-black;
 
-		@media (max-width: 1023px) {
-			@apply px-4;
-		}
+    @media (max-width: 1023px) {
+      @apply px-4;
+    }
 
-		> a {
-			@apply text-white font-bold text-2xl;
+    > a {
+      @apply text-white font-bold text-2xl;
 
-			@media (max-width: 1023px) {
-				@apply text-3xl;
-			}
+      @media (max-width: 1023px) {
+        @apply text-3xl;
+      }
 
-			> span {
-				@apply text-primary;
-			}
-		}
-	}
+      > span {
+        @apply text-primary;
+      }
+    }
+  }
 
-	> footer {
-		@apply fixed z-50 bottom-0 left-0 w-full flex justify-between items-center bg-black px-2;
-		> div {
-			@apply flex items-center justify-between w-full container mx-auto;
-			> button,
-			a {
-				@apply flex items-center text-xs flex-col gap-1;
-				background: none !important;
-				padding: 10px 5px !important;
-			}
-		}
-	}
+  > footer {
+    @apply fixed z-50 bottom-0 left-0 w-full flex justify-between items-center bg-black px-2;
+    > div {
+      @apply flex items-center justify-between w-full container mx-auto;
+      > button,
+      a {
+        @apply flex items-center text-xs flex-col gap-1;
+        background: none !important;
+        padding: 10px 5px !important;
+      }
+    }
+  }
 }

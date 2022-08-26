@@ -4,9 +4,9 @@ import { useAuth } from '@/hooks/useAuth'
 import { useRouter } from 'next/router'
 
 const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
-	children,
-	Component: { isOnlyUser }
-}) => {
+																	   children,
+																	   Component: { isOnlyUser }
+																   }) => {
 	const { isLoading, token } = useAuth()
 	const { replace, pathname } = useRouter()
 

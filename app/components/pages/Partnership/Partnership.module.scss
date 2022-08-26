@@ -1,30 +1,32 @@
 .partner {
-	@apply mb-60;
+  @apply mb-60;
 
-	@media (max-width: 1023px) {
-		@apply px-4 mb-10;
-	}
+  @media (max-width: 1023px) {
+    @apply px-4 mb-10;
+  }
 
-	> p {
-		@apply text-lg mb-6;
-	}
-	> div {
-		@apply flex items-center gap-6;
+  > p {
+    @apply text-lg mb-6;
+  }
 
-		@media (max-width: 540px) {
-			@apply flex-col items-start;
-		}
+  > div {
+    @apply flex items-center gap-6;
 
-		> button {
-			@apply px-14 py-4;
-		}
-		> p {
-			> a {
-				@apply text-primary pl-2;
-				&:hover {
-					@apply underline;
-				}
-			}
-		}
-	}
+    @media (max-width: 540px) {
+      @apply flex-col items-start;
+    }
+
+    > button {
+      @apply px-14 py-4;
+    }
+
+    > p {
+      > a {
+        @apply text-primary pl-2;
+        &:hover {
+          @apply underline;
+        }
+      }
+    }
+  }
 }

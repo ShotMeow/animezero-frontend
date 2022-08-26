@@ -10,6 +10,7 @@ import { api } from '@/store/api/api'
 import { useAuth } from '@/hooks/useAuth'
 import { Menu } from '@headlessui/react'
 import { IoEllipsisHorizontalSharp } from 'react-icons/io5'
+import { toastr } from 'react-redux-toastr'
 
 const Film: FC<{ film: IFilm }> = ({ film }) => {
 	const [addWatchedFilm] = api.useAddWatchedFilmsMutation()
@@ -19,15 +20,36 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 	const { token } = useAuth()
 
 	const handleTracking = () => {
-		addTrackedFilm(film.id)
+		addTrackedFilm(film.id).then(data => {
+			// @ts-ignore
+			if (!data.error) {
+				toastr.success('Успешно', 'Фильм добавлен')
+			} else {
+				toastr.error('Ошибка', 'Фильм уже добавлен')
+			}
+		})
 	}
 
 	const handleWantToWatch = () => {
-		addWantToWatchFilm(film.id)
+		addWantToWatchFilm(film.id).then(data => {
+			// @ts-ignore
+			if (!data.error) {
+				toastr.success('Успешно', 'Фильм добавлен')
+			} else {
+				toastr.error('Ошибка', 'Фильм уже добавлен')
+			}
+		})
 	}
 
 	const handleWatched = () => {
-		addWatchedFilm(film.id)
+		addWatchedFilm(film.id).then(data => {
+			// @ts-ignore
+			if (!data.error) {
+				toastr.success('Успешно', 'Фильм добавлен')
+			} else {
+				toastr.error('Ошибка', 'Фильм уже добавлен')
+			}
+		})
 	}
 
 	return (

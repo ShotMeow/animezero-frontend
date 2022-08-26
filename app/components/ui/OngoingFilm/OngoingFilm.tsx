@@ -3,6 +3,7 @@ import styles from './OngoingFilm.module.scss'
 import Button from '@/components/ui/Button/Button'
 import { ageCompileHelper } from '@/helpers/age-compile.helper'
 import { IFilm } from '@/services/films.interface'
+
 const OngoingFilm: FC<{ film: IFilm }> = ({ film }) => {
 	const genres = [film.genres[0].name, film.genres[1].name]
 	return (

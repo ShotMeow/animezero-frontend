@@ -46,7 +46,7 @@ export const authSlice = createSlice({
 				state.user.login = ''
 				state.user.email = ''
 			})
-			.addCase(logout.rejected, state => {
+			.addCase(logout.fulfilled, state => {
 				state.isLoading = false
 				state.token = ''
 				state.user.login = ''

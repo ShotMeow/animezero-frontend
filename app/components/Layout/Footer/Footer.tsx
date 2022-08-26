@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import { FaTelegramPlane, FaInstagram } from 'react-icons/fa'
+import { FaInstagram, FaTelegramPlane } from 'react-icons/fa'
 import { AiOutlineMail } from 'react-icons/ai'
 import Button from '@/components/ui/Button/Button'
 import styles from './Footer.module.scss'

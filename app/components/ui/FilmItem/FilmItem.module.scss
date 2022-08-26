@@ -1,48 +1,50 @@
 .film {
-	@apply flex flex-col gap-2 relative;
-	width: 200px;
+  @apply flex flex-col gap-2 relative;
+  width: 200px;
 
-	@media (max-width: 550px) {
-		@apply m-auto;
-	}
+  @media (max-width: 550px) {
+    @apply m-auto;
+  }
 
-	&:hover {
-		> header {
-			> img {
-				opacity: 0.6;
-			}
-			> button {
-				transform: translateY(-10px);
-			}
-		}
-	}
+  &:hover {
+    > header {
+      > img {
+        opacity: 0.6;
+      }
 
-	> span {
-		@apply absolute top-4 -right-2 bg-primary rounded-sm px-3 z-20;
-	}
+      > button {
+        transform: translateY(-10px);
+      }
+    }
+  }
 
-	> header {
-		@apply relative overflow-hidden;
+  > span {
+    @apply absolute top-4 -right-2 bg-primary rounded-sm px-3 z-20;
+  }
 
-		> img {
-			@apply w-full rounded-t-md;
-			transition: all 0.5s ease;
-			height: 280px;
-		}
+  > header {
+    @apply relative overflow-hidden;
 
-		> button {
-			@apply absolute bottom-0 left-10 overflow-hidden;
-			transition: all 0.5s ease;
-			transform: translateY(200px);
-		}
-	}
+    > img {
+      @apply w-full rounded-t-md;
+      transition: all 0.5s ease;
+      height: 280px;
+    }
 
-	> footer {
-		> h3 {
-			@apply font-semibold;
-		}
-		> p {
-			@apply text-gray-400;
-		}
-	}
+    > button {
+      @apply absolute bottom-0 left-10 overflow-hidden;
+      transition: all 0.5s ease;
+      transform: translateY(200px);
+    }
+  }
+
+  > footer {
+    > h3 {
+      @apply font-semibold;
+    }
+
+    > p {
+      @apply text-gray-400;
+    }
+  }
 }

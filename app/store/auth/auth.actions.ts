@@ -4,7 +4,6 @@ import {
 	IRegisterFields
 } from '@/components/ui/Modal/Modal.interface'
 import { AuthService } from '@/services/auth/auth.service'
-import { toastr } from 'react-redux-toastr'
 
 export const login = createAsyncThunk<
 	{ token: string; login: string },
@@ -12,7 +11,6 @@ export const login = createAsyncThunk<
 >('user/login', async ({ login, password }, thunkApi) => {
 	try {
 		const response = await AuthService.logIn(login, password)
-		toastr.success('Авторизация', 'Вы успешно авторизовались!')
 		return {
 			token: response.data.token,
 			login
@@ -37,11 +35,6 @@ export const register = createAsyncThunk<
 				password,
 				password_repeat
 			)
-			toastr.success(
-				'Регистрация',
-				`На почту ${email} было отправлено письмо с подтверждением.`
-			)
-
 			return {
 				token: response.data.token,
 				login,

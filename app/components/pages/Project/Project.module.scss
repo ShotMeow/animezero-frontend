@@ -1,15 +1,15 @@
 .project {
-	@apply my-4 mb-60;
+  @apply my-4 mb-60;
 
-	@media (max-width: 1023px) {
-		@apply px-4 mb-10;
-	}
+  @media (max-width: 1023px) {
+    @apply px-4 mb-10;
+  }
 
-	> h3 {
-		@apply text-2xl;
-	}
+  > h3 {
+    @apply text-2xl;
+  }
 
-	> p {
-		@apply my-4;
-	}
+  > p {
+    @apply my-4;
+  }
 }

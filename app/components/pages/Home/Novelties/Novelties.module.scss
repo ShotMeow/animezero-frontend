@@ -1,21 +1,21 @@
 .novelties {
-	@apply bg-gray-800 p-12 space-y-8;
+  @apply bg-gray-800 p-12 space-y-8;
 
-	@media (max-width: 500px) {
-		@apply py-4 px-4;
-	}
+  @media (max-width: 500px) {
+    @apply py-4 px-4;
+  }
 
-	> header {
-		@apply flex justify-between;
+  > header {
+    @apply flex justify-between;
 
-		button {
-			@media (max-width: 480px) {
-				@apply px-2;
-			}
-		}
-	}
+    button {
+      @media (max-width: 480px) {
+        @apply px-2;
+      }
+    }
+  }
 
-	> footer {
-		@apply flex justify-between;
-	}
+  > footer {
+    @apply flex justify-between;
+  }
 }

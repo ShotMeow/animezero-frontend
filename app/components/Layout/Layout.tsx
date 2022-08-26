@@ -13,7 +13,7 @@ const Layout: FC<PropsWithChildren<{ title: string }>> = ({
 }) => {
 	const isModal = useTypedSelector(state => state.modal.isShow)
 	return (
-		<div>
+		<div className={styles.wrapper}>
 			<div className={styles.layout}>
 				<Head>
 					<title>{title}</title>

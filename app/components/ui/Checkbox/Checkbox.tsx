@@ -4,9 +4,11 @@ import { BiCheck } from 'react-icons/bi'
 import styles from './Checkbox.module.scss'
 import cn from 'classnames'
 
-const Checkbox: FC<
-	PropsWithChildren<{ enabled: boolean; setEnabled: Dispatch<boolean> }>
-> = ({ enabled, setEnabled, children }) => {
+const Checkbox: FC<PropsWithChildren<{ enabled: boolean; setEnabled: Dispatch<boolean> }>> = ({
+																								  enabled,
+																								  setEnabled,
+																								  children
+																							  }) => {
 	return (
 		<Switch className={styles.checkbox} checked={enabled} onChange={setEnabled}>
 			<span className={cn(styles.check, { [styles.enabled]: enabled })}>

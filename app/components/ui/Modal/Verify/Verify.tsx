@@ -1,15 +1,16 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import Button from '@/components/ui/Button/Button'
-import { api } from '../../../../store/api/api'
+import { api } from '@/store/api/api'
 import cn from 'classnames'
 import styles from '../Modal.module.scss'
 import { useTypedDispatch } from '@/hooks/useTypedDispatch'
-import { setIsShow } from '../../../../store/modal/modal.slice'
+import { setIsShow } from '@/store/modal/modal.slice'
+import { toastr } from 'react-redux-toastr'
+import { IInfo } from '@/components/ui/Modal/Verify/Verify.interface'
 
 const Verify: FC = () => {
-	const [success, setSuccess] = useState<string>('')
-	const [error, setError] = useState<string>('')
+	const [info, setInfo] = useState<IInfo>({} as IInfo)
 	const [value, setValue] = useState<string>('')
 	const email = useTypedSelector(store => store.auth.user.email)
 	const [resend] = api.useResendMutation()
@@ -20,11 +21,12 @@ const Verify: FC = () => {
 		resend().then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				setError('')
-				setSuccess('Письмо успешно отправлено')
+				setInfo({ type: 'success', body: 'Письмо успешно отправлено' })
 			} else {
-				setError('Слишком много попыток, попробуйте позже')
-				setSuccess('')
+				setInfo({
+					type: 'error',
+					body: 'Слишком много попыток. Попробуйте позже'
+				})
 			}
 		})
 	}
@@ -32,12 +34,14 @@ const Verify: FC = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		verify(value).then(data => {
-			// @ts-ignore
-			if (!data.error) {
+			if (!value.length) {
+				setInfo({ type: 'error', body: 'Введите код из письма' })
+				// @ts-ignore
+			} else if (!data.error) {
+				toastr.success('Авторизация', 'Ты успешно авторизовался')
 				dispatch(setIsShow())
 			} else {
-				setSuccess('')
-				setError('Код введен неверно')
+				setInfo({ type: 'error', body: 'Код введен неверно' })
 			}
 		})
 	}
@@ -83,8 +87,14 @@ const Verify: FC = () => {
 						maxLength={6}
 					/>
 				</div>
-				<p className={styles.success}>{success}</p>
-				<p className={styles.error}>{error}</p>
+				<p
+					className={cn(
+						{ [styles.success]: info.type === 'success' },
+						{ [styles.error]: info.type === 'error' }
+					)}
+				>
+					{info.body}
+				</p>
 				<Button important='primary'>Войти</Button>
 			</div>
 			<div>

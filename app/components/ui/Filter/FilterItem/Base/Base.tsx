@@ -2,10 +2,7 @@ import { FC, useState } from 'react'
 import styles from '@/components/ui/Filter/FilterItem/FilterItem.module.scss'
 import { Listbox } from '@headlessui/react'
 import { IoIosArrowDown } from 'react-icons/io'
-import {
-	IElement,
-	IFilterItem
-} from '@/components/ui/Filter/FilterItem/FilterItem.interface'
+import { IElement, IFilterItem } from '@/components/ui/Filter/FilterItem/FilterItem.interface'
 import { useRouter } from 'next/router'
 
 const Base: FC<IFilterItem> = ({ type, title, elements }) => {

@@ -1,11 +1,11 @@
 .tag {
-	@apply bg-primary py-1 px-4 text-white rounded-sm;
+  @apply bg-primary py-1 px-4 text-white rounded-sm;
 
-	&.bold {
-		@apply font-bold;
-	}
+  &.bold {
+    @apply font-bold;
+  }
 
-	&.black {
-		@apply bg-black;
-	}
+  &.black {
+    @apply bg-black;
+  }
 }

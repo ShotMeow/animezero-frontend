@@ -7,10 +7,10 @@ import Filter from '@/components/ui/Filter/Filter'
 import FilmsGrid from '@/components/ui/FilmsGrid/FilmsGrid'
 
 const Films: FC<{ films: IFilm[]; links: ILink[]; filters: IFilter }> = ({
-	films,
-	links,
-	filters
-}) => {
+																			 films,
+																			 links,
+																			 filters
+																		 }) => {
 	return (
 		<Layout title='AnimeZero - Фильмы'>
 			<Heading

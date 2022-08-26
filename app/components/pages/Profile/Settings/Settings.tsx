@@ -23,7 +23,6 @@ const Settings: FC = () => {
 						</label>
 						<label>
 							Поменять пароль
-							<Field type='password' placeholder='Тут старый пароль' />
 							<Field type='password' placeholder='Сюда новый пароль' />
 							<Field
 								type='password'
