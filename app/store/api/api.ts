@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 import { API_URL } from '../../api/axios'
 import { TypeRootState } from '../store'
-import { IUser } from '@/types/user.interface'
+import { IPaginateResponse, IUser } from '@/types/user.interface'
 import { IFilm } from '@/services/films.interface'
 
 export const api = createApi({
@@ -32,8 +32,8 @@ export const api = createApi({
 		getProfileData: builder.query<IUser, void>({
 			query: () => 'user/info'
 		}),
-		showWatchedFilms: builder.query<{ data: IFilm[] }, void>({
-			query: () => `film/watched`
+		showWatchedFilms: builder.query<IPaginateResponse<IFilm>, string>({
+			query: page => `film/watched${page}`
 		}),
 		addWatchedFilms: builder.mutation<void, number>({
 			query: film_id => ({
@@ -48,8 +48,8 @@ export const api = createApi({
 				method: 'DELETE'
 			})
 		}),
-		showTrackedFilms: builder.query<{ data: IFilm[] }, void>({
-			query: () => `film/tracked`
+		showTrackedFilms: builder.query<IPaginateResponse<IFilm>, string>({
+			query: page => `film/tracked${page}`
 		}),
 		addTrackedFilms: builder.mutation<void, number>({
 			query: film_id => ({
@@ -64,8 +64,8 @@ export const api = createApi({
 				method: 'DELETE'
 			})
 		}),
-		showWantToWatchFilms: builder.query<{ data: IFilm[] }, void>({
-			query: () => `film/want-to-watch`
+		showWantToWatchFilms: builder.query<IPaginateResponse<IFilm>, string>({
+			query: page => `film/want-to-watch${page}`
 		}),
 		addWantToWatchFilms: builder.mutation<void, number>({
 			query: film_id => ({

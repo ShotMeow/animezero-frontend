@@ -2,6 +2,11 @@
 	@apply pb-20 grid gap-8;
 	grid-template-columns: 1fr 5fr;
 
+	@media (max-width: 1023px) {
+		@apply justify-items-center text-center mt-8;
+		grid-template-columns: 1fr;
+	}
+
 	> .aside {
 		min-width: 250px;
 		> img {

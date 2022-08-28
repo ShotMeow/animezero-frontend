@@ -10,7 +10,7 @@ const Aside: FC = () => {
 	const { asPath } = useRouter()
 
 	const { data, isSuccess } = api.useGetProfileDataQuery()
-
+	console.log(data)
 	return (
 		<aside className={styles.aside}>
 			{isSuccess && (

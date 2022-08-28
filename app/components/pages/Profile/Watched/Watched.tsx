@@ -4,9 +4,13 @@ import Aside from '@/components/pages/Profile/Aside/Aside'
 import Layout from '@/components/Layout/Layout'
 import { api } from '@/store/api/api'
 import ProfileBody from '@/components/ui/ProfileBody/ProfileBody'
+import { useRouter } from 'next/router'
 
 const Watched: FC = () => {
-	const { data, isSuccess } = api.useShowWatchedFilmsQuery()
+	const { query } = useRouter()
+	const { data, isSuccess } = api.useShowWatchedFilmsQuery(
+		query.page !== undefined ? `?page=${query.page}` : ''
+	)
 	return (
 		<Layout title='AnimeZero - Профиль'>
 			<section className={styles.profile}>
