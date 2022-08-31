@@ -19,6 +19,7 @@
 		}
 
 		@media (max-width: 440px) {
+			@apply m-auto;
 			grid-template-columns: 1fr;
 		}
 

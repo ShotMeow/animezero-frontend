@@ -1,21 +1,19 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { IFilm } from '@/services/films.interface'
 import Layout from '@/components/Layout/Layout'
 import Button from '@/components/ui/Button/Button'
 import { BiPlus } from 'react-icons/bi'
 
 import styles from './Film.module.scss'
-import { AiFillBell, AiFillEye } from 'react-icons/ai'
+import { AiFillEye } from 'react-icons/ai'
 import { api } from '@/store/api/api'
 import { useAuth } from '@/hooks/useAuth'
-import { Menu } from '@headlessui/react'
-import { IoEllipsisHorizontalSharp } from 'react-icons/io5'
 import { toastr } from 'react-redux-toastr'
 
 const Film: FC<{ film: IFilm }> = ({ film }) => {
 	const [addWatchedFilm] = api.useAddWatchedFilmsMutation()
 	const [addTrackedFilm] = api.useAddTrackedFilmsMutation()
-	const [addWantToWatchFilm] = api.useAddWantToWatchFilmsMutation()
+	const [addWantToWatchFilm] = api.useAddViewedFilmsMutation()
 
 	const { token } = useAuth()
 
@@ -41,16 +39,9 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 		})
 	}
 
-	const handleWatched = () => {
-		addWatchedFilm(film.id).then(data => {
-			// @ts-ignore
-			if (!data.error) {
-				toastr.success('Успешно', 'Фильм добавлен')
-			} else {
-				toastr.error('Ошибка', 'Фильм уже добавлен')
-			}
-		})
-	}
+	useEffect(() => {
+		addWatchedFilm(film.id)
+	}, [])
 
 	return (
 		<Layout title={`AnimeZero - ${film.title}`}>
@@ -59,41 +50,13 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 					<img src={film.poster} alt={film.title} />
 					{token && (
 						<div>
-							<Button onClick={handleWantToWatch} important='secondary'>
+							<Button onClick={handleTracking} important='secondary'>
 								<BiPlus size={20} />
 								Буду смотреть
 							</Button>
-							{film.status.value === 'released' ? (
-								<Button onClick={handleTracking} important='secondary'>
-									<AiFillEye size={20} />
-								</Button>
-							) : (
-								<div className={styles.menu}>
-									<Menu>
-										<Menu.Button>
-											<IoEllipsisHorizontalSharp size={20} />
-										</Menu.Button>
-										<Menu.Items>
-											<Menu.Item>
-												{() => (
-													<button onClick={handleTracking}>
-														<AiFillBell size={20} />
-														Отслеживать
-													</button>
-												)}
-											</Menu.Item>
-											<Menu.Item>
-												{() => (
-													<button onClick={handleWatched}>
-														<AiFillEye size={20} />
-														Просмотрено
-													</button>
-												)}
-											</Menu.Item>
-										</Menu.Items>
-									</Menu>
-								</div>
-							)}
+							<Button onClick={handleWantToWatch} important='secondary'>
+								<AiFillEye size={20} />
+							</Button>
 						</div>
 					)}
 				</div>

@@ -9,24 +9,51 @@
 
 	> .aside {
 		min-width: 250px;
-		> img {
-			@apply object-cover rounded-md;
-			width: 250px;
-			height: 250px;
+		> .info {
+			> img {
+				@apply object-cover rounded-md;
+				width: 250px;
+				height: 250px;
+			}
+
+			> div {
+				@apply relative overflow-hidden transition-all bg-gray-900 rounded-md flex justify-center items-center text-gray-600;
+				width: 250px;
+				height: 250px;
+
+				&:hover > button {
+					@apply translate-y-0;
+				}
+				> input {
+					@apply hidden;
+				}
+				> button {
+					@apply bg-black bg-opacity-60 w-full py-3 transition-all absolute bottom-0 translate-y-12;
+				}
+			}
+
+			> h3 {
+				@apply text-2xl font-bold mt-4;
+			}
+
+			> p {
+				@apply text-gray-600 font-light;
+			}
 		}
 
-		> div {
-			@apply bg-gray-900 rounded-md flex justify-center items-center text-gray-600;
-			width: 250px;
-			height: 250px;
-		}
-
-		> h3 {
-			@apply text-2xl font-bold mt-4;
-		}
-
-		> p {
-			@apply text-gray-600 font-light;
+		.cropper {
+			@apply fixed w-full h-full flex items-center justify-center top-0 left-0 bg-black bg-opacity-60 z-50;
+			> div {
+				@apply flex flex-col items-end justify-center gap-4;
+				width: 400px;
+				height: 400px;
+				> img {
+					object-fit: cover;
+				}
+				> button {
+					@apply px-12 py-4;
+				}
+			}
 		}
 
 		> ul {

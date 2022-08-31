@@ -6,23 +6,25 @@ import { api } from '@/store/api/api'
 import ProfileBody from '@/components/ui/ProfileBody/ProfileBody'
 import { useRouter } from 'next/router'
 
-const Watched: FC = () => {
+const Viewed: FC = () => {
 	const { query } = useRouter()
-	const { data, isSuccess } = api.useShowWatchedFilmsQuery(
-		query.page !== undefined ? `?page=${query.page}` : ''
+	const { data, isSuccess } = api.useShowViewedFilmsQuery(
+		query.page !== undefined ? `?page=${query.page}` : '',
+		{ refetchOnMountOrArgChange: true }
 	)
 	return (
 		<Layout title='AnimeZero - Профиль'>
 			<section className={styles.profile}>
 				<Aside />
 				<ProfileBody
-					title='Недавно просмотренные'
+					title='Просмотрено'
 					films={data?.data}
 					isSuccess={isSuccess}
+					pagination={data?.meta.links}
 				/>
 			</section>
 		</Layout>
 	)
 }
 
-export default Watched
+export default Viewed

@@ -8,17 +8,19 @@ import { useRouter } from 'next/router'
 
 const Profile: FC = () => {
 	const { query } = useRouter()
-	const { data, isSuccess } = api.useShowTrackedFilmsQuery(
-		query.page !== undefined ? `?page=${query.page}` : ''
+	const { data, isSuccess } = api.useShowWatchedFilmsQuery(
+		query.page !== undefined ? `?page=${query.page}` : '',
+		{ refetchOnMountOrArgChange: true }
 	)
 	return (
 		<Layout title='AnimeZero - Профиль'>
 			<section className={styles.profile}>
 				<Aside />
 				<ProfileBody
-					title='Отслеживаемое'
+					title='Недавно просмотренные'
 					films={data?.data}
 					isSuccess={isSuccess}
+					pagination={data?.meta.links}
 				/>
 			</section>
 		</Layout>

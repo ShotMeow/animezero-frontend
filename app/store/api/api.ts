@@ -23,13 +23,20 @@ export const api = createApi({
 				body: { code }
 			})
 		}),
+		uploadAvatar: builder.mutation<void, string>({
+			query: image => ({
+				url: 'user/avatar',
+				method: 'POST',
+				body: { image }
+			})
+		}),
 		resend: builder.mutation<void, void>({
 			query: () => ({
 				url: `email/resend`,
 				method: 'POST'
 			})
 		}),
-		getProfileData: builder.query<IUser, void>({
+		getProfileData: builder.query<{ data: IUser }, string>({
 			query: () => 'user/info'
 		}),
 		showWatchedFilms: builder.query<IPaginateResponse<IFilm>, string>({
@@ -64,17 +71,17 @@ export const api = createApi({
 				method: 'DELETE'
 			})
 		}),
-		showWantToWatchFilms: builder.query<IPaginateResponse<IFilm>, string>({
+		showViewedFilms: builder.query<IPaginateResponse<IFilm>, string>({
 			query: page => `film/want-to-watch${page}`
 		}),
-		addWantToWatchFilms: builder.mutation<void, number>({
+		addViewedFilms: builder.mutation<void, number>({
 			query: film_id => ({
 				url: 'film/want-to-watch',
 				method: 'POST',
 				body: { film_id }
 			})
 		}),
-		deleteWantToWatchFilms: builder.mutation<void, number>({
+		deleteViewedFilms: builder.mutation<void, number>({
 			query: film_id => ({
 				url: `film/want-to-watch/${film_id}`,
 				method: 'DELETE'

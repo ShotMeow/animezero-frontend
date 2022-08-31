@@ -2,16 +2,16 @@ import { IAsideNav } from '@/components/pages/Profile/Aside/Aside.interface'
 
 export const asideNav: IAsideNav[] = [
 	{
-		value: 'Отслеживаемое',
+		value: 'Недавно просмотренные',
 		url: '/profile'
 	},
 	{
-		value: 'Недавно просмотренные',
-		url: '/profile/watched'
+		value: 'Отслеживаемое',
+		url: '/profile/tracked'
 	},
 	{
-		value: 'Буду смотреть',
-		url: '/profile/will-watched'
+		value: 'Просмотрено',
+		url: '/profile/viewed'
 	},
 	{
 		value: 'Настройки',
