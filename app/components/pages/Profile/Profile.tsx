@@ -2,13 +2,13 @@ import { FC } from 'react'
 import Layout from '@/components/Layout/Layout'
 import styles from './Profile.module.scss'
 import Aside from '@/components/pages/Profile/Aside/Aside'
-import { api } from '@/store/api/api'
 import ProfileBody from '@/components/ui/ProfileBody/ProfileBody'
 import { useRouter } from 'next/router'
+import { profileApi } from '@/store/api/profile.api'
 
 const Profile: FC = () => {
 	const { query } = useRouter()
-	const { data, isSuccess } = api.useShowWatchedFilmsQuery(
+	const { data, isSuccess } = profileApi.useShowWatchedFilmsQuery(
 		query.page !== undefined ? `?page=${query.page}` : '',
 		{ refetchOnMountOrArgChange: true }
 	)
@@ -20,7 +20,7 @@ const Profile: FC = () => {
 					title='Недавно просмотренные'
 					films={data?.data}
 					isSuccess={isSuccess}
-					pagination={data?.meta.links}
+					meta={data?.meta}
 				/>
 			</section>
 		</Layout>

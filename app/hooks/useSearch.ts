@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import { useDebounce } from '@/hooks/useDebounce'
-import { filmsApi } from '../store/api/films.api'
+import { filmsApi } from '@/store/api/films.api'
 
 export const useSearch = () => {
 	const [searchTerm, setSearchTerm] = useState<string>('')

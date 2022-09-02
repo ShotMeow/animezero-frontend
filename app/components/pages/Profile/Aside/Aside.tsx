@@ -3,7 +3,7 @@ import styles from '../Profile.module.scss'
 import { asideNav } from '@/components/pages/Profile/Aside/Aside.data'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { api } from '@/store/api/api'
+import { profileApi } from '@/store/api/profile.api'
 import { AiOutlineUser } from 'react-icons/ai'
 import { Cropper } from 'react-cropper'
 import 'cropperjs/dist/cropper.css'
@@ -17,10 +17,10 @@ const Aside: FC = () => {
 	const [cropData, setCropData] = useState('#')
 	const fileInput = useRef<HTMLInputElement>(null)
 	const cropperRef = useRef<HTMLImageElement>(null)
-	const { data, isSuccess } = api.useGetProfileDataQuery('', {
+	const { data, isSuccess } = profileApi.useGetProfileDataQuery('', {
 		refetchOnMountOrArgChange: true
 	})
-	const [uploadAvatar] = api.useUploadAvatarMutation()
+	const [uploadAvatar] = profileApi.useUploadAvatarMutation()
 
 	const onFileUpload = () => {
 		if (fileInput && fileInput.current) {
@@ -65,16 +65,19 @@ const Aside: FC = () => {
 			setCropper(false)
 		})
 	}
-	console.log(data)
 
 	return (
 		<aside className={styles.aside}>
 			{isSuccess && (
 				<div className={styles.info}>
 					{data.data.avatar ? (
-						<img src={data.data.avatar} alt='Аватар' />
+						<div className={styles.avatar}>
+							<img src={data.data.avatar} alt='Аватар' />
+							<button onClick={onFileUpload}>Изменить</button>
+							<input ref={fileInput} type='file' accept='.jpg, .jpeg, .png' />
+						</div>
 					) : (
-						<div>
+						<div className={styles.plug}>
 							<AiOutlineUser size={60} />
 							<button onClick={onFileUpload}>Изменить</button>
 							<input ref={fileInput} type='file' accept='.jpg, .jpeg, .png' />
@@ -100,7 +103,7 @@ const Aside: FC = () => {
 					<div>
 						<Cropper
 							src={avatar}
-							initialAspectRatio={16 / 9}
+							aspectRatio={1}
 							guides={false}
 							crop={onCrop}
 							ref={cropperRef}

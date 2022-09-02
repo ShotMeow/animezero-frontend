@@ -1,16 +1,17 @@
 import { FC } from 'react'
 import { IFilm } from '@/services/films.interface'
 import styles from './ProfileBody.module.scss'
-import { ILink } from '@/components/ui/Pagination/Pagination.interface'
 import Pagination from '@/components/ui/Pagination/Pagination'
 import ProfileCard from '@/components/ui/ProfileCard/ProfileCard'
+import { IMeta } from '@/types/user.interface'
 
 const ProfileBody: FC<{
 	title: string
 	films: IFilm[] | undefined
 	isSuccess: boolean
-	pagination?: ILink[]
-}> = ({ title, films, isSuccess, pagination }) => {
+	meta?: IMeta
+}> = ({ title, films, isSuccess, meta }) => {
+	console.log(meta)
 	return (
 		<div className={styles.body}>
 			<h2>{title}</h2>
@@ -25,7 +26,7 @@ const ProfileBody: FC<{
 					<p>Загрузка...</p>
 				)}
 			</div>
-			{pagination?.length && <Pagination links={pagination} />}
+			{meta && meta?.last_page !== 1 && <Pagination links={meta?.links} />}
 		</div>
 	)
 }
