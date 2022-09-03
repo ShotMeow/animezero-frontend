@@ -10,7 +10,7 @@ const NavItem: FC<{ item: INavItem }> = ({ item }) => {
 	return (
 		<li>
 			<Link href={item.link}>
-				<a className={asPath === item.link ? styles.active : ''}>
+				<a className={asPath.includes(item.link) ? styles.active : ''}>
 					{item.title}
 				</a>
 			</Link>

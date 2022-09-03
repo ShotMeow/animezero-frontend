@@ -61,6 +61,8 @@ const Aside: FC = () => {
 					'Ошибка',
 					'Не получилось загрузить аватар. Попробуйте позже'
 				)
+			} else {
+				toastr.success('Успех', 'Аватар успешно изменен')
 			}
 			setCropper(false)
 		})
@@ -91,7 +93,7 @@ const Aside: FC = () => {
 				{asideNav.map(item => (
 					<li key={item.url}>
 						<Link href={item.url}>
-							<a className={asPath === item.url ? styles.active : ''}>
+							<a className={asPath.includes(item.url) ? styles.active : ''}>
 								{item.value}
 							</a>
 						</Link>

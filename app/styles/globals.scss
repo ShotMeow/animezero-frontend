@@ -26,12 +26,27 @@ button {
 }
 
 .redux-toastr {
+	.rrt-holder {
+		@apply flex items-center justify-center;
+	}
 	.toastr {
 		@apply shadow;
 		background-color: #272532;
 
+		.rrt-left-container {
+			@apply hidden;
+		}
+
+		.rrt-middle-container {
+			@apply w-3/4 ml-4;
+		}
+
 		&.rrt-success {
 			@apply bg-primary;
+
+			.rrt-progressbar {
+				background-color: #5135c6;
+			}
 		}
 
 		&.rrt-warning {

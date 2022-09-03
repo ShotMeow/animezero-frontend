@@ -4,11 +4,11 @@ import Aside from '@/components/pages/Profile/Aside/Aside'
 import Layout from '@/components/Layout/Layout'
 import ProfileBody from '@/components/ui/ProfileBody/ProfileBody'
 import { useRouter } from 'next/router'
-import { profileApi } from '@/store/api/profile.api'
+import { filmsApi } from '@/store/api/films.api'
 
 const Tracked: FC = () => {
 	const { query } = useRouter()
-	const { data, isSuccess } = profileApi.useShowTrackedFilmsQuery(
+	const { data, isSuccess } = filmsApi.useShowTrackedFilmsQuery(
 		query.page !== undefined ? `?page=${query.page}` : '',
 		{ refetchOnMountOrArgChange: true }
 	)

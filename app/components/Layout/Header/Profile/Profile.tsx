@@ -36,7 +36,7 @@ const Profile: FC = () => {
 							Выйти
 						</Button>
 					) : (
-						<Link href={'/profile'}>
+						<Link href={'/profile/recently'}>
 							<a>
 								<Button important='primary'>Профиль</Button>
 							</a>

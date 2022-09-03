@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import Layout from '@/components/Layout/Layout'
-import styles from './Profile.module.scss'
+import styles from '../Profile.module.scss'
 import Aside from '@/components/pages/Profile/Aside/Aside'
 import ProfileBody from '@/components/ui/ProfileBody/ProfileBody'
 import { useRouter } from 'next/router'
-import { profileApi } from '@/store/api/profile.api'
+import { filmsApi } from '@/store/api/films.api'
 
-const Profile: FC = () => {
+const Recently: FC = () => {
 	const { query } = useRouter()
-	const { data, isSuccess } = profileApi.useShowWatchedFilmsQuery(
+	const { data, isSuccess } = filmsApi.useShowWatchedFilmsQuery(
 		query.page !== undefined ? `?page=${query.page}` : '',
 		{ refetchOnMountOrArgChange: true }
 	)
@@ -27,4 +27,4 @@ const Profile: FC = () => {
 	)
 }
 
-export default Profile
+export default Recently

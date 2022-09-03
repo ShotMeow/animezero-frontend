@@ -14,7 +14,7 @@ const Footer: FC = () => {
 					<h3>Разделы</h3>
 					<ul>
 						<li>
-							<Link href='/'>
+							<Link href={'/catalog'}>
 								<a>Каталог</a>
 							</Link>
 						</li>

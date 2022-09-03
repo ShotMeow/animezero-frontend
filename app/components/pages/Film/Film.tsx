@@ -6,14 +6,14 @@ import { BiPlus } from 'react-icons/bi'
 
 import styles from './Film.module.scss'
 import { AiFillEye } from 'react-icons/ai'
-import { api } from '@/store/api/api'
 import { useAuth } from '@/hooks/useAuth'
 import { toastr } from 'react-redux-toastr'
+import { filmsApi } from '@/store/api/films.api'
 
 const Film: FC<{ film: IFilm }> = ({ film }) => {
-	const [addWatchedFilm] = api.useAddWatchedFilmsMutation()
-	const [addTrackedFilm] = api.useAddTrackedFilmsMutation()
-	const [addWantToWatchFilm] = api.useAddViewedFilmsMutation()
+	const [addWatchedFilm] = filmsApi.useAddWatchedFilmsMutation()
+	const [addTrackedFilm] = filmsApi.useAddTrackedFilmsMutation()
+	const [addWantToWatchFilm] = filmsApi.useAddViewedFilmsMutation()
 
 	const { token } = useAuth()
 
@@ -40,7 +40,7 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 	}
 
 	useEffect(() => {
-		addWatchedFilm(film.id)
+		token && addWatchedFilm(film.id)
 	}, [])
 
 	return (

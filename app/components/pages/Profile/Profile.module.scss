@@ -85,9 +85,10 @@
 			@apply text-2xl font-bold mb-2;
 		}
 		> .settings {
-			@apply flex flex-col gap-6 items-start mt-6;
+			@apply flex flex-col gap-6 items-start mt-6 w-1/4;
+			min-width: 300px;
 			> label {
-				@apply text-xl w-full font-bold flex flex-col gap-2 space-y-3;
+				@apply text-xl font-bold w-full flex flex-col gap-2 space-y-3;
 				input {
 					@apply text-base font-normal;
 				}
@@ -99,6 +100,10 @@
 
 			> button {
 				@apply justify-center;
+
+				@media (max-width: 1023px) {
+					@apply w-full;
+				}
 			}
 		}
 	}

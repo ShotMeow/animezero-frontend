@@ -16,7 +16,7 @@
       > div:first-child {
         @apply flex flex-col items-center gap-2;
         > h3 {
-          @apply text-2xl font-bold;
+          @apply text-2xl font-bold text-center;
         }
 
         > p {
@@ -57,6 +57,8 @@
 
         > button {
           @apply w-full justify-center mt-4 mb-6;
+          color: white !important;
+          font-weight: normal !important;
         }
       }
 

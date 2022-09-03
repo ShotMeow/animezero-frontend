@@ -1,8 +1,8 @@
 import { NextPageAuth } from '../app/providers/private-route.interface'
-import Profile from '@/components/pages/Profile/Profile'
+import Recently from '@/components/pages/Profile/Recently/Recently'
 
 const ProfilePage: NextPageAuth = () => {
-	return <Profile />
+	return <Recently />
 }
 
 ProfilePage.isOnlyUser = true

@@ -7,6 +7,7 @@ import { setIsShow } from '@/store/modal/modal.slice'
 import Login from '@/components/ui/Modal/Login/Login'
 import Register from '@/components/ui/Modal/Register/Register'
 import Verify from '@/components/ui/Modal/Verify/Verify'
+import UpdateVerify from '@/components/ui/Modal/UpdateVerify/UpdateVerify'
 
 const Modal: FC = () => {
 	const type = useTypedSelector(store => store.modal.type)
@@ -21,6 +22,7 @@ const Modal: FC = () => {
 				{type === 'login' && <Login />}
 				{type === 'register' && <Register />}
 				{type === 'verify' && <Verify />}
+				{type === 'update-verify' && <UpdateVerify />}
 			</div>
 		</article>
 	)

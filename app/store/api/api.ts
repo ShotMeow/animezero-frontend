@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 import { API_URL } from '../../api/axios'
 import { TypeRootState } from '../store'
+import { IUserUpdate } from '@/types/user.interface'
 
 export const api = createApi({
 	reducerPath: 'api',
@@ -16,19 +17,32 @@ export const api = createApi({
 	endpoints: builder => ({
 		verify: builder.mutation<void, string>({
 			query: code => ({
-				url: `email/verify`,
+				url: 'email/verify',
 				method: 'POST',
 				body: { code }
 			})
 		}),
 		resend: builder.mutation<void, void>({
 			query: () => ({
-				url: `email/resend`,
+				url: 'email/resend',
 				method: 'POST'
 			})
 		}),
 		logout: builder.mutation<void, void>({
 			query: () => 'user/logout'
+		}),
+		requestCode: builder.mutation<void, void>({
+			query: () => ({
+				url: 'user/request-code',
+				method: 'POST'
+			})
+		}),
+		update: builder.mutation<void, IUserUpdate>({
+			query: data => ({
+				url: 'user/update',
+				method: 'POST',
+				body: { ...data }
+			})
 		})
 	})
 })

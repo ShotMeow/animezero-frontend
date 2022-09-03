@@ -9,7 +9,7 @@
 }
 
 .error {
-  @apply text-red-600 top-20 mt-2 flex items-center gap-2;
+  @apply text-base font-normal text-red-600 top-20 mt-2 flex items-center gap-2;
 
   .circle {
     @apply relative flex h-2 w-2;

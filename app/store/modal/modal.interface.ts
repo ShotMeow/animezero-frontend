@@ -1,4 +1,4 @@
-type ModalType = 'login' | 'register' | 'verify'
+type ModalType = 'login' | 'register' | 'verify' | 'update-verify'
 
 export interface IModal {
 	type: ModalType

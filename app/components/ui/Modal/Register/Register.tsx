@@ -24,15 +24,15 @@ const Register: FC = () => {
 			return setError('password_repeat', {
 				message: 'Пароли не совпадают'
 			})
-		dispatch(registration(data))
-			.then(() => {
-				dispatch(changeType('verify'))
+		dispatch(registration(data)).then(data => {
+			// @ts-ignore
+			if (!data.error) {
+				return dispatch(changeType('verify'))
+			}
+			return setError('password_repeat', {
+				message: 'Ошибка на сервере. Попробуйте позже'
 			})
-			.catch(() => {
-				setError('password_repeat', {
-					message: 'Ошибка на сервере. Попробуйте позже'
-				})
-			})
+		})
 	}
 
 	return (

@@ -3,7 +3,7 @@ import { IAsideNav } from '@/components/pages/Profile/Aside/Aside.interface'
 export const asideNav: IAsideNav[] = [
 	{
 		value: 'Недавно просмотренные',
-		url: '/profile'
+		url: '/profile/recently'
 	},
 	{
 		value: 'Отслеживаемое',

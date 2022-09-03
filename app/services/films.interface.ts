@@ -60,3 +60,8 @@ export interface IFilter {
 	genres: IGenre[]
 	statuses: IStatus[]
 }
+
+export interface IError {
+	code: number
+	error: any
+}
