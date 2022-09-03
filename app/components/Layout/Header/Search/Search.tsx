@@ -33,7 +33,11 @@ const Search: FC = () => {
 						<div>
 							<h5>Фильмы и сериалы</h5>
 							{data.map(film => (
-								<SearchTermItem key={film.id} film={film} />
+								<SearchTermItem
+									setIsShow={setIsShow}
+									key={film.id}
+									film={film}
+								/>
 							))}
 						</div>
 					) : (

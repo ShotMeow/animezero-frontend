@@ -21,9 +21,9 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 		addTrackedFilm(film.id).then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				toastr.success('Успешно', 'Фильм добавлен')
+				toastr.success('Успешно', 'Фильм добавлен в "Отслеживаемое"')
 			} else {
-				toastr.error('Ошибка', 'Фильм уже добавлен')
+				toastr.error('Ошибка', 'Фильм уже добавлен в "Отслеживаемое"')
 			}
 		})
 	}
@@ -32,9 +32,9 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 		addWantToWatchFilm(film.id).then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				toastr.success('Успешно', 'Фильм добавлен')
+				toastr.success('Успешно', 'Фильм добавлен в "Просмотрено"')
 			} else {
-				toastr.error('Ошибка', 'Фильм уже добавлен')
+				toastr.error('Ошибка', 'Фильм уже добавлен в "Просмотрено"')
 			}
 		})
 	}

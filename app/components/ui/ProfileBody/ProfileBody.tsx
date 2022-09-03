@@ -26,7 +26,7 @@ const ProfileBody: FC<{
 					<p>Загрузка...</p>
 				)}
 			</div>
-			{meta && meta?.last_page !== 1 && <Pagination links={meta?.links} />}
+			{meta && meta?.last_page !== 1 && <Pagination links={meta.links} />}
 		</div>
 	)
 }

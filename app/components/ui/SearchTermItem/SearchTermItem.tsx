@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 import { IFilm } from '@/services/films.interface'
 import Link from 'next/link'
 import Button from '@/components/ui/Button/Button'
@@ -7,12 +7,15 @@ import { ratingReduceHelper } from '@/helpers/rating-reduce.helper'
 import { ratingColorHelper } from '@/helpers/rating-color.helper'
 import cn from 'classnames'
 
-const SearchTermItem: FC<{ film: IFilm }> = ({ film }) => {
+const SearchTermItem: FC<{
+	film: IFilm
+	setIsShow: Dispatch<SetStateAction<boolean>>
+}> = ({ film, setIsShow }) => {
 	const rating = ratingColorHelper(film.rating)
 	return (
 		<Link href={`/films/${film.id}`}>
 			<a>
-				<article className={styles.film}>
+				<article onClick={() => setIsShow(false)} className={styles.film}>
 					<div>
 						<img src={film.poster} alt={film.title} />
 						<div>

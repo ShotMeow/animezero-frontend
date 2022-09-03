@@ -1,5 +1,3 @@
-import { ILink } from '@/components/ui/Pagination/Pagination.interface'
-
 export interface IUser {
 	id: number
 	login: string
@@ -19,6 +17,12 @@ export interface IMeta {
 }
 
 export interface IMetaLink {
+	url?: string
+	label: string
+	active: boolean
+}
+
+export interface ILink {
 	first: string
 	last: string
 	prev?: string

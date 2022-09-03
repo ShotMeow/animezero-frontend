@@ -9,6 +9,7 @@
     }
 
     > li {
+      @apply flex items-center justify-center;
       &.active {
         > button {
           @apply text-white bg-primary px-1 rounded-md;

@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import { ILink } from '@/components/ui/Pagination/Pagination.interface'
 import { useRouter } from 'next/router'
 import styles from './Pagination.module.scss'
 import cn from 'classnames'
+import { IMetaLink } from '@/types/user.interface'
 
-const Pagination: FC<{ links: ILink[] }> = ({ links }) => {
+const Pagination: FC<{ links: IMetaLink[] }> = ({ links }) => {
 	const router = useRouter()
 	const currentLinks = links.slice(1, links.length - 1)
 
