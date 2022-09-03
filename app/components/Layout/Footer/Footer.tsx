@@ -1,10 +1,11 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import { FaInstagram, FaTelegramPlane } from 'react-icons/fa'
+import { FaTelegramPlane } from 'react-icons/fa'
 import { AiOutlineMail } from 'react-icons/ai'
 import Button from '@/components/ui/Button/Button'
 import styles from './Footer.module.scss'
 import global from '../Layout.module.scss'
+import { IoLogoVk } from 'react-icons/io'
 
 const Footer: FC = () => {
 	return (
@@ -59,17 +60,17 @@ const Footer: FC = () => {
 					<h3>Мы в социальных сетях</h3>
 					<ul>
 						<li>
-							<a href='#'>
+							<a href='https://t.me/+-NG8FAIfeagxNmM6'>
 								<FaTelegramPlane size={20} />
 							</a>
 						</li>
 						<li>
-							<a href='#'>
-								<FaInstagram size={20} />
+							<a href='https://vk.com/kino_animezero'>
+								<IoLogoVk size={20} />
 							</a>
 						</li>
 						<li>
-							<a href='#'>
+							<a href='mailto:admin@animezero.ru'>
 								<AiOutlineMail size={20} />
 							</a>
 						</li>
@@ -77,7 +78,9 @@ const Footer: FC = () => {
 				</div>
 				<div>
 					<h3>Поддержка</h3>
-					<Button important='primary'>Написать в чате</Button>
+					<a href='https://vk.com/im?media=&sel=-215749739'>
+						<Button important='primary'>Написать в чате</Button>
+					</a>
 				</div>
 			</div>
 			<p>© 2022 AnimeZero. Все права защищены.</p>
