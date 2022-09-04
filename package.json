@@ -20,7 +20,6 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.34.0",
     "react-icons": "^4.4.0",
-    "react-loading-skeleton": "^3.1.0",
     "react-redux": "^8.0.2",
     "react-redux-toastr": "^7.6.9",
     "redux-persist": "^6.0.0",
