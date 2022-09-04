@@ -2,11 +2,11 @@ import { GetServerSideProps, NextPage } from 'next'
 import Films from '@/components/pages/Films/Films'
 import { IFilm, IFilter, IGenre, IStatus } from '@/services/films.interface'
 import { FilmsService } from '@/services/films.service'
-import { ILink } from '@/components/ui/Pagination/Pagination.interface'
+import { ILink, IMetaLink } from '@/types/user.interface'
 
 const FilmsPage: NextPage<{
 	films: IFilm[]
-	links: ILink[]
+	links: IMetaLink[]
 	filters: IFilter
 }> = ({ films, links, filters }) => {
 	return <Films films={films} links={links} filters={filters} />

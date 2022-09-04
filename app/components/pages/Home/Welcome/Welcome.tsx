@@ -34,15 +34,6 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 							</Button>
 						</a>
 					</Link>
-					<div>
-						<div className={styles.circle}>
-							<div />
-							<div />
-						</div>
-						<p>
-							<span>1</span> смотрят
-						</p>
-					</div>
 				</div>
 			</div>
 			<div className={styles.films}>

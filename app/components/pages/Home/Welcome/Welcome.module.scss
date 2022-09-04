@@ -46,26 +46,6 @@
           @apply hidden;
         }
       }
-
-      .circle {
-        @apply relative flex h-3 w-3;
-
-        > div:first-child {
-          @apply animate-ping absolute h-full w-full rounded-full bg-primary opacity-75;
-        }
-
-        > div:last-child {
-          @apply rounded-full h-3 w-3 bg-primary;
-        }
-      }
-
-      > p {
-        @apply text-lg;
-
-        > span {
-          @apply font-bold;
-        }
-      }
     }
   }
 

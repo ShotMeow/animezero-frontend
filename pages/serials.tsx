@@ -2,11 +2,11 @@ import { GetServerSideProps, NextPage } from 'next'
 import Serials from '@/components/pages/Serials/Serials'
 import { FilmsService } from '@/services/films.service'
 import { IFilm, IFilter, IGenre, IStatus } from '@/services/films.interface'
-import { ILink } from '@/components/ui/Pagination/Pagination.interface'
+import { IMetaLink } from '@/types/user.interface'
 
 const SerialsPage: NextPage<{
 	serials: IFilm[]
-	links: ILink[]
+	links: IMetaLink[]
 	filters: IFilter
 }> = ({ serials, links, filters }) => {
 	return <Serials serials={serials} links={links} filters={filters} />
@@ -32,12 +32,12 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 		return {
 			props: {
 				serials: serials.data as IFilm[],
-				links: serials.meta.links as ILink[],
+				links: serials.meta.links as IMetaLink[],
 				filters: {
 					genres: genres.data as IGenre[],
 					statuses: statuses.data as IStatus[]
 				}
-			} as { serials: IFilm[]; links: ILink[]; filters: IFilter }
+			} as { serials: IFilm[]; links: IMetaLink[]; filters: IFilter }
 		}
 	} catch (e) {
 		return {
