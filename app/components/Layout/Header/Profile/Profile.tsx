@@ -5,16 +5,16 @@ import { BiLogIn } from 'react-icons/bi'
 import styles from './Profile.module.scss'
 import { useTypedDispatch } from '@/hooks/useTypedDispatch'
 import { setIsShow } from '@/store/modal/modal.slice'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { api } from '@/store/api/api'
 import { logout } from '@/store/auth/auth.actions'
+import { profileApi } from '@/store/api/profile.api'
 
 const Profile: FC = () => {
 	const dispatch = useTypedDispatch()
 	const { asPath, push } = useRouter()
-	const login = useTypedSelector(store => store.auth.user.login)
+	const { isSuccess } = profileApi.useGetProfileDataQuery('')
 	const [logoutMutation] = api.useLogoutMutation()
 
 	const handleClick = () => {
@@ -29,7 +29,7 @@ const Profile: FC = () => {
 
 	return (
 		<>
-			{login ? (
+			{isSuccess ? (
 				<div className={styles.action}>
 					{asPath.includes('profile') ? (
 						<Button onClick={handleLogout} important='primary'>

@@ -7,7 +7,7 @@ export const navData: INavItem[] = [
 	},
 	{
 		title: 'Фильмы',
-		link: '/films'
+		link: '/movies'
 	},
 	{
 		title: 'Сериалы',

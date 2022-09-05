@@ -39,7 +39,7 @@ const Menu: FC = () => {
 							Главная
 						</a>
 					</Link>
-					<Link href={'/films'}>
+					<Link href={'/movies'}>
 						<a>
 							<IoFilmSharp size={20} />
 							Фильмы

@@ -14,7 +14,7 @@ export const useSearch = () => {
 		{
 			skip: !debounceSearch,
 			selectFromResult: ({ data, ...rest }) => ({
-				data: data?.data.slice(0, 4),
+				data: data?.data.slice(0, 6),
 				...rest
 			})
 		}

@@ -18,7 +18,9 @@ const Partnership: FC = () => {
 					обратившись в чате:
 				</p>
 				<div>
-					<Button important='primary'>Поддержка</Button>
+					<a href='https://vk.com/im?media=&sel=-215749739'>
+						<Button important='primary'>Поддержка</Button>
+					</a>
 					<p>
 						Или на почту:
 						<a href='mailto:admin@animezero.ru'>admin@animezero.ru</a>
