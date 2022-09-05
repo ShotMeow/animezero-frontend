@@ -11,7 +11,7 @@ const Header: FC = () => {
 	return (
 		<header className={styles.header}>
 			<div>
-				<Link href='/catalog'>
+				<Link href={'/'}>
 					<a>
 						Anime<span>Zero</span>
 					</a>

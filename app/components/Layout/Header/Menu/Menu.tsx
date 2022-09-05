@@ -24,7 +24,7 @@ const Menu: FC = () => {
 	return (
 		<div className={styles.menu}>
 			<header>
-				<Link href='/'>
+				<Link href={'/'}>
 					<a>
 						Anime<span>Zero</span>
 					</a>

@@ -6,11 +6,11 @@ import Link from 'next/link'
 import styles from './Nav.module.scss'
 
 const NavItem: FC<{ item: INavItem }> = ({ item }) => {
-	const { asPath } = useRouter()
+	const { pathname } = useRouter()
 	return (
 		<li>
 			<Link href={item.link}>
-				<a className={asPath.includes(item.link) ? styles.active : ''}>
+				<a className={pathname === item.link ? styles.active : ''}>
 					{item.title}
 				</a>
 			</Link>
