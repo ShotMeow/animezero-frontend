@@ -6,6 +6,11 @@
     @apply pt-6 w-full;
   }
 
+  @media (max-width: 640px) {
+    @apply px-4;
+  }
+
+
   .bread {
     @apply flex items-center gap-2;
     white-space: nowrap;

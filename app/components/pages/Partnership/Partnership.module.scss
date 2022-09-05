@@ -5,6 +5,10 @@
     @apply mb-10;
   }
 
+  @media (max-width: 640px) {
+    @apply px-4;
+  }
+
   > p {
     @apply text-lg mb-6;
   }

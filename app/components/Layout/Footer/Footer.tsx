@@ -20,7 +20,7 @@ const Footer: FC = () => {
 							</Link>
 						</li>
 						<li>
-							<Link href={'/movies'}>
+							<Link href={'/films'}>
 								<a>Фильмы</a>
 							</Link>
 						</li>

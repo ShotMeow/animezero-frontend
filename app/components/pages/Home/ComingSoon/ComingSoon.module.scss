@@ -1,18 +1,12 @@
-.coming_soon {
+.comingSoon {
   @apply bg-gray-800 p-12 my-12;
 
-  @media (max-width: 500px) {
+  @media (max-width: 640px) {
     @apply py-4 px-4;
   }
 
   > header {
     @apply flex justify-between;
-
-    button {
-      @media (max-width: 480px) {
-        @apply px-2;
-      }
-    }
   }
 
   @media (max-width: 424px) {

@@ -1,6 +1,10 @@
 .holder {
   @apply mt-4 mb-16;
 
+  @media (max-width: 640px) {
+    @apply px-4;
+  }
+
   strong {
     @apply text-primary;
   }

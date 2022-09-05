@@ -1,4 +1,7 @@
 .header {
+	@media (max-width: 640px) {
+		@apply px-4;
+	}
 	> div:first-child {
 		@apply fixed top-0 w-full container mx-auto z-50 flex bg-black justify-between items-center gap-4;
 

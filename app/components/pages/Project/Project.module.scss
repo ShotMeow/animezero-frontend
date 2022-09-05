@@ -1,6 +1,10 @@
 .project {
   @apply my-4 mb-40;
 
+  @media (max-width: 640px) {
+    @apply px-4;
+  }
+
   > h3 {
     @apply text-2xl;
   }

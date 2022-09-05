@@ -4,7 +4,7 @@
   > div {
     @apply flex justify-between;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1023px) {
       @apply flex-col items-center gap-8 text-center;
     }
 

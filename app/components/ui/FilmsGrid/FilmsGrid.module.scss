@@ -1,8 +1,12 @@
 .grid {
 	@apply flex flex-col items-end gap-6;
 
+	@media (max-width: 1023px) {
+		@apply items-center;
+	}
+
 	.container {
-		@apply w-full gap-6;
+		@apply w-full;
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
 
@@ -22,12 +26,14 @@
 			grid-template-columns: repeat(2, 1fr);
 		}
 
-		@media (max-width: 449px) {
-			grid-template-columns: 1fr;
+		@media (max-width: 425px) {
+			grid-template-columns: repeat(3, 1fr);
 		}
 
-		> article {
-			@apply mb-8;
+
+
+		> a {
+			@apply mb-4;
 		}
 
 		> a > article {

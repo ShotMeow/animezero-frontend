@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 	return (
-		<section className={styles.coming_soon}>
+		<section className={styles.comingSoon}>
 			<header>
 				<Subtitle title='Онгоинги'>
 					<BiAtom size={24} />
