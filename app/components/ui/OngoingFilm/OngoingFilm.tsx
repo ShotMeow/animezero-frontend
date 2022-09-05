@@ -6,6 +6,7 @@ import { IFilm } from '@/services/films.interface'
 import { filmsApi } from '@/store/api/films.api'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { toastr } from 'react-redux-toastr'
+import Link from 'next/link'
 
 const OngoingFilm: FC<{ film: IFilm }> = ({ film }) => {
 	const genres = [film.genres[0].name, film.genres[1].name]
@@ -28,7 +29,11 @@ const OngoingFilm: FC<{ film: IFilm }> = ({ film }) => {
 	}
 	return (
 		<article className={styles.ongoing_film}>
-			<img src={film.poster} alt={film.title} />
+			<Link href={`movies/${film.id}`}>
+				<a>
+					<img src={film.poster} alt={film.title} />
+				</a>
+			</Link>
 			<div>
 				<h3>
 					{film.title} ({film.year})

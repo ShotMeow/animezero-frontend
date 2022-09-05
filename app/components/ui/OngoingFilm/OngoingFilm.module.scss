@@ -1,5 +1,5 @@
 .ongoing_film {
-  @apply flex gap-4 w-3/4;
+  @apply flex gap-4;
 
   @media (max-width: 768px) {
     @apply w-full;
@@ -9,14 +9,14 @@
     @apply flex-col items-center;
   }
 
-  > img {
+  > a, img {
     @apply object-cover rounded-md;
     width: 180px;
     height: 240px;
   }
 
   > div {
-    @apply flex flex-col gap-2 justify-between items-start;
+    @apply flex flex-col gap-2 justify-between items-start w-2/4;
     @media (max-width: 460px) {
       @apply justify-start gap-6 items-center;
     }

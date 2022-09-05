@@ -7,7 +7,7 @@ import { IFilm } from '@/services/films.interface'
 
 const FilmBig: FC<{ film: IFilm }> = ({ film }) => {
 	return (
-		<Link href={`films/${film.id}`}>
+		<Link href={`/movies/${film.id}`}>
 			<a>
 				<article
 					className={styles.film_big}

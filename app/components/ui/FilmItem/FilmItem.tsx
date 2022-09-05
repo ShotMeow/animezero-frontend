@@ -7,7 +7,7 @@ import { ratingReduceHelper } from '@/helpers/rating-reduce.helper'
 
 const FilmItem: FC<{ film: IFilm }> = ({ film }) => {
 	return (
-		<Link href={`/films/${film.id}`}>
+		<Link href={`/movies/${film.id}`}>
 			<a>
 				<article className={styles.film}>
 					<span>{ratingReduceHelper(film.rating)}</span>
