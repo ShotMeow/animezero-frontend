@@ -37,7 +37,7 @@ const RightHolder: FC = () => {
 					Для этого вы можете обратиться в поддержку или отправить сообщение на
 					нашу корпоративную почту
 					<a href='mailto:admin@animezero.ru'>
-						<strong> admin@animezero.ru</strong>
+						<strong> admin@animezero.ru </strong>
 					</a>
 					со следующим содержанием:
 				</p>
