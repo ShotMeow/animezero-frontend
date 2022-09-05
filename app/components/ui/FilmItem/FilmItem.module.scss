@@ -26,7 +26,7 @@
     @apply relative overflow-hidden;
 
     > img {
-      @apply w-full rounded-t-md;
+      @apply w-full rounded-t-md object-cover;
       transition: all 0.5s ease;
       height: 280px;
     }
@@ -41,10 +41,37 @@
   > footer {
     > h3 {
       @apply font-semibold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     > p {
       @apply text-gray-400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  @media (max-width: 424px) {
+    width: 80px;
+    > span {
+      @apply px-2 top-2;
+      font-size: 10px;
+    }
+    > header {
+      > img {
+        height: 115px;
+      }
+
+      > button {
+        @apply hidden;
+      }
+    }
+    > footer {
+      @apply text-xs;
     }
   }
 }

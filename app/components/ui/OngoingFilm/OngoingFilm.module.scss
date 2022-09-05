@@ -1,7 +1,7 @@
 .ongoing_film {
   @apply flex gap-4;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     @apply w-full;
   }
 
@@ -12,7 +12,7 @@
   > a, img {
     @apply object-cover rounded-md;
     width: 180px;
-    height: 240px;
+    height: 248px;
   }
 
   > div {
@@ -23,6 +23,12 @@
 
     > h3 {
       @apply text-lg font-bold;
+      height: 30%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
 
       @media (max-width: 460px) {
         @apply text-center;
@@ -30,6 +36,13 @@
     }
 
     .genres {
+      height: 25%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
       @media (max-width: 460px) {
         @apply hidden;
       }
@@ -40,6 +53,13 @@
     }
 
     .ages {
+      height: 40%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+
       @media (max-width: 460px) {
         @apply hidden;
       }
@@ -47,6 +67,24 @@
       > span {
         @apply font-bold;
       }
+    }
+  }
+
+  @media (max-width: 424px) {
+    > a, img {
+      @apply rounded-b-none;
+      width: 80px;
+      height: 115px;
+    }
+
+    > div > h3 {
+      @apply text-xs;
+      height: 100%;
+      -webkit-line-clamp: 4;
+    }
+
+    button {
+      @apply hidden;
     }
   }
 }

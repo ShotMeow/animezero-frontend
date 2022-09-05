@@ -18,7 +18,7 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 				<Subtitle title='Новинки'>
 					<MdGraphicEq size={24} />
 				</Subtitle>
-				<Link href={'novelties'}>
+				<Link href={'/novelties'}>
 					<a>
 						<Button important='primary'>Показать все</Button>
 					</a>
@@ -29,10 +29,16 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 					slidesPerView={'auto'}
 					breakpoints={{
 						320: {
-							slidesPerView: 1
+							slidesPerView: 3
 						},
-						550: {
+						425: {
 							slidesPerView: 2
+						},
+						568: {
+							slidesPerView: 2.2
+						},
+						630: {
+							slidesPerView: 2.4
 						},
 						768: {
 							slidesPerView: 3
@@ -47,7 +53,7 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 							slidesPerView: 6
 						}
 					}}
-					spaceBetween={30}
+					spaceBetween={20}
 					autoplay={{
 						delay: 5000,
 						disableOnInteraction: false

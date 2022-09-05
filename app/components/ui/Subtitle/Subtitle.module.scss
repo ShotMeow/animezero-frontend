@@ -8,4 +8,10 @@
   > h2 {
     @apply text-xl;
   }
+
+  @media (max-width: 424px) {
+    h2 {
+      @apply text-base;
+    }
+  }
 }

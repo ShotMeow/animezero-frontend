@@ -15,6 +15,12 @@
     }
   }
 
+  @media (max-width: 424px) {
+    button {
+      @apply text-sm px-4;
+    }
+  }
+
   > footer {
     @apply py-8;
   }

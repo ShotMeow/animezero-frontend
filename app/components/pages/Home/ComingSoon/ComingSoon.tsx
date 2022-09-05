@@ -16,7 +16,7 @@ const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 				<Subtitle title='Онгоинги'>
 					<BiAtom size={24} />
 				</Subtitle>
-				<Link href={'ongoing'}>
+				<Link href={'/ongoing'}>
 					<a>
 						<Button important='primary'>Показать все</Button>
 					</a>
@@ -26,10 +26,20 @@ const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 				<Swiper
 					slidesPerView={'auto'}
 					breakpoints={{
-						1280: {
+						320: {
+							slidesPerView: 3
+						},
+						425: {
+							slidesPerView: 2
+						},
+						460: {
+							slidesPerView: 1.2
+						},
+						768: {
 							slidesPerView: 2
 						}
 					}}
+					spaceBetween={20}
 					autoplay={{
 						delay: 6000,
 						disableOnInteraction: false

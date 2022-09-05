@@ -17,9 +17,7 @@ const FilmItem: FC<{ film: IFilm }> = ({ film }) => {
 					</header>
 					<footer>
 						<h3>{film.title}</h3>
-						<p>
-							{film.year} {film.genres[0] && film.genres[0].name}
-						</p>
+						<p>{film.genres[0] && film.genres[0].name}</p>
 					</footer>
 				</article>
 			</a>
