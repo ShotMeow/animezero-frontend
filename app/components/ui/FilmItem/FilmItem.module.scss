@@ -1,5 +1,5 @@
 .film {
-  @apply flex flex-col gap-2 relative;
+  @apply flex flex-col gap-2 relative mx-auto;
   width: 200px;
 
   @media (max-width: 550px) {

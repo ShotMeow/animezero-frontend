@@ -4,6 +4,10 @@
 	.layout {
 		@apply container mx-auto;
 
+		@media (max-width: 670px) {
+			@apply px-4;
+		}
+
 		main {
 			@apply mt-20;
 

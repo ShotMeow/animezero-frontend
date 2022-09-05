@@ -1,5 +1,5 @@
 .films {
-  @apply grid;
+  @apply grid gap-4;
   grid-template-columns: repeat(6, 1fr);
 
   @media (max-width: 1536px) {
@@ -20,6 +20,10 @@
 
   @media (max-width: 450px) {
     grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   > article {

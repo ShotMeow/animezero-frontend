@@ -3,11 +3,12 @@
   word-wrap: anywhere;
 
   @media (max-width: 1024px) {
-    @apply px-4 pt-6 w-full;
+    @apply pt-6 w-full;
   }
 
   .bread {
     @apply flex items-center gap-2;
+    white-space: nowrap;
 
     > strong {
       @apply text-xl border-b-2 border-primary;
