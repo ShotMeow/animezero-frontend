@@ -26,7 +26,7 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 					</p>
 				</div>
 				<div className={styles.action}>
-					<Link href={`films/${randomFilmHelper(films)}`}>
+					<Link href={`/movies/${randomFilmHelper(films)}`}>
 						<a>
 							<Button important='primary'>
 								<FiPlay color='white' size={20} />
