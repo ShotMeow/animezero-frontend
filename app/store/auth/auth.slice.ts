@@ -18,6 +18,7 @@ export const authSlice = createSlice({
 	reducers: {
 		setToken: (state, { payload }) => {
 			state.token = payload
+			state.tempToken = ''
 		}
 	},
 	extraReducers: builder => {

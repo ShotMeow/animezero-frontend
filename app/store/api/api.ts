@@ -5,6 +5,7 @@ import { IUserUpdate } from '@/types/user.interface'
 
 export const api = createApi({
 	reducerPath: 'api',
+	tagTypes: ['User', 'Watched', 'Tracked', 'Viewed'],
 	baseQuery: fetchBaseQuery({
 		baseUrl: API_URL,
 		prepareHeaders: (headers, { getState }) => {
