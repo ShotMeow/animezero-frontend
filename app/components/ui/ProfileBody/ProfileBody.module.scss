@@ -1,5 +1,5 @@
 .body {
-	@apply flex flex-col;
+	@apply flex flex-col w-full;
 	> div {
 		@apply grid gap-4 mt-2;
 		grid-template-columns: repeat(6, 1fr);
