@@ -25,8 +25,6 @@
     <li><a href="https://github.com/axios/axios" target="_blank">Axios</a></li>
 </ul>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 <h2 align="center">Запуск репозитория</h2>
 
 Запуск сервера разработки:
