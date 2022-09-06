@@ -25,6 +25,20 @@
     <li><a href="https://github.com/axios/axios" target="_blank">Axios</a></li>
 </ul>
 
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+<h2 align="center">Запуск репозитория</h2>
+
+Запуск сервера разработки:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Откройте [http://localhost:3000](http://localhost:3000), чтобы увидеть результат.
+
 <h2 align="center">Описание системы</h2>
 <h3 align="center">Главная страница</h3>
 <div alig="center"><img src="https://media.discordapp.net/attachments/975813369846173758/1016672036724162581/010521bee1effb92.jpg"></div>
