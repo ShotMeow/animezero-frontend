@@ -27,7 +27,10 @@ const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 					slidesPerView={'auto'}
 					breakpoints={{
 						320: {
-							slidesPerView: 2.7
+							slidesPerView: 3.3
+						},
+						350: {
+							slidesPerView: 3.8
 						},
 						425: {
 							slidesPerView: 2

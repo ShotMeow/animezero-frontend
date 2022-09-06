@@ -7,7 +7,6 @@ import FilmItem from '@/components/ui/FilmItem/FilmItem'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import { Autoplay } from 'swiper'
 import { IFilm } from '@/services/films.interface'
 import Link from 'next/link'
 
@@ -29,10 +28,16 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 					slidesPerView={'auto'}
 					breakpoints={{
 						320: {
-							slidesPerView: 2.7
+							slidesPerView: 3.3
+						},
+						350: {
+							slidesPerView: 3.8
 						},
 						425: {
-							slidesPerView: 1.6
+							slidesPerView: 1.8
+						},
+						460: {
+							slidesPerView: 2
 						},
 						568: {
 							slidesPerView: 2.2
@@ -54,12 +59,6 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 						}
 					}}
 					spaceBetween={20}
-					autoplay={{
-						delay: 5000,
-						disableOnInteraction: false
-					}}
-					loop
-					modules={[Autoplay]}
 				>
 					{films.map(film => (
 						<SwiperSlide key={film.id}>
