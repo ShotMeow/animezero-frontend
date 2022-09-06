@@ -8,11 +8,13 @@ import { useTypedDispatch } from '@/hooks/useTypedDispatch'
 import { setIsShow } from '@/store/modal/modal.slice'
 import { toastr } from 'react-redux-toastr'
 import { IInfo } from '@/components/ui/Modal/Verify/Verify.interface'
+import { setToken } from '@/store/auth/auth.slice'
 
 const Verify: FC = () => {
 	const [info, setInfo] = useState<IInfo>({} as IInfo)
 	const [value, setValue] = useState<string>('')
 	const email = useTypedSelector(store => store.auth.user.email)
+	const tempToken = useTypedSelector(store => store.auth.tempToken)
 	const [resend] = api.useResendMutation()
 	const [verify] = api.useVerifyMutation()
 	const dispatch = useTypedDispatch()
@@ -39,6 +41,7 @@ const Verify: FC = () => {
 				// @ts-ignore
 			} else if (!data.error) {
 				toastr.success('Авторизация', 'Ты успешно авторизовался')
+				dispatch(setToken(tempToken))
 				dispatch(setIsShow())
 			} else {
 				setInfo({ type: 'error', body: 'Код введен неверно' })
