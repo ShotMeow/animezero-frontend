@@ -24,3 +24,13 @@
     <li><a href="https://github.com/diegoddox/react-redux-toastr" target="_blank">Redux Toastr</a></li>
     <li><a href="https://github.com/axios/axios" target="_blank">Axios</a></li>
 </ul>
+
+<h2 align="center">Описание системы</h2>
+<h3 align="center">Главная страница</h3>
+<div alig="center"><img src="https://media.discordapp.net/attachments/975813369846173758/1016672036724162581/010521bee1effb92.jpg"></div>
+<h3 align="center">Фильмы</h3>
+<div alig="center"><img src="https://media.discordapp.net/attachments/975813369846173758/1016673094699601930/bcef3aba3cbd9415.jpg"></div>
+<h3 align="center">Личный кабинет</h3>
+<div alig="center"><img src="https://media.discordapp.net/attachments/975813369846173758/1016673699878936636/0bd91aa8d9a57572.jpg"></div>
+<h3 align="center">Страница фильма</h3>
+<div alig="center"><img src="https://media.discordapp.net/attachments/975813369846173758/1016674640556462141/f282b8fa647e5e29.jpg"></div>
