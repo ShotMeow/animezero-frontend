@@ -3,12 +3,12 @@
   animation: fadeIn 0.3s;
 
   > div {
-    @apply overflow-y-auto flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
+    @apply flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
     width: 480px;
     animation: sizeIn 0.2s;
 
     @media (max-width: 500px) {
-      @apply h-full w-full;
+      @apply h-full w-full overflow-y-auto;
     }
 
     > form {

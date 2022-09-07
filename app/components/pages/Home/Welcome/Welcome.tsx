@@ -40,7 +40,7 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 				<div>
 					<div>
 						{filmsArray[0].map(film => (
-							<Link href={`films/${film.id}`} key={film.id}>
+							<Link href={`movies/${film.id}`} key={film.id}>
 								<a>
 									<img src={film.poster} alt={film.title} />
 								</a>
@@ -49,7 +49,7 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 					</div>
 					<div>
 						{filmsArray[1].map(film => (
-							<Link href={`films/${film.id}`} key={film.id}>
+							<Link href={`movies/${film.id}`} key={film.id}>
 								<a>
 									<img src={film.poster} alt={film.title} />
 								</a>
@@ -58,7 +58,7 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 					</div>
 					<div>
 						{filmsArray[2].map(film => (
-							<Link href={`films/${film.id}`} key={film.id}>
+							<Link href={`movies/${film.id}`} key={film.id}>
 								<a>
 									<img src={film.poster} alt={film.title} />
 								</a>

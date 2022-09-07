@@ -13,7 +13,7 @@ const SearchTermItem: FC<{
 }> = ({ film, setIsShow }) => {
 	const rating = ratingColorHelper(film.rating)
 	return (
-		<Link href={`/films/${film.id}`}>
+		<Link href={`/movies/${film.id}`}>
 			<a>
 				<article onClick={() => setIsShow(false)} className={styles.film}>
 					<div>
