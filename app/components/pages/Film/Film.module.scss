@@ -23,10 +23,6 @@
       }
     }
 
-    @media (max-width: 768px) {
-      @apply hidden;
-    }
-
     > img {
       @apply w-full rounded-md;
     }
@@ -98,6 +94,22 @@
             @apply text-lg font-bold text-white;
           }
         }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    @apply flex-col-reverse;
+    > .poster {
+      @apply w-full;
+      > div {
+        @apply flex-row;
+        > button {
+          @apply px-8 py-4;
+        }
+      }
+      > img {
+        @apply hidden;
       }
     }
   }
