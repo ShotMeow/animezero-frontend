@@ -2,10 +2,12 @@ import { axiosClassic } from '../api/axios'
 import { BlockTypes, IFilm, IGenre, IGetAllByParams, IStatus } from '@/app/services/films.interface'
 import { IResponse } from '../interfaces/IResponse'
 import { IPaginateResponse } from '@/app/types/user.interface'
+import { IHomePage } from '@/app/interfaces/IHomePage'
 
 export const FilmsService = {
 	async getAll(blocks: BlockTypes[]) {
-		return axiosClassic.get(`/homepage?blocks=${blocks.toString()}`)
+		const res = await axiosClassic.get<IResponse<IHomePage>>(`/homepage?blocks=${blocks.toString()}`)
+		return res.data.data;
 	},
 
 	async getById(id: number) {
@@ -33,6 +35,6 @@ export const FilmsService = {
 
 	async getStatuses() {
 		const res = await axiosClassic.get<IResponse<IStatus>>(`/film/status`)
-		return res.data.data;
+		return res.data.data
 	}
 }

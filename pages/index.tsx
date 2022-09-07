@@ -1,49 +1,38 @@
-import { GetStaticProps, NextPage } from 'next'
-import Home from '@/app/components/pages/Home/Home'
 import { FilmsService } from '@/app/services/films.service'
 import { IFilm } from '@/app/services/films.interface'
+import Layout from '@/app/components/Layout/Layout'
+import Welcome from '@/app/components/pages/Home/Welcome/Welcome'
+import Novelties from '@/app/components/pages/Home/Novelties/Novelties'
+import Recommendations from '@/app/components/pages/Home/Recommendations/Recommendations'
+import ComingSoon from '@/app/components/pages/Home/ComingSoon/ComingSoon'
 
-const IndexPage: NextPage<{
+interface IIndexPageProps {
 	best: IFilm[]
 	newest: IFilm[]
 	ongoing: IFilm[]
 	recommended: IFilm[]
-}> = props => {
-	return <Home {...props} />
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export default function IndexPage(props: IIndexPageProps) {
+	return (
+		<Layout title='AnimeZero'>
+			<Welcome films={props.best} />
+			<Novelties films={props.newest} />
+			{props.recommended?.length > 0 && <Recommendations films={props.recommended} />}
+			<ComingSoon films={props.ongoing} />
+		</Layout>
+	)
+}
+
+export async function getServerSideProps() {
 	try {
-		const { data: films } = await FilmsService.getAll([
-			'best',
-			'newest',
-			'ongoing',
-			'recommended'
-		])
+		const films = await FilmsService.getAll(['best', 'newest', 'ongoing', 'recommended'])
 		return {
-			props: {
-				best: films.data.best as IFilm[],
-				newest: films.data.newest as IFilm[],
-				ongoing: films.data.ongoing as IFilm[],
-				recommended: films.data.recommended as IFilm[]
-			} as {
-				best: IFilm[]
-				newest: IFilm[]
-				ongoing: IFilm[]
-				recommended: IFilm[]
-			},
-			revalidate: 10
+			props: { ...films }
 		}
 	} catch (e) {
 		return {
-			props: {
-				best: [],
-				newest: [],
-				ongoing: [],
-				recommended: []
-			}
+			notFound: true
 		}
 	}
 }
-
-export default IndexPage
