@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Button from '@/components/ui/Button/Button'
 import { IFilm } from '@/services/films.interface'
 import { ratingReduceHelper } from '@/helpers/rating-reduce.helper'
+import Image from 'next/image'
 
 const FilmItem: FC<{ film: IFilm }> = ({ film }) => {
 	return (
@@ -12,7 +13,12 @@ const FilmItem: FC<{ film: IFilm }> = ({ film }) => {
 				<article className={styles.film}>
 					<span>{ratingReduceHelper(film.rating)}</span>
 					<header>
-						<img src={film.poster} alt={film.title} />
+						<Image
+							width={200}
+							height={280}
+							src={film.poster}
+							alt={film.title}
+						/>
 						<Button important='primary'>Смотреть</Button>
 					</header>
 					<footer>

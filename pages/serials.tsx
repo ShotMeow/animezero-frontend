@@ -12,7 +12,10 @@ const SerialsPage: NextPage<{
 	return <Serials serials={serials} links={links} filters={filters} />
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+	query,
+	res
+}) => {
 	const page = query.page || 1
 	const genre = query.genres
 	const status = query.statuses
@@ -25,6 +28,12 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 		years: years,
 		rating: rating
 	}
+
+	res.setHeader(
+		'Cache-Control',
+		'public, s-maxage=10, stale-while-revalidate-59'
+	)
+
 	try {
 		const { data: serials } = await FilmsService.getAllByFilter({
 			type: 'serial',

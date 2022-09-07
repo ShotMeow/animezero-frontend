@@ -9,7 +9,7 @@
     @apply flex-col items-center;
   }
 
-  > a, img {
+  a, img {
     @apply object-cover rounded-md;
     width: 180px;
     height: 248px;
@@ -71,7 +71,7 @@
   }
 
   @media (max-width: 424px) {
-    > a, img {
+    a, img {
       @apply rounded-b-none;
       width: 75px;
       height: 110px;

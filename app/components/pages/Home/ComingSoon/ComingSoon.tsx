@@ -39,10 +39,13 @@ const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 							slidesPerView: 1.2
 						},
 						768: {
+							slidesPerView: 1.7
+						},
+						1024: {
 							slidesPerView: 2
 						}
 					}}
-					spaceBetween={20}
+					spaceBetween={40}
 					autoplay={{
 						delay: 6000,
 						disableOnInteraction: false

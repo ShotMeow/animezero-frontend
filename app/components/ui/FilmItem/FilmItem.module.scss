@@ -1,14 +1,10 @@
 .film {
-  @apply flex flex-col gap-2 relative mx-auto;
+  @apply flex flex-col gap-2 relative;
   width: 200px;
-
-  @media (max-width: 550px) {
-    @apply m-auto;
-  }
 
   &:hover {
     > header {
-      > img {
+      img {
         opacity: 0.6;
       }
 
@@ -25,7 +21,7 @@
   > header {
     @apply relative overflow-hidden;
 
-    > img {
+    img {
       @apply w-full rounded-t-md object-cover;
       transition: all 0.5s ease;
       height: 280px;
@@ -62,8 +58,8 @@
       font-size: 10px;
     }
     > header {
-      > img {
-        height: 110px;
+      img {
+        height: 140px;
       }
 
       > button {

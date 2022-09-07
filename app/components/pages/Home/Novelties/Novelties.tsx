@@ -36,9 +36,6 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 						425: {
 							slidesPerView: 1.8
 						},
-						460: {
-							slidesPerView: 2
-						},
 						568: {
 							slidesPerView: 2.2
 						},

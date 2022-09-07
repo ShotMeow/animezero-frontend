@@ -23,7 +23,7 @@
       }
     }
 
-    > img {
+    img {
       @apply w-full rounded-md;
     }
 
@@ -108,8 +108,8 @@
           @apply px-8 py-4;
         }
       }
-      > img {
-        @apply hidden;
+      img {
+        display: none !important;
       }
     }
   }

@@ -10,6 +10,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { toastr } from 'react-redux-toastr'
 import { filmsApi } from '@/store/api/films.api'
 import Head from 'next/head'
+import Image from 'next/image'
 
 const Film: FC<{ film: IFilm }> = ({ film }) => {
 	const [addWatchedFilm] = filmsApi.useAddWatchedFilmsMutation()
@@ -64,7 +65,7 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 			</Head>
 			<div className={styles.page}>
 				<div className={styles.poster}>
-					<img src={film.poster} alt={film.title} />
+					<Image width={300} height={440} src={film.poster} alt={film.title} />
 					{token && (
 						<div>
 							<Button onClick={handleTracking} important='secondary'>
