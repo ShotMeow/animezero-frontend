@@ -1,13 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
-import { API_URL } from '../../api/axios'
-import { TypeRootState } from '../store'
-import { IUserUpdate } from '@/app/types/user.interface'
+import { TypeRootState } from '@/app/store/store'
+import { IUserUpdate } from '@/app/interfaces/IUserUpdate'
 
 export const api = createApi({
 	reducerPath: 'api',
 	tagTypes: ['User', 'Watched', 'Tracked', 'Viewed'],
 	baseQuery: fetchBaseQuery({
-		baseUrl: API_URL,
+		baseUrl: process.env.API_URL,
 		prepareHeaders: (headers, { getState }) => {
 			const token = (getState() as TypeRootState).auth.token
 			const tempToken = (getState() as TypeRootState).auth.tempToken

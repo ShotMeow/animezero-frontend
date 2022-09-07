@@ -1,7 +1,3 @@
-export const ratingReduceHelper = (rating: number) => {
-	if (Number.isInteger(rating)) {
-		return `${rating}.0`
-	} else {
-		return rating
-	}
+export function ratingReduceHelper(rating: number) {
+	return Number.isInteger(rating) ? `${rating}.0` : rating
 }

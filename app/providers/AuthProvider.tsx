@@ -7,9 +7,9 @@ const DynamicCheckRole = dynamic(() => import('./CheckRole'), {
 })
 
 export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
-																				 Component: { isOnlyUser },
-																				 children
-																			 }) => {
+	                                                                             Component: { isOnlyUser },
+	                                                                             children
+                                                                             }) => {
 	return !isOnlyUser ? (
 		<>{children}</>
 	) : (

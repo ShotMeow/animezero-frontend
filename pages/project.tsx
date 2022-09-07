@@ -1,6 +1,6 @@
-import Layout from '@/app/components/Layout/Layout'
+import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/components/pages/Project/Project.module.scss'
+import styles from '@/app/styles/pages/Project.module.scss'
 import Image from 'next/image'
 import quality from '@/app/assets/images/quality.png'
 

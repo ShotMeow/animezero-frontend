@@ -4,10 +4,10 @@ import styles from './Tag.module.scss'
 import cn from 'classnames'
 
 const Tag: FC<{ title: number | string; black?: boolean; bold?: boolean }> = ({
-																				  title,
-																				  black,
-																				  bold
-																			  }) => {
+	                                                                              title,
+	                                                                              black,
+	                                                                              bold
+                                                                              }) => {
 	return (
 		<div
 			className={cn(

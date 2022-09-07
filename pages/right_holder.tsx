@@ -1,6 +1,6 @@
-import Layout from '@/app/components/Layout/Layout'
+import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/components/pages/RightHolder/RightHolder.module.scss'
+import styles from '@/app/styles/pages/RightHolder.module.scss'
 
 export default function RightHolderPage() {
 	return (

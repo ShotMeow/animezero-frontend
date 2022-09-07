@@ -1,8 +1,8 @@
 import { FilmsService } from '@/app/services/films.service'
 import { IFilm } from '@/app/services/films.interface'
-import Layout from '@/app/components/Layout/Layout'
+import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/components/pages/Novelties/Novelties.module.scss'
+import styles from '@/app/styles/Novelties.module.scss'
 import FilmItem from '@/app/components/ui/FilmItem/FilmItem'
 
 interface INoveltiesPageProps {

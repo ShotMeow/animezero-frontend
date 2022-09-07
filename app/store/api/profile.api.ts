@@ -1,5 +1,5 @@
 import { api } from '@/app/store/api/api'
-import { IUser } from '@/app/types/user.interface'
+import { IUser } from '@/app/interfaces/IUser'
 
 export const profileApi = api.injectEndpoints({
 	endpoints: builder => ({

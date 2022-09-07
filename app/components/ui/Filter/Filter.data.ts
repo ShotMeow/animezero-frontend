@@ -37,7 +37,8 @@ export const years: IYear[] = [
 	}
 ]
 
-interface IRating extends IYear {}
+interface IRating extends IYear {
+}
 
 export const rating: IRating[] = [
 	{

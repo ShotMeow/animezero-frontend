@@ -1,23 +1,27 @@
-import { FC } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { useRouter } from 'next/router'
 import styles from './Pagination.module.scss'
 import cn from 'classnames'
-import { IMetaLink } from '@/app/types/user.interface'
+import { IMetaLink } from '@/app/interfaces/IMetaLink'
 
-const Pagination: FC<{ links: IMetaLink[] }> = ({ links }) => {
+interface IPaginationProps {
+	links: IMetaLink[]
+}
+
+export default function Pagination(props: IPaginationProps) {
 	const router = useRouter()
-	const currentLinks = links.slice(1, links.length - 1)
+	const currentLinks = props.links?.slice(1, props.links.length - 1)
 
 	const handlePagination = (page: number) => () => {
 		const path = router.pathname
 		const query = router.query
-		query.page = String(page)
+		query.page = page.toString()
 		router.push({
 			pathname: path,
 			query: query
 		})
 	}
+
 	return (
 		<article className={styles.pagination}>
 			<ul>
@@ -55,5 +59,3 @@ const Pagination: FC<{ links: IMetaLink[] }> = ({ links }) => {
 		</article>
 	)
 }
-
-export default Pagination

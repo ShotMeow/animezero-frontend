@@ -4,11 +4,11 @@ import { IButton } from '@/app/components/ui/Button/Button.interface'
 import styles from './Button.module.scss'
 
 const Button: FC<PropsWithChildren<IButton>> = ({
-													children,
-													className,
-													important,
-													...rest
-												}) => {
+	                                                children,
+	                                                className,
+	                                                important,
+	                                                ...rest
+                                                }) => {
 	return (
 		<button
 			className={cn(

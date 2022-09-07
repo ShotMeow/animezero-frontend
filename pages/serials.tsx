@@ -1,11 +1,13 @@
 import { GetServerSidePropsContext } from 'next'
 import { FilmsService } from '@/app/services/films.service'
-import { IFilm, IFilter, SortType } from '@/app/services/films.interface'
-import { IMetaLink } from '@/app/types/user.interface'
-import Layout from '@/app/components/Layout/Layout'
+import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
 import Filter from '@/app/components/ui/Filter/Filter'
 import FilmsGrid from '@/app/components/ui/FilmsGrid/FilmsGrid'
+import { IFilm } from '@/app/interfaces/IFilm'
+import { IMetaLink } from '@/app/interfaces/IMetaLink'
+import { IFilter } from '@/app/interfaces/IFilter'
+import { SortType } from '@/app/types/SortTypes'
 
 interface ISerialsPageProps {
 	serials: IFilm[]
@@ -29,7 +31,7 @@ export default function SerialsPage(props: ISerialsPageProps) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 	try {
-		const serial = await FilmsService.getAllByFilter({
+		const serials = await FilmsService.getAllByFilter({
 			type: 'serial',
 			page: Number(context.query.page) || 1,
 			years: String(context.query.years),
@@ -41,8 +43,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 		return {
 			props: {
-				serial: serial.data,
-				links: serial.links,
+				serials: serials.data,
+				links: serials.links,
 				filters: {
 					genres,
 					statuses

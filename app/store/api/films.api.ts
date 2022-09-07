@@ -1,10 +1,11 @@
 import { api } from './api'
-import { IFilm } from '@/app/services/films.interface'
-import { IPaginateResponse } from '@/app/types/user.interface'
+import { IPaginateResponse } from '@/app/interfaces/IPaginateResponse'
+import { IFilm } from '@/app/interfaces/IFilm'
+import { IResponse } from '@/app/interfaces/IResponse'
 
 export const filmsApi = api.injectEndpoints({
 	endpoints: builder => ({
-		getFilmsBySearchTerm: builder.query<{ data: IFilm[] }, string>({
+		getFilmsBySearchTerm: builder.query<IResponse<IFilm[]>, string>({
 			query: searchTerm => ({
 				url: '/film/search',
 				params: { query: searchTerm }

@@ -8,63 +8,64 @@
 html,
 body,
 #__next {
-	@apply h-full;
+  @apply h-full;
 }
 
 body {
-	@apply text-secondary bg-black;
-	font-family: 'Ubuntu', sans-serif;
+  @apply text-secondary bg-black;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 input,
 button {
-	outline: none;
+  outline: none;
 }
 
 .redux-toastr {
-	.rrt-holder {
-		@apply flex items-center justify-center;
-	}
-	.toastr {
-		@apply shadow;
-		background-color: #272532;
+  .rrt-holder {
+    @apply flex items-center justify-center;
+  }
 
-		.rrt-left-container {
-			@apply hidden;
-		}
+  .toastr {
+    @apply shadow;
+    background-color: #272532;
 
-		.rrt-middle-container {
-			@apply w-3/4 ml-4;
-		}
+    .rrt-left-container {
+      @apply hidden;
+    }
 
-		&.rrt-success {
-			@apply bg-primary;
+    .rrt-middle-container {
+      @apply w-3/4 ml-4;
+    }
 
-			.rrt-progressbar {
-				background-color: #5135c6;
-			}
-		}
+    &.rrt-success {
+      @apply bg-primary;
 
-		&.rrt-warning {
-			background-color: #eaa84c;
-		}
+      .rrt-progressbar {
+        background-color: #5135c6;
+      }
+    }
 
-		&.rrt-info {
-			background-color: #4b85e7;
-		}
+    &.rrt-warning {
+      background-color: #eaa84c;
+    }
 
-		&.rrt-error {
-			background-color: #e94d4d;
-		}
-	}
+    &.rrt-info {
+      background-color: #4b85e7;
+    }
+
+    &.rrt-error {
+      background-color: #e94d4d;
+    }
+  }
 }
 
 input:-webkit-autofill {
-	box-shadow: inset 0 0 0 1000px #0a0a0a;
-	-webkit-text-fill-color: #fff;
-	font-size: inherit;
+  box-shadow: inset 0 0 0 1000px #0a0a0a;
+  -webkit-text-fill-color: #fff;
+  font-size: inherit;
 }

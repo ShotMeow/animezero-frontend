@@ -1,15 +1,16 @@
+import Layout, { HeadSlot } from '@/app/layouts/Layout'
+import styles from '@/app/styles/pages/Film.module.scss'
+import Button from '@/app/components/ui/Button/Button'
+import { useMounted } from '@/app/hooks/useMounted'
 import { GetServerSidePropsContext } from 'next'
-import { IFilm } from '@/app/services/films.interface'
 import { FilmsService } from '@/app/services/films.service'
 import { filmsApi } from '@/app/store/api/films.api'
 import { useAuth } from '@/app/hooks/useAuth'
 import { toastr } from 'react-redux-toastr'
-import { useEffect } from 'react'
-import Layout, { HeadSlot } from '@/app/components/Layout/Layout'
-import styles from '@/app/components/pages/Film/Film.module.scss'
-import Button from '@/app/components/ui/Button/Button'
 import { BiPlus } from 'react-icons/bi'
 import { AiFillEye } from 'react-icons/ai'
+import { IFilm } from '@/app/interfaces/IFilm'
+import Image from 'next/image'
 
 interface IFilmPageProps {
 	film: IFilm;
@@ -45,9 +46,9 @@ export default function FilmPage(props: IFilmPageProps) {
 		})
 	}
 
-	useEffect(() => {
+	useMounted(() => {
 		token && addWatchedFilm(props.film.id)
-	}, [])
+	})
 
 	return (
 		<Layout title={`AnimeZero - ${props.film.title}`}>
@@ -69,7 +70,7 @@ export default function FilmPage(props: IFilmPageProps) {
 			</HeadSlot>
 			<div className={styles.page}>
 				<div className={styles.poster}>
-					<img src={props.film.poster} alt={props.film.title} />
+					<Image src={props.film.poster} alt={props.film.title} loading='lazy' />
 					{token && (
 						<div>
 							<Button onClick={handleTracking} important='secondary'>
@@ -144,13 +145,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 		const film = await FilmsService.getById(Number(context.query.id))
 		return {
 			props: {
-				film,
+				film
 			}
 		}
-	}
-	catch (e) {
+	} catch (e) {
 		return {
-			notFound: true,
+			notFound: true
 		}
 	}
 }

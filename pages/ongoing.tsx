@@ -1,9 +1,9 @@
 import { FilmsService } from '@/app/services/films.service'
-import { IFilm } from '@/app/services/films.interface'
-import Layout from '@/app/components/Layout/Layout'
+import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/components/pages/Ongoing/Ongoing.module.scss'
+import styles from '@/app/styles/pages/Ongoing.module.scss'
 import OngoingFilm from '@/app/components/ui/OngoingFilm/OngoingFilm'
+import { IFilm } from '@/app/interfaces/IFilm'
 
 interface IOngoingPageProps {
 	films: IFilm[]

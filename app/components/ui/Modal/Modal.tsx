@@ -14,7 +14,7 @@ const Modal: FC = () => {
 	const dispatch = useTypedDispatch()
 
 	return (
-		<article className={styles.modal} onClick={() => dispatch(setIsShow())}>
+		<div className={styles.modal} onClick={() => dispatch(setIsShow())}>
 			<div onClick={e => e.stopPropagation()}>
 				<button onClick={() => dispatch(setIsShow())}>
 					<IoIosClose size={30} />
@@ -24,7 +24,7 @@ const Modal: FC = () => {
 				{type === 'verify' && <Verify />}
 				{type === 'update-verify' && <UpdateVerify />}
 			</div>
-		</article>
+		</div>
 	)
 }
 

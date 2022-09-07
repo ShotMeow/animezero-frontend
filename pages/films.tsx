@@ -1,11 +1,13 @@
 import { GetServerSidePropsContext } from 'next'
-import { IFilm, IFilter, SortType } from '@/app/services/films.interface'
 import { FilmsService } from '@/app/services/films.service'
-import { IMetaLink } from '@/app/types/user.interface'
 import Heading from '@/app/components/ui/Heading/Heading'
 import Filter from '@/app/components/ui/Filter/Filter'
 import FilmsGrid from '@/app/components/ui/FilmsGrid/FilmsGrid'
-import Layout from '@/app/components/Layout/Layout'
+import Layout from '@/app/layouts/Layout'
+import { IMetaLink } from '@/app/interfaces/IMetaLink'
+import { IFilm } from '@/app/interfaces/IFilm'
+import { IFilter } from '@/app/interfaces/IFilter'
+import { SortType } from '@/app/types/SortTypes'
 
 interface IFilmsPageProps {
 	films: IFilm[]

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IAuthInitialState } from './auth.interface'
+import { IAuthInitialState } from '@/app/interfaces/IAuthInitialState'
 import { login, logout, register } from './auth.actions'
 
 const initialState: IAuthInitialState = {

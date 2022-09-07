@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IUserUpdate } from '@/app/types/user.interface'
+import { IUserUpdate } from '@/app/interfaces/IUserUpdate'
 
 const initialState: IUserUpdate = {
 	login: '',
@@ -33,4 +33,3 @@ export const updateSlice = createSlice({
 })
 
 export const { setData, setCode, clearData } = updateSlice.actions
-export default updateSlice.reducer

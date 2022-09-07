@@ -1,5 +1,5 @@
 import { NextPageAuth } from '@/app/providers/private-route.interface'
-import Recently from '@/app/components/pages/Profile/Recently/Recently'
+import Recently from '@/app/components/profile/Recently'
 
 const RecentlyPage: NextPageAuth = () => {
 	return <Recently />

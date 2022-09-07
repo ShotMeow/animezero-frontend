@@ -1,16 +1,16 @@
 import '@/app/styles/globals.scss'
-import type { AppProps } from 'next/app'
 import NextProgressBar from 'nextjs-progressbar'
+import ReduxToastrLib from 'react-redux-toastr'
+import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { persistor, store } from '@/app/store/store'
 import { PersistGate } from 'redux-persist/integration/react'
-import ReduxToastrLib from 'react-redux-toastr'
 import { AuthProvider } from '@/app/providers/AuthProvider'
 import { TypeComponentAuthFields } from '@/app/providers/private-route.interface'
 
 type TypeAppProps = AppProps & TypeComponentAuthFields
 
-function MyApp({ Component, pageProps }: TypeAppProps) {
+export default function MyApp({ Component, pageProps }: TypeAppProps) {
 	return (
 		<>
 			<NextProgressBar
@@ -41,5 +41,3 @@ function MyApp({ Component, pageProps }: TypeAppProps) {
 		</>
 	)
 }
-
-export default MyApp

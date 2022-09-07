@@ -1,4 +1,4 @@
-import Layout from '@/app/components/Layout/Layout'
+import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
 import styles from '@/app/components/pages/Partnership/Partnership.module.scss'
 import Button from '@/app/components/ui/Button/Button'

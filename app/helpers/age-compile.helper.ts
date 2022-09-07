@@ -1,4 +1,4 @@
-export const ageCompileHelper = (age?: number) => {
+export function ageCompileHelper(age?: number) {
 	if (!age) return 'G - (Возрастные ограничения отсутствуют)'
 	else if (age === 6) return 'PG - (Рекомендуется присутствие родителей)'
 	else if (age === 12)

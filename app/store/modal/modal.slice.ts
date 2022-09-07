@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IModal } from './modal.interface'
+import { IModal } from '@/app/interfaces/IModal'
+
 
 const initialState: IModal = {
 	type: 'login',
@@ -21,4 +22,3 @@ export const modalSlice = createSlice({
 })
 
 export const { setIsShow, changeType } = modalSlice.actions
-export default modalSlice.reducer

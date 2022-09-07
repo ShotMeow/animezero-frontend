@@ -1,14 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import {
-	ILoginFields,
-	IRegisterFields
-} from '@/app/components/ui/Modal/Modal.interface'
+import { ILoginFields, IRegisterFields } from '@/app/components/ui/Modal/Modal.interface'
 import { AuthService } from '@/app/services/auth/auth.service'
 
-export const login = createAsyncThunk<
-	{ token: string; login: string },
-	ILoginFields
->('user/login', async ({ login, password }, thunkApi) => {
+export const login = createAsyncThunk<{ token: string; login: string },
+	ILoginFields>('user/login', async ({ login, password }, thunkApi) => {
 	try {
 		const response = await AuthService.logIn(login, password)
 		return {
@@ -22,10 +17,8 @@ export const login = createAsyncThunk<
 	}
 })
 
-export const register = createAsyncThunk<
-	{ token: string; login: string; email: string },
-	IRegisterFields
->(
+export const register = createAsyncThunk<{ token: string; login: string; email: string },
+	IRegisterFields>(
 	'user/register',
 	async ({ login, email, password, password_repeat }, thunkApi) => {
 		try {
