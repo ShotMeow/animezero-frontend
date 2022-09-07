@@ -1,6 +1,6 @@
 import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/components/pages/Partnership/Partnership.module.scss'
+import styles from '@/app/styles/pages/Partnership.module.scss'
 import Button from '@/app/components/ui/Button/Button'
 
 export default function PartnershipPage() {

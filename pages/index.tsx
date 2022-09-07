@@ -1,11 +1,10 @@
-import { FilmsService } from '@/app/services/films.service'
 import Layout from '@/app/layouts/Layout'
 import Welcome from '@/app/components/home/Welcome'
 import Novelties from '@/app/components/home/Novelties'
 import Recommendations from '@/app/components/home/Recommendations'
 import ComingSoon from '@/app/components/home/ComingSoon'
 import { IFilm } from '@/app/interfaces/IFilm'
-import { GetServerSidePropsContext } from 'next'
+import { FilmsService } from '@/app/services/films.service'
 
 interface IIndexPageProps {
 	best: IFilm[]
@@ -25,10 +24,7 @@ export default function IndexPage(props: IIndexPageProps) {
 	)
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-	context.res.setHeader('Cache-Control',
-		'public, s-maxage=10, stale-while-revalidate=59')
-
+export async function getServerSideProps() {
 	try {
 		const films = await FilmsService.getAll(['best', 'newest', 'ongoing', 'recommended'])
 		return {

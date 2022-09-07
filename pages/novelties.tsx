@@ -1,5 +1,5 @@
 import { FilmsService } from '@/app/services/films.service'
-import { IFilm } from '@/app/services/films.interface'
+import { IFilm } from '@/app/interfaces/IFilm'
 import Layout from '@/app/layouts/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
 import styles from '@/app/styles/Novelties.module.scss'

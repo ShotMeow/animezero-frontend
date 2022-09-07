@@ -1,24 +1,24 @@
-import { FC } from 'react'
-import { IFilm } from '@/app/services/films.interface'
+import { IFilm } from '@/app/interfaces/IFilm'
 import styles from './ProfileBody.module.scss'
 import Pagination from '@/app/components/ui/Pagination/Pagination'
 import ProfileCard from '@/app/components/ui/ProfileCard/ProfileCard'
-import { IMeta } from '@/app/types/user.interface'
+import { IMeta } from '@/app/interfaces/IMeta'
 
-const ProfileBody: FC<{
+interface IProfileBodyProps {
 	title: string
 	films: IFilm[] | undefined
 	isSuccess: boolean
 	meta?: IMeta
-}> = ({ title, films, isSuccess, meta }) => {
-	console.log(meta)
+}
+
+export default function ProfileBody(props: IProfileBodyProps) {
 	return (
 		<div className={styles.body}>
-			<h2>{title}</h2>
+			<h2>{props.title}</h2>
 			<div>
-				{isSuccess ? (
-					films ? (
-						films.map(film => <ProfileCard key={film.id} film={film} />)
+				{props.isSuccess ? (
+					props.films ? (
+						props.films.map(film => <ProfileCard key={film.id} film={film} />)
 					) : (
 						<p>Тут пока пусто</p>
 					)
@@ -26,9 +26,7 @@ const ProfileBody: FC<{
 					<p>Загрузка...</p>
 				)}
 			</div>
-			{meta && meta?.last_page !== 1 && <Pagination links={meta.links} />}
+			{props.meta && props.meta?.last_page !== 1 && <Pagination links={props.meta.links} />}
 		</div>
 	)
 }
-
-export default ProfileBody

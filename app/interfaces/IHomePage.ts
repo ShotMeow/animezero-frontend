@@ -1,4 +1,4 @@
-import { IFilm } from '@/app/services/films.interface'
+import { IFilm } from '@/app/interfaces/IFilm'
 
 export interface IHomePage {
 	best: IFilm[]

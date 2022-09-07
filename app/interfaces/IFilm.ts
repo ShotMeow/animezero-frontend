@@ -1,4 +1,4 @@
-import { IStatus } from '@/app/services/films.interface'
+import { IStatus } from '@/app/interfaces/IStatus'
 import { IType } from '@/app/interfaces/IType'
 import { IGenre } from '@/app/interfaces/IGenre'
 import { IDirector } from '@/app/interfaces/IDirector'

@@ -1,4 +1,4 @@
-import { SortType } from '@/app/services/films.interface'
+import { SortType } from '@/app/types/SortTypes'
 
 export interface IQueryFilter {
 	statuses?: string

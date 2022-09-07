@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import styles from './Filter.module.scss'
 import { MdOutlineClose } from 'react-icons/md'
-import { IFilter } from '@/app/services/films.interface'
 import Base from '@/app/components/ui/Filter/FilterItem/Base/Base'
 import { useRouter } from 'next/router'
 import { rating, years } from '@/app/components/ui/Filter/Filter.data'
+import { IFilter } from '@/app/interfaces/IFilter'
 
 const Filter: FC<{ filters: IFilter }> = ({ filters }) => {
 	const router = useRouter()
