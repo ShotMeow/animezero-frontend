@@ -1,28 +1,40 @@
-import { GetStaticProps, NextPage } from 'next'
-import Ongoing from '@/app/components/pages/Ongoing/Ongoing'
 import { FilmsService } from '@/app/services/films.service'
 import { IFilm } from '@/app/services/films.interface'
+import Layout from '@/app/components/Layout/Layout'
+import Heading from '@/app/components/ui/Heading/Heading'
+import styles from '@/app/components/pages/Ongoing/Ongoing.module.scss'
+import OngoingFilm from '@/app/components/ui/OngoingFilm/OngoingFilm'
 
-const OngoingPage: NextPage<{ ongoing: IFilm[] }> = ({ ongoing }) => {
-	return <Ongoing films={ongoing} />
+interface IOngoingPageProps {
+	films: IFilm[]
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export default function OngoingPage(props: IOngoingPageProps) {
+	return (
+		<Layout title='AnimeZero - Онгоинги'>
+			<Heading
+				catalog='Онгоинги'
+				title='Онгоинги'
+				description='На данной странице вы можете увидеть список самых актуальных выходящих аниме.'
+			/>
+			<section className={styles.films}>
+				{props.films?.map(film => <OngoingFilm film={film} key={film.id} />)}
+			</section>
+		</Layout>
+	)
+}
+
+export async function getStaticProps() {
 	try {
-		const { data: films } = await FilmsService.getAll(['ongoing'])
+		const films = await FilmsService.getAll(['ongoing'])
 		return {
 			props: {
-				ongoing: films.data.ongoing as IFilm[]
-			} as { ongoing: IFilm[] },
-			revalidate: 10
+				films: films.ongoing
+			}
 		}
 	} catch (e) {
 		return {
-			props: {
-				ongoing: []
-			}
+			notFound: true
 		}
 	}
 }
-
-export default OngoingPage
