@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import styles from './Recommendations.module.scss'
 import { BiStar } from 'react-icons/bi'
-import Subtitle from '@/components/ui/Subtitle/Subtitle'
-import FilmBig from '@/components/ui/FilmBig/FilmBig'
-import FilmSmall from '@/components/ui/FilmSmall/FilmSmall'
-import { IFilm } from '@/services/films.interface'
+import Subtitle from '@/app/components/ui/Subtitle/Subtitle'
+import FilmBig from '@/app/components/ui/FilmBig/FilmBig'
+import FilmSmall from '@/app/components/ui/FilmSmall/FilmSmall'
+import { IFilm } from '@/app/services/films.interface'
 
 const Recommendations: FC<{ films: IFilm[] }> = ({ films }) => {
 	return (

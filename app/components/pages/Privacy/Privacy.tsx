@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import Layout from '@/components/Layout/Layout'
-import Heading from '@/components/ui/Heading/Heading'
+import Layout from '@/app/components/Layout/Layout'
+import Heading from '@/app/components/ui/Heading/Heading'
 import styles from './Privacy.module.scss'
 
 const Privacy: FC = () => {

@@ -1,15 +1,15 @@
 import { FC } from 'react'
-import Button from '@/components/ui/Button/Button'
+import Button from '@/app/components/ui/Button/Button'
 import { BiLogIn } from 'react-icons/bi'
 
 import styles from './Profile.module.scss'
-import { useTypedDispatch } from '@/hooks/useTypedDispatch'
-import { setIsShow } from '@/store/modal/modal.slice'
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
+import { setIsShow } from '@/app/store/modal/modal.slice'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { api } from '@/store/api/api'
-import { logout } from '@/store/auth/auth.actions'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { api } from '@/app/store/api/api'
+import { logout } from '@/app/store/auth/auth.actions'
+import { useTypedSelector } from '@/app/hooks/useTypedSelector'
 
 const Profile: FC = () => {
 	const dispatch = useTypedDispatch()

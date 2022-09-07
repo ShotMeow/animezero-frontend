@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 import { TypeComponentAuthFields } from './private-route.interface'
-import { useAuth } from '@/hooks/useAuth'
+import { useAuth } from '@/app/hooks/useAuth'
 import { useRouter } from 'next/router'
 
 const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = ({

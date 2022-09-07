@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import styles from './FilmBig.module.scss'
-import Button from '@/components/ui/Button/Button'
-import Tag from '@/components/ui/Tag/Tag'
+import Button from '@/app/components/ui/Button/Button'
+import Tag from '@/app/components/ui/Tag/Tag'
 import Link from 'next/link'
-import { IFilm } from '@/services/films.interface'
+import { IFilm } from '@/app/services/films.interface'
 
 const FilmBig: FC<{ film: IFilm }> = ({ film }) => {
 	return (

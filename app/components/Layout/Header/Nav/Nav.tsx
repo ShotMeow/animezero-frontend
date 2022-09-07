@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { navData } from './Nav.data'
-import NavItem from '@/components/Layout/Header/Nav/NavItem'
+import NavItem from '@/app/components/Layout/Header/Nav/NavItem'
 
 import styles from './Nav.module.scss'
 

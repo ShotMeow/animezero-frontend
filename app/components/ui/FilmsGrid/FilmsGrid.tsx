@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import styles from './FilmsGrid.module.scss'
-import Pagination from '@/components/ui/Pagination/Pagination'
-import { IFilm } from '@/services/films.interface'
-import FilmItem from '@/components/ui/FilmItem/FilmItem'
-import { IMetaLink } from '@/types/user.interface'
+import Pagination from '@/app/components/ui/Pagination/Pagination'
+import { IFilm } from '@/app/services/films.interface'
+import FilmItem from '@/app/components/ui/FilmItem/FilmItem'
+import { IMetaLink } from '@/app/types/user.interface'
 
 const FilmsGrid: FC<{ films: IFilm[]; links: IMetaLink[] }> = ({
 	films,

@@ -2,9 +2,9 @@ import { FC, useEffect } from 'react'
 
 import styles from './Search.module.scss'
 import { BiSearch } from 'react-icons/bi'
-import { useSearch } from '@/hooks/useSearch'
-import SearchTermItem from '@/components/ui/SearchTermItem/SearchTermItem'
-import { useOutside } from '@/hooks/useOutside'
+import { useSearch } from '@/app/hooks/useSearch'
+import SearchTermItem from '@/app/components/ui/SearchTermItem/SearchTermItem'
+import { useOutside } from '@/app/hooks/useOutside'
 
 const Search: FC = () => {
 	const { data, handleSearch, searchTerm, isSuccess } = useSearch()

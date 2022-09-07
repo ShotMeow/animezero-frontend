@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
-import Novelties from '@/components/pages/Novelties/Novelties'
-import { FilmsService } from '@/services/films.service'
-import { IFilm } from '@/services/films.interface'
+import Novelties from '@/app/components/pages/Novelties/Novelties'
+import { FilmsService } from '@/app/services/films.service'
+import { IFilm } from '@/app/services/films.interface'
 
 const NoveltiesPage: NextPage<{ newest: IFilm[] }> = ({ newest }) => {
 	return <Novelties films={newest} />

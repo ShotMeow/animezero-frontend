@@ -1,5 +1,6 @@
 import { axiosClassic } from '../api/axios'
-import { BlockTypes, IGetAllByParams } from '@/services/films.interface'
+import { BlockTypes, IFilm, IGetAllByParams } from '@/app/services/films.interface'
+import { IResponse } from '../interfaces/IResponse'
 
 export const FilmsService = {
 	async getAll(blocks: BlockTypes[]) {
@@ -7,7 +8,8 @@ export const FilmsService = {
 	},
 
 	async getById(id: number) {
-		return axiosClassic.get(`/film/${id}`)
+		const res = await axiosClassic.get<IResponse<IFilm>>(`/film/${id}`)
+		return res.data.data
 	},
 
 	async getAllByFilter(params: IGetAllByParams) {

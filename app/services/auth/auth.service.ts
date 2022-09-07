@@ -1,5 +1,5 @@
 import { axiosClassic } from '../../api/axios'
-import { IAuthData, IVerify } from '@/services/auth/auth.helper'
+import { IAuthData, IVerify } from '@/app/services/auth/auth.helper'
 
 export const AuthService = {
 	async logIn(login: string, password: string) {

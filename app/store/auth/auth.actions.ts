@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import {
 	ILoginFields,
 	IRegisterFields
-} from '@/components/ui/Modal/Modal.interface'
-import { AuthService } from '@/services/auth/auth.service'
+} from '@/app/components/ui/Modal/Modal.interface'
+import { AuthService } from '@/app/services/auth/auth.service'
 
 export const login = createAsyncThunk<
 	{ token: string; login: string },
@@ -15,9 +15,9 @@ export const login = createAsyncThunk<
 			token: response.data.token,
 			login
 		}
-	} catch (error) {
+	} catch (error: any) {
 		thunkApi.rejectWithValue(error)
-		// @ts-ignore
+
 		return error.response.data.error
 	}
 })

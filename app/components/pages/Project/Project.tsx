@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import Layout from '@/components/Layout/Layout'
-import Heading from '@/components/ui/Heading/Heading'
+import Layout from '@/app/components/Layout/Layout'
+import Heading from '@/app/components/ui/Heading/Heading'
 import Image from 'next/image'
 import styles from './Project.module.scss'
 
-import quality from '@/assets//images/quality.png'
+import quality from '@/app/assets//images/quality.png'
 
 const Project: FC = () => {
 	return (

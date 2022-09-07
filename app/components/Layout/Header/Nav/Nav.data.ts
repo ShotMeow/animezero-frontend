@@ -1,4 +1,4 @@
-import { INavItem } from '@/components/Layout/Header/Nav/Nav.interface'
+import { INavItem } from '@/app/components/Layout/Header/Nav/Nav.interface'
 
 export const navData: INavItem[] = [
 	{

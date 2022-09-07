@@ -1,14 +1,14 @@
 import { FC, useEffect } from 'react'
-import { IFilm } from '@/services/films.interface'
-import Layout from '@/components/Layout/Layout'
-import Button from '@/components/ui/Button/Button'
+import { IFilm } from '@/app/services/films.interface'
+import Layout from '@/app/components/Layout/Layout'
+import Button from '@/app/components/ui/Button/Button'
 import { BiPlus } from 'react-icons/bi'
 
 import styles from './Film.module.scss'
 import { AiFillEye } from 'react-icons/ai'
-import { useAuth } from '@/hooks/useAuth'
+import { useAuth } from '@/app/hooks/useAuth'
 import { toastr } from 'react-redux-toastr'
-import { filmsApi } from '@/store/api/films.api'
+import { filmsApi } from '@/app/store/api/films.api'
 import Head from 'next/head'
 
 const Film: FC<{ film: IFilm }> = ({ film }) => {

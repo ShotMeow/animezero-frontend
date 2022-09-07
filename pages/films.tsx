@@ -1,8 +1,8 @@
 import { GetServerSideProps, NextPage } from 'next'
-import Films from '@/components/pages/Films/Films'
-import { IFilm, IFilter, IGenre } from '@/services/films.interface'
-import { FilmsService } from '@/services/films.service'
-import { ILink, IMetaLink } from '@/types/user.interface'
+import Films from '@/app/components/pages/Films/Films'
+import { IFilm, IFilter, IGenre } from '@/app/services/films.interface'
+import { FilmsService } from '@/app/services/films.service'
+import { ILink, IMetaLink } from '@/app/types/user.interface'
 
 const FilmsPage: NextPage<{
 	films: IFilm[]

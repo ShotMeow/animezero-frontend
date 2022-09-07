@@ -1,11 +1,11 @@
 import { FC } from 'react'
-import Button from '@/components/ui/Button/Button'
+import Button from '@/app/components/ui/Button/Button'
 import { FiPlay } from 'react-icons/fi'
 import styles from './Welcome.module.scss'
-import { IFilm } from '@/services/films.interface'
-import { sliceArrayHelper } from '@/helpers/slice-array.helper'
+import { IFilm } from '@/app/services/films.interface'
+import { sliceArrayHelper } from '@/app/helpers/slice-array.helper'
 import Link from 'next/link'
-import { randomFilmHelper } from '@/helpers/random-film.helper'
+import { randomFilmHelper } from '@/app/helpers/random-film.helper'
 
 const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 	const filmsArray: IFilm[][] = sliceArrayHelper(films, films.length / 3)

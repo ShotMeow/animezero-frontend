@@ -1,11 +1,11 @@
 import { FC } from 'react'
-import Field from '@/components/ui/Field/Field'
-import Button from '@/components/ui/Button/Button'
-import { useTypedDispatch } from '@/hooks/useTypedDispatch'
+import Field from '@/app/components/ui/Field/Field'
+import Button from '@/app/components/ui/Button/Button'
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { ILoginFields } from '@/components/ui/Modal/Modal.interface'
-import { changeType, setIsShow } from '@/store/modal/modal.slice'
-import { login } from '@/store/auth/auth.actions'
+import { ILoginFields } from '@/app/components/ui/Modal/Modal.interface'
+import { changeType, setIsShow } from '@/app/store/modal/modal.slice'
+import { login } from '@/app/store/auth/auth.actions'
 
 const Login: FC = () => {
 	const dispatch = useTypedDispatch()

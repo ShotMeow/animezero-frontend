@@ -1,6 +1,6 @@
 import styles from './Heading.module.scss'
 import { FC } from 'react'
-import { IHeading } from '@/components/ui/Heading/Heading.interface'
+import { IHeading } from '@/app/components/ui/Heading/Heading.interface'
 
 const Heading: FC<IHeading> = ({ catalog, title, description }) => {
 	return (

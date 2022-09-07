@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import Privacy from '@/components/pages/Privacy/Privacy'
+import Privacy from '@/app/components/pages/Privacy/Privacy'
 
 const PrivacyPage: NextPage = () => {
 	return <Privacy />

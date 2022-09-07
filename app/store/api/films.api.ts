@@ -1,6 +1,6 @@
 import { api } from './api'
-import { IFilm } from '@/services/films.interface'
-import { IPaginateResponse } from '@/types/user.interface'
+import { IFilm } from '@/app/services/films.interface'
+import { IPaginateResponse } from '@/app/types/user.interface'
 
 export const filmsApi = api.injectEndpoints({
 	endpoints: builder => ({

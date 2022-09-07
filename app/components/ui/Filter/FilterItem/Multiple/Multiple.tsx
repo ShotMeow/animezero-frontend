@@ -1,9 +1,9 @@
 import { FC, useLayoutEffect, useRef, useState } from 'react'
-import styles from '@/components/ui/Filter/FilterItem/FilterItem.module.scss'
+import styles from '@/app/components/ui/Filter/FilterItem/FilterItem.module.scss'
 import { Listbox } from '@headlessui/react'
 import { IoIosArrowDown } from 'react-icons/io'
 import cn from 'classnames'
-import { IFilterItem } from '@/components/ui/Filter/FilterItem/FilterItem.interface'
+import { IFilterItem } from '@/app/components/ui/Filter/FilterItem/FilterItem.interface'
 import { useRouter } from 'next/router'
 
 const Multiple: FC<IFilterItem> = ({ type, title, elements }) => {

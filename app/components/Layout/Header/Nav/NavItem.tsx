@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { INavItem } from '@/components/Layout/Header/Nav/Nav.interface'
+import { INavItem } from '@/app/components/Layout/Header/Nav/Nav.interface'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 

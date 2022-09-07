@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { IFilm } from '@/services/films.interface'
+import { IFilm } from '@/app/services/films.interface'
 import styles from './ProfileCard.module.scss'
 import Link from 'next/link'
 

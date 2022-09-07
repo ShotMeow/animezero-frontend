@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { IFilm } from '@/services/films.interface'
+import { IFilm } from '@/app/services/films.interface'
 import styles from './ProfileBody.module.scss'
-import Pagination from '@/components/ui/Pagination/Pagination'
-import ProfileCard from '@/components/ui/ProfileCard/ProfileCard'
-import { IMeta } from '@/types/user.interface'
+import Pagination from '@/app/components/ui/Pagination/Pagination'
+import ProfileCard from '@/app/components/ui/ProfileCard/ProfileCard'
+import { IMeta } from '@/app/types/user.interface'
 
 const ProfileBody: FC<{
 	title: string

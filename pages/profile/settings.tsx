@@ -1,5 +1,5 @@
-import { NextPageAuth } from '../../app/providers/private-route.interface'
-import Settings from '@/components/pages/Profile/Settings/Settings'
+import { NextPageAuth } from '@/app/providers/private-route.interface'
+import Settings from '@/app/components/pages/Profile/Settings/Settings'
 
 const SettingsPage: NextPageAuth = () => {
 	return <Settings />

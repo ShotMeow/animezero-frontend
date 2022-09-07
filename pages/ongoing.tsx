@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
-import Ongoing from '@/components/pages/Ongoing/Ongoing'
-import { FilmsService } from '@/services/films.service'
-import { IFilm } from '@/services/films.interface'
+import Ongoing from '@/app/components/pages/Ongoing/Ongoing'
+import { FilmsService } from '@/app/services/films.service'
+import { IFilm } from '@/app/services/films.interface'
 
 const OngoingPage: NextPage<{ ongoing: IFilm[] }> = ({ ongoing }) => {
 	return <Ongoing films={ongoing} />

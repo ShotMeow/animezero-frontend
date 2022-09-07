@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import styles from './FilmSmall.module.scss'
-import Tag from '@/components/ui/Tag/Tag'
+import Tag from '@/app/components/ui/Tag/Tag'
 import Link from 'next/link'
-import { IFilm } from '@/services/films.interface'
+import { IFilm } from '@/app/services/films.interface'
 
 const FilmSmall: FC<{ film: IFilm }> = ({ film }) => {
 	return (

@@ -14,37 +14,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./app/",
+    "baseUrl": "./",
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/styles/*": [
-        "styles/*"
-      ],
-      "@/types/*": [
-        "types/*"
-      ],
-      "@/services/*": [
-        "services/*"
-      ],
-      "@/providers/&": [
-        "providers/*"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ],
-      "@/helpers/*": [
-        "helpers/*"
-      ],
-      "@/assets/*": [
-        "assets/*"
-      ],
-      "@/hooks/*": [
-        "hooks/*"
-      ],
-      "@/store/*": [
-        "store/*"
+      "@/*": [
+        "./*"
       ]
     }
   },

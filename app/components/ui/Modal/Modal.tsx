@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import styles from './Modal.module.scss'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
-import { useTypedDispatch } from '@/hooks/useTypedDispatch'
+import { useTypedSelector } from '@/app/hooks/useTypedSelector'
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
 import { IoIosClose } from 'react-icons/io'
-import { setIsShow } from '@/store/modal/modal.slice'
-import Login from '@/components/ui/Modal/Login/Login'
-import Register from '@/components/ui/Modal/Register/Register'
-import Verify from '@/components/ui/Modal/Verify/Verify'
-import UpdateVerify from '@/components/ui/Modal/UpdateVerify/UpdateVerify'
+import { setIsShow } from '@/app/store/modal/modal.slice'
+import Login from '@/app/components/ui/Modal/Login/Login'
+import Register from '@/app/components/ui/Modal/Register/Register'
+import Verify from '@/app/components/ui/Modal/Verify/Verify'
+import UpdateVerify from '@/app/components/ui/Modal/UpdateVerify/UpdateVerify'
 
 const Modal: FC = () => {
 	const type = useTypedSelector(store => store.modal.type)

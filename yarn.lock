@@ -1832,6 +1832,11 @@ react-redux@^8.0.2:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
+react-slotify@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/react-slotify/-/react-slotify-0.1.7.tgz#daa045aeac8fa95c7a7ff5b96d6379ba09091610"
+  integrity sha512-KIyTKkrfBV6YH3SzdAc8gd5FTeNPOZuXNdAk2IsA6Dj4xtmn3UEz/fnGhudYLCLE4VePWzzFYtw8H0w4NnqjXw==
+
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"

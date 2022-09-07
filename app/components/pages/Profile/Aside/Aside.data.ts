@@ -1,4 +1,4 @@
-import { IAsideNav } from '@/components/pages/Profile/Aside/Aside.interface'
+import { IAsideNav } from '@/app/components/pages/Profile/Aside/Aside.interface'
 
 export const asideNav: IAsideNav[] = [
 	{

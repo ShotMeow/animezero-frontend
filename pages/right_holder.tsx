@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import RightHolder from '@/components/pages/RightHolder/RightHolder'
+import RightHolder from '@/app/components/pages/RightHolder/RightHolder'
 
 const RightHolderPage: NextPage = () => {
 	return <RightHolder />

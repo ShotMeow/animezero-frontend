@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import Layout from '@/components/Layout/Layout'
+import Layout from '@/app/components/Layout/Layout'
 import styles from './Novelties.module.scss'
-import Heading from '@/components/ui/Heading/Heading'
-import { IFilm } from '@/services/films.interface'
-import FilmItem from '@/components/ui/FilmItem/FilmItem'
+import Heading from '@/app/components/ui/Heading/Heading'
+import { IFilm } from '@/app/services/films.interface'
+import FilmItem from '@/app/components/ui/FilmItem/FilmItem'
 
 const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 	return (

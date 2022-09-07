@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import Partnership from '@/components/pages/Partnership/Partnership'
+import Partnership from '@/app/components/pages/Partnership/Partnership'
 
 const PartnershipPage: NextPage = () => {
 	return <Partnership />

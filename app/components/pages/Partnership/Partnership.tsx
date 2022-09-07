@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import Layout from '@/components/Layout/Layout'
-import Heading from '@/components/ui/Heading/Heading'
-import Button from '@/components/ui/Button/Button'
+import Layout from '@/app/components/Layout/Layout'
+import Heading from '@/app/components/ui/Heading/Heading'
+import Button from '@/app/components/ui/Button/Button'
 import styles from './Partnership.module.scss'
 
 const Partnership: FC = () => {

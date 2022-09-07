@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import { MdGraphicEq } from 'react-icons/md'
 import styles from './Novelties.module.scss'
-import Button from '@/components/ui/Button/Button'
-import Subtitle from '@/components/ui/Subtitle/Subtitle'
-import FilmItem from '@/components/ui/FilmItem/FilmItem'
+import Button from '@/app/components/ui/Button/Button'
+import Subtitle from '@/app/components/ui/Subtitle/Subtitle'
+import FilmItem from '@/app/components/ui/FilmItem/FilmItem'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import { IFilm } from '@/services/films.interface'
+import { IFilm } from '@/app/services/films.interface'
 import Link from 'next/link'
 
 const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {

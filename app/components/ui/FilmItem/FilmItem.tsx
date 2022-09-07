@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import styles from './FilmItem.module.scss'
 import Link from 'next/link'
-import Button from '@/components/ui/Button/Button'
-import { IFilm } from '@/services/films.interface'
-import { ratingReduceHelper } from '@/helpers/rating-reduce.helper'
+import Button from '@/app/components/ui/Button/Button'
+import { IFilm } from '@/app/services/films.interface'
+import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper'
 
 const FilmItem: FC<{ film: IFilm }> = ({ film }) => {
 	return (

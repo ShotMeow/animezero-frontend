@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
-import Home from '@/components/pages/Home/Home'
-import { FilmsService } from '@/services/films.service'
-import { IFilm } from '@/services/films.interface'
+import Home from '@/app/components/pages/Home/Home'
+import { FilmsService } from '@/app/services/films.service'
+import { IFilm } from '@/app/services/films.interface'
 
 const IndexPage: NextPage<{
 	best: IFilm[]

@@ -1,4 +1,4 @@
-import { IGenre } from '@/services/films.interface'
+import { IGenre } from '@/app/services/films.interface'
 
 export interface IOngoingFilm {
 	title: string

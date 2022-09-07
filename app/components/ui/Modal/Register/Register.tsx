@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import Field from '@/components/ui/Field/Field'
-import Button from '@/components/ui/Button/Button'
-import { changeType } from '@/store/modal/modal.slice'
-import { useTypedDispatch } from '@/hooks/useTypedDispatch'
+import Field from '@/app/components/ui/Field/Field'
+import Button from '@/app/components/ui/Button/Button'
+import { changeType } from '@/app/store/modal/modal.slice'
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { IRegisterFields } from '@/components/ui/Modal/Modal.interface'
+import { IRegisterFields } from '@/app/components/ui/Modal/Modal.interface'
 import { register as registration } from '../../../../store/auth/auth.actions'
 
 const Register: FC = () => {

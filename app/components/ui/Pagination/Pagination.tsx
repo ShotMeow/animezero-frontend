@@ -3,7 +3,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import { useRouter } from 'next/router'
 import styles from './Pagination.module.scss'
 import cn from 'classnames'
-import { IMetaLink } from '@/types/user.interface'
+import { IMetaLink } from '@/app/types/user.interface'
 
 const Pagination: FC<{ links: IMetaLink[] }> = ({ links }) => {
 	const router = useRouter()

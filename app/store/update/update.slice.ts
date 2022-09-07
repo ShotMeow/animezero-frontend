@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IUserUpdate } from '@/types/user.interface'
+import { IUserUpdate } from '@/app/types/user.interface'
 
 const initialState: IUserUpdate = {
 	login: '',

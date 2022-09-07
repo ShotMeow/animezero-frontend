@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import Layout from '@/components/Layout/Layout'
-import Heading from '@/components/ui/Heading/Heading'
-import { IFilm, IFilter } from '@/services/films.interface'
-import Filter from '@/components/ui/Filter/Filter'
-import FilmsGrid from '@/components/ui/FilmsGrid/FilmsGrid'
-import { IMetaLink } from '@/types/user.interface'
+import Layout from '@/app/components/Layout/Layout'
+import Heading from '@/app/components/ui/Heading/Heading'
+import { IFilm, IFilter } from '@/app/services/films.interface'
+import Filter from '@/app/components/ui/Filter/Filter'
+import FilmsGrid from '@/app/components/ui/FilmsGrid/FilmsGrid'
+import { IMetaLink } from '@/app/types/user.interface'
 
 const Films: FC<{ films: IFilm[]; links: IMetaLink[]; filters: IFilter }> = ({
 	films,

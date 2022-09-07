@@ -1,14 +1,14 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
-import Button from '@/components/ui/Button/Button'
-import { api } from '@/store/api/api'
+import { useTypedSelector } from '@/app/hooks/useTypedSelector'
+import Button from '@/app/components/ui/Button/Button'
+import { api } from '@/app/store/api/api'
 import cn from 'classnames'
 import styles from '../Modal.module.scss'
-import { useTypedDispatch } from '@/hooks/useTypedDispatch'
-import { setIsShow } from '@/store/modal/modal.slice'
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
+import { setIsShow } from '@/app/store/modal/modal.slice'
 import { toastr } from 'react-redux-toastr'
-import { IInfo } from '@/components/ui/Modal/Verify/Verify.interface'
-import { setToken } from '@/store/auth/auth.slice'
+import { IInfo } from '@/app/components/ui/Modal/Verify/Verify.interface'
+import { setToken } from '@/app/store/auth/auth.slice'
 
 const Verify: FC = () => {
 	const [info, setInfo] = useState<IInfo>({} as IInfo)

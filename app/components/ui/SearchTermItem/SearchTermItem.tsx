@@ -1,10 +1,10 @@
 import { Dispatch, FC, SetStateAction } from 'react'
-import { IFilm } from '@/services/films.interface'
+import { IFilm } from '@/app/services/films.interface'
 import Link from 'next/link'
-import Button from '@/components/ui/Button/Button'
+import Button from '@/app/components/ui/Button/Button'
 import styles from './SearchTermItem.module.scss'
-import { ratingReduceHelper } from '@/helpers/rating-reduce.helper'
-import { ratingColorHelper } from '@/helpers/rating-color.helper'
+import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper'
+import { ratingColorHelper } from '@/app/helpers/rating-color.helper'
 import cn from 'classnames'
 
 const SearchTermItem: FC<{

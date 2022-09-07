@@ -1,13 +1,13 @@
 import { FC, useRef, useState } from 'react'
 import styles from '../Profile.module.scss'
-import { asideNav } from '@/components/pages/Profile/Aside/Aside.data'
+import { asideNav } from '@/app/components/pages/Profile/Aside/Aside.data'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { profileApi } from '@/store/api/profile.api'
+import { profileApi } from '@/app/store/api/profile.api'
 import { AiOutlineUser } from 'react-icons/ai'
 import { Cropper } from 'react-cropper'
 import 'cropperjs/dist/cropper.css'
-import Button from '@/components/ui/Button/Button'
+import Button from '@/app/components/ui/Button/Button'
 import { toastr } from 'react-redux-toastr'
 
 const Aside: FC = () => {
