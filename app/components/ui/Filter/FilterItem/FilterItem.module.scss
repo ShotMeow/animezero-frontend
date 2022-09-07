@@ -2,7 +2,7 @@
   @apply relative;
 
   @media (max-width: 767px) {
-    @apply flex flex-col items-center;
+    @apply flex flex-col;
   }
 
   > label {
