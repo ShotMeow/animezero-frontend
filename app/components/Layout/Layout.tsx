@@ -14,6 +14,23 @@ const Layout: FC<PropsWithChildren<{ title: string }>> = ({
 	const isModal = useTypedSelector(state => state.modal.isShow)
 	return (
 		<div className={styles.wrapper}>
+			<Head>
+				<meta property='og:locale' content='ru_RU' />
+				<meta property='og:site_name' content='AnimeZero' />
+				<meta property='twitter:card' content='summary_large_image' />
+				<meta
+					property='og:description'
+					content='AnimeZero - онлайн-кинотеатр аниме. Здесь вы можете бесплатно посмотреть новинки в аниме индустрии.'
+				/>
+				<meta
+					property='description'
+					content='AnimeZero - онлайн-кинотеатр аниме. Здесь вы можете бесплатно посмотреть новинки в аниме индустрии.'
+				/>
+				<meta
+					property='keywords'
+					content='anime animezero аниме кино кинотеатр бесплатно фильмы сериалы'
+				/>
+			</Head>
 			<div className={styles.layout}>
 				<Head>
 					<title>{title}</title>

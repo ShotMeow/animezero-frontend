@@ -9,6 +9,7 @@ import { AiFillEye } from 'react-icons/ai'
 import { useAuth } from '@/hooks/useAuth'
 import { toastr } from 'react-redux-toastr'
 import { filmsApi } from '@/store/api/films.api'
+import Head from 'next/head'
 
 const Film: FC<{ film: IFilm }> = ({ film }) => {
 	const [addWatchedFilm] = filmsApi.useAddWatchedFilmsMutation()
@@ -45,6 +46,22 @@ const Film: FC<{ film: IFilm }> = ({ film }) => {
 
 	return (
 		<Layout title={`AnimeZero - ${film.title}`}>
+			<Head>
+				<meta property='og:type' content={film.type.name} />
+				<meta property='og:image' content={film.poster} />
+				<meta property='og:image:width' content='180' />
+				<meta property='og:image:height' content='240' />
+				<meta property='og:image:alt' content={film.title} />
+				{film.genres.map(genre => (
+					<meta key={genre.id} property='og:video:tag' content={genre.name} />
+				))}
+				<meta property='og:description' content={film.description} />
+				<meta property='description' content={film.description} />
+				<meta
+					property='keywords'
+					content={`${film.title} ${film.titleOrig} ${film.type.name}`}
+				/>
+			</Head>
 			<div className={styles.page}>
 				<div className={styles.poster}>
 					<img src={film.poster} alt={film.title} />
