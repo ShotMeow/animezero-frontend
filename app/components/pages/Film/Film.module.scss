@@ -1,7 +1,7 @@
 .page {
-  @apply my-10 flex gap-8;
+  @apply my-10 flex gap-8 ;
 
-  @media (max-width: 1279px) {
+  @media (max-width: 640px) {
     @apply px-4;
   }
 
@@ -22,6 +22,7 @@
         }
       }
     }
+
     @media (max-width: 768px) {
       @apply hidden;
     }
@@ -81,6 +82,7 @@
     .about {
       @apply pb-4;
       > ul {
+        @apply space-y-2;
         > li {
           @apply grid text-lg text-gray-400;
           grid-template-columns: 160px 1fr;
