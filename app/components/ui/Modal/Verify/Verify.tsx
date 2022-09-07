@@ -13,7 +13,6 @@ import { setToken } from '@/store/auth/auth.slice'
 const Verify: FC = () => {
 	const [info, setInfo] = useState<IInfo>({} as IInfo)
 	const [value, setValue] = useState<string>('')
-	const email = useTypedSelector(store => store.auth.user.email)
 	const tempToken = useTypedSelector(store => store.auth.tempToken)
 	const [resend] = api.useResendMutation()
 	const [verify] = api.useVerifyMutation()
@@ -53,7 +52,7 @@ const Verify: FC = () => {
 		<form onSubmit={(e: FormEvent<HTMLFormElement>) => handleSubmit(e)}>
 			<div>
 				<h3>Подтверждение входа</h3>
-				<p>Введите 6-значный код который мы выслали вам на {email}</p>
+				<p>Введите 6-значный код который мы выслали вам на почту</p>
 			</div>
 			<div>
 				<div>

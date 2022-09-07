@@ -10,7 +10,12 @@ export const api = createApi({
 		baseUrl: API_URL,
 		prepareHeaders: (headers, { getState }) => {
 			const token = (getState() as TypeRootState).auth.token
-			token && headers.set('Authorization', `Bearer ${token}`)
+			const tempToken = (getState() as TypeRootState).auth.tempToken
+			if (token) {
+				headers.set('Authorization', `Bearer ${token}`)
+			} else if (tempToken) {
+				headers.set('Authorization', `Bearer ${tempToken}`)
+			}
 			headers.set('Accept', 'application/json')
 			return headers
 		}

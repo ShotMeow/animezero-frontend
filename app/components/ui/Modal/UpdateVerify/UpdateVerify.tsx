@@ -17,7 +17,7 @@ const Verify: FC = () => {
 	const [value, setValue] = useState<string>('')
 	const [update] = api.useUpdateMutation()
 	let res = useTypedSelector(store => store.update)
-	const { data, refetch } = profileApi.useGetProfileDataQuery('')
+	const { refetch } = profileApi.useGetProfileDataQuery('')
 	const dispatch = useTypedDispatch()
 
 	useEffect(() => {
@@ -46,9 +46,7 @@ const Verify: FC = () => {
 		<form onSubmit={handleSubmit}>
 			<div>
 				<h3>Подтвердите изменения</h3>
-				<p>
-					Введите 6-значный код который мы выслали вам на {data?.data.email}
-				</p>
+				<p>Введите 6-значный код который мы выслали вам на почту</p>
 			</div>
 			<div>
 				<div>

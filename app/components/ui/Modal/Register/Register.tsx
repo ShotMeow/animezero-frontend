@@ -28,10 +28,21 @@ const Register: FC = () => {
 			// @ts-ignore
 			if (!data.error) {
 				return dispatch(changeType('verify'))
+			} else {
+				// @ts-ignore
+				if (data.payload.response.data.errors.login) {
+					setError('login', {
+						message: 'Данный логин уже занят'
+					})
+				}
+
+				// @ts-ignore
+				if (data.payload.response.data.errors.email) {
+					setError('email', {
+						message: 'Данный E-mail уже занят'
+					})
+				}
 			}
-			return setError('password_repeat', {
-				message: 'Ошибка на сервере. Попробуйте позже'
-			})
 		})
 	}
 

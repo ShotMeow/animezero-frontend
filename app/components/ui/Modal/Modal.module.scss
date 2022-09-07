@@ -3,7 +3,7 @@
   animation: fadeIn 0.3s;
 
   > div {
-    @apply flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
+    @apply overflow-x-clip flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
     width: 480px;
     animation: sizeIn 0.2s;
 
