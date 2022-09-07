@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import Layout from '@/app/components/Layout/Layout'
 import Heading from '@/app/components/ui/Heading/Heading'
 import Image from 'next/image'
@@ -6,7 +5,7 @@ import styles from './Project.module.scss'
 
 import quality from '@/app/assets//images/quality.png'
 
-const Project: FC = () => {
+export default function Project() {
 	return (
 		<Layout title='AnimeZero - О проекте'>
 			<Heading
@@ -28,5 +27,3 @@ const Project: FC = () => {
 		</Layout>
 	)
 }
-
-export default Project
