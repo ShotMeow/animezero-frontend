@@ -1,5 +1,4 @@
 import 'swiper/css'
-import { FC } from 'react'
 import { MdGraphicEq } from 'react-icons/md'
 import styles from '../../styles/Novelties.module.scss'
 import Button from '@/app/components/ui/Button/Button'
@@ -9,7 +8,11 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import NextLink from '@/app/components/ui/NextLink'
 import { IFilm } from '@/app/interfaces/IFilm'
 
-const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
+interface INoveltiesProps {
+	films: IFilm[]
+}
+
+export default function Novelties(props: INoveltiesProps) {
 	return (
 		<section className={styles.novelties}>
 			<header>
@@ -57,7 +60,7 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 					}}
 					spaceBetween={20}
 				>
-					{films.map(film => (
+					{props.films.map(film => (
 						<SwiperSlide key={film.id}>
 							<FilmItem film={film} />
 						</SwiperSlide>
@@ -67,5 +70,3 @@ const Novelties: FC<{ films: IFilm[] }> = ({ films }) => {
 		</section>
 	)
 }
-
-export default Novelties

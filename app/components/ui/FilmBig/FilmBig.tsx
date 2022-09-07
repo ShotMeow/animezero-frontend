@@ -1,36 +1,35 @@
-import { FC } from 'react'
 import styles from './FilmBig.module.scss'
 import Button from '@/app/components/ui/Button/Button'
 import Tag from '@/app/components/ui/Tag/Tag'
-import Link from 'next/link'
-import { IFilm } from '@/app/services/films.interface'
+import NextLink from '@/app/components/ui/NextLink'
+import { IFilm } from '@/app/interfaces/IFilm'
 
-const FilmBig: FC<{ film: IFilm }> = ({ film }) => {
-	return (
-		<Link href={`/movies/${film.id}`}>
-			<a>
-				<article
-					className={styles.film_big}
-					style={{ backgroundImage: `url(${film.poster})` }}
-				>
-					<div className={styles.tags}>
-						<div>
-							<Tag title='Топ-100' />
-							<Tag title='Детям' />
-						</div>
-						<Tag title={film.rating} black={true} bold={true} />
-					</div>
-					<div className={styles.about}>
-						<div>
-							<h3>{film.title}</h3>
-							<p>{film.description}</p>
-						</div>
-						<Button important='primary'>Смотреть</Button>
-					</div>
-				</article>
-			</a>
-		</Link>
-	)
+interface IFilmBigProps {
+	film: IFilm
 }
 
-export default FilmBig
+export default function FilmBig(props: IFilmBigProps) {
+	return (
+		<NextLink href={`/movies/${props.film.id}`}>
+			<article
+				className={styles.film_big}
+				style={{ backgroundImage: `url(${props.film.poster})` }}
+			>
+				<div className={styles.tags}>
+					<div>
+						<Tag title='Топ-100' />
+						<Tag title='Детям' />
+					</div>
+					<Tag title={props.film.rating} black={true} bold={true} />
+				</div>
+				<div className={styles.about}>
+					<div>
+						<h3>{props.film.title}</h3>
+						<p>{props.film.description}</p>
+					</div>
+					<Button important='primary'>Смотреть</Button>
+				</div>
+			</article>
+		</NextLink>
+	)
+}

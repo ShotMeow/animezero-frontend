@@ -1,23 +1,22 @@
-import { FC } from 'react'
-import { IFilm } from '@/app/services/films.interface'
 import styles from './ProfileCard.module.scss'
-import Link from 'next/link'
+import NextLink from '@/app/components/ui/NextLink'
+import { IFilm } from '@/app/interfaces/IFilm'
 
-const ProfileCard: FC<{ film: IFilm }> = ({ film }) => {
-	return (
-		<Link href={`/films/${film.id}`}>
-			<a>
-				<article
-					style={{ backgroundImage: `url(${film.poster})` }}
-					className={styles.film}
-				>
-					<h3>
-						{film.title} <br /> ({film.year})
-					</h3>
-				</article>
-			</a>
-		</Link>
-	)
+interface IProfileCardProps {
+	film: IFilm
 }
 
-export default ProfileCard
+export default function ProfileCard(props: IProfileCardProps) {
+	return (
+		<NextLink href={`/films/${props.film.id}`}>
+			<article
+				style={{ backgroundImage: `url(${props.film.poster})` }}
+				className={styles.film}
+			>
+				<h3>
+					{props.film.title} <br /> ({props.film.year})
+				</h3>
+			</article>
+		</NextLink>
+	)
+}

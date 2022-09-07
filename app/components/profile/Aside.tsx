@@ -2,7 +2,6 @@ import { FC, useRef, useState } from 'react'
 import styles from '../../styles/Profile.module.scss'
 import { asideNav } from '@/app/components/profile/Aside.data'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import { profileApi } from '@/app/store/api/profile.api'
 import { AiOutlineUser } from 'react-icons/ai'
 import { Cropper } from 'react-cropper'
@@ -10,6 +9,7 @@ import 'cropperjs/dist/cropper.css'
 import Button from '@/app/components/ui/Button/Button'
 import { toastr } from 'react-redux-toastr'
 import Image from 'next/image'
+import NextLink from '@/app/components/ui/NextLink'
 
 const Aside: FC = () => {
 	const { asPath } = useRouter()
@@ -93,11 +93,9 @@ const Aside: FC = () => {
 			<ul>
 				{asideNav.map(item => (
 					<li key={item.url}>
-						<Link href={item.url}>
-							<a className={asPath.includes(item.url) ? styles.active : ''}>
-								{item.value}
-							</a>
-						</Link>
+						<NextLink href={item.url} className={asPath.includes(item.url) ? styles.active : ''}>
+							{item.value}
+						</NextLink>
 					</li>
 				))}
 			</ul>

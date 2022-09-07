@@ -1,5 +1,4 @@
 import styles from '@/app/styles/components/Menu.module.scss'
-import Link from 'next/link'
 import Search from '@/app/components/Search'
 import Button from '@/app/components/ui/Button/Button'
 import { AiFillHome, AiFillTablet } from 'react-icons/ai'
@@ -9,6 +8,7 @@ import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
 import { setIsShow } from '@/app/store/modal/modal.slice'
 import { useTypedSelector } from '@/app/hooks/useTypedSelector'
 import { useRouter } from 'next/router'
+import NextLink from '@/app/components/ui/NextLink'
 
 export default function Menu() {
 	const dispatch = useTypedDispatch()
@@ -22,33 +22,27 @@ export default function Menu() {
 	return (
 		<div className={styles.menu}>
 			<header>
-				<Link href={'/'}>
-					<a>
-						Anime<span>Zero</span>
-					</a>
-				</Link>
+				<NextLink href={'/'}>
+					Anime<span>Zero</span>
+				</NextLink>
 				<Search />
 			</header>
 			<footer>
 				<div>
-					<Link href='/pages'>
-						<a>
-							<AiFillHome size={20} />
-							Главная
-						</a>
-					</Link>
-					<Link href={'/films'}>
+					<NextLink href='/pages'>
+						<AiFillHome size={20} />
+						Главная
+					</NextLink>
+					<NextLink href={'/films'}>
 						<a>
 							<IoFilmSharp size={20} />
 							Фильмы
 						</a>
-					</Link>
-					<Link href={'/serials'}>
-						<a>
-							<AiFillTablet size={20} />
-							Сериалы
-						</a>
-					</Link>
+					</NextLink>
+					<NextLink href={'/serials'}>
+						<AiFillTablet size={20} />
+						Сериалы
+					</NextLink>
 					<Button onClick={handleClick} important='secondary'>
 						<FaUserAlt size={20} />
 						Профиль

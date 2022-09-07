@@ -1,16 +1,18 @@
-import { FC } from 'react'
 import Button from '@/app/components/ui/Button/Button'
 import { FiPlay } from 'react-icons/fi'
 import styles from '../../styles/Welcome.module.scss'
-import { IFilm } from '@/app/services/films.interface'
 import { sliceArrayHelper } from '@/app/helpers/slice-array.helper'
-import Link from 'next/link'
 import { randomFilmHelper } from '@/app/helpers/random-film.helper'
 import Image from 'next/image'
 import NextLink from '@/app/components/ui/NextLink'
+import { IFilm } from '@/app/interfaces/IFilm'
 
-const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
-	const filmsArray: IFilm[][] = sliceArrayHelper(films, films.length / 3)
+interface IWelcomeProps {
+	films: IFilm[]
+}
+
+export default function Welcome(props: IWelcomeProps) {
+	const filmsArray: IFilm[][] = sliceArrayHelper(props.films, props.films.length / 3)
 	return (
 		<section className={styles.welcome}>
 			<div className={styles.info}>
@@ -28,14 +30,12 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 					</p>
 				</div>
 				<div className={styles.action}>
-					<Link href={`/movies/${randomFilmHelper(films)}`}>
-						<a>
-							<Button important='primary'>
-								<FiPlay color='white' size={20} />
-								Перейти к просмотру
-							</Button>
-						</a>
-					</Link>
+					<NextLink href={`/movies/${randomFilmHelper(props.films)}`}>
+						<Button important='primary'>
+							<FiPlay color='white' size={20} />
+							Перейти к просмотру
+						</Button>
+					</NextLink>
 				</div>
 			</div>
 			<div className={styles.films}>
@@ -43,7 +43,7 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 					<div>
 						{filmsArray[0].map(film => (
 							<NextLink href={`movies/${film.id}`} key={film.id}>
-								<Image src={film.poster} alt={film.title} loading='lazy'/>
+								<Image src={film.poster} alt={film.title} loading='lazy' />
 							</NextLink>
 						))}
 					</div>
@@ -66,5 +66,3 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 		</section>
 	)
 }
-
-export default Welcome

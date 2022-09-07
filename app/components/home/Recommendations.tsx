@@ -1,12 +1,15 @@
-import { FC } from 'react'
 import styles from '../../styles/Recommendations.module.scss'
 import { BiStar } from 'react-icons/bi'
 import Subtitle from '@/app/components/ui/Subtitle/Subtitle'
 import FilmBig from '@/app/components/ui/FilmBig/FilmBig'
 import FilmSmall from '@/app/components/ui/FilmSmall/FilmSmall'
-import { IFilm } from '@/app/services/films.interface'
+import { IFilm } from '@/app/interfaces/IFilm'
 
-const Recommendations: FC<{ films: IFilm[] }> = ({ films }) => {
+interface IRecommendationsProps {
+	films: IFilm[]
+}
+
+export default function Recommendations(props: IRecommendationsProps) {
 	return (
 		<section className={styles.recommendations}>
 			<header className={styles.heading}>
@@ -15,12 +18,10 @@ const Recommendations: FC<{ films: IFilm[] }> = ({ films }) => {
 				</Subtitle>
 			</header>
 			<footer>
-				<FilmBig film={films[0]} />
-				<FilmSmall film={films[1]} />
-				<FilmSmall film={films[2]} />
+				<FilmBig film={props.films[0]} />
+				<FilmSmall film={props.films[1]} />
+				<FilmSmall film={props.films[2]} />
 			</footer>
 		</section>
 	)
 }
-
-export default Recommendations

@@ -1,21 +1,25 @@
-import { FC } from 'react'
 import styles from './OngoingFilm.module.scss'
 import Button from '@/app/components/ui/Button/Button'
 import { ageCompileHelper } from '@/app/helpers/age-compile.helper'
-import { IFilm } from '@/app/services/films.interface'
 import { filmsApi } from '@/app/store/api/films.api'
 import { useTypedSelector } from '@/app/hooks/useTypedSelector'
 import { toastr } from 'react-redux-toastr'
-import Link from 'next/link'
+import NextLink from '@/app/components/ui/NextLink'
+import { IFilm } from '@/app/interfaces/IFilm'
+import Image from 'next/image'
 
-const OngoingFilm: FC<{ film: IFilm }> = ({ film }) => {
-	const genres = [film.genres[0].name, film.genres[1].name]
+interface IOngoingFilmProps {
+	film: IFilm
+}
+
+export default function OngoingFilm(props: IOngoingFilmProps) {
+	const genres = props.film.genres.slice(2).toString()
 
 	const [addTrackedFilm] = filmsApi.useAddTrackedFilmsMutation()
 	const token = useTypedSelector(store => store.auth.token)
 	const handleClick = () => {
 		if (token) {
-			addTrackedFilm(film.id).then(data => {
+			addTrackedFilm(props.film.id).then(data => {
 				// @ts-ignore
 				if (!data.error) {
 					toastr.success('Успех', 'Фильм добавлен в "Отслеживаемое"')
@@ -29,21 +33,19 @@ const OngoingFilm: FC<{ film: IFilm }> = ({ film }) => {
 	}
 	return (
 		<article className={styles.ongoing_film}>
-			<Link href={`movies/${film.id}`}>
-				<a>
-					<img src={film.poster} alt={film.title} />
-				</a>
-			</Link>
+			<NextLink href={`movies/${props.film.id}`}>
+				<Image src={props.film.poster} alt={props.film.title} loading='lazy' />
+			</NextLink>
 			<div>
 				<h3>
-					{film.title} ({film.year})
+					{props.film.title} ({props.film.year})
 				</h3>
 				<p className={styles.genres}>
 					<span>Жанры: </span>
-					<span>{genres.map(genre => genre).join(', ')}</span>
+					<span>{genres}</span>
 				</p>
 				<p className={styles.ages}>
-					Возрастной рейтинг: <span>{ageCompileHelper(film.minimalAge)}</span>
+					Возрастной рейтинг: <span>{ageCompileHelper(props.film.minimalAge)}</span>
 				</p>
 				<Button onClick={handleClick} important='primary'>
 					Отслеживать
@@ -52,5 +54,3 @@ const OngoingFilm: FC<{ film: IFilm }> = ({ film }) => {
 		</article>
 	)
 }
-
-export default OngoingFilm

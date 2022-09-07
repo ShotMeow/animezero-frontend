@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { BiAtom } from 'react-icons/bi'
 import Button from '@/app/components/ui/Button/Button'
 import Subtitle from '@/app/components/ui/Subtitle/Subtitle'
@@ -6,21 +5,23 @@ import OngoingFilm from '@/app/components/ui/OngoingFilm/OngoingFilm'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from '../../styles/ComingSoon.module.scss'
 import { Autoplay } from 'swiper'
-import Link from 'next/link'
 import { IFilm } from '@/app/interfaces/IFilm'
+import NextLink from '@/app/components/ui/NextLink'
 
-const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
+interface IComingSoonProps {
+	films: IFilm[]
+}
+
+export default function ComingSoon(props: IComingSoonProps) {
 	return (
 		<section className={styles.comingSoon}>
 			<header>
 				<Subtitle title='Онгоинги'>
 					<BiAtom size={24} />
 				</Subtitle>
-				<Link href={'/ongoing'}>
-					<a>
-						<Button important='primary'>Показать все</Button>
-					</a>
-				</Link>
+				<NextLink href={'/ongoing'}>
+					<Button important='primary'>Показать все</Button>
+				</NextLink>
 			</header>
 			<footer>
 				<Swiper
@@ -50,7 +51,7 @@ const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 					loop
 					modules={[Autoplay]}
 				>
-					{films.map(film => (
+					{props.films?.map(film => (
 						<SwiperSlide key={film.id}>
 							<OngoingFilm film={film} />
 						</SwiperSlide>
@@ -60,5 +61,3 @@ const ComingSoon: FC<{ films: IFilm[] }> = ({ films }) => {
 		</section>
 	)
 }
-
-export default ComingSoon

@@ -1,10 +1,10 @@
-import Link from 'next/link'
 import { FaTelegramPlane } from 'react-icons/fa'
 import { AiOutlineMail } from 'react-icons/ai'
 import Button from '@/app/components/ui/Button/Button'
 import styles from '@/app/styles/components/Footer.module.scss'
 import global from '@/app/styles/Layout.module.scss'
 import { IoLogoVk } from 'react-icons/io'
+import NextLink from '@/app/components/ui/NextLink'
 
 export default function Footer() {
 	return (
@@ -14,19 +14,19 @@ export default function Footer() {
 					<h3>Разделы</h3>
 					<ul>
 						<li>
-							<Link href={'/'}>
-								<a>Каталог</a>
-							</Link>
+							<NextLink href={'/'}>
+								Каталог
+							</NextLink>
 						</li>
 						<li>
-							<Link href={'/films'}>
-								<a>Фильмы</a>
-							</Link>
+							<NextLink href={'/films'}>
+								Фильмы
+							</NextLink>
 						</li>
 						<li>
-							<Link href={'/serials'}>
-								<a>Сериалы</a>
-							</Link>
+							<NextLink href={'/serials'}>
+								Сериалы
+							</NextLink>
 						</li>
 					</ul>
 				</div>
@@ -34,24 +34,24 @@ export default function Footer() {
 					<h3>Пользователям и партнёрам</h3>
 					<ul>
 						<li>
-							<Link href={'/partnership'}>
-								<a>Сотрудничество</a>
-							</Link>
+							<NextLink href={'/partnership'}>
+								Сотрудничество
+							</NextLink>
 						</li>
 						<li>
-							<Link href={'/project'}>
-								<a>О проекте</a>
-							</Link>
+							<NextLink href={'/project'}>
+								О проекте
+							</NextLink>
 						</li>
 						<li>
-							<Link href={'/privacy'}>
-								<a>Политика конфиденциальности</a>
-							</Link>
+							<NextLink href={'/privacy'}>
+								Политика конфиденциальности
+							</NextLink>
 						</li>
 						<li>
-							<Link href={'/right_holder'}>
-								<a>Для правообладателей</a>
-							</Link>
+							<NextLink href={'/right_holder'}>
+								Для правообладателей
+							</NextLink>
 						</li>
 					</ul>
 				</div>
