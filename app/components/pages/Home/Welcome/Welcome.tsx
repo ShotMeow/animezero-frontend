@@ -6,6 +6,7 @@ import { IFilm } from '@/services/films.interface'
 import { sliceArrayHelper } from '@/helpers/slice-array.helper'
 import Link from 'next/link'
 import { randomFilmHelper } from '@/helpers/random-film.helper'
+import Image from 'next/image'
 
 const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 	const filmsArray: IFilm[][] = sliceArrayHelper(films, films.length / 3)
@@ -42,7 +43,12 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 						{filmsArray[0].map(film => (
 							<Link href={`movies/${film.id}`} key={film.id}>
 								<a>
-									<img src={film.poster} alt={film.title} />
+									<Image
+										width={160}
+										height={220}
+										src={film.poster}
+										alt={film.title}
+									/>
 								</a>
 							</Link>
 						))}
@@ -51,7 +57,12 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 						{filmsArray[1].map(film => (
 							<Link href={`movies/${film.id}`} key={film.id}>
 								<a>
-									<img src={film.poster} alt={film.title} />
+									<Image
+										width={160}
+										height={220}
+										src={film.poster}
+										alt={film.title}
+									/>
 								</a>
 							</Link>
 						))}
@@ -60,7 +71,12 @@ const Welcome: FC<{ films: IFilm[] }> = ({ films }) => {
 						{filmsArray[2].map(film => (
 							<Link href={`movies/${film.id}`} key={film.id}>
 								<a>
-									<img src={film.poster} alt={film.title} />
+									<Image
+										width={160}
+										height={220}
+										src={film.poster}
+										alt={film.title}
+									/>
 								</a>
 							</Link>
 						))}

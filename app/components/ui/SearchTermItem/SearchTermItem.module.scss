@@ -21,15 +21,17 @@
 
   > div:first-child {
     @apply flex items-center gap-4;
-    > img {
-      @apply rounded-sm;
-      height: 70px;
-      width: 45px;
+    > div:first-child {
+      span {
+        width: 40px !important;
+      }
     }
 
-    > div {
+    > div:last-child {
       > h3 {
-        @apply text-xl font-bold;
+        @apply text-xl font-bold overflow-hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
 
       > div {

@@ -62,7 +62,7 @@
 
     > div {
       @apply flex gap-9;
-      transform: rotate(-30deg) translate(100px, -300px);
+      transform: rotate(-30deg) translate(100px, -150px);
 
       > div:first-child {
         animation: move 60s infinite;
@@ -77,10 +77,12 @@
         animation: move 60s infinite;
       }
 
+      a {
+        @apply block mb-8;
+      }
+
       img {
         @apply rounded-md space-y-4 my-16;
-        width: 160px;
-        height: 220px;
       }
     }
   }
@@ -88,12 +90,12 @@
 
 @keyframes move {
   0% {
-    transform: translateY(0);
+    transform: translateY(-150px);
   }
   50% {
-    transform: translateY(-200px);
+    transform: translateY(-250px);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(-150px);
   }
 }

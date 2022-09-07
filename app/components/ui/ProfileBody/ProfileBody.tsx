@@ -11,7 +11,6 @@ const ProfileBody: FC<{
 	isSuccess: boolean
 	meta?: IMeta
 }> = ({ title, films, isSuccess, meta }) => {
-	console.log(meta)
 	return (
 		<div className={styles.body}>
 			<h2>{title}</h2>

@@ -16,15 +16,15 @@
 		@media (max-width: 1023px) {
 			@apply gap-8 mt-8;
 			grid-template-columns: repeat(3, 1fr);
+
+			article {
+				@apply mx-auto;
+			}
 		}
 
-		@media (max-width: 730px) {
+		@media (max-width: 660px) {
+			@apply gap-4;
 			grid-template-columns: repeat(2, 1fr);
-		}
-
-		@media (max-width: 440px) {
-			@apply m-auto;
-			grid-template-columns: 1fr;
 		}
 
 		> p {

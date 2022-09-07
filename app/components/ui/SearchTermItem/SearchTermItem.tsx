@@ -6,6 +6,7 @@ import styles from './SearchTermItem.module.scss'
 import { ratingReduceHelper } from '@/helpers/rating-reduce.helper'
 import { ratingColorHelper } from '@/helpers/rating-color.helper'
 import cn from 'classnames'
+import Image from 'next/image'
 
 const SearchTermItem: FC<{
 	film: IFilm
@@ -17,7 +18,14 @@ const SearchTermItem: FC<{
 			<a>
 				<article onClick={() => setIsShow(false)} className={styles.film}>
 					<div>
-						<img src={film.poster} alt={film.title} />
+						<div>
+							<Image
+								width={40}
+								height={60}
+								src={film.poster}
+								alt={film.title}
+							/>
+						</div>
 						<div>
 							<h3>{film.title}</h3>
 							<div>
