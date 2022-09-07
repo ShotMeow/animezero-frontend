@@ -9,12 +9,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { api } from '@/store/api/api'
 import { logout } from '@/store/auth/auth.actions'
-import { profileApi } from '@/store/api/profile.api'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 
 const Profile: FC = () => {
 	const dispatch = useTypedDispatch()
 	const { asPath, push } = useRouter()
-	const { isSuccess } = profileApi.useGetProfileDataQuery('')
+	const token = useTypedSelector(store => store.auth.token)
 	const [logoutMutation] = api.useLogoutMutation()
 
 	const handleClick = () => {
@@ -29,7 +29,7 @@ const Profile: FC = () => {
 
 	return (
 		<>
-			{isSuccess ? (
+			{token ? (
 				<div className={styles.action}>
 					{asPath.includes('profile') ? (
 						<Button onClick={handleLogout} important='primary'>
