@@ -6,7 +6,6 @@ import { ratingColorHelper } from '@/app/helpers/rating-color.helper'
 import cn from 'classnames'
 import NextLink from '@/app/components/ui/NextLink'
 import { IFilm } from '@/app/interfaces/IFilm'
-import Image from 'next/image'
 
 interface ISearchTermItemProps {
 	film: IFilm
@@ -19,7 +18,7 @@ export default function SearchTermItem(props: ISearchTermItemProps) {
 		<NextLink href={`/movies/${props.film.id}`}>
 			<article onClick={() => props.setIsShow(false)} className={styles.film}>
 				<div>
-					<Image src={props.film.poster} alt={props.film.title} loading='lazy' />
+					<img src={props.film.poster} alt={props.film.title}/>
 					<div>
 						<h3>{props.film.title}</h3>
 						<div>

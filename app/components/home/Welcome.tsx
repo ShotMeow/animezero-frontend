@@ -3,7 +3,6 @@ import { FiPlay } from 'react-icons/fi'
 import styles from '../../styles/Welcome.module.scss'
 import { sliceArrayHelper } from '@/app/helpers/slice-array.helper'
 import { randomFilmHelper } from '@/app/helpers/random-film.helper'
-import Image from 'next/image'
 import NextLink from '@/app/components/ui/NextLink'
 import { IFilm } from '@/app/interfaces/IFilm'
 
@@ -43,21 +42,21 @@ export default function Welcome(props: IWelcomeProps) {
 					<div>
 						{filmsArray[0].map(film => (
 							<NextLink href={`movies/${film.id}`} key={film.id}>
-								<Image src={film.poster} alt={film.title} loading='lazy' />
+								<img src={film.poster} alt={film.title}/>
 							</NextLink>
 						))}
 					</div>
 					<div>
 						{filmsArray[1].map(film => (
 							<NextLink href={`movies/${film.id}`} key={film.id}>
-								<Image src={film.poster} alt={film.title} loading='lazy' />
+								<img src={film.poster} alt={film.title}/>
 							</NextLink>
 						))}
 					</div>
 					<div>
 						{filmsArray[2].map(film => (
 							<NextLink href={`movies/${film.id}`} key={film.id}>
-								<Image src={film.poster} alt={film.title} loading='lazy' />
+								<img src={film.poster} alt={film.title}/>
 							</NextLink>
 						))}
 					</div>

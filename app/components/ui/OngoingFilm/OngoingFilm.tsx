@@ -6,7 +6,6 @@ import { useTypedSelector } from '@/app/hooks/useTypedSelector'
 import { toastr } from 'react-redux-toastr'
 import NextLink from '@/app/components/ui/NextLink'
 import { IFilm } from '@/app/interfaces/IFilm'
-import Image from 'next/image'
 
 interface IOngoingFilmProps {
 	film: IFilm
@@ -34,7 +33,7 @@ export default function OngoingFilm(props: IOngoingFilmProps) {
 	return (
 		<article className={styles.ongoing_film}>
 			<NextLink href={`movies/${props.film.id}`}>
-				<Image src={props.film.poster} alt={props.film.title} loading='lazy' />
+				<img src={props.film.poster} alt={props.film.title}/>
 			</NextLink>
 			<div>
 				<h3>

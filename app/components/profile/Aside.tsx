@@ -8,7 +8,6 @@ import { Cropper } from 'react-cropper'
 import 'cropperjs/dist/cropper.css'
 import Button from '@/app/components/ui/Button/Button'
 import { toastr } from 'react-redux-toastr'
-import Image from 'next/image'
 import NextLink from '@/app/components/ui/NextLink'
 
 const Aside: FC = () => {
@@ -75,7 +74,7 @@ const Aside: FC = () => {
 				<div className={styles.info}>
 					{data.data.avatar ? (
 						<div className={styles.avatar}>
-							<Image src={data.data.avatar} alt='Аватар' loading='lazy' />
+							<img src={data.data.avatar} alt='Аватар' width={250} height={250} />
 							<button onClick={onFileUpload}>Изменить</button>
 							<input ref={fileInput} type='file' accept='.jpg, .jpeg, .png' />
 						</div>

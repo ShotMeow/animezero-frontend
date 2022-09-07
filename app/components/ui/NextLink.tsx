@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react'
+import Link from 'next/link'
 
 interface INextLinkProps {
 	href: string;
@@ -7,8 +8,10 @@ interface INextLinkProps {
 
 export default function NextLink(props: PropsWithChildren<INextLinkProps>) {
 	return (
-		<NextLink href={props.href} className={props.className}>
-			{props.children}
-		</NextLink>
+		<Link href={props.href}>
+			<a className={props.className}>
+				{props.children}
+			</a>
+		</Link>
 	)
 }

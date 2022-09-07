@@ -3,7 +3,6 @@ import Button from '@/app/components/ui/Button/Button'
 import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper'
 import NextLink from '@/app/components/ui/NextLink'
 import { IFilm } from '@/app/interfaces/IFilm'
-import Image from 'next/image'
 
 interface IFilmItemProps {
 	film: IFilm
@@ -15,7 +14,7 @@ export default function FilmItem(props: IFilmItemProps) {
 			<article className={styles.film}>
 				<span>{ratingReduceHelper(props.film.rating)}</span>
 				<header>
-					<Image src={props.film.poster} alt={props.film.title} loading='lazy' />
+					<img src={props.film.poster} alt={props.film.title} width={200} height={280} />
 					<Button important='primary'>Смотреть</Button>
 				</header>
 				<footer>

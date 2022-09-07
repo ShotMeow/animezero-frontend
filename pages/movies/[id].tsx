@@ -1,4 +1,4 @@
-import Layout, { HeadSlot } from '@/app/layouts/Layout'
+import Layout from '@/app/layouts/Layout'
 import styles from '@/app/styles/pages/Film.module.scss'
 import Button from '@/app/components/ui/Button/Button'
 import { useMounted } from '@/app/hooks/useMounted'
@@ -10,7 +10,6 @@ import { toastr } from 'react-redux-toastr'
 import { BiPlus } from 'react-icons/bi'
 import { AiFillEye } from 'react-icons/ai'
 import { IFilm } from '@/app/interfaces/IFilm'
-import Image from 'next/image'
 
 interface IFilmPageProps {
 	film: IFilm;
@@ -52,25 +51,9 @@ export default function FilmPage(props: IFilmPageProps) {
 
 	return (
 		<Layout title={`AnimeZero - ${props.film.title}`}>
-			<HeadSlot>
-				<meta property='og:type' content={props.film.type.name} />
-				<meta property='og:image' content={props.film.poster} />
-				<meta property='og:image:width' content='180' />
-				<meta property='og:image:height' content='240' />
-				<meta property='og:image:alt' content={props.film.title} />
-				{props.film.genres.map(genre => (
-					<meta key={genre.id} property='og:video:tag' content={genre.name} />
-				))}
-				<meta property='og:description' content={props.film.description} />
-				<meta property='description' content={props.film.description} />
-				<meta
-					property='keywords'
-					content={`${props.film.title} ${props.film.titleOrig} ${props.film.type.name}`}
-				/>
-			</HeadSlot>
 			<div className={styles.page}>
 				<div className={styles.poster}>
-					<Image src={props.film.poster} alt={props.film.title} loading='lazy' />
+					<img src={props.film.poster} alt={props.film.title}/>
 					{token && (
 						<div>
 							<Button onClick={handleTracking} important='secondary'>
