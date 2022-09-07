@@ -18,6 +18,7 @@ const Layout: FC<PropsWithChildren<{ title: string }>> = ({
 				<meta property='og:locale' content='ru_RU' />
 				<meta property='og:site_name' content='AnimeZero' />
 				<meta property='twitter:card' content='summary_large_image' />
+				<title>{title}</title>
 				<meta
 					property='og:description'
 					content='AnimeZero - онлайн-кинотеатр аниме. Здесь вы можете бесплатно посмотреть новинки в аниме индустрии.'
@@ -32,9 +33,6 @@ const Layout: FC<PropsWithChildren<{ title: string }>> = ({
 				/>
 			</Head>
 			<div className={styles.layout}>
-				<Head>
-					<title>{title}</title>
-				</Head>
 				<Header />
 				<main>{children}</main>
 			</div>
