@@ -58,5 +58,5 @@ export interface IStatus {
 
 export interface IFilter {
 	genres: IGenre[]
-	statuses: IStatus[]
+	statuses?: IStatus[]
 }

@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next'
 import Films from '@/components/pages/Films/Films'
-import { IFilm, IFilter, IGenre, IStatus } from '@/services/films.interface'
+import { IFilm, IFilter, IGenre } from '@/services/films.interface'
 import { FilmsService } from '@/services/films.service'
 import { ILink, IMetaLink } from '@/types/user.interface'
 
@@ -15,11 +15,13 @@ const FilmsPage: NextPage<{
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 	const page = query.page || 1
 	const genre = query.genres
-	const status = query.statuses
+	const years = query.years
+	const rating = query.rating
 	const params: any = {
 		page: page,
 		genres: genre,
-		statuses: status
+		years: years,
+		rating: rating
 	}
 
 	try {
@@ -28,14 +30,12 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 			...params
 		})
 		const { data: genres } = await FilmsService.getGenres()
-		const { data: statuses } = await FilmsService.getStatuses()
 		return {
 			props: {
 				films: films.data as IFilm[],
 				links: films.meta.links as ILink[],
 				filters: {
-					genres: genres.data as IGenre[],
-					statuses: statuses.data as IStatus[]
+					genres: genres.data as IGenre[]
 				}
 			} as { films: IFilm[]; links: ILink[]; filters: IFilter }
 		}

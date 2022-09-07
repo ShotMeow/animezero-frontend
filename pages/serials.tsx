@@ -16,10 +16,14 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 	const page = query.page || 1
 	const genre = query.genres
 	const status = query.statuses
+	const years = query.years
+	const rating = query.rating
 	const params: any = {
 		page: page,
 		genres: genre,
-		statuses: status
+		statuses: status,
+		years: years,
+		rating: rating
 	}
 	try {
 		const { data: serials } = await FilmsService.getAllByFilter({
