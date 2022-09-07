@@ -1,56 +1,55 @@
-import { GetServerSideProps, NextPage } from 'next'
-import Films from '@/app/components/pages/Films/Films'
-import { IFilm, IFilter, IGenre } from '@/app/services/films.interface'
+import { GetServerSidePropsContext } from 'next'
+import { IFilm, IFilter, SortType } from '@/app/services/films.interface'
 import { FilmsService } from '@/app/services/films.service'
-import { ILink, IMetaLink } from '@/app/types/user.interface'
+import { IMetaLink } from '@/app/types/user.interface'
+import Heading from '@/app/components/ui/Heading/Heading'
+import Filter from '@/app/components/ui/Filter/Filter'
+import FilmsGrid from '@/app/components/ui/FilmsGrid/FilmsGrid'
+import Layout from '@/app/components/Layout/Layout'
 
-const FilmsPage: NextPage<{
+interface IFilmsPageProps {
 	films: IFilm[]
 	links: IMetaLink[]
 	filters: IFilter
-}> = ({ films, links, filters }) => {
-	return <Films films={films} links={links} filters={filters} />
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-	const page = query.page || 1
-	const genre = query.genres
-	const years = query.years
-	const rating = query.rating
-	const params: any = {
-		page: page,
-		genres: genre,
-		years: years,
-		rating: rating
-	}
+export default function FilmsPage(props: IFilmsPageProps) {
+	return (
+		<Layout title='AnimeZero - Фильмы'>
+			<Heading
+				catalog='Фильмы'
+				title='Фильмы смотреть онлайн'
+				description='В нашем каталоге вы найдете аниме-фильмы любых жанров. Не упустите возможность смотреть фильмы онлайн бесплатно без регистрации.'
+			/>
+			<Filter filters={props.filters} />
+			<FilmsGrid films={props.films} links={props.links} />
+		</Layout>
+	)
+}
 
+export async function getServerSideProps(context: GetServerSidePropsContext) {
 	try {
-		const { data: films } = await FilmsService.getAllByFilter({
+		const films = await FilmsService.getAllByFilter({
 			type: 'film',
-			...params
-		})
-		const { data: genres } = await FilmsService.getGenres()
+			page: Number(context.query.page) || 1,
+			years: String(context.query.years),
+			rating: context.query.rating as SortType
+		}, true)
+
+		const genres = await FilmsService.getGenres()
+
 		return {
 			props: {
-				films: films.data as IFilm[],
-				links: films.meta.links as ILink[],
+				films: films.data,
+				links: films.links,
 				filters: {
-					genres: genres.data as IGenre[]
-				}
-			} as { films: IFilm[]; links: ILink[]; filters: IFilter }
-		}
-	} catch (e) {
-		return {
-			props: {
-				films: [],
-				links: [],
-				filters: {
-					genres: [],
-					statuses: []
+					genres: genres
 				}
 			}
 		}
+	} catch (e) {
+		return {
+			notFound: true
+		}
 	}
 }
-
-export default FilmsPage

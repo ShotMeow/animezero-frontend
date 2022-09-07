@@ -1,4 +1,5 @@
 export type BlockTypes = 'best' | 'newest' | 'ongoing' | 'recommended'
+export type SortType = 'asc' | 'desc'
 
 export interface IType {
 	id: number
@@ -45,8 +46,8 @@ export interface IGetAllByParams {
 	genres?: string
 	type?: 'film' | 'serial'
 	years?: string
-	rating?: 'asc' | 'desc'
-	title?: 'asc' | 'desc'
+	rating?: SortType
+	title?: SortType
 	page?: number
 }
 

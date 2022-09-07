@@ -1,6 +1,7 @@
 import { axiosClassic } from '../api/axios'
-import { BlockTypes, IFilm, IGetAllByParams } from '@/app/services/films.interface'
+import { BlockTypes, IFilm, IGenre, IGetAllByParams, IStatus } from '@/app/services/films.interface'
 import { IResponse } from '../interfaces/IResponse'
+import { IPaginateResponse } from '@/app/types/user.interface'
 
 export const FilmsService = {
 	async getAll(blocks: BlockTypes[]) {
@@ -12,17 +13,26 @@ export const FilmsService = {
 		return res.data.data
 	},
 
-	async getAllByFilter(params: IGetAllByParams) {
-		return axiosClassic.get(`/film`, {
-			params
+	async getAllByFilter(params: IGetAllByParams, filledOnly = false) {
+		const newParams: IGetAllByParams = filledOnly ? Object
+			.fromEntries(
+				Object
+					.entries(params).filter(([, v]) => v != undefined && v != '' && v !== null)
+			) : params
+
+		const res = await axiosClassic.get<IPaginateResponse<IFilm>>(`/film`, {
+			params: newParams
 		})
+		return res.data
 	},
 
 	async getGenres() {
-		return axiosClassic.get(`/film/genre`)
+		const res = await axiosClassic.get<IResponse<IGenre>>(`/film/genre`)
+		return res.data.data
 	},
 
 	async getStatuses() {
-		return axiosClassic.get(`/film/status`)
+		const res = await axiosClassic.get<IResponse<IStatus>>(`/film/status`)
+		return res.data.data;
 	}
 }
