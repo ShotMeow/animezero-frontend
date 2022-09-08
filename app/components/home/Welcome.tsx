@@ -38,29 +38,15 @@ export default function Welcome(props: IWelcomeProps) {
 				</div>
 			</div>
 			<div className={styles.films}>
-				<div>
-					<div>
-						{filmsArray[0].map(film => (
-							<NextLink href={`movies/${film.id}`} key={film.id}>
-								<img src={film.poster} alt={film.title}/>
-							</NextLink>
-						))}
-					</div>
-					<div>
-						{filmsArray[1].map(film => (
-							<NextLink href={`movies/${film.id}`} key={film.id}>
-								<img src={film.poster} alt={film.title}/>
-							</NextLink>
-						))}
-					</div>
-					<div>
-						{filmsArray[2].map(film => (
-							<NextLink href={`movies/${film.id}`} key={film.id}>
-								<img src={film.poster} alt={film.title}/>
-							</NextLink>
-						))}
-					</div>
-				</div>
+				{filmsArray.map((films, index) => (
+					<div className={styles.column} key={index}>
+						{films.map(film =>
+							(<NextLink href={`movies/${film.id}`} key={film.id}>
+								<img src={film.poster} alt={film.title} />
+							</NextLink>))
+						}
+					</div>)
+				)}
 			</div>
 		</section>
 	)

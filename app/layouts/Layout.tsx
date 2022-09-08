@@ -4,6 +4,7 @@ import Modal from '@/app/components/ui/Modal/Modal'
 import Footer from '@/app/components/Footer'
 import { useTypedSelector } from '@/app/hooks/useTypedSelector'
 import { PropsWithChildren } from 'react'
+import Head from 'next/head'
 
 interface ILayoutProps {
 	title: string;
@@ -12,13 +13,19 @@ interface ILayoutProps {
 export default function Layout(props: PropsWithChildren<ILayoutProps>) {
 	const isModal = useTypedSelector(state => state.modal.isShow)
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.layout}>
-				<Header />
-				<main>{props.children}</main>
+		<>
+			<Head>
+				<html lang='ru' />
+				<title>{props.title}</title>
+			</Head>
+			<div className={styles.wrapper}>
+				<div className={styles.layout}>
+					<Header />
+					<main>{props.children}</main>
+				</div>
+				<Footer />
+				{isModal && <Modal />}
 			</div>
-			<Footer />
-			{isModal && <Modal />}
-		</div>
+		</>
 	)
 }

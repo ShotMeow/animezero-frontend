@@ -12,7 +12,7 @@ interface IOngoingFilmProps {
 }
 
 export default function OngoingFilm(props: IOngoingFilmProps) {
-	const genres = props.film.genres.slice(2).toString()
+	const genres = props.film.genres.map(item => item.name).toString();
 
 	const [addTrackedFilm] = filmsApi.useAddTrackedFilmsMutation()
 	const token = useTypedSelector(store => store.auth.token)
@@ -41,7 +41,7 @@ export default function OngoingFilm(props: IOngoingFilmProps) {
 				</h3>
 				<p className={styles.genres}>
 					<span>Жанры: </span>
-					<span>{genres}</span>
+					<span>{genres.toString()}</span>
 				</p>
 				<p className={styles.ages}>
 					Возрастной рейтинг: <span>{ageCompileHelper(props.film.minimalAge)}</span>

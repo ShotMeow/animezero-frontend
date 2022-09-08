@@ -34,10 +34,8 @@ export default function Menu() {
 						Главная
 					</NextLink>
 					<NextLink href={'/films'}>
-						<a>
-							<IoFilmSharp size={20} />
-							Фильмы
-						</a>
+						<IoFilmSharp size={20} />
+						Фильмы
 					</NextLink>
 					<NextLink href={'/serials'}>
 						<AiFillTablet size={20} />

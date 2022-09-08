@@ -10,7 +10,7 @@ interface IPaginationProps {
 
 export default function Pagination(props: IPaginationProps) {
 	const router = useRouter()
-	const currentLinks = props.links?.slice(1, props.links.length - 1)
+	const currentLinks = props.links.slice(1, props.links.length - 1)
 
 	const handlePagination = (page: number) => () => {
 		const path = router.pathname

@@ -22,7 +22,7 @@ export default function Search() {
 					value={searchTerm}
 					onChange={handleSearch}
 				/>
-				<button>
+				<button aria-label='Search'>
 					<BiSearch color='white' size={24} />
 				</button>
 			</label>

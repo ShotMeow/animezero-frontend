@@ -16,6 +16,8 @@ interface ISerialsPageProps {
 }
 
 export default function SerialsPage(props: ISerialsPageProps) {
+	console.log(props)
+
 	return (
 		<Layout title='AnimeZero - Сериалы'>
 			<Heading
@@ -44,7 +46,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 		return {
 			props: {
 				serials: serials.data,
-				links: serials.links,
+				links: serials.meta.links,
 				filters: {
 					genres,
 					statuses

@@ -59,17 +59,17 @@ export default function Footer() {
 					<h3>Мы в социальных сетях</h3>
 					<ul>
 						<li>
-							<a href='https://t.me/+-NG8FAIfeagxNmM6'>
+							<a href='https://t.me/+-NG8FAIfeagxNmM6' aria-label='Telegram'>
 								<FaTelegramPlane size={20} />
 							</a>
 						</li>
 						<li>
-							<a href='https://vk.com/kino_animezero'>
+							<a href='https://vk.com/kino_animezero' aria-label='VK'>
 								<IoLogoVk size={20} />
 							</a>
 						</li>
 						<li>
-							<a href='mailto:admin@animezero.ru'>
+							<a href='mailto:admin@animezero.ru' aria-label='Email'>
 								<AiOutlineMail size={20} />
 							</a>
 						</li>
