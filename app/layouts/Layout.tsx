@@ -8,6 +8,7 @@ import Head from 'next/head'
 
 interface ILayoutProps {
 	title: string;
+	metaSlot?: () => JSX.Element;
 }
 
 export default function Layout(props: PropsWithChildren<ILayoutProps>) {
@@ -15,8 +16,8 @@ export default function Layout(props: PropsWithChildren<ILayoutProps>) {
 	return (
 		<>
 			<Head>
-				<html lang='ru' />
 				<title>{props.title}</title>
+				{props.metaSlot && props.metaSlot()}
 			</Head>
 			<div className={styles.wrapper}>
 				<div className={styles.layout}>

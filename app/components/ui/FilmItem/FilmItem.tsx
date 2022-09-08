@@ -3,12 +3,13 @@ import Button from '@/app/components/ui/Button/Button'
 import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper'
 import NextLink from '@/app/components/ui/NextLink'
 import { IFilm } from '@/app/interfaces/IFilm'
+import { memo } from 'react'
 
 interface IFilmItemProps {
 	film: IFilm
 }
 
-export default function FilmItem(props: IFilmItemProps) {
+export default memo(function FilmItem(props: IFilmItemProps) {
 	return (
 		<NextLink href={`/movies/${props.film.id}`}>
 			<article className={styles.film}>
@@ -24,4 +25,4 @@ export default function FilmItem(props: IFilmItemProps) {
 			</article>
 		</NextLink>
 	)
-}
+})

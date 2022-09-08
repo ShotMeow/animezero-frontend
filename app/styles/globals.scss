@@ -8,6 +8,7 @@
 	box-sizing: border-box;
 	scrollbar-width: thin;
 	scrollbar-color: #397524 #FFFFFF;
+	font-family: 'Noto Sans', sans-serif;
 }
 
 html, body, #__next {
@@ -16,7 +17,6 @@ html, body, #__next {
 
 body {
 	@apply text-secondary bg-black;
-	font-family: 'Ubuntu', sans-serif;
 }
 
 input,

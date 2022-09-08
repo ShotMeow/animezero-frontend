@@ -1,19 +1,28 @@
-import { FC, useState } from 'react'
+import { memo, useState } from 'react'
 import styles from '@/app/components/ui/Filter/FilterItem/FilterItem.module.scss'
 import { Listbox } from '@headlessui/react'
 import { IoIosArrowDown } from 'react-icons/io'
-import { IElement, IFilterItem } from '@/app/components/ui/Filter/FilterItem/FilterItem.interface'
+import { IElement } from '@/app/components/ui/Filter/FilterItem/FilterItem.interface'
 import { useRouter } from 'next/router'
 
-const Base: FC<IFilterItem> = ({ type, title, elements }) => {
-	const [selected, setSelected] = useState(elements[0])
+interface IBaseProps {
+	title: string
+	elements?: IElement[]
+	type: string
+}
+
+export default memo(function Base(props: IBaseProps) {
+	if (!props.elements || !props.elements.length)
+		return null
+
+	const [selected, setSelected] = useState(props.elements[0])
 	const router = useRouter()
 
-	const handleChange = (element: IElement) => {
+	function handleChange(element: IElement) {
 		setSelected(element)
 		const path = router.pathname
 		const query = router.query
-		query[`${type}`] = element.value
+		query[props.type] = element.value
 		router.push({
 			pathname: path,
 			query: query
@@ -26,7 +35,7 @@ const Base: FC<IFilterItem> = ({ type, title, elements }) => {
 				value={selected}
 				onChange={(value: IElement) => handleChange(value)}
 			>
-				<Listbox.Label>{title}:</Listbox.Label>
+				<Listbox.Label>{props.title}:</Listbox.Label>
 				<Listbox.Button>
 					<span>{selected.name}</span>
 					<span>
@@ -34,7 +43,7 @@ const Base: FC<IFilterItem> = ({ type, title, elements }) => {
 					</span>
 				</Listbox.Button>
 				<Listbox.Options>
-					{elements.map(element => (
+					{props.elements.map(element => (
 						<Listbox.Option key={element.id} value={element}>
 							<li className={styles.element}>{element.name}</li>
 						</Listbox.Option>
@@ -43,6 +52,4 @@ const Base: FC<IFilterItem> = ({ type, title, elements }) => {
 			</Listbox>
 		</article>
 	)
-}
-
-export default Base
+})

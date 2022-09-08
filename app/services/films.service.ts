@@ -33,12 +33,12 @@ export const FilmsService = {
 	},
 
 	async getGenres() {
-		const res = await axiosClassic.get<IResponse<IGenre>>(`/film/genre`)
+		const res = await axiosClassic.get<IResponse<IGenre[]>>(`/film/genre`)
 		return res.data.data
 	},
 
 	async getStatuses() {
-		const res = await axiosClassic.get<IResponse<IStatus>>(`/film/status`)
+		const res = await axiosClassic.get<IResponse<IStatus[]>>(`/film/status`)
 		return res.data.data
 	}
 }

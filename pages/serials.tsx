@@ -16,8 +16,6 @@ interface ISerialsPageProps {
 }
 
 export default function SerialsPage(props: ISerialsPageProps) {
-	console.log(props)
-
 	return (
 		<Layout title='AnimeZero - Сериалы'>
 			<Heading

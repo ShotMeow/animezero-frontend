@@ -49,11 +49,27 @@ export default function FilmPage(props: IFilmPageProps) {
 		token && addWatchedFilm(props.film.id)
 	})
 
+	function metaSlot() {
+		return (
+			<>
+				<meta property='og:type' content={props.film.type.name} />
+				<meta property='og:image' content={props.film.poster} />
+				<meta property='og:image:width' content='180' />
+				<meta property='og:image:height' content='240' />
+				<meta property='og:image:alt' content={props.film.title} />
+				<meta property='og:description' content={props.film.description} />
+				<meta property='description' content={props.film.description} />
+				<meta
+					property='keywords'
+					content={`${props.film.title} ${props.film.titleOrig} ${props.film.type.name}`} />
+			</>)
+	}
+
 	return (
-		<Layout title={`AnimeZero - ${props.film.title}`}>
+		<Layout title={`AnimeZero - ${props.film.title}`} metaSlot={metaSlot}>
 			<div className={styles.page}>
 				<div className={styles.poster}>
-					<img src={props.film.poster} alt={props.film.title}/>
+					<img src={props.film.poster} alt={props.film.title} />
 					{token && (
 						<div>
 							<Button onClick={handleTracking} important='secondary'>
