@@ -10,12 +10,10 @@ const Filter: FC<{ filters: IFilter }> = ({ filters }) => {
 	const router = useRouter()
 	const handleClick = () => {
 		const path = router.pathname
-		const query = router.query
-		delete query.genres
-		delete query.statuses
+		router.query = {}
 		router.push({
 			pathname: path,
-			query: query
+			query: router.query
 		})
 	}
 

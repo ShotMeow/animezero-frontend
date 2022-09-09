@@ -4,7 +4,7 @@ const nextConfig = {
 	swcMinify: true,
 	poweredByHeader: false,
 	images: {
-		domains: ['st.kp.yandex.net']
+		domains: ['st.kp.yandex.net', 'shikimori.one']
 	},
 	env: {
 		API_URL: process.env.API_URL
