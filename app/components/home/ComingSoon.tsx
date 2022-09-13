@@ -4,7 +4,6 @@ import Subtitle from '@/app/components/ui/Subtitle';
 import OngoingFilm from '@/app/components/ui/OngoingFilm';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from '../../styles/ComingSoon.module.scss';
-import { Autoplay } from 'swiper';
 import { IFilm } from '@/app/interfaces/IFilm';
 import NextLink from '@/app/components/ui/NextLink';
 
@@ -44,12 +43,7 @@ export default function ComingSoon(props: IComingSoonProps) {
 						}
 					}}
 					spaceBetween={20}
-					autoplay={{
-						delay: 6000,
-						disableOnInteraction: false
-					}}
 					loop
-					modules={[Autoplay]}
 				>
 					{props.films?.map(film => (
 						<SwiperSlide key={film.id}>

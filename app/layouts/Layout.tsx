@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 interface ILayoutProps {
 	title: string;
-	metaSlot?: () => Element;
+	metaSlot?: () => JSX.Element;
 }
 
 export default function Layout(props: PropsWithChildren<ILayoutProps>) {
