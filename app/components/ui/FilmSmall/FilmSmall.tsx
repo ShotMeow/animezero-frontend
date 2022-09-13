@@ -1,10 +1,10 @@
-import styles from './FilmSmall.module.scss'
-import Tag from '@/app/components/ui/Tag/Tag'
-import NextLink from '@/app/components/ui/NextLink'
-import { IFilm } from '@/app/interfaces/IFilm'
+import styles from './FilmSmall.module.scss';
+import Tag from '@/app/components/ui/Tag/Tag';
+import NextLink from '@/app/components/ui/NextLink';
+import { IFilm } from '@/app/interfaces/IFilm';
 
 interface IFilmSmallProps {
-	film: IFilm
+	film: IFilm;
 }
 
 export default function FilmSmall(props: IFilmSmallProps) {
@@ -22,5 +22,5 @@ export default function FilmSmall(props: IFilmSmallProps) {
 				</div>
 			</article>
 		</NextLink>
-	)
+	);
 }

@@ -1,10 +1,10 @@
-import { FaTelegramPlane } from 'react-icons/fa'
-import { AiOutlineMail } from 'react-icons/ai'
-import Button from '@/app/components/ui/Button/Button'
-import styles from '@/app/styles/components/Footer.module.scss'
-import global from '@/app/styles/Layout.module.scss'
-import { IoLogoVk } from 'react-icons/io'
-import NextLink from '@/app/components/ui/NextLink'
+import Button from '@/app/components/ui/Button/Button';
+import styles from '@/app/styles/components/Footer.module.scss';
+import global from '@/app/styles/Layout.module.scss';
+import NextLink from '@/app/components/ui/NextLink';
+import { FaTelegramPlane } from 'react-icons/fa';
+import { AiOutlineMail } from 'react-icons/ai';
+import { IoLogoVk } from 'react-icons/io';
 
 export default function Footer() {
 	return (
@@ -14,17 +14,17 @@ export default function Footer() {
 					<h3>Разделы</h3>
 					<ul>
 						<li>
-							<NextLink href={'/'}>
+							<NextLink href='/'>
 								Каталог
 							</NextLink>
 						</li>
 						<li>
-							<NextLink href={'/films'}>
+							<NextLink href='/films'>
 								Фильмы
 							</NextLink>
 						</li>
 						<li>
-							<NextLink href={'/serials'}>
+							<NextLink href='/serials'>
 								Сериалы
 							</NextLink>
 						</li>
@@ -34,22 +34,22 @@ export default function Footer() {
 					<h3>Пользователям и партнёрам</h3>
 					<ul>
 						<li>
-							<NextLink href={'/partnership'}>
+							<NextLink href='/partnership'>
 								Сотрудничество
 							</NextLink>
 						</li>
 						<li>
-							<NextLink href={'/project'}>
+							<NextLink href='/project'>
 								О проекте
 							</NextLink>
 						</li>
 						<li>
-							<NextLink href={'/privacy'}>
+							<NextLink href='/privacy'>
 								Политика конфиденциальности
 							</NextLink>
 						</li>
 						<li>
-							<NextLink href={'/right_holder'}>
+							<NextLink href='/right_holder'>
 								Для правообладателей
 							</NextLink>
 						</li>
@@ -84,5 +84,5 @@ export default function Footer() {
 			</div>
 			<p>© 2022 AnimeZero. Все права защищены.</p>
 		</footer>
-	)
+	);
 }

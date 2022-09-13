@@ -1,4 +1,4 @@
 export interface INavItem {
-	link: string
-	title: string
+	link: string;
+	title: string;
 }

@@ -1,20 +1,44 @@
-import { GetServerSidePropsContext } from 'next'
-import { FilmsService } from '@/app/services/films.service'
-import Heading from '@/app/components/ui/Heading/Heading'
-import Filter from '@/app/components/ui/Filter/Filter'
-import FilmsGrid from '@/app/components/ui/FilmsGrid/FilmsGrid'
-import Layout from '@/app/layouts/Layout'
-import { IFilm } from '@/app/interfaces/IFilm'
-import { IFilter } from '@/app/interfaces/IFilter'
-import { SortType } from '@/app/types/SortTypes'
-import { IPaginateResponse } from '@/app/interfaces/IPaginateResponse'
+import { GetServerSidePropsContext } from 'next';
+import { FilmsService } from '@/app/services/films.service';
+import Heading from '@/app/components/ui/Heading/Heading';
+import Filter from '@/app/components/ui/Filter/Filter';
+import FilmsGrid from '@/app/components/ui/FilmsGrid/FilmsGrid';
+import Layout from '@/app/layouts/Layout';
+import { IFilm } from '@/app/interfaces/IFilm';
+import { IFilter } from '@/app/interfaces/IFilter';
+import { SortType } from '@/app/types/SortTypes';
+import { IPaginateResponse } from '@/app/interfaces/IPaginateResponse';
+import { useState } from 'react';
+import { useMounted } from '@/app/hooks/useMounted';
+import { Event } from '@/pages/_app';
 
 interface IFilmsPageProps {
-	films: IPaginateResponse<IFilm>
-	filters: IFilter
+	films: IPaginateResponse<IFilm>;
+	filters: IFilter;
 }
 
 export default function FilmsPage(props: IFilmsPageProps) {
+	const [newProps, setNewProps] = useState(props);
+
+	useMounted(() => {
+		setNewProps(props);
+	});
+
+	Event.on('film-update', async (data) => {
+		const films = await FilmsService.getAllByFilter({
+			type: 'film',
+			page: 1,
+			years: data?.years,
+			rating: data?.rating,
+			genres: data?.genres
+		}, true);
+
+		setNewProps({
+			...newProps,
+			films
+		});
+	});
+
 	return (
 		<Layout title='AnimeZero - Фильмы'>
 			<Heading
@@ -22,10 +46,10 @@ export default function FilmsPage(props: IFilmsPageProps) {
 				title='Фильмы смотреть онлайн'
 				description='В нашем каталоге вы найдете аниме-фильмы любых жанров. Не упустите возможность смотреть фильмы онлайн бесплатно без регистрации.'
 			/>
-			<Filter filters={props.filters} />
-			<FilmsGrid films={props.films.data} links={props.films.meta.links} />
+			<Filter filters={newProps.filters} />
+			<FilmsGrid films={newProps.films.data} links={newProps.films.meta.links} />
 		</Layout>
-	)
+	);
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
@@ -35,9 +59,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 			page: Number(context.query.page) || 1,
 			years: String(context.query.years),
 			rating: context.query.rating as SortType
-		}, true)
+		}, true);
 
-		const genres = await FilmsService.getGenres()
+		const genres = await FilmsService.getGenres();
 
 		return {
 			props: {
@@ -46,10 +70,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 					genres
 				}
 			}
-		}
+		};
 	} catch (e) {
 		return {
 			notFound: true
-		}
+		};
 	}
 }

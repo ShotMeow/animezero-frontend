@@ -1,14 +1,14 @@
-import { FC } from 'react'
-import Field from '@/app/components/ui/Field/Field'
-import Button from '@/app/components/ui/Button/Button'
-import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { ILoginFields } from '@/app/components/ui/Modal/Modal.interface'
-import { changeType, setIsShow } from '@/app/store/modal/modal.slice'
-import { login } from '@/app/store/auth/auth.actions'
+import { FC } from 'react';
+import Field from '@/app/components/ui/Field/Field';
+import Button from '@/app/components/ui/Button/Button';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { ILoginFields } from '@/app/components/ui/Modal/Modal.interface';
+import { changeType, setIsShow } from '@/app/store/modal/modal.slice';
+import { login } from '@/app/store/auth/auth.actions';
 
 const Login: FC = () => {
-	const dispatch = useTypedDispatch()
+	const dispatch = useTypedDispatch();
 
 	const {
 		register,
@@ -17,23 +17,23 @@ const Login: FC = () => {
 		handleSubmit
 	} = useForm<ILoginFields>({
 		mode: 'onChange'
-	})
+	});
 
 	const onLoginSubmit: SubmitHandler<ILoginFields> = data => {
 		dispatch(login(data)).then(data => {
 			// @ts-ignore
 			if (data.payload.message === 'Please verify your email.') {
-				dispatch(changeType('verify'))
+				dispatch(changeType('verify'));
 			} else if (
 				// @ts-ignore
 				!data.payload.message
 			) {
-				dispatch(setIsShow())
+				dispatch(setIsShow());
 			} else {
-				setError('password', { message: 'Неверный логин или пароль' })
+				setError('password', { message: 'Неверный логин или пароль' });
 			}
-		})
-	}
+		});
+	};
 
 	return (
 		<form onSubmit={handleSubmit(onLoginSubmit)}>
@@ -69,7 +69,7 @@ const Login: FC = () => {
 				</button>
 			</div>
 		</form>
-	)
-}
+	);
+};
 
-export default Login
+export default Login;

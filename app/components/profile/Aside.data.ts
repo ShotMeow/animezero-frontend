@@ -1,4 +1,4 @@
-import { IAsideNav } from '@/app/components/profile/Aside.interface'
+import { IAsideNav } from '@/app/components/profile/Aside.interface';
 
 export const asideNav: IAsideNav[] = [
 	{
@@ -17,4 +17,4 @@ export const asideNav: IAsideNav[] = [
 		value: 'Настройки',
 		url: '/profile/settings'
 	}
-]
+];

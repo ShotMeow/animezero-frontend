@@ -1,50 +1,50 @@
 .film_big {
-  @apply relative h-full bg-cover bg-center flex flex-col justify-between p-8 space-y-4;
-  box-shadow: inset 0px -250px 100px rgba(0, 0, 0, 0.5);
+	@apply relative h-full bg-cover bg-center flex flex-col justify-between p-8 space-y-4;
+	box-shadow: inset 0px -250px 100px rgba(0, 0, 0, 0.5);
 
-  @media (max-width: 340px) {
-    @apply p-4;
-  }
+	@media (max-width: 340px) {
+		@apply p-4;
+	}
 
-  .tags {
-    > div {
-      @apply flex gap-3;
-    }
+	.tags {
+		> div {
+			@apply flex gap-3;
+		}
 
-    @apply flex justify-between;
-  }
+		@apply flex justify-between;
+	}
 
-  .about {
-    @apply z-10 flex justify-between items-end space-y-4;
+	.about {
+		@apply z-10 flex justify-between items-end space-y-4;
 
-    @media (max-width: 1280px) {
-      @apply flex-col items-start;
-    }
+		@media (max-width: 1280px) {
+			@apply flex-col items-start;
+		}
 
-    > div:first-child {
-      @apply w-3/4 space-y-2;
+		> div:first-child {
+			@apply w-3/4 space-y-2;
 
-      > h3 {
-        @apply text-xl font-bold;
-      }
+			> h3 {
+				@apply text-xl font-bold;
+			}
 
-      > p {
-        @media (max-width: 420px) {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-        }
-      }
-    }
-  }
+			> p {
+				@media (max-width: 420px) {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-line-clamp: 4;
+					-webkit-box-orient: vertical;
+				}
+			}
+		}
+	}
 
-  button {
-    @apply py-4 px-14;
+	button {
+		@apply py-4 px-14;
 
-    @media (max-width: 1024px) {
-      @apply hidden;
-    }
-  }
+		@media (max-width: 1024px) {
+			@apply hidden;
+		}
+	}
 }

@@ -1,14 +1,14 @@
-import { IFilm } from '@/app/interfaces/IFilm'
-import styles from './ProfileBody.module.scss'
-import Pagination from '@/app/components/ui/Pagination/Pagination'
-import ProfileCard from '@/app/components/ui/ProfileCard/ProfileCard'
-import { IMeta } from '@/app/interfaces/IMeta'
+import { IFilm } from '@/app/interfaces/IFilm';
+import styles from './ProfileBody.module.scss';
+import Pagination from '@/app/components/ui/Pagination/Pagination';
+import ProfileCard from '@/app/components/ui/ProfileCard/ProfileCard';
+import { IMeta } from '@/app/interfaces/IMeta';
 
 interface IProfileBodyProps {
-	title: string
-	films: IFilm[] | undefined
-	isSuccess: boolean
-	meta?: IMeta
+	title: string;
+	films: IFilm[] | undefined;
+	isSuccess: boolean;
+	meta?: IMeta;
 }
 
 export default function ProfileBody(props: IProfileBodyProps) {
@@ -28,5 +28,5 @@ export default function ProfileBody(props: IProfileBodyProps) {
 			</div>
 			{props.meta && props.meta?.last_page !== 1 && <Pagination links={props.meta.links} />}
 		</div>
-	)
+	);
 }

@@ -1,20 +1,20 @@
-import { FC } from 'react'
-import styles from '@/app/styles/Profile.module.scss'
-import Aside from '@/app/components/profile/Aside'
-import Layout from '@/app/layouts/Layout'
-import Field from '@/app/components/ui/Field/Field'
-import Button from '@/app/components/ui/Button/Button'
-import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { IRegisterFields } from '@/app/components/ui/Modal/Modal.interface'
-import { api } from '@/app/store/api/api'
-import { changeType, setIsShow } from '@/app/store/modal/modal.slice'
-import { setData } from '@/app/store/update/update.slice'
-import { IUserUpdate } from '@/app/interfaces/IUserUpdate'
+import { FC } from 'react';
+import styles from '@/app/styles/Profile.module.scss';
+import Aside from '@/app/components/profile/Aside';
+import Layout from '@/app/layouts/Layout';
+import Field from '@/app/components/ui/Field/Field';
+import Button from '@/app/components/ui/Button/Button';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { IRegisterFields } from '@/app/components/ui/Modal/Modal.interface';
+import { api } from '@/app/store/api/api';
+import { changeType, setIsShow } from '@/app/store/modal/modal.slice';
+import { setData } from '@/app/store/update/update.slice';
+import { IUserUpdate } from '@/app/interfaces/IUserUpdate';
 
 const Settings: FC = () => {
-	const [requestCode] = api.useRequestCodeMutation()
-	const dispatch = useTypedDispatch()
+	const [requestCode] = api.useRequestCodeMutation();
+	const dispatch = useTypedDispatch();
 
 	const {
 		register,
@@ -23,25 +23,25 @@ const Settings: FC = () => {
 		handleSubmit
 	} = useForm<IRegisterFields>({
 		mode: 'onChange'
-	})
+	});
 
 	const onChangeSubmit: SubmitHandler<IUserUpdate> = data => {
 		if (data.login || data.email || data.password) {
 			if (data.password) {
 				if (data.password !== data.password_repeat) {
-					return setError('password_repeat', { message: 'Пароли не совпадают' })
+					return setError('password_repeat', { message: 'Пароли не совпадают' });
 				}
 			}
 			requestCode().then(res => {
 				// @ts-ignore
 				if (!res.error) {
-					dispatch(setData(data))
-					dispatch(setIsShow())
-					dispatch(changeType('update-verify'))
+					dispatch(setData(data));
+					dispatch(setIsShow());
+					dispatch(changeType('update-verify'));
 				}
-			})
+			});
 		}
-	}
+	};
 
 	return (
 		<Layout title='AnimeZero - Профиль'>
@@ -101,7 +101,7 @@ const Settings: FC = () => {
 				</div>
 			</section>
 		</Layout>
-	)
-}
+	);
+};
 
-export default Settings
+export default Settings;

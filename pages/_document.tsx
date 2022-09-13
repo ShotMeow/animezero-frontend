@@ -1,15 +1,16 @@
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
-		const initialProps = await Document.getInitialProps(ctx)
-		return { ...initialProps }
+		const initialProps = await Document.getInitialProps(ctx);
+		return { ...initialProps };
 	}
 
 	render() {
 		return (
 			<Html lang={'ru'}>
 				<Head>
+					<meta name='theme-color' content='#643FFE' />
 					<link rel='preconnect' href='https://fonts.googleapis.com' />
 					<link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
 					<link
@@ -22,8 +23,8 @@ class MyDocument extends Document {
 				<NextScript />
 				</body>
 			</Html>
-		)
+		);
 	}
 }
 
-export default MyDocument
+export default MyDocument;

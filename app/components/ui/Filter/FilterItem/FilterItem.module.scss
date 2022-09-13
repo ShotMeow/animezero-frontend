@@ -1,36 +1,36 @@
 .filter {
-  @apply relative;
+	@apply relative;
 
-  @media (max-width: 767px) {
-    @apply flex flex-col;
-  }
+	@media (max-width: 767px) {
+		@apply flex flex-col;
+	}
 
-  > label {
-    @apply text-lg;
-  }
+	> label {
+		@apply text-lg;
+	}
 
-  > button {
-    @apply relative z-30 px-6 py-4 mt-2 bg-gray-700 flex items-center justify-between;
-    width: 285px;
-    height: 60px;
+	> button {
+		@apply relative z-30 px-6 py-4 mt-2 bg-gray-700 flex items-center justify-between;
+		width: 285px;
+		height: 60px;
 
-    > span:first-child {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
+		> span:first-child {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
 
-  > ul {
-    @apply mt-2 w-full grid absolute z-50 bg-gray-700;
-    overflow-y: auto;
-    max-height: 500px;
+	> ul {
+		@apply mt-2 w-full grid absolute z-50 bg-gray-700;
+		overflow-y: auto;
+		max-height: 500px;
 
-    > li {
-      @apply cursor-pointer px-6 py-4 text-center;
-      &:hover {
-        @apply bg-gray-900 text-primary;
-      }
-    }
-  }
+		> li {
+			@apply cursor-pointer px-6 py-4 text-center;
+			&:hover {
+				@apply bg-gray-900 text-primary;
+			}
+		}
+	}
 }

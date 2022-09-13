@@ -1,4 +1,4 @@
-export interface IGenre {
+export interface IElement {
 	id: number;
 	name: string;
 	value: string | null;

@@ -1,7 +1,7 @@
-import { FC, PropsWithChildren } from 'react'
-import cn from 'classnames'
-import { IButton } from '@/app/components/ui/Button/Button.interface'
-import styles from './Button.module.scss'
+import { FC, PropsWithChildren } from 'react';
+import cn from 'classnames';
+import { IButton } from '@/app/components/ui/Button/Button.interface';
+import styles from './Button.module.scss';
 
 const Button: FC<PropsWithChildren<IButton>> = ({
 	                                                children,
@@ -21,7 +21,7 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 		>
 			{children}
 		</button>
-	)
-}
+	);
+};
 
-export default Button
+export default Button;

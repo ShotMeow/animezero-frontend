@@ -1,46 +1,46 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react'
-import { useTypedSelector } from '@/app/hooks/useTypedSelector'
-import Button from '@/app/components/ui/Button/Button'
-import cn from 'classnames'
-import styles from '../Modal.module.scss'
-import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
-import { setIsShow } from '@/app/store/modal/modal.slice'
-import { toastr } from 'react-redux-toastr'
-import { IInfo } from '@/app/components/ui/Modal/Verify/Verify.interface'
-import { api } from '@/app/store/api/api'
-import { profileApi } from '@/app/store/api/profile.api'
-import { removeEmptyHelper } from '@/app/helpers/remove-empty.helper'
-import { clearData, setCode } from '@/app/store/update/update.slice'
+import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { useTypedSelector } from '@/app/hooks/useTypedSelector';
+import Button from '@/app/components/ui/Button/Button';
+import cn from 'classnames';
+import styles from '../Modal.module.scss';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { setIsShow } from '@/app/store/modal/modal.slice';
+import { toastr } from 'react-redux-toastr';
+import { IInfo } from '@/app/components/ui/Modal/Verify/Verify.interface';
+import { api } from '@/app/store/api/api';
+import { profileApi } from '@/app/store/api/profile.api';
+import { removeEmptyHelper } from '@/app/helpers/remove-empty.helper';
+import { clearData, setCode } from '@/app/store/update/update.slice';
 
 const Verify: FC = () => {
-	const [info, setInfo] = useState<IInfo>({} as IInfo)
-	const [value, setValue] = useState<string>('')
-	const [update] = api.useUpdateMutation()
-	let res = useTypedSelector(store => store.update)
-	const { refetch } = profileApi.useGetProfileDataQuery('')
-	const dispatch = useTypedDispatch()
+	const [info, setInfo] = useState<IInfo>({} as IInfo);
+	const [value, setValue] = useState<string>('');
+	const [update] = api.useUpdateMutation();
+	let res = useTypedSelector(store => store.update);
+	const { refetch } = profileApi.useGetProfileDataQuery('');
+	const dispatch = useTypedDispatch();
 
 	useEffect(() => {
-		dispatch(setCode(value))
-	}, [value])
+		dispatch(setCode(value));
+	}, [value]);
 
 	const handleSubmit = (e: any) => {
-		e.preventDefault()
+		e.preventDefault();
 		update(removeEmptyHelper(res)).then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				dispatch(setIsShow())
-				toastr.success('Успех', 'Данные успешно изменены')
-				refetch()
-				dispatch(clearData())
+				dispatch(setIsShow());
+				toastr.success('Успех', 'Данные успешно изменены');
+				refetch();
+				dispatch(clearData());
 			} else {
 				setInfo({
 					type: 'error',
 					body: 'Код введен неверно'
-				})
+				});
 			}
-		})
-	}
+		});
+	};
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -94,7 +94,7 @@ const Verify: FC = () => {
 				<Button important='primary'>Подтвердить</Button>
 			</div>
 		</form>
-	)
-}
+	);
+};
 
-export default Verify
+export default Verify;

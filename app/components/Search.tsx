@@ -1,17 +1,17 @@
-import styles from '@/app/styles/components/Search.module.scss'
-import SearchTermItem from '@/app/components/ui/SearchTermItem/SearchTermItem'
-import { useEffect } from 'react'
-import { BiSearch } from 'react-icons/bi'
-import { useSearch } from '@/app/hooks/useSearch'
-import { useOutside } from '@/app/hooks/useOutside'
+import styles from '@/app/styles/components/Search.module.scss';
+import SearchTermItem from '@/app/components/ui/SearchTermItem/SearchTermItem';
+import { useEffect } from 'react';
+import { BiSearch } from 'react-icons/bi';
+import { useSearch } from '@/app/hooks/useSearch';
+import { useOutside } from '@/app/hooks/useOutside';
 
 export default function Search() {
-	const { data, handleSearch, searchTerm, isSuccess } = useSearch()
-	const { ref, setIsShow, isShow } = useOutside(true)
+	const { data, handleSearch, searchTerm, isSuccess } = useSearch();
+	const { ref, setIsShow, isShow } = useOutside(true);
 
 	useEffect(() => {
-		setIsShow(isSuccess)
-	}, [isSuccess])
+		setIsShow(isSuccess);
+	}, [isSuccess]);
 
 	return (
 		<div className={styles.search}>
@@ -45,5 +45,5 @@ export default function Search() {
 				</div>
 			)}
 		</div>
-	)
+	);
 }

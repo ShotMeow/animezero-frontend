@@ -1,3 +1,3 @@
 export interface ISubtitle {
-	title?: string
+	title?: string;
 }

@@ -1,4 +1,4 @@
 export interface IAsideNav {
-	value: string
-	url: string
+	value: string;
+	url: string;
 }

@@ -1,9 +1,6 @@
-import { NextPage } from 'next'
+import { NextPage } from 'next';
+import { RoleType } from '@/app/types/RoleType';
 
-export type TypeRoles = {
-	isOnlyUser?: boolean
-}
+export type NextPageAuth<P = {}> = NextPage<P> & RoleType
 
-export type NextPageAuth<P = {}> = NextPage<P> & TypeRoles
-
-export type TypeComponentAuthFields = { Component: TypeRoles }
+export type TypeComponentAuthFields = { Component: RoleType }

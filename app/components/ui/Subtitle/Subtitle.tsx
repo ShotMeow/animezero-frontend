@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren } from 'react'
-import styles from './Subtitle.module.scss'
-import { ISubtitle } from '@/app/components/ui/Subtitle/Subtitle.interface'
+import { FC, PropsWithChildren } from 'react';
+import styles from './Subtitle.module.scss';
+import { ISubtitle } from '@/app/components/ui/Subtitle/Subtitle.interface';
 
 const Subtitle: FC<PropsWithChildren<ISubtitle>> = ({ title, children }) => {
 	return <div className={styles.subtitle}>
@@ -8,7 +8,7 @@ const Subtitle: FC<PropsWithChildren<ISubtitle>> = ({ title, children }) => {
 			{children}
 		</div>
 		<h2>{title}</h2>
-	</div>
-}
+	</div>;
+};
 
-export default Subtitle
+export default Subtitle;

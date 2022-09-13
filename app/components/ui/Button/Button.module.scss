@@ -1,11 +1,11 @@
 .button {
-  @apply flex items-center gap-2 bg-primary px-5 py-3 rounded-md;
+	@apply flex items-center gap-2 bg-primary px-5 py-3 rounded-md;
 
-  &.primary {
-    @apply bg-primary;
-  }
+	&.primary {
+		@apply bg-primary;
+	}
 
-  &.secondary {
-    @apply bg-gray-800;
-  }
+	&.secondary {
+		@apply bg-gray-800;
+	}
 }

@@ -1,6 +1,6 @@
-import styles from './Heading.module.scss'
-import { FC } from 'react'
-import { IHeading } from '@/app/components/ui/Heading/Heading.interface'
+import styles from './Heading.module.scss';
+import { FC } from 'react';
+import { IHeading } from '@/app/components/ui/Heading/Heading.interface';
 
 const Heading: FC<IHeading> = ({ catalog, title, description }) => {
 	return (
@@ -15,7 +15,7 @@ const Heading: FC<IHeading> = ({ catalog, title, description }) => {
 				<p>{description}</p>
 			</div>
 		</section>
-	)
-}
+	);
+};
 
-export default Heading
+export default Heading;

@@ -1,14 +1,14 @@
-import { FC } from 'react'
-import Field from '@/app/components/ui/Field/Field'
-import Button from '@/app/components/ui/Button/Button'
-import { changeType } from '@/app/store/modal/modal.slice'
-import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { IRegisterFields } from '@/app/components/ui/Modal/Modal.interface'
-import { register as registration } from '../../../../store/auth/auth.actions'
+import { FC } from 'react';
+import Field from '@/app/components/ui/Field/Field';
+import Button from '@/app/components/ui/Button/Button';
+import { changeType } from '@/app/store/modal/modal.slice';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { IRegisterFields } from '@/app/components/ui/Modal/Modal.interface';
+import { register as registration } from '../../../../store/auth/auth.actions';
 
 const Register: FC = () => {
-	const dispatch = useTypedDispatch()
+	const dispatch = useTypedDispatch();
 
 	const {
 		register,
@@ -17,34 +17,35 @@ const Register: FC = () => {
 		handleSubmit
 	} = useForm<IRegisterFields>({
 		mode: 'onChange'
-	})
+	});
 
 	const onRegisterSubmit: SubmitHandler<IRegisterFields> = data => {
-		if (data.password !== data.password_repeat)
+		if (data.password !== data.password_repeat) {
 			return setError('password_repeat', {
 				message: 'Пароли не совпадают'
-			})
+			});
+		}
 		dispatch(registration(data)).then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				return dispatch(changeType('verify'))
+				return dispatch(changeType('verify'));
 			} else {
 				// @ts-ignore
 				if (data.payload.response.data.errors.login) {
 					setError('login', {
 						message: 'Данный логин уже занят'
-					})
+					});
 				}
 
 				// @ts-ignore
 				if (data.payload.response.data.errors.email) {
 					setError('email', {
 						message: 'Данный E-mail уже занят'
-					})
+					});
 				}
 			}
-		})
-	}
+		});
+	};
 
 	return (
 		<form onSubmit={handleSubmit(onRegisterSubmit)}>
@@ -102,7 +103,7 @@ const Register: FC = () => {
 				</button>
 			</div>
 		</form>
-	)
-}
+	);
+};
 
-export default Register
+export default Register;

@@ -1,39 +1,34 @@
-import { memo, useState } from 'react'
-import styles from '@/app/components/ui/Filter/FilterItem/FilterItem.module.scss'
-import { Listbox } from '@headlessui/react'
-import { IoIosArrowDown } from 'react-icons/io'
-import { IElement } from '@/app/components/ui/Filter/FilterItem/FilterItem.interface'
-import { useRouter } from 'next/router'
+import { memo, useEffect, useState } from 'react';
+import styles from '@/app/components/ui/Filter/FilterItem/FilterItem.module.scss';
+import { Listbox } from '@headlessui/react';
+import { IoIosArrowDown } from 'react-icons/io';
+import { Event } from '@/pages/_app';
+import { IElement } from '@/app/interfaces/IElement';
 
 interface IBaseProps {
-	title: string
-	elements?: IElement[]
-	type: string
+	title: string;
+	elements?: IElement[];
+	type: string;
 }
 
 export default memo(function Base(props: IBaseProps) {
-	if (!props.elements || !props.elements.length)
-		return null
-
-	const [selected, setSelected] = useState(props.elements[0])
-	const router = useRouter()
-
-	function handleChange(element: IElement) {
-		setSelected(element)
-		const path = router.pathname
-		const query = router.query
-		query[props.type] = element.value
-		router.push({
-			pathname: path,
-			query: query
-		})
+	if (!props.elements || !props.elements.length) {
+		return null;
 	}
+
+	const [selected, setSelected] = useState(props.elements[0]);
+
+	useEffect(() => {
+		Event.emit('filter-changed', {
+			type: props.type, value: selected.value
+		});
+	}, [selected]);
 
 	return (
 		<article className={styles.filter}>
 			<Listbox
 				value={selected}
-				onChange={(value: IElement) => handleChange(value)}
+				onChange={setSelected}
 			>
 				<Listbox.Label>{props.title}:</Listbox.Label>
 				<Listbox.Button>
@@ -51,5 +46,5 @@ export default memo(function Base(props: IBaseProps) {
 				</Listbox.Options>
 			</Listbox>
 		</article>
-	)
-})
+	);
+});

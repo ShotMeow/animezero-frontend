@@ -1,25 +1,32 @@
-import styles from './Filter.module.scss'
-import Base from '@/app/components/ui/Filter/FilterItem/Base/Base'
-import { useRouter } from 'next/router'
-import { rating, years } from '@/app/components/ui/Filter/Filter.data'
-import { IFilter } from '@/app/interfaces/IFilter'
+import styles from './Filter.module.scss';
+import Base from '@/app/components/ui/Filter/FilterItem/Base/Base';
+import { rating, years } from '@/app/components/ui/Filter/Filter.data';
+import { IFilter } from '@/app/interfaces/IFilter';
+import { Event } from '@/pages/_app';
+import { IFilterSelected } from '@/app/interfaces/IFilterSelected';
+import { useEffect, useState } from 'react';
 
 interface IFilterProps {
 	filters: IFilter;
 }
 
 export default function Filter(props: IFilterProps) {
-	const router = useRouter()
-	const handleClick = () => {
-		const path = router.pathname
-		const query = router.query
-		delete query.genres
-		delete query.statuses
-		router.push({
-			pathname: path,
-			query: query
-		})
+	const [selectedFilters, setSelectedFilters] = useState<IFilterSelected>({});
+
+	function resetFilters() {
+		setSelectedFilters({});
 	}
+
+	Event.on('filter-changed', (data) => {
+		setSelectedFilters({
+			...selectedFilters,
+			[data.type]: data.value
+		});
+	});
+
+	useEffect(() => {
+		Event.emit('film-update', selectedFilters);
+	}, [selectedFilters]);
 
 	return (
 		<section className={styles.filter}>
@@ -30,9 +37,9 @@ export default function Filter(props: IFilterProps) {
 				<Base title='Годы выхода' elements={years} type='years' />
 				<Base title='Рейтинг' elements={rating} type='rating' />
 			</div>
-			<button onClick={handleClick}>
-				{/*<MdOutlineClose size={30} /> Сбросить фильтры*/}
+			<button onClick={resetFilters}>
+				Сбросить фильтры
 			</button>
 		</section>
-	)
+	);
 }

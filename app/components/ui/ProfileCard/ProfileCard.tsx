@@ -1,9 +1,9 @@
-import styles from './ProfileCard.module.scss'
-import NextLink from '@/app/components/ui/NextLink'
-import { IFilm } from '@/app/interfaces/IFilm'
+import styles from './ProfileCard.module.scss';
+import NextLink from '@/app/components/ui/NextLink';
+import { IFilm } from '@/app/interfaces/IFilm';
 
 interface IProfileCardProps {
-	film: IFilm
+	film: IFilm;
 }
 
 export default function ProfileCard(props: IProfileCardProps) {
@@ -18,5 +18,5 @@ export default function ProfileCard(props: IProfileCardProps) {
 				</h3>
 			</article>
 		</NextLink>
-	)
+	);
 }

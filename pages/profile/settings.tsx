@@ -1,10 +1,10 @@
-import { NextPageAuth } from '@/app/providers/private-route.interface'
-import Settings from '@/app/components/profile/Settings'
+import { NextPageAuth } from '@/app/providers/private-route.interface';
+import Settings from '@/app/components/profile/Settings';
 
 const SettingsPage: NextPageAuth = () => {
-	return <Settings />
-}
+	return <Settings />;
+};
 
-SettingsPage.isOnlyUser = true
+SettingsPage.isOnlyUser = true;
 
-export default SettingsPage
+export default SettingsPage;

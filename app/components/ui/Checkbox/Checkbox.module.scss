@@ -1,15 +1,15 @@
 .checkbox {
-  @apply flex items-center gap-2 text-lg;
+	@apply flex items-center gap-2 text-lg;
 
-  .check {
-    @apply border rounded-sm border-gray-500 w-6 h-6 flex justify-center items-center;
-  }
+	.check {
+		@apply border rounded-sm border-gray-500 w-6 h-6 flex justify-center items-center;
+	}
 
-  a {
-    @apply text-primary;
-  }
+	a {
+		@apply text-primary;
+	}
 
-  .enabled {
-    @apply bg-primary border-0;
-  }
+	.enabled {
+		@apply bg-primary border-0;
+	}
 }

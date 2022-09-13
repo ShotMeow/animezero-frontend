@@ -1,7 +1,7 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes } from 'react';
 
 type ImportantType = 'primary' | 'secondary'
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-	important: ImportantType
+	important: ImportantType;
 }

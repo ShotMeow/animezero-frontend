@@ -1,11 +1,11 @@
-import styles from './FilmBig.module.scss'
-import Button from '@/app/components/ui/Button/Button'
-import Tag from '@/app/components/ui/Tag/Tag'
-import NextLink from '@/app/components/ui/NextLink'
-import { IFilm } from '@/app/interfaces/IFilm'
+import styles from './FilmBig.module.scss';
+import Button from '@/app/components/ui/Button/Button';
+import Tag from '@/app/components/ui/Tag/Tag';
+import NextLink from '@/app/components/ui/NextLink';
+import { IFilm } from '@/app/interfaces/IFilm';
 
 interface IFilmBigProps {
-	film: IFilm
+	film: IFilm;
 }
 
 export default function FilmBig(props: IFilmBigProps) {
@@ -31,5 +31,5 @@ export default function FilmBig(props: IFilmBigProps) {
 				</div>
 			</article>
 		</NextLink>
-	)
+	);
 }

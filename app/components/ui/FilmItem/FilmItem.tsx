@@ -1,12 +1,12 @@
-import styles from './FilmItem.module.scss'
-import Button from '@/app/components/ui/Button/Button'
-import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper'
-import NextLink from '@/app/components/ui/NextLink'
-import { IFilm } from '@/app/interfaces/IFilm'
-import { memo } from 'react'
+import styles from './FilmItem.module.scss';
+import Button from '@/app/components/ui/Button/Button';
+import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper';
+import NextLink from '@/app/components/ui/NextLink';
+import { IFilm } from '@/app/interfaces/IFilm';
+import { memo } from 'react';
 
 interface IFilmItemProps {
-	film: IFilm
+	film: IFilm;
 }
 
 export default memo(function FilmItem(props: IFilmItemProps) {
@@ -24,5 +24,5 @@ export default memo(function FilmItem(props: IFilmItemProps) {
 				</footer>
 			</article>
 		</NextLink>
-	)
-})
+	);
+});

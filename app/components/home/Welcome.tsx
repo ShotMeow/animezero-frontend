@@ -1,17 +1,17 @@
-import Button from '@/app/components/ui/Button/Button'
-import { FiPlay } from 'react-icons/fi'
-import styles from '../../styles/Welcome.module.scss'
-import { sliceArrayHelper } from '@/app/helpers/slice-array.helper'
-import { randomFilmHelper } from '@/app/helpers/random-film.helper'
-import NextLink from '@/app/components/ui/NextLink'
-import { IFilm } from '@/app/interfaces/IFilm'
+import Button from '@/app/components/ui/Button/Button';
+import { FiPlay } from 'react-icons/fi';
+import styles from '../../styles/Welcome.module.scss';
+import { sliceArrayHelper } from '@/app/helpers/slice-array.helper';
+import { randomFilmHelper } from '@/app/helpers/random-film.helper';
+import NextLink from '@/app/components/ui/NextLink';
+import { IFilm } from '@/app/interfaces/IFilm';
 
 interface IWelcomeProps {
-	films: IFilm[]
+	films: IFilm[];
 }
 
 export default function Welcome(props: IWelcomeProps) {
-	const filmsArray: IFilm[][] = sliceArrayHelper(props.films, props.films.length / 3)
+	const filmsArray: IFilm[][] = sliceArrayHelper(props.films, props.films.length / 3);
 	return (
 		<section className={styles.welcome}>
 			<div className={styles.info}>
@@ -49,5 +49,5 @@ export default function Welcome(props: IWelcomeProps) {
 				)}
 			</div>
 		</section>
-	)
+	);
 }

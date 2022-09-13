@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import styles from './Tag.module.scss'
-import cn from 'classnames'
+import styles from './Tag.module.scss';
+import cn from 'classnames';
 
 const Tag: FC<{ title: number | string; black?: boolean; bold?: boolean }> = ({
 	                                                                              title,
@@ -18,7 +18,7 @@ const Tag: FC<{ title: number | string; black?: boolean; bold?: boolean }> = ({
 		>
 			{title}
 		</div>
-	)
-}
+	);
+};
 
-export default Tag
+export default Tag;

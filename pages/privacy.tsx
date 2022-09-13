@@ -1,6 +1,6 @@
-import Layout from '@/app/layouts/Layout'
-import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/styles/pages/Privacy.module.scss'
+import Layout from '@/app/layouts/Layout';
+import Heading from '@/app/components/ui/Heading/Heading';
+import styles from '@/app/styles/pages/Privacy.module.scss';
 
 export default function PrivacyPage() {
 	return (
@@ -690,5 +690,5 @@ export default function PrivacyPage() {
 				</ol>
 			</section>
 		</Layout>
-	)
+	);
 }

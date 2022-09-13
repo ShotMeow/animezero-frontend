@@ -1,5 +1,5 @@
-import { api } from '@/app/store/api/api'
-import { IUser } from '@/app/interfaces/IUser'
+import { api } from '@/app/store/api/api';
+import { IUser } from '@/app/interfaces/IUser';
 
 export const profileApi = api.injectEndpoints({
 	endpoints: builder => ({
@@ -14,4 +14,4 @@ export const profileApi = api.injectEndpoints({
 			})
 		})
 	})
-})
+});

@@ -1,24 +1,24 @@
 .pagination {
-  @apply bg-gray-800 rounded-md p-2;
+	@apply bg-gray-800 rounded-md p-2;
 
-  > ul {
-    @apply flex items-center gap-4;
+	> ul {
+		@apply flex items-center gap-4;
 
-    @media (max-width: 400px) {
-      @apply gap-3;
-    }
+		@media (max-width: 400px) {
+			@apply gap-3;
+		}
 
-    > li {
-      @apply flex items-center justify-center;
-      &.active {
-        > button {
-          @apply text-white bg-primary px-1 rounded-md;
-        }
-      }
+		> li {
+			@apply flex items-center justify-center;
+			&.active {
+				> button {
+					@apply text-white bg-primary px-1 rounded-md;
+				}
+			}
 
-      > button {
-        @apply font-bold text-lg text-gray-400;
-      }
-    }
-  }
+			> button {
+				@apply font-bold text-lg text-gray-400;
+			}
+		}
+	}
 }

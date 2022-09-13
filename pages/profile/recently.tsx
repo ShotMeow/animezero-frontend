@@ -1,10 +1,10 @@
-import { NextPageAuth } from '@/app/providers/private-route.interface'
-import Recently from '@/app/components/profile/Recently'
+import { NextPageAuth } from '@/app/providers/private-route.interface';
+import Recently from '@/app/components/profile/Recently';
 
 const RecentlyPage: NextPageAuth = () => {
-	return <Recently />
-}
+	return <Recently />;
+};
 
-RecentlyPage.isOnlyUser = true
+RecentlyPage.isOnlyUser = true;
 
-export default RecentlyPage
+export default RecentlyPage;

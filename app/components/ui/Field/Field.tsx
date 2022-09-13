@@ -1,6 +1,6 @@
-import { forwardRef } from 'react'
-import styles from './Field.module.scss'
-import { IField } from '@/app/components/ui/Field/Field.interface'
+import { forwardRef } from 'react';
+import styles from './Field.module.scss';
+import { IField } from '@/app/components/ui/Field/Field.interface';
 
 const Field = forwardRef<HTMLInputElement, IField>(
 	({ label, error, type = 'text', style, ...rest }, ref) => {
@@ -20,10 +20,10 @@ const Field = forwardRef<HTMLInputElement, IField>(
 					</div>
 				)}
 			</div>
-		)
+		);
 	}
-)
+);
 
-Field.displayName = 'Field'
+Field.displayName = 'Field';
 
-export default Field
+export default Field;

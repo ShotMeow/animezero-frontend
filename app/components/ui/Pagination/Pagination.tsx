@@ -1,26 +1,26 @@
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import { useRouter } from 'next/router'
-import styles from './Pagination.module.scss'
-import cn from 'classnames'
-import { IMetaLink } from '@/app/interfaces/IMetaLink'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useRouter } from 'next/router';
+import styles from './Pagination.module.scss';
+import cn from 'classnames';
+import { IMetaLink } from '@/app/interfaces/IMetaLink';
 
 interface IPaginationProps {
-	links: IMetaLink[]
+	links: IMetaLink[];
 }
 
 export default function Pagination(props: IPaginationProps) {
-	const router = useRouter()
-	const currentLinks = props.links.slice(1, props.links.length - 1)
+	const router = useRouter();
+	const currentLinks = props.links.slice(1, props.links.length - 1);
 
 	const handlePagination = (page: number) => () => {
-		const path = router.pathname
-		const query = router.query
-		query.page = page.toString()
+		const path = router.pathname;
+		const query = router.query;
+		query.page = page.toString();
 		router.push({
 			pathname: path,
 			query: query
-		})
-	}
+		});
+	};
 
 	return (
 		<article className={styles.pagination}>
@@ -57,5 +57,5 @@ export default function Pagination(props: IPaginationProps) {
 				</li>
 			</ul>
 		</article>
-	)
+	);
 }

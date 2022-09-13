@@ -1,21 +1,21 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ILoginFields, IRegisterFields } from '@/app/components/ui/Modal/Modal.interface'
-import { AuthService } from '@/app/services/auth/auth.service'
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { ILoginFields, IRegisterFields } from '@/app/components/ui/Modal/Modal.interface';
+import { AuthService } from '@/app/services/auth/auth.service';
 
 export const login = createAsyncThunk<{ token: string; login: string },
 	ILoginFields>('user/login', async ({ login, password }, thunkApi) => {
 	try {
-		const response = await AuthService.logIn(login, password)
+		const response = await AuthService.logIn(login, password);
 		return {
 			token: response.data.token,
 			login
-		}
+		};
 	} catch (error: any) {
-		thunkApi.rejectWithValue(error)
+		thunkApi.rejectWithValue(error);
 
-		return error.response.data.error
+		return error.response.data.error;
 	}
-})
+});
 
 export const register = createAsyncThunk<{ token: string; login: string; email: string },
 	IRegisterFields>(
@@ -27,18 +27,18 @@ export const register = createAsyncThunk<{ token: string; login: string; email: 
 				email,
 				password,
 				password_repeat
-			)
+			);
 			return {
 				token: response.data.token,
 				login,
 				email
-			}
+			};
 		} catch (error) {
-			return thunkApi.rejectWithValue(error)
+			return thunkApi.rejectWithValue(error);
 		}
 	}
-)
+);
 
 export const logout = createAsyncThunk('user/logout', async () => {
-	return {}
-})
+	return {};
+});
