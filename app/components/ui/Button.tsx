@@ -3,7 +3,7 @@ import cn from 'classnames';
 import styles from '@/app/styles/ui/Button.module.scss';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-	important: 'primary' | 'secondary';
+	important?: 'primary' | 'secondary';
 }
 
 export default function Button(props: PropsWithChildren<IButton>) {

@@ -43,7 +43,6 @@ export default function Profile() {
 				<Button
 					onClick={handleClick}
 					important='primary'
-					className={styles.profile}
 				>
 					<BiLogIn size={20} />
 					Войти
