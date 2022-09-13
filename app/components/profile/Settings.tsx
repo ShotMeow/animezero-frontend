@@ -1,18 +1,17 @@
-import { FC } from 'react';
 import styles from '@/app/styles/Profile.module.scss';
 import Aside from '@/app/components/profile/Aside';
 import Layout from '@/app/layouts/Layout';
-import Field from '@/app/components/ui/Field/Field';
-import Button from '@/app/components/ui/Button/Button';
+import Field from '@/app/components/ui/Field';
+import Button from '@/app/components/ui/Button';
 import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { IRegisterFields } from '@/app/components/ui/Modal/Modal.interface';
 import { api } from '@/app/store/api/api';
 import { changeType, setIsShow } from '@/app/store/modal/modal.slice';
 import { setData } from '@/app/store/update/update.slice';
 import { IUserUpdate } from '@/app/interfaces/IUserUpdate';
+import { IRegisterFields } from '@/app/interfaces/IRegisterFields';
 
-const Settings: FC = () => {
+export default function Settings() {
 	const [requestCode] = api.useRequestCodeMutation();
 	const dispatch = useTypedDispatch();
 
@@ -103,5 +102,3 @@ const Settings: FC = () => {
 		</Layout>
 	);
 };
-
-export default Settings;

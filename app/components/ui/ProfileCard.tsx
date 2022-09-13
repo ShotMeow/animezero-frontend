@@ -1,4 +1,4 @@
-import styles from './ProfileCard.module.scss';
+import styles from '@/app/styles/ui/ProfileCard.module.scss';
 import NextLink from '@/app/components/ui/NextLink';
 import { IFilm } from '@/app/interfaces/IFilm';
 

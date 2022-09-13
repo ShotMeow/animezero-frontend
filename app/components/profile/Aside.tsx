@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from '../../styles/Profile.module.scss';
 import { asideNav } from '@/app/components/profile/Aside.data';
 import { useRouter } from 'next/router';
@@ -6,11 +6,11 @@ import { profileApi } from '@/app/store/api/profile.api';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Cropper } from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import { toastr } from 'react-redux-toastr';
 import NextLink from '@/app/components/ui/NextLink';
 
-const Aside: FC = () => {
+export default function Aside() {
 	const { asPath } = useRouter();
 	const [isCropper, setCropper] = useState<boolean>(false);
 	const [avatar, setAvatar] = useState('');
@@ -117,5 +117,3 @@ const Aside: FC = () => {
 		</aside>
 	);
 };
-
-export default Aside;

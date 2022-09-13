@@ -1,5 +1,5 @@
-import styles from './FilmItem.module.scss';
-import Button from '@/app/components/ui/Button/Button';
+import styles from '@/app/styles/ui/FilmItem.module.scss';
+import Button from '@/app/components/ui/Button';
 import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper';
 import NextLink from '@/app/components/ui/NextLink';
 import { IFilm } from '@/app/interfaces/IFilm';

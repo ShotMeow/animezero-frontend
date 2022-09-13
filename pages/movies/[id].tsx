@@ -1,6 +1,6 @@
 import Layout from '@/app/layouts/Layout';
 import styles from '@/app/styles/pages/Film.module.scss';
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import { useMounted } from '@/app/hooks/useMounted';
 import { GetServerSidePropsContext } from 'next';
 import { FilmsService } from '@/app/services/films.service';

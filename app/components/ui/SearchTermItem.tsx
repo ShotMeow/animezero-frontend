@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
-import Button from '@/app/components/ui/Button/Button';
-import styles from './SearchTermItem.module.scss';
+import Button from '@/app/components/ui/Button';
+import styles from '@/app/styles/ui/SearchTermItem.module.scss';
 import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper';
 import { ratingColorHelper } from '@/app/helpers/rating-color.helper';
 import cn from 'classnames';

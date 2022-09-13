@@ -1,12 +1,11 @@
-import { FC } from 'react';
 import styles from '@/app/styles/Profile.module.scss';
 import Aside from '@/app/components/profile/Aside';
 import Layout from '@/app/layouts/Layout';
-import ProfileBody from '@/app/components/ui/ProfileBody/ProfileBody';
+import ProfileBody from '@/app/components/ui/ProfileBody';
 import { useRouter } from 'next/router';
 import { filmsApi } from '@/app/store/api/films.api';
 
-const Tracked: FC = () => {
+export default function Tracked() {
 	const { query } = useRouter();
 	const { data, isSuccess } = filmsApi.useShowTrackedFilmsQuery(
 		query.page !== undefined ? `?page=${query.page}` : '',
@@ -26,5 +25,3 @@ const Tracked: FC = () => {
 		</Layout>
 	);
 };
-
-export default Tracked;

@@ -1,6 +1,6 @@
-import styles from './FilmsGrid.module.scss';
-import Pagination from '@/app/components/ui/Pagination/Pagination';
-import FilmItem from '@/app/components/ui/FilmItem/FilmItem';
+import styles from '@/app/styles/ui/FilmsGrid.module.scss';
+import Pagination from '@/app/components/ui/Pagination';
+import FilmItem from '@/app/components/ui/FilmItem';
 import { IFilm } from '@/app/interfaces/IFilm';
 import { IMetaLink } from '@/app/interfaces/IMetaLink';
 

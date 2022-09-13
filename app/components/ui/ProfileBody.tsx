@@ -1,7 +1,7 @@
 import { IFilm } from '@/app/interfaces/IFilm';
-import styles from './ProfileBody.module.scss';
-import Pagination from '@/app/components/ui/Pagination/Pagination';
-import ProfileCard from '@/app/components/ui/ProfileCard/ProfileCard';
+import styles from '@/app/styles/ui/ProfileBody.module.scss';
+import Pagination from '@/app/components/ui/Pagination';
+import ProfileCard from '@/app/components/ui/ProfileCard';
 import { IMeta } from '@/app/interfaces/IMeta';
 
 interface IProfileBodyProps {

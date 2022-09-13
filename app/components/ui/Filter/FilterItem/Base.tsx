@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react';
-import styles from '@/app/components/ui/Filter/FilterItem/FilterItem.module.scss';
+import styles from '@/app/styles/ui/FilterItem.module.scss';
 import { Listbox } from '@headlessui/react';
 import { IoIosArrowDown } from 'react-icons/io';
 import { Event } from '@/pages/_app';

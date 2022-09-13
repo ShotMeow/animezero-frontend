@@ -1,5 +1,5 @@
-import styles from './FilmSmall.module.scss';
-import Tag from '@/app/components/ui/Tag/Tag';
+import styles from '@/app/styles/ui/FilmSmall.module.scss';
+import Tag from '@/app/components/ui/Tag';
 import NextLink from '@/app/components/ui/NextLink';
 import { IFilm } from '@/app/interfaces/IFilm';
 

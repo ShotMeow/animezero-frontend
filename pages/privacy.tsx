@@ -1,5 +1,5 @@
 import Layout from '@/app/layouts/Layout';
-import Heading from '@/app/components/ui/Heading/Heading';
+import Heading from '@/app/components/ui/Heading';
 import styles from '@/app/styles/pages/Privacy.module.scss';
 
 export default function PrivacyPage() {

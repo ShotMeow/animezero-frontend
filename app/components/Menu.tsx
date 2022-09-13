@@ -1,6 +1,6 @@
 import styles from '@/app/styles/components/Menu.module.scss';
 import Search from '@/app/components/Search';
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import { AiFillHome, AiFillTablet } from 'react-icons/ai';
 import { IoFilmSharp } from 'react-icons/io5';
 import { FaUserAlt } from 'react-icons/fa';

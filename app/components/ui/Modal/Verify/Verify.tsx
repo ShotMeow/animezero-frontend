@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useTypedSelector } from '@/app/hooks/useTypedSelector';
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import { api } from '@/app/store/api/api';
 import cn from 'classnames';
 import styles from '../Modal.module.scss';

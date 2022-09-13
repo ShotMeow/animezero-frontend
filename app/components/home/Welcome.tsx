@@ -1,4 +1,4 @@
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import { FiPlay } from 'react-icons/fi';
 import styles from '../../styles/Welcome.module.scss';
 import { sliceArrayHelper } from '@/app/helpers/slice-array.helper';

@@ -1,7 +1,7 @@
 import { BiAtom } from 'react-icons/bi';
-import Button from '@/app/components/ui/Button/Button';
-import Subtitle from '@/app/components/ui/Subtitle/Subtitle';
-import OngoingFilm from '@/app/components/ui/OngoingFilm/OngoingFilm';
+import Button from '@/app/components/ui/Button';
+import Subtitle from '@/app/components/ui/Subtitle';
+import OngoingFilm from '@/app/components/ui/OngoingFilm';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from '../../styles/ComingSoon.module.scss';
 import { Autoplay } from 'swiper';

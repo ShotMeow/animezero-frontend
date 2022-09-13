@@ -1,7 +1,4 @@
-export interface ILoginFields {
-	login: string;
-	password: string;
-}
+import { ILoginFields } from '@/app/interfaces/ILoginFields';
 
 export interface IRegisterFields extends ILoginFields {
 	email: string;

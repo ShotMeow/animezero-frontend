@@ -1,25 +1,19 @@
-import { FC } from 'react';
-import Field from '@/app/components/ui/Field/Field';
-import Button from '@/app/components/ui/Button/Button';
+import Field from '@/app/components/ui/Field';
+import Button from '@/app/components/ui/Button';
 import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { ILoginFields } from '@/app/components/ui/Modal/Modal.interface';
+import { useForm } from 'react-hook-form';
 import { changeType, setIsShow } from '@/app/store/modal/modal.slice';
 import { login } from '@/app/store/auth/auth.actions';
+import { ILoginFields } from '@/app/interfaces/ILoginFields';
 
-const Login: FC = () => {
+export default function Login() {
 	const dispatch = useTypedDispatch();
 
-	const {
-		register,
-		setError,
-		formState: { errors },
-		handleSubmit
-	} = useForm<ILoginFields>({
+	const form = useForm<ILoginFields>({
 		mode: 'onChange'
 	});
 
-	const onLoginSubmit: SubmitHandler<ILoginFields> = data => {
+	function onLoginSubmit(data: ILoginFields) {
 		dispatch(login(data)).then(data => {
 			// @ts-ignore
 			if (data.payload.message === 'Please verify your email.') {
@@ -30,32 +24,32 @@ const Login: FC = () => {
 			) {
 				dispatch(setIsShow());
 			} else {
-				setError('password', { message: 'Неверный логин или пароль' });
+				form.setError('password', { message: 'Неверный логин или пароль' });
 			}
 		});
-	};
+	}
 
 	return (
-		<form onSubmit={handleSubmit(onLoginSubmit)}>
+		<form onSubmit={form.handleSubmit(onLoginSubmit)}>
 			<div>
 				<h3>Вход</h3>
 				<p>С возвращением!</p>
 			</div>
 			<div>
 				<Field
-					{...register('login', {
+					{...form.register('login', {
 						required: 'Введите логин'
 					})}
-					error={errors.login}
+					error={form.formState.errors.login}
 					label='Напомнишь свой логин?'
 					type='text'
 					placeholder='Логин'
 				/>
 				<Field
-					{...register('password', {
+					{...form.register('password', {
 						required: 'Введите пароль'
 					})}
-					error={errors.password}
+					error={form.formState.errors.password}
 					label='И пароль :)'
 					type='password'
 					placeholder='Пароль'
@@ -71,5 +65,3 @@ const Login: FC = () => {
 		</form>
 	);
 };
-
-export default Login;

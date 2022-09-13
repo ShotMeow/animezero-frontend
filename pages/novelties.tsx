@@ -1,9 +1,9 @@
 import { FilmsService } from '@/app/services/films.service';
 import { IFilm } from '@/app/interfaces/IFilm';
 import Layout from '@/app/layouts/Layout';
-import Heading from '@/app/components/ui/Heading/Heading';
+import Heading from '@/app/components/ui/Heading';
 import styles from '@/app/styles/Novelties.module.scss';
-import FilmItem from '@/app/components/ui/FilmItem/FilmItem';
+import FilmItem from '@/app/components/ui/FilmItem';
 
 interface INoveltiesPageProps {
 	films: IFilm[];

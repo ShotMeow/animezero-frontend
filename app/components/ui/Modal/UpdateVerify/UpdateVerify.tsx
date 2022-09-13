@@ -1,6 +1,6 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useTypedSelector } from '@/app/hooks/useTypedSelector';
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import cn from 'classnames';
 import styles from '../Modal.module.scss';
 import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
@@ -12,7 +12,7 @@ import { profileApi } from '@/app/store/api/profile.api';
 import { removeEmptyHelper } from '@/app/helpers/remove-empty.helper';
 import { clearData, setCode } from '@/app/store/update/update.slice';
 
-const Verify: FC = () => {
+export default function Verify() {
 	const [info, setInfo] = useState<IInfo>({} as IInfo);
 	const [value, setValue] = useState<string>('');
 	const [update] = api.useUpdateMutation();
@@ -96,5 +96,3 @@ const Verify: FC = () => {
 		</form>
 	);
 };
-
-export default Verify;

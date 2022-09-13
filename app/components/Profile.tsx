@@ -1,5 +1,5 @@
 import styles from '@/app/styles/components/Profile.module.scss';
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import NextLink from '@/app/components/ui/NextLink';
 import { BiLogIn } from 'react-icons/bi';
 import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';

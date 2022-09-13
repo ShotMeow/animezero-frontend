@@ -1,5 +1,5 @@
-import styles from './Filter.module.scss';
-import Base from '@/app/components/ui/Filter/FilterItem/Base/Base';
+import styles from '@/app/styles/ui/Filter.module.scss';
+import Base from '@/app/components/ui/Filter/FilterItem/Base';
 import { rating, years } from '@/app/components/ui/Filter/Filter.data';
 import { IFilter } from '@/app/interfaces/IFilter';
 import { Event } from '@/pages/_app';

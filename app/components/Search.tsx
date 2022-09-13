@@ -1,5 +1,5 @@
 import styles from '@/app/styles/components/Search.module.scss';
-import SearchTermItem from '@/app/components/ui/SearchTermItem/SearchTermItem';
+import SearchTermItem from '@/app/components/ui/SearchTermItem';
 import { useEffect } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { useSearch } from '@/app/hooks/useSearch';

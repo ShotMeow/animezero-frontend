@@ -1,12 +1,11 @@
-import { FC } from 'react';
 import Layout from '@/app/layouts/Layout';
 import styles from '../../styles/Profile.module.scss';
 import Aside from '@/app/components/profile/Aside';
-import ProfileBody from '@/app/components/ui/ProfileBody/ProfileBody';
+import ProfileBody from '@/app/components/ui/ProfileBody';
 import { useRouter } from 'next/router';
 import { filmsApi } from '@/app/store/api/films.api';
 
-const Recently: FC = () => {
+export default function Recently() {
 	const { query } = useRouter();
 	const { data, isSuccess } = filmsApi.useShowWatchedFilmsQuery(
 		query.page !== undefined ? `?page=${query.page}` : '',
@@ -26,5 +25,3 @@ const Recently: FC = () => {
 		</Layout>
 	);
 };
-
-export default Recently;

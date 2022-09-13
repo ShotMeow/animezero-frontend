@@ -1,8 +1,8 @@
 import styles from '../../styles/Recommendations.module.scss';
 import { BiStar } from 'react-icons/bi';
-import Subtitle from '@/app/components/ui/Subtitle/Subtitle';
-import FilmBig from '@/app/components/ui/FilmBig/FilmBig';
-import FilmSmall from '@/app/components/ui/FilmSmall/FilmSmall';
+import Subtitle from '@/app/components/ui/Subtitle';
+import FilmBig from '@/app/components/ui/FilmBig';
+import FilmSmall from '@/app/components/ui/FilmSmall';
 import { IFilm } from '@/app/interfaces/IFilm';
 
 interface IRecommendationsProps {

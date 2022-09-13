@@ -1,6 +1,6 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useRouter } from 'next/router';
-import styles from './Pagination.module.scss';
+import styles from '@/app/styles/ui/Pagination.module.scss';
 import cn from 'classnames';
 import { IMetaLink } from '@/app/interfaces/IMetaLink';
 

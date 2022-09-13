@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import styles from './Modal.module.scss';
 import { useTypedSelector } from '@/app/hooks/useTypedSelector';
 import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
@@ -9,7 +8,7 @@ import Register from '@/app/components/ui/Modal/Register/Register';
 import Verify from '@/app/components/ui/Modal/Verify/Verify';
 import UpdateVerify from '@/app/components/ui/Modal/UpdateVerify/UpdateVerify';
 
-const Modal: FC = () => {
+export default function Modal() {
 	const type = useTypedSelector(store => store.modal.type);
 	const dispatch = useTypedDispatch();
 
@@ -27,5 +26,3 @@ const Modal: FC = () => {
 		</div>
 	);
 };
-
-export default Modal;

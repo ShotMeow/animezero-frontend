@@ -1,5 +1,5 @@
-import styles from './OngoingFilm.module.scss';
-import Button from '@/app/components/ui/Button/Button';
+import styles from '@/app/styles/ui/OngoingFilm.module.scss';
+import Button from '@/app/components/ui/Button';
 import { ageCompileHelper } from '@/app/helpers/age-compile.helper';
 import { filmsApi } from '@/app/store/api/films.api';
 import { useTypedSelector } from '@/app/hooks/useTypedSelector';

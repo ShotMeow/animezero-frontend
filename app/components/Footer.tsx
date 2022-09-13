@@ -1,4 +1,4 @@
-import Button from '@/app/components/ui/Button/Button';
+import Button from '@/app/components/ui/Button';
 import styles from '@/app/styles/components/Footer.module.scss';
 import global from '@/app/styles/Layout.module.scss';
 import NextLink from '@/app/components/ui/NextLink';

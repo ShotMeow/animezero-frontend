@@ -1,9 +1,9 @@
 import { GetServerSidePropsContext } from 'next';
 import { FilmsService } from '@/app/services/films.service';
 import Layout from '@/app/layouts/Layout';
-import Heading from '@/app/components/ui/Heading/Heading';
+import Heading from '@/app/components/ui/Heading';
 import Filter from '@/app/components/ui/Filter/Filter';
-import FilmsGrid from '@/app/components/ui/FilmsGrid/FilmsGrid';
+import FilmsGrid from '@/app/components/ui/FilmsGrid';
 import { IFilm } from '@/app/interfaces/IFilm';
 import { IMetaLink } from '@/app/interfaces/IMetaLink';
 import { IFilter } from '@/app/interfaces/IFilter';

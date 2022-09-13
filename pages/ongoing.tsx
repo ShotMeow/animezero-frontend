@@ -1,8 +1,8 @@
 import { FilmsService } from '@/app/services/films.service';
 import Layout from '@/app/layouts/Layout';
-import Heading from '@/app/components/ui/Heading/Heading';
+import Heading from '@/app/components/ui/Heading';
 import styles from '@/app/styles/pages/Ongoing.module.scss';
-import OngoingFilm from '@/app/components/ui/OngoingFilm/OngoingFilm';
+import OngoingFilm from '@/app/components/ui/OngoingFilm';
 import { IFilm } from '@/app/interfaces/IFilm';
 
 interface IOngoingPageProps {
