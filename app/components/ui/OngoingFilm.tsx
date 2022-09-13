@@ -1,6 +1,6 @@
 import styles from '@/app/styles/ui/OngoingFilm.module.scss';
 import Button from '@/app/components/ui/Button';
-import { ageCompileHelper } from '@/app/helpers/age-compile.helper';
+import { ageCompileHelper } from '@/app/helpers/ageCompileHelper';
 import { filmsApi } from '@/app/store/api/films.api';
 import { useTypedSelector } from '@/app/hooks/useTypedSelector';
 import { toastr } from 'react-redux-toastr';

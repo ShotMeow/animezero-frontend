@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
 import Button from '@/app/components/ui/Button';
 import styles from '@/app/styles/ui/SearchTermItem.module.scss';
-import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper';
-import { ratingColorHelper } from '@/app/helpers/rating-color.helper';
+import { ratingReduceHelper } from '@/app/helpers/ratingReduceHelper';
+import { ratingColorHelper } from '@/app/helpers/ratingColorHelper';
 import cn from 'classnames';
 import NextLink from '@/app/components/ui/NextLink';
 import { IFilm } from '@/app/interfaces/IFilm';

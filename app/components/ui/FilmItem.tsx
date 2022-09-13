@@ -1,6 +1,6 @@
 import styles from '@/app/styles/ui/FilmItem.module.scss';
 import Button from '@/app/components/ui/Button';
-import { ratingReduceHelper } from '@/app/helpers/rating-reduce.helper';
+import { ratingReduceHelper } from '@/app/helpers/ratingReduceHelper';
 import NextLink from '@/app/components/ui/NextLink';
 import { IFilm } from '@/app/interfaces/IFilm';
 import { memo } from 'react';

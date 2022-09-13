@@ -9,7 +9,7 @@ import { toastr } from 'react-redux-toastr';
 import { IInfo } from '@/app/components/ui/Modal/Verify/Verify.interface';
 import { api } from '@/app/store/api/api';
 import { profileApi } from '@/app/store/api/profile.api';
-import { removeEmptyHelper } from '@/app/helpers/remove-empty.helper';
+import { removeEmptyHelper } from '@/app/helpers/removeEmptyHelper';
 import { clearData, setCode } from '@/app/store/update/update.slice';
 
 export default function Verify() {
