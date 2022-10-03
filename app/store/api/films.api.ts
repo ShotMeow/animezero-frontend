@@ -1,7 +1,7 @@
-import { api } from './api'
-import { IPaginateResponse } from '@/app/interfaces/IPaginateResponse'
-import { IFilm } from '@/app/interfaces/IFilm'
-import { IResponse } from '@/app/interfaces/IResponse'
+import { api } from './api';
+import { IPaginateResponse } from '@/app/interfaces/IPaginateResponse';
+import { IFilm } from '@/app/interfaces/IFilm';
+import { IResponse } from '@/app/interfaces/IResponse';
 
 export const filmsApi = api.injectEndpoints({
 	endpoints: builder => ({
@@ -60,4 +60,4 @@ export const filmsApi = api.injectEndpoints({
 			})
 		})
 	})
-})
+});

@@ -1,3 +1,25 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "off",
+    "semi": [
+      2,
+      "always"
+    ],
+    "react/jsx-first-prop-new-line": [
+      2,
+      "multiline"
+    ],
+    "react/react-in-jsx-scope": "off",
+    "brace-style": "error",
+    "curly": [
+      "error",
+      "all"
+    ]
+  }
 }

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const path = require('path')
+const path = require('path');
 
 const nextConfig = {
 	reactStrictMode: true,
@@ -9,9 +9,9 @@ const nextConfig = {
 		API_URL: process.env.API_URL
 	},
 	webpack: config => {
-		config.resolve.alias['@'] = path.resolve(__dirname)
-		return config
+		config.resolve.alias['@'] = path.resolve(__dirname);
+		return config;
 	}
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

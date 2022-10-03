@@ -1,53 +1,53 @@
-import Layout from '@/app/layouts/Layout'
-import styles from '@/app/styles/pages/Film.module.scss'
-import Button from '@/app/components/ui/Button/Button'
-import { useMounted } from '@/app/hooks/useMounted'
-import { GetServerSidePropsContext } from 'next'
-import { FilmsService } from '@/app/services/films.service'
-import { filmsApi } from '@/app/store/api/films.api'
-import { useAuth } from '@/app/hooks/useAuth'
-import { toastr } from 'react-redux-toastr'
-import { BiPlus } from 'react-icons/bi'
-import { AiFillEye } from 'react-icons/ai'
-import { IFilm } from '@/app/interfaces/IFilm'
+import Layout from '@/app/layouts/Layout';
+import styles from '@/app/styles/pages/Film.module.scss';
+import Button from '@/app/components/ui/Button';
+import { useMounted } from '@/app/hooks/useMounted';
+import { GetServerSidePropsContext } from 'next';
+import { FilmsService } from '@/app/services/films.service';
+import { filmsApi } from '@/app/store/api/films.api';
+import { useAuth } from '@/app/hooks/useAuth';
+import { toastr } from 'react-redux-toastr';
+import { BiPlus } from 'react-icons/bi';
+import { AiFillEye } from 'react-icons/ai';
+import { IFilm } from '@/app/interfaces/IFilm';
 
 interface IFilmPageProps {
 	film: IFilm;
 }
 
 export default function FilmPage(props: IFilmPageProps) {
-	const [addWatchedFilm] = filmsApi.useAddWatchedFilmsMutation()
-	const [addTrackedFilm] = filmsApi.useAddTrackedFilmsMutation()
-	const [addWantToWatchFilm] = filmsApi.useAddViewedFilmsMutation()
+	const [addWatchedFilm] = filmsApi.useAddWatchedFilmsMutation();
+	const [addTrackedFilm] = filmsApi.useAddTrackedFilmsMutation();
+	const [addWantToWatchFilm] = filmsApi.useAddViewedFilmsMutation();
 
 
-	const { token } = useAuth()
+	const { token } = useAuth();
 
 	function handleTracking() {
 		addTrackedFilm(props.film.id).then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				toastr.success('Успешно', 'Фильм добавлен в "Отслеживаемое"')
+				toastr.success('Успешно', 'Фильм добавлен в "Отслеживаемое"');
 			} else {
-				toastr.error('Ошибка', 'Фильм уже добавлен в "Отслеживаемое"')
+				toastr.error('Ошибка', 'Фильм уже добавлен в "Отслеживаемое"');
 			}
-		})
+		});
 	}
 
 	function handleWantToWatch() {
 		addWantToWatchFilm(props.film.id).then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				toastr.success('Успешно', 'Фильм добавлен в "Просмотрено"')
+				toastr.success('Успешно', 'Фильм добавлен в "Просмотрено"');
 			} else {
-				toastr.error('Ошибка', 'Фильм уже добавлен в "Просмотрено"')
+				toastr.error('Ошибка', 'Фильм уже добавлен в "Просмотрено"');
 			}
-		})
+		});
 	}
 
 	useMounted(() => {
-		token && addWatchedFilm(props.film.id)
-	})
+		token && addWatchedFilm(props.film.id);
+	});
 
 	function metaSlot() {
 		return (
@@ -62,7 +62,7 @@ export default function FilmPage(props: IFilmPageProps) {
 				<meta
 					property='keywords'
 					content={`${props.film.title} ${props.film.titleOrig} ${props.film.type.name}`} />
-			</>)
+			</>);
 	}
 
 	return (
@@ -136,20 +136,20 @@ export default function FilmPage(props: IFilmPageProps) {
 				</div>
 			</div>
 		</Layout>
-	)
+	);
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 	try {
-		const film = await FilmsService.getById(Number(context.query.id))
+		const film = await FilmsService.getById(Number(context.query.id));
 		return {
 			props: {
 				film
 			}
-		}
+		};
 	} catch (e) {
 		return {
 			notFound: true
-		}
+		};
 	}
 }

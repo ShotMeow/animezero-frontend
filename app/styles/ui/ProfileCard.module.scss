@@ -1,0 +1,25 @@
+.film {
+	@apply rounded-md bg-cover bg-center flex flex-col justify-end pl-2 pb-4 font-bold transition-all duration-500;
+	height: 280px;
+	box-shadow: inset 0px -50px 100px rgba(0, 0, 0, 0.75);
+
+	@media (max-width: 1023px) {
+		height: 330px;
+
+		> h3 {
+			@apply text-lg;
+		}
+	}
+
+	@media (max-width: 730px) {
+		height: 450px;
+
+		> h3 {
+			@apply text-xl;
+		}
+	}
+
+	&:hover {
+		box-shadow: inset 0px -50px 100px rgba(0, 0, 0, 1);
+	}
+}

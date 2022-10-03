@@ -1,6 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
-import { TypeRootState } from '@/app/store/store'
-import { IUserUpdate } from '@/app/interfaces/IUserUpdate'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { TypeRootState } from '@/app/store/store';
+import { IUserUpdate } from '@/app/interfaces/IUserUpdate';
 
 export const api = createApi({
 	reducerPath: 'api',
@@ -8,15 +8,15 @@ export const api = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: process.env.API_URL,
 		prepareHeaders: (headers, { getState }) => {
-			const token = (getState() as TypeRootState).auth.token
-			const tempToken = (getState() as TypeRootState).auth.tempToken
+			const token = (getState() as TypeRootState).auth.token;
+			const tempToken = (getState() as TypeRootState).auth.tempToken;
 			if (token) {
-				headers.set('Authorization', `Bearer ${token}`)
+				headers.set('Authorization', `Bearer ${token}`);
 			} else if (tempToken) {
-				headers.set('Authorization', `Bearer ${tempToken}`)
+				headers.set('Authorization', `Bearer ${tempToken}`);
 			}
-			headers.set('Accept', 'application/json')
-			return headers
+			headers.set('Accept', 'application/json');
+			return headers;
 		}
 	}),
 	endpoints: builder => ({
@@ -50,4 +50,4 @@ export const api = createApi({
 			})
 		})
 	})
-})
+});

@@ -1,7 +1,7 @@
-import Layout from '@/app/layouts/Layout'
-import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/styles/pages/Partnership.module.scss'
-import Button from '@/app/components/ui/Button/Button'
+import Layout from '@/app/layouts/Layout';
+import Heading from '@/app/components/ui/Heading';
+import styles from '@/app/styles/pages/Partnership.module.scss';
+import Button from '@/app/components/ui/Button';
 
 export default function PartnershipPage() {
 	return (
@@ -27,5 +27,5 @@ export default function PartnershipPage() {
 				</div>
 			</section>
 		</Layout>
-	)
+	);
 }

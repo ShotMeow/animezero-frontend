@@ -1,6 +1,6 @@
-import { ModalType } from '@/app/types/ModulTypes'
+import { ModalType } from '@/app/types/ModulTypes';
 
 export interface IModal {
-	type: ModalType
-	isShow: boolean
+	type: ModalType;
+	isShow: boolean;
 }

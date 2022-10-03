@@ -1,29 +1,29 @@
-import styles from '@/app/styles/components/Profile.module.scss'
-import Button from '@/app/components/ui/Button/Button'
-import NextLink from '@/app/components/ui/NextLink'
-import { BiLogIn } from 'react-icons/bi'
-import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
-import { setIsShow } from '@/app/store/modal/modal.slice'
-import { useRouter } from 'next/router'
-import { api } from '@/app/store/api/api'
-import { logout } from '@/app/store/auth/auth.actions'
-import { useTypedSelector } from '@/app/hooks/useTypedSelector'
+import styles from '@/app/styles/components/Profile.module.scss';
+import Button from '@/app/components/ui/Button';
+import NextLink from '@/app/components/ui/NextLink';
+import { BiLogIn } from 'react-icons/bi';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { setIsShow } from '@/app/store/modal/modal.slice';
+import { useRouter } from 'next/router';
+import { api } from '@/app/store/api/api';
+import { logout } from '@/app/store/auth/auth.actions';
+import { useTypedSelector } from '@/app/hooks/useTypedSelector';
 
 export default function Profile() {
-	const dispatch = useTypedDispatch()
-	const router = useRouter()
-	const token = useTypedSelector(store => store.auth.token)
-	const [logoutMutation] = api.useLogoutMutation()
+	const dispatch = useTypedDispatch();
+	const router = useRouter();
+	const token = useTypedSelector(store => store.auth.token);
+	const [logoutMutation] = api.useLogoutMutation();
 
 	const handleClick = () => {
-		dispatch(setIsShow())
-	}
+		dispatch(setIsShow());
+	};
 
 	const handleLogout = () => {
-		logoutMutation()
-		dispatch(logout())
-		router.push('/')
-	}
+		logoutMutation();
+		dispatch(logout());
+		router.push('/');
+	};
 
 	return (
 		<>
@@ -43,12 +43,11 @@ export default function Profile() {
 				<Button
 					onClick={handleClick}
 					important='primary'
-					className={styles.profile}
 				>
 					<BiLogIn size={20} />
 					Войти
 				</Button>
 			)}
 		</>
-	)
+	);
 }

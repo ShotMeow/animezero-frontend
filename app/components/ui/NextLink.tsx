@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react'
-import Link from 'next/link'
+import { PropsWithChildren } from 'react';
+import Link from 'next/link';
 
 interface INextLinkProps {
 	href: string;
@@ -13,5 +13,5 @@ export default function NextLink(props: PropsWithChildren<INextLinkProps>) {
 				{props.children}
 			</a>
 		</Link>
-	)
+	);
 }

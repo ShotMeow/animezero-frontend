@@ -1,57 +1,57 @@
-import { FC, useRef, useState } from 'react'
-import styles from '../../styles/Profile.module.scss'
-import { asideNav } from '@/app/components/profile/Aside.data'
-import { useRouter } from 'next/router'
-import { profileApi } from '@/app/store/api/profile.api'
-import { AiOutlineUser } from 'react-icons/ai'
-import { Cropper } from 'react-cropper'
-import 'cropperjs/dist/cropper.css'
-import Button from '@/app/components/ui/Button/Button'
-import { toastr } from 'react-redux-toastr'
-import NextLink from '@/app/components/ui/NextLink'
+import { useRef, useState } from 'react';
+import styles from '../../styles/Profile.module.scss';
+import { asideNav } from '@/app/components/profile/Aside.data';
+import { useRouter } from 'next/router';
+import { profileApi } from '@/app/store/api/profile.api';
+import { AiOutlineUser } from 'react-icons/ai';
+import { Cropper } from 'react-cropper';
+import 'cropperjs/dist/cropper.css';
+import Button from '@/app/components/ui/Button';
+import { toastr } from 'react-redux-toastr';
+import NextLink from '@/app/components/ui/NextLink';
 
-const Aside: FC = () => {
-	const { asPath } = useRouter()
-	const [isCropper, setCropper] = useState<boolean>(false)
-	const [avatar, setAvatar] = useState('')
-	const [cropData, setCropData] = useState('#')
-	const fileInput = useRef<HTMLInputElement>(null)
-	const cropperRef = useRef<HTMLImageElement>(null)
+export default function Aside() {
+	const { asPath } = useRouter();
+	const [isCropper, setCropper] = useState<boolean>(false);
+	const [avatar, setAvatar] = useState('');
+	const [cropData, setCropData] = useState('#');
+	const fileInput = useRef<HTMLInputElement>(null);
+	const cropperRef = useRef<HTMLImageElement>(null);
 	const { data, isSuccess } = profileApi.useGetProfileDataQuery('', {
 		refetchOnMountOrArgChange: true
-	})
-	const [uploadAvatar] = profileApi.useUploadAvatarMutation()
+	});
+	const [uploadAvatar] = profileApi.useUploadAvatarMutation();
 
 	const onFileUpload = () => {
 		if (fileInput && fileInput.current) {
-			fileInput.current.click()
+			fileInput.current.click();
 			fileInput.current.addEventListener('change', (e: any) => {
 				if (fileInput?.current?.value) {
 					if (!/\.(jpg|jpeg|png|JPG|PNG)$/.test(fileInput.current.value)) {
-						return toastr.error('Ошибка', 'Данный тип файлов не поддерживается')
+						return toastr.error('Ошибка', 'Данный тип файлов не поддерживается');
 					}
-					let files
+					let files;
 					if (e.dataTransfer) {
-						files = e.dataTransfer.files
+						files = e.dataTransfer.files;
 					} else if (e.target) {
-						files = e.target.files
+						files = e.target.files;
 					}
-					const reader = new FileReader()
+					const reader = new FileReader();
 					reader.onload = () => {
-						setAvatar(reader.result as any)
-					}
-					reader.readAsDataURL(files[0])
-					setCropper(true)
+						setAvatar(reader.result as any);
+					};
+					reader.readAsDataURL(files[0]);
+					setCropper(true);
 				}
-			})
+			});
 		}
-	}
+	};
 
 	const onCrop = () => {
-		const image: any = cropperRef?.current
-		const cropper: any = image.cropper
-		setCropData(cropper.getCroppedCanvas().toDataURL())
-	}
+		const image: any = cropperRef?.current;
+		const cropper: any = image.cropper;
+		setCropData(cropper.getCroppedCanvas().toDataURL());
+	};
 
 	const onUploadImage = () => {
 		uploadAvatar(cropData).then(data => {
@@ -60,13 +60,13 @@ const Aside: FC = () => {
 				toastr.error(
 					'Ошибка',
 					'Не получилось загрузить аватар. Попробуйте позже'
-				)
+				);
 			} else {
-				toastr.success('Успех', 'Аватар успешно изменен')
+				toastr.success('Успех', 'Аватар успешно изменен');
 			}
-			setCropper(false)
-		})
-	}
+			setCropper(false);
+		});
+	};
 
 	return (
 		<aside className={styles.aside}>
@@ -115,7 +115,5 @@ const Aside: FC = () => {
 				</div>
 			)}
 		</aside>
-	)
-}
-
-export default Aside
+	);
+};

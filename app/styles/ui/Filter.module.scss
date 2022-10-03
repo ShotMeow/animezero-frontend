@@ -1,0 +1,23 @@
+.filter {
+	@apply mb-8 px-8 py-4 bg-gray-800;
+
+	@media (max-width: 767px) {
+		@apply flex flex-col items-center;
+	}
+
+	> h4 {
+		@apply text-xl;
+	}
+
+	> div {
+		@apply flex flex-wrap my-4 gap-6 mb-8;
+
+		@media (max-width: 767px) {
+			@apply flex-col items-center;
+		}
+	}
+
+	> button {
+		@apply flex items-center gap-2 text-lg text-gray-400;
+	}
+}

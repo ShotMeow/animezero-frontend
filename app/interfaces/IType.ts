@@ -1,5 +1,5 @@
 export interface IType {
-	id: number
-	name: string
-	value: string
+	id: number;
+	name: string;
+	value: string;
 }

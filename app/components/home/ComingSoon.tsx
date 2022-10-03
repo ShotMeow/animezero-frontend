@@ -1,15 +1,14 @@
-import { BiAtom } from 'react-icons/bi'
-import Button from '@/app/components/ui/Button/Button'
-import Subtitle from '@/app/components/ui/Subtitle/Subtitle'
-import OngoingFilm from '@/app/components/ui/OngoingFilm/OngoingFilm'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import styles from '../../styles/ComingSoon.module.scss'
-import { Autoplay } from 'swiper'
-import { IFilm } from '@/app/interfaces/IFilm'
-import NextLink from '@/app/components/ui/NextLink'
+import { BiAtom } from 'react-icons/bi';
+import Button from '@/app/components/ui/Button';
+import Subtitle from '@/app/components/ui/Subtitle';
+import OngoingFilm from '@/app/components/ui/OngoingFilm';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import styles from '../../styles/ComingSoon.module.scss';
+import { IFilm } from '@/app/interfaces/IFilm';
+import NextLink from '@/app/components/ui/NextLink';
 
 interface IComingSoonProps {
-	films: IFilm[]
+	films: IFilm[];
 }
 
 export default function ComingSoon(props: IComingSoonProps) {
@@ -44,12 +43,7 @@ export default function ComingSoon(props: IComingSoonProps) {
 						}
 					}}
 					spaceBetween={20}
-					autoplay={{
-						delay: 6000,
-						disableOnInteraction: false
-					}}
 					loop
-					modules={[Autoplay]}
 				>
 					{props.films?.map(film => (
 						<SwiperSlide key={film.id}>
@@ -59,5 +53,5 @@ export default function ComingSoon(props: IComingSoonProps) {
 				</Swiper>
 			</footer>
 		</section>
-	)
+	);
 }

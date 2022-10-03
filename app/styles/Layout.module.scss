@@ -1,15 +1,15 @@
 .wrapper {
-  @apply flex flex-col justify-between h-full;
+	@apply flex flex-col justify-between h-full;
 
-  .layout {
-    @apply container mx-auto;
+	.layout {
+		@apply container mx-auto;
 
-    main {
-      @apply mt-16;
+		main {
+			@apply mt-16;
 
-      @media (max-width: 1023px) {
-        @apply mt-0;
-      }
-    }
-  }
+			@media (max-width: 1023px) {
+				@apply mt-0;
+			}
+		}
+	}
 }

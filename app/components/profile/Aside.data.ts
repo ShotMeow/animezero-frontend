@@ -1,6 +1,6 @@
-import { IAsideNav } from '@/app/components/profile/Aside.interface'
+import { IAsideNavItem } from '@/app/interfaces/IAsideNavItem';
 
-export const asideNav: IAsideNav[] = [
+export const asideNav: IAsideNavItem[] = [
 	{
 		value: 'Недавно просмотренные',
 		url: '/profile/recently'
@@ -17,4 +17,4 @@ export const asideNav: IAsideNav[] = [
 		value: 'Настройки',
 		url: '/profile/settings'
 	}
-]
+];

@@ -1,6 +1,6 @@
-import NavItem from '@/app/components/NavItem'
-import styles from '@/app/styles/components/Nav.module.scss'
-import { INavItem } from '@/app/interfaces/INavItem'
+import NavItem from '@/app/components/NavItem';
+import styles from '@/app/styles/components/Nav.module.scss';
+import { INavItem } from '@/app/interfaces/INavItem';
 
 export default function Nav() {
 	const navData: INavItem[] = [
@@ -16,7 +16,7 @@ export default function Nav() {
 			title: 'Сериалы',
 			link: '/serials'
 		}
-	]
+	];
 
 	return (
 		<nav className={styles.nav}>
@@ -26,5 +26,5 @@ export default function Nav() {
 				))}
 			</ul>
 		</nav>
-	)
+	);
 }

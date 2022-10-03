@@ -1,15 +1,15 @@
-import 'swiper/css'
-import { MdGraphicEq } from 'react-icons/md'
-import styles from '../../styles/Novelties.module.scss'
-import Button from '@/app/components/ui/Button/Button'
-import Subtitle from '@/app/components/ui/Subtitle/Subtitle'
-import FilmItem from '@/app/components/ui/FilmItem/FilmItem'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import NextLink from '@/app/components/ui/NextLink'
-import { IFilm } from '@/app/interfaces/IFilm'
+import 'swiper/css';
+import { MdGraphicEq } from 'react-icons/md';
+import styles from '../../styles/Novelties.module.scss';
+import Button from '@/app/components/ui/Button';
+import Subtitle from '@/app/components/ui/Subtitle';
+import FilmItem from '@/app/components/ui/FilmItem';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import NextLink from '@/app/components/ui/NextLink';
+import { IFilm } from '@/app/interfaces/IFilm';
 
 interface INoveltiesProps {
-	films: IFilm[]
+	films: IFilm[];
 }
 
 export default function Novelties(props: INoveltiesProps) {
@@ -68,5 +68,5 @@ export default function Novelties(props: INoveltiesProps) {
 				</Swiper>
 			</footer>
 		</section>
-	)
+	);
 }

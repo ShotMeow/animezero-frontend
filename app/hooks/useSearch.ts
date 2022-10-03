@@ -1,14 +1,14 @@
-import { ChangeEvent, useState } from 'react'
-import { useDebounce } from '@/app/hooks/useDebounce'
-import { filmsApi } from '@/app/store/api/films.api'
+import { ChangeEvent, useState } from 'react';
+import { useDebounce } from '@/app/hooks/useDebounce';
+import { filmsApi } from '@/app/store/api/films.api';
 
 export const useSearch = () => {
-	const [searchTerm, setSearchTerm] = useState<string>('')
-	const debounceSearch = useDebounce(searchTerm, 500)
+	const [searchTerm, setSearchTerm] = useState<string>('');
+	const debounceSearch = useDebounce(searchTerm, 500);
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-		setSearchTerm(e.target.value)
-	}
+		setSearchTerm(e.target.value);
+	};
 	const { data, isSuccess } = filmsApi.useGetFilmsBySearchTermQuery(
 		debounceSearch,
 		{
@@ -18,12 +18,12 @@ export const useSearch = () => {
 				...rest
 			})
 		}
-	)
+	);
 
 	return {
 		handleSearch,
 		data,
 		isSuccess,
 		searchTerm
-	}
-}
+	};
+};

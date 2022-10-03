@@ -1,22 +1,22 @@
-import styles from '@/app/styles/components/Menu.module.scss'
-import Search from '@/app/components/Search'
-import Button from '@/app/components/ui/Button/Button'
-import { AiFillHome, AiFillTablet } from 'react-icons/ai'
-import { IoFilmSharp } from 'react-icons/io5'
-import { FaUserAlt } from 'react-icons/fa'
-import { useTypedDispatch } from '@/app/hooks/useTypedDispatch'
-import { setIsShow } from '@/app/store/modal/modal.slice'
-import { useTypedSelector } from '@/app/hooks/useTypedSelector'
-import { useRouter } from 'next/router'
-import NextLink from '@/app/components/ui/NextLink'
+import styles from '@/app/styles/components/Menu.module.scss';
+import Search from '@/app/components/Search';
+import Button from '@/app/components/ui/Button';
+import { AiFillHome, AiFillTablet } from 'react-icons/ai';
+import { IoFilmSharp } from 'react-icons/io5';
+import { FaUserAlt } from 'react-icons/fa';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { setIsShow } from '@/app/store/modal/modal.slice';
+import { useTypedSelector } from '@/app/hooks/useTypedSelector';
+import { useRouter } from 'next/router';
+import NextLink from '@/app/components/ui/NextLink';
 
 export default function Menu() {
-	const dispatch = useTypedDispatch()
-	const router = useRouter()
-	const login = useTypedSelector(store => store.auth.user.login)
+	const dispatch = useTypedDispatch();
+	const router = useRouter();
+	const login = useTypedSelector(store => store.auth.user.login);
 
 	function handleClick() {
-		login ? router.push('/profile') : dispatch(setIsShow())
+		login ? router.push('/profile') : dispatch(setIsShow());
 	}
 
 	return (
@@ -48,5 +48,5 @@ export default function Menu() {
 				</div>
 			</footer>
 		</div>
-	)
+	);
 }

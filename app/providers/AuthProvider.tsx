@@ -1,18 +1,15 @@
-import dynamic from 'next/dynamic'
-import { FC, PropsWithChildren } from 'react'
-import { TypeComponentAuthFields } from './private-route.interface'
+import dynamic from 'next/dynamic';
+import { PropsWithChildren } from 'react';
+import { TypeComponentAuthFields } from './private-route.interface';
 
 const DynamicCheckRole = dynamic(() => import('./CheckRole'), {
 	ssr: false
-})
+});
 
-export const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
-	                                                                             Component: { isOnlyUser },
-	                                                                             children
-                                                                             }) => {
-	return !isOnlyUser ? (
-		<>{children}</>
+export function AuthProvider(props: PropsWithChildren<TypeComponentAuthFields>) {
+	return !props.Component.isOnlyUser ? (
+		<>{props.children}</>
 	) : (
-		<DynamicCheckRole Component={{ isOnlyUser }}>{children}</DynamicCheckRole>
-	)
+		<DynamicCheckRole Component={props.Component}>{props.children}</DynamicCheckRole>
+	);
 }

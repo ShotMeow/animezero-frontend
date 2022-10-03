@@ -1,8 +1,8 @@
-import Layout from '@/app/layouts/Layout'
-import Heading from '@/app/components/ui/Heading/Heading'
-import styles from '@/app/styles/pages/Project.module.scss'
-import quality from '@/app/assets/images/quality.png'
-import Image from 'next/image'
+import Layout from '@/app/layouts/Layout';
+import Heading from '@/app/components/ui/Heading';
+import styles from '@/app/styles/pages/Project.module.scss';
+import quality from '@/app/assets/images/quality.png';
+import Image from 'next/image';
 
 export default function ProjectPage() {
 	return (
@@ -21,8 +21,8 @@ export default function ProjectPage() {
 					сервиса, чтобы принести в каждый дом уютную атмосферу и удобный
 					просмотр аниме.
 				</p>
-				<Image src={quality} alt='Качество'/>
+				<Image src={quality} alt='Качество' />
 			</section>
 		</Layout>
-	)
+	);
 }
