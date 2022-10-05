@@ -1,0 +1,31 @@
+.search {
+	@apply relative w-full;
+
+	> .action {
+		@apply flex;
+
+		> input {
+			@apply rounded-l-md px-4 w-full text-black;
+
+			&::placeholder {
+				@apply text-gray-600;
+			}
+		}
+
+		> button {
+			@apply flex items-center justify-center bg-gray-800 rounded-r-md p-3;
+		}
+	}
+}
+
+.result {
+	@apply absolute bg-black w-full z-50 py-6 rounded-lg;
+
+	> div {
+		@apply flex flex-col gap-4;
+	}
+
+	h5 {
+		@apply text-gray-600 px-6 text-lg;
+	}
+}

@@ -1,0 +1,49 @@
+.film_small {
+	@apply flex h-full;
+
+	@media (max-width: 420px) {
+		@apply flex-col;
+	}
+
+	> div:first-child {
+		@apply bg-cover bg-center;
+		width: 40%;
+
+		@media (max-width: 420px) {
+			@apply w-full;
+			height: 200px;
+		}
+	}
+
+	.about {
+		@apply flex flex-col gap-3 bg-gray-900 p-8;
+		width: 60%;
+
+		@media (max-width: 420px) {
+			@apply w-full;
+			height: auto;
+		}
+
+		@media (max-width: 540px) {
+			@apply p-4;
+		}
+
+		> .tags {
+			@apply flex gap-3;
+		}
+
+		> h3 {
+			@apply text-lg font-bold;
+		}
+
+		> p {
+			@apply text-gray-400;
+			height: 40%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;
+		}
+	}
+}

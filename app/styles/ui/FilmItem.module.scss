@@ -1,0 +1,77 @@
+.film {
+	@apply flex flex-col gap-2 relative mx-auto;
+	width: 200px;
+
+	@media (max-width: 550px) {
+		@apply m-auto;
+	}
+
+	&:hover {
+		> header {
+			> img {
+				opacity: 0.6;
+			}
+
+			> button {
+				transform: translateY(-10px);
+			}
+		}
+	}
+
+	> span {
+		@apply absolute top-4 -right-2 bg-primary rounded-sm px-3 z-20;
+	}
+
+	> header {
+		@apply relative overflow-hidden;
+
+		> img {
+			@apply w-full rounded-t-md object-cover;
+			transition: all 0.5s ease;
+			height: 280px;
+		}
+
+		> button {
+			@apply absolute bottom-0 left-10 overflow-hidden;
+			transition: all 0.5s ease;
+			transform: translateY(200px);
+		}
+	}
+
+	> footer {
+		> h3 {
+			@apply font-semibold;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		}
+
+		> p {
+			@apply text-gray-400;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	@media (max-width: 424px) {
+		width: 75px;
+		> span {
+			@apply px-2 top-2;
+			font-size: 10px;
+		}
+		> header {
+			> img {
+				height: 110px;
+			}
+
+			> button {
+				@apply hidden;
+			}
+		}
+		> footer {
+			@apply text-xs;
+		}
+	}
+}

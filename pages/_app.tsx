@@ -1,15 +1,19 @@
-import '@/styles/globals.scss'
-import type { AppProps } from 'next/app'
-import NextProgressBar from 'nextjs-progressbar'
-import { Provider } from 'react-redux'
-import { persistor, store } from '@/store/store'
-import { PersistGate } from 'redux-persist/integration/react'
-import ReduxToastrLib from 'react-redux-toastr'
-import { AuthProvider } from '../app/providers/AuthProvider'
-import { TypeComponentAuthFields } from '../app/providers/private-route.interface'
+import '@/app/styles/globals.scss';
+import type { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import NextProgressBar from 'nextjs-progressbar';
+import { persistor, store } from '@/app/store/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import ReduxToastrLib from 'react-redux-toastr';
+import { AuthProvider } from '@/app/providers/AuthProvider';
+import { TypeComponentAuthFields } from '@/app/providers/private-route.interface';
+import { useEvent } from '@/app/hooks/useEvent';
 
 type TypeAppProps = AppProps & TypeComponentAuthFields
 
+export const Event = useEvent();
+
+// todo: Переделат нахуй модалку, закрывается при удержании лкм и переносе за контент модалки
 function MyApp({ Component, pageProps }: TypeAppProps) {
 	return (
 		<>
@@ -36,7 +40,7 @@ function MyApp({ Component, pageProps }: TypeAppProps) {
 				</PersistGate>
 			</Provider>
 		</>
-	)
+	);
 }
 
-export default MyApp
+export default MyApp;

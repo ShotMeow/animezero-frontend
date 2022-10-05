@@ -1,0 +1,33 @@
+.conf {
+	@media (max-width: 640px) {
+		@apply px-4;
+	}
+
+	ol {
+		@apply list-decimal pl-4;
+	}
+
+	strong {
+		@apply text-primary;
+	}
+
+	ul {
+		@apply list-disc pl-4;
+	}
+
+	h4 {
+		@apply text-xl font-bold;
+	}
+
+	> ol {
+		@apply mt-8 mb-20;
+	}
+
+	> ol > li {
+		@apply mb-4;
+	}
+
+	> ol > li > ol {
+		@apply pl-4;
+	}
+}

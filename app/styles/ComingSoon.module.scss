@@ -1,0 +1,21 @@
+.comingSoon {
+	@apply bg-gray-800 p-12 my-12;
+
+	@media (max-width: 640px) {
+		@apply py-4 px-4;
+	}
+
+	> header {
+		@apply flex justify-between;
+	}
+
+	@media (max-width: 424px) {
+		button {
+			@apply text-sm px-4;
+		}
+	}
+
+	> footer {
+		@apply py-8;
+	}
+}

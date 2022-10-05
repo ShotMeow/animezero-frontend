@@ -1,27 +1,30 @@
-import React from 'react'
-import { Head, Html, Main, NextScript } from 'next/document'
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 
-const Document = () => {
-	return (
-		<Html lang='ru'>
-			<Head>
-				<link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+class MyDocument extends Document {
+	static async getInitialProps(ctx: DocumentContext) {
+		const initialProps = await Document.getInitialProps(ctx);
+		return { ...initialProps };
+	}
 
-				<meta name='theme-color' content='#040404' />
-				<meta name='msapplication-navbutton-color' content='#643FFE' />
-				<meta name='apple-mobile-web-app-status-bar-style' content='#643FFE' />
-				<title>AnimeZero</title>
-				<link
-					href='https://fonts.googleapis.com/css2?family=Raleway&display=optional'
-					rel='stylesheet'
-				/>
-			</Head>
-			<body>
+	render() {
+		return (
+			<Html lang={'ru'}>
+				<Head>
+					<meta name='theme-color' content='#643FFE' />
+					<link rel='preconnect' href='https://fonts.googleapis.com' />
+					<link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
+					<link
+						href='https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap'
+						rel='stylesheet'
+					/>
+				</Head>
+				<body>
 				<Main />
 				<NextScript />
-			</body>
-		</Html>
-	)
+				</body>
+			</Html>
+		);
+	}
 }
 
-export default Document
+export default MyDocument;
