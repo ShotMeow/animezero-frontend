@@ -13,7 +13,7 @@ export default function Welcome(props: IWelcomeProps) {
 	const filmsArray: IFilm[][] = [
 		props.films.slice(0, 4),
 		props.films.slice(4, 8),
-		props.films.slice(8, 12),
+		props.films.slice(8, 12)
 	];
 
 	return (

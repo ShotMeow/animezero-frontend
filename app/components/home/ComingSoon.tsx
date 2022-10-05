@@ -12,6 +12,24 @@ interface IComingSoonProps {
 }
 
 export default function ComingSoon(props: IComingSoonProps) {
+	const breakPoints = {
+		320: {
+			slidesPerView: 3.3
+		},
+		350: {
+			slidesPerView: 3.8
+		},
+		425: {
+			slidesPerView: 2
+		},
+		460: {
+			slidesPerView: 1.2
+		},
+		768: {
+			slidesPerView: 2
+		}
+	};
+
 	return (
 		<section className={styles.comingSoon}>
 			<header>
@@ -25,23 +43,7 @@ export default function ComingSoon(props: IComingSoonProps) {
 			<footer>
 				<Swiper
 					slidesPerView={'auto'}
-					breakpoints={{
-						320: {
-							slidesPerView: 3.3
-						},
-						350: {
-							slidesPerView: 3.8
-						},
-						425: {
-							slidesPerView: 2
-						},
-						460: {
-							slidesPerView: 1.2
-						},
-						768: {
-							slidesPerView: 2
-						}
-					}}
+					breakpoints={breakPoints}
 					spaceBetween={20}
 					loop
 				>

@@ -1,14 +1,14 @@
-import { useRef, useState } from 'react';
-import styles from '../../styles/Profile.module.scss';
-import { asideNav } from '@/app/components/profile/Aside.data';
-import { useRouter } from 'next/router';
-import { profileApi } from '@/app/store/api/profile.api';
-import { AiOutlineUser } from 'react-icons/ai';
-import { Cropper } from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
+import styles from '@/app/styles/Profile.module.scss';
+import { asideNav } from '@/app/components/profile/Aside.data';
 import Button from '@/app/components/ui/Button';
-import { toastr } from 'react-redux-toastr';
 import NextLink from '@/app/components/ui/NextLink';
+import { profileApi } from '@/app/store/api/profile.api';
+import { useRouter } from 'next/router';
+import { useRef, useState } from 'react';
+import { Cropper } from 'react-cropper';
+import { AiOutlineUser } from 'react-icons/ai';
+import { toastr } from 'react-redux-toastr';
 
 export default function Aside() {
 	const { asPath } = useRouter();
@@ -48,13 +48,14 @@ export default function Aside() {
 	};
 
 	const onCrop = () => {
-		const image = cropperRef?.current;
-		const cropper = image.cropper;
+		const image: any = cropperRef?.current;
+		const cropper: any = image.cropper;
 		setCropData(cropper.getCroppedCanvas().toDataURL());
 	};
 
 	const onUploadImage = () => {
 		uploadAvatar(cropData).then(data => {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			if (data.error) {
 				toastr.error(
@@ -116,4 +117,4 @@ export default function Aside() {
 			)}
 		</aside>
 	);
-};
+}
