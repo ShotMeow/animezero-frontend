@@ -22,11 +22,9 @@ export default function Filter(props: IFilterProps) {
 			...selectedFilters,
 			[data.type]: data.value
 		});
-	});
 
-	useEffect(() => {
 		Event.emit('film-update', selectedFilters);
-	}, [selectedFilters]);
+	});
 
 	return (
 		<section className={styles.filter}>

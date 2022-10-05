@@ -10,8 +10,10 @@ import { IFilter } from '@/app/interfaces/IFilter';
 import { SortType } from '@/app/types/SortTypes';
 import { useState } from 'react';
 import { useMounted } from '@/app/hooks/useMounted';
-import { Event } from '@/pages/_app';
 import { IPaginateResponse } from '@/app/interfaces/IPaginateResponse';
+import { useFilmUpdate } from '@/app/hooks/useFilmUpdate';
+import usePaginationRoute from '@/app/hooks/usePaginationRoute';
+import { useRouter } from 'next/router';
 
 interface ISerialsPageProps {
 	serials: IPaginateResponse<IFilm>;
@@ -21,21 +23,20 @@ interface ISerialsPageProps {
 
 export default function SerialsPage(props: ISerialsPageProps) {
 	const [newProps, setNewProps] = useState(props);
+	const router = useRouter();
 
 	useMounted(() => {
 		setNewProps(props);
 	});
 
-	Event.on('film-update', async (data) => {
-		const serials = await FilmsService.getAllByFilter({
-			type: 'serial',
-			page: 1,
-			years: data?.years,
-			rating: data?.rating,
-			genres: data?.genres,
-			statuses: data?.statuses
-		}, true);
+	useFilmUpdate(router, 'serial', (serials) => {
+		setNewProps({
+			...newProps,
+			serials
+		});
+	});
 
+	usePaginationRoute(router, 'serial', (serials) => {
 		setNewProps({
 			...newProps,
 			serials

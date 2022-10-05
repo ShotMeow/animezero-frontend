@@ -10,7 +10,9 @@ import { SortType } from '@/app/types/SortTypes';
 import { IPaginateResponse } from '@/app/interfaces/IPaginateResponse';
 import { useState } from 'react';
 import { useMounted } from '@/app/hooks/useMounted';
-import { Event } from '@/pages/_app';
+import usePaginationRoute from '@/app/hooks/usePaginationRoute';
+import { useFilmUpdate } from '@/app/hooks/useFilmUpdate';
+import { useRouter } from 'next/router';
 
 interface IFilmsPageProps {
 	films: IPaginateResponse<IFilm>;
@@ -19,20 +21,19 @@ interface IFilmsPageProps {
 
 export default function FilmsPage(props: IFilmsPageProps) {
 	const [newProps, setNewProps] = useState(props);
-
+	const router = useRouter();
 	useMounted(() => {
 		setNewProps(props);
 	});
 
-	Event.on('film-update', async (data) => {
-		const films = await FilmsService.getAllByFilter({
-			type: 'film',
-			page: 1,
-			years: data?.years,
-			rating: data?.rating,
-			genres: data?.genres
-		}, true);
+	useFilmUpdate(router, 'film', (films) => {
+		setNewProps({
+			...newProps,
+			films
+		});
+	});
 
+	usePaginationRoute(router, 'film', (films) => {
 		setNewProps({
 			...newProps,
 			films

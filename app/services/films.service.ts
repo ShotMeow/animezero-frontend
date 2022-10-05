@@ -7,6 +7,7 @@ import { BlockTypes } from '@/app/types/BlockTypes';
 import { IFilm } from '@/app/interfaces/IFilm';
 import { IGenre } from '@/app/interfaces/IGenre';
 import { IStatus } from '@/app/interfaces/IStatus';
+import { removeEmptyHelper } from '@/app/helpers/removeEmptyHelper';
 
 export const FilmsService = {
 	async getAll(blocks: BlockTypes[]) {
@@ -20,12 +21,7 @@ export const FilmsService = {
 	},
 
 	async getAllByFilter(params: IQueryFilter, filledOnly = false) {
-		const newParams: IQueryFilter = filledOnly ? Object
-			.fromEntries(
-				Object
-					.entries(params).filter(([, v]) => v != undefined && v != '' && v !== null && v !== 'undefined')
-			) : params;
-
+		const newParams: IQueryFilter = filledOnly ? removeEmptyHelper(params) : params;
 		const res = await axiosClassic.get<IPaginateResponse<IFilm>>(`/film`, {
 			params: newParams
 		});

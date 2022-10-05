@@ -48,8 +48,8 @@ export default function Aside() {
 	};
 
 	const onCrop = () => {
-		const image: any = cropperRef?.current;
-		const cropper: any = image.cropper;
+		const image = cropperRef?.current;
+		const cropper = image.cropper;
 		setCropData(cropper.getCroppedCanvas().toDataURL());
 	};
 

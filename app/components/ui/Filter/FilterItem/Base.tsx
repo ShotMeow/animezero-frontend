@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 import styles from '@/app/styles/ui/FilterItem.module.scss';
 import { Listbox } from '@headlessui/react';
 import { IoIosArrowDown } from 'react-icons/io';
@@ -13,22 +13,23 @@ interface IBaseProps {
 
 export default memo(function Base(props: IBaseProps) {
 	if (!props.elements || !props.elements.length) {
-		return null;
+		return <></>;
 	}
 
 	const [selected, setSelected] = useState(props.elements[0]);
 
-	useEffect(() => {
+	function onChange(item: IElement) {
+		setSelected(item);
 		Event.emit('filter-changed', {
-			type: props.type, value: selected.value
+			type: props.type, value: item.value
 		});
-	}, [selected]);
+	}
 
 	return (
 		<article className={styles.filter}>
 			<Listbox
 				value={selected}
-				onChange={setSelected}
+				onChange={onChange}
 			>
 				<Listbox.Label>{props.title}:</Listbox.Label>
 				<Listbox.Button>

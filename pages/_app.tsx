@@ -13,6 +13,7 @@ type TypeAppProps = AppProps & TypeComponentAuthFields
 
 export const Event = useEvent();
 
+// todo: Переделат нахуй модалку, закрывается при удержании лкм и переносе за контент модалки
 function MyApp({ Component, pageProps }: TypeAppProps) {
 	return (
 		<>

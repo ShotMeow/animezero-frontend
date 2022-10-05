@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import styles from '@/app/styles/ui/Pagination.module.scss';
 import cn from 'classnames';
 import { IMetaLink } from '@/app/interfaces/IMetaLink';
+import { Event } from '@/pages/_app';
 
 interface IPaginationProps {
 	links: IMetaLink[];
@@ -13,13 +14,7 @@ export default function Pagination(props: IPaginationProps) {
 	const currentLinks = props.links.slice(1, props.links.length - 1);
 
 	const handlePagination = (page: number) => () => {
-		const path = router.pathname;
-		const query = router.query;
-		query.page = page.toString();
-		router.push({
-			pathname: path,
-			query: query
-		});
+		Event.emit('pagination-page', page);
 	};
 
 	return (
