@@ -25,3 +25,8 @@
 		@apply flex justify-between;
 	}
 }
+
+.films {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+}

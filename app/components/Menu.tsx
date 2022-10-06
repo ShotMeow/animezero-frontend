@@ -22,22 +22,22 @@ export default function Menu() {
 	return (
 		<div className={styles.menu}>
 			<header>
-				<NextLink href={'/'}>
+				<NextLink href='/'>
 					Anime<span>Zero</span>
 				</NextLink>
 				<Search />
 			</header>
 			<footer>
 				<div>
-					<NextLink href='/pages'>
+					<NextLink href='/'>
 						<AiFillHome size={20} />
 						Главная
 					</NextLink>
-					<NextLink href={'/films'}>
+					<NextLink href='/films'>
 						<IoFilmSharp size={20} />
 						Фильмы
 					</NextLink>
-					<NextLink href={'/serials'}>
+					<NextLink href='/serials'>
 						<AiFillTablet size={20} />
 						Сериалы
 					</NextLink>

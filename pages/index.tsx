@@ -7,7 +7,7 @@ import { IFilm } from '@/app/interfaces/IFilm';
 import { FilmsService } from '@/app/services/films.service';
 
 interface IIndexPageProps {
-	best: IFilm[];
+	preview: IFilm[];
 	newest: IFilm[];
 	ongoing: IFilm[];
 	recommended: IFilm[];
@@ -16,7 +16,7 @@ interface IIndexPageProps {
 export default function IndexPage(props: IIndexPageProps) {
 	return (
 		<Layout title='AnimeZero'>
-			<Welcome films={props.best} />
+			<Welcome films={props.preview} />
 			<Novelties films={props.newest} />
 			{props.recommended?.length > 0 && <Recommendations films={props.recommended} />}
 			<ComingSoon films={props.ongoing} />
@@ -26,7 +26,7 @@ export default function IndexPage(props: IIndexPageProps) {
 
 export async function getServerSideProps() {
 	try {
-		const films = await FilmsService.getAll(['best', 'newest', 'ongoing', 'recommended']);
+		const films = await FilmsService.getAll(['preview', 'newest', 'ongoing', 'recommended']);
 		return {
 			props: { ...films }
 		};

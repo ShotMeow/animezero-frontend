@@ -1,1 +1,1 @@
-export type BlockTypes = 'best' | 'newest' | 'ongoing' | 'recommended'
+export type BlockTypes = 'preview' | 'newest' | 'ongoing' | 'recommended'

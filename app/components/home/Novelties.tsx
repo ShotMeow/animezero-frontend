@@ -56,6 +56,7 @@ export default function Novelties(props: INoveltiesProps) {
 						}
 					}}
 					spaceBetween={20}
+					loop
 				>
 					{props.films.map(film => (
 						<SwiperSlide key={film.id}>
