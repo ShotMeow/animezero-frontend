@@ -1,38 +1,43 @@
-import { FC } from 'react'
-import styles from './Filter.module.scss'
-import { MdOutlineClose } from 'react-icons/md'
-import { IFilter } from '@/services/films.interface'
-import Base from '@/components/ui/Filter/FilterItem/Base/Base'
-import { useRouter } from 'next/router'
-import { rating, years } from '@/components/ui/Filter/Filter.data'
+import styles from '@/app/styles/ui/Filter.module.scss';
+import FilterItem from '@/app/components/ui/Filter/FilterItem';
+import { rating, years } from '@/app/components/ui/Filter/Filter.data';
+import { IFilter } from '@/app/interfaces/IFilter';
+import { Event } from '@/pages/_app';
+import { IFilterSelected } from '@/app/interfaces/IFilterSelected';
+import { useState } from 'react';
 
-const Filter: FC<{ filters: IFilter }> = ({ filters }) => {
-	const router = useRouter()
-	const handleClick = () => {
-		const path = router.pathname
-		router.query = {}
-		router.push({
-			pathname: path,
-			query: router.query
-		})
+interface IFilterProps {
+	filters: IFilter;
+}
+
+export default function Filter(props: IFilterProps) {
+	const [selectedFilters, setSelectedFilters] = useState<IFilterSelected>({});
+
+	function resetFilters() {
+		setSelectedFilters({});
 	}
+
+	Event.on('filter-changed', (data) => {
+		setSelectedFilters({
+			...selectedFilters,
+			[data.type]: data.value
+		});
+
+		Event.emit('film-update', selectedFilters);
+	});
 
 	return (
 		<section className={styles.filter}>
 			<h4>Фильтры</h4>
 			<div>
-				<Base title='Жанры' elements={filters.genres} type='genres' />
-				{filters.statuses && (
-					<Base title='Статус' elements={filters.statuses} type='statuses' />
-				)}
-				<Base title='Годы выхода' elements={years} type='years' />
-				<Base title='Рейтинг' elements={rating} type='rating' />
+				<FilterItem title='Жанры' elements={props.filters?.genres} type='genres' />
+				<FilterItem title='Статусы' elements={props.filters?.statuses} type='statuses' />
+				<FilterItem title='Годы выхода' elements={years} type='years' />
+				<FilterItem title='Рейтинг' elements={rating} type='rating' />
 			</div>
-			<button onClick={handleClick}>
-				<MdOutlineClose size={30} /> Сбросить фильтры
+			<button onClick={resetFilters}>
+				Сбросить фильтры
 			</button>
 		</section>
-	)
+	);
 }
-
-export default Filter

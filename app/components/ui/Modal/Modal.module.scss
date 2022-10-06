@@ -1,110 +1,110 @@
 .modal {
-  @apply overflow-hidden fixed w-full h-full bg-black bg-opacity-60 top-0 z-50 flex items-center justify-center;
-  animation: fadeIn 0.3s;
+	@apply overflow-hidden fixed w-full h-full bg-black bg-opacity-60 top-0 z-50 flex items-center justify-center;
+	animation: fadeIn 0.3s;
 
-  > div {
-    @apply overflow-x-clip flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
-    width: 480px;
-    animation: sizeIn 0.2s;
+	> div {
+		@apply overflow-x-clip flex flex-col items-end bg-black rounded-md p-8 shadow-xl shadow-primary;
+		width: 480px;
+		animation: sizeIn 0.2s;
 
-    @media (max-width: 500px) {
-      @apply h-full w-full overflow-y-auto;
-    }
+		@media (max-width: 500px) {
+			@apply h-full w-full overflow-y-auto;
+		}
 
-    > form {
-      @apply w-full flex flex-col items-center gap-4;
-      > div:first-child {
-        @apply flex flex-col items-center gap-2;
-        > h3 {
-          @apply text-2xl font-bold text-center;
-        }
+		> form {
+			@apply w-full flex flex-col items-center gap-4;
+			> div:first-child {
+				@apply flex flex-col items-center gap-2;
+				> h3 {
+					@apply text-2xl font-bold text-center;
+				}
 
-        > p {
-          @apply text-gray-400 text-center;
-        }
-      }
+				> p {
+					@apply text-gray-400 text-center;
+				}
+			}
 
-      > div:nth-child(2) {
-        @apply flex w-full flex-col gap-4;
-        > div {
-          @apply relative py-4;
-          > div {
-            > div {
-              @apply flex gap-3;
-              > div {
-                @apply w-14 h-14 transition-all duration-300 bg-gray-900 rounded-md flex items-center justify-center text-lg font-bold;
-                &.active {
-                  @apply bg-primary;
-                }
-              }
-            }
-          }
+			> div:nth-child(2) {
+				@apply flex w-full flex-col gap-4;
+				> div {
+					@apply relative py-4;
+					> div {
+						> div {
+							@apply flex gap-3;
+							> div {
+								@apply w-14 h-14 transition-all duration-300 bg-gray-900 rounded-md flex items-center justify-center text-lg font-bold;
+								&.active {
+									@apply bg-primary;
+								}
+							}
+						}
+					}
 
-          > input {
-            @apply absolute opacity-0 top-8 left-2 bg-inherit px-12 text-xl;
-            width: 110%;
-            letter-spacing: 3rem;
-          }
-        }
+					> input {
+						@apply absolute opacity-0 top-8 left-2 bg-inherit px-12 text-xl;
+						width: 110%;
+						letter-spacing: 3rem;
+					}
+				}
 
-        > .success {
-          @apply text-green-600 text-center;
-        }
+				> .success {
+					@apply text-green-600 text-center;
+				}
 
-        > .error {
-          @apply text-red-600 text-center;
-        }
+				> .error {
+					@apply text-red-600 text-center;
+				}
 
-        > button {
-          @apply w-full justify-center mt-4 mb-6;
-          color: white !important;
-          font-weight: normal !important;
-        }
-      }
+				> button {
+					@apply w-full justify-center mt-4 mb-6;
+					color: white !important;
+					font-weight: normal !important;
+				}
+			}
 
-      > div:last-child {
-        @apply w-full flex justify-between;
+			> div:last-child {
+				@apply w-full flex justify-between;
 
-        @media (max-width: 420px) {
-          @apply flex-col items-center gap-6;
-        }
+				@media (max-width: 420px) {
+					@apply flex-col items-center gap-6;
+				}
 
-        > p {
-          @apply text-gray-600;
-        }
+				> p {
+					@apply text-gray-600;
+				}
 
-        > button {
-          @apply text-primary font-bold;
-        }
-      }
-    }
-  }
+				> button {
+					@apply text-primary font-bold;
+				}
+			}
+		}
+	}
 }
 
 .fields {
-  @apply flex justify-between;
+	@apply flex justify-between;
 
-  @media (max-width: 460px) {
-    @apply flex-col gap-2 items-center;
-  }
+	@media (max-width: 460px) {
+		@apply flex-col gap-2 items-center;
+	}
 }
 
 @keyframes sizeIn {
-  0% {
-    transform: scale(0);
-  }
+	0% {
+		transform: scale(0);
+	}
 
-  100% {
-    transform: scale(1);
-  }
+	100% {
+		transform: scale(1);
+	}
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+	}
 
-  100% {
-    opacity: 1;
-  }
+	100% {
+		opacity: 1;
+	}
 }

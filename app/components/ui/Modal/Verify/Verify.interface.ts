@@ -1,6 +1,4 @@
-type InfoType = 'error' | 'success'
-
 export interface IInfo {
-	type: InfoType
-	body: string
+	type: 'error' | 'success';
+	body: string;
 }

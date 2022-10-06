@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { IAuthInitialState } from './auth.interface'
-import { login, logout, register } from './auth.actions'
+import { createSlice } from '@reduxjs/toolkit';
+import { IAuthInitialState } from '@/app/interfaces/IAuthInitialState';
+import { login, logout, register } from './auth.actions';
 
 const initialState: IAuthInitialState = {
 	token: '',
@@ -10,56 +10,56 @@ const initialState: IAuthInitialState = {
 		login: '',
 		email: ''
 	}
-}
+};
 
 export const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
 		setToken: (state, { payload }) => {
-			state.token = payload
-			state.tempToken = ''
+			state.token = payload;
+			state.tempToken = '';
 		}
 	},
 	extraReducers: builder => {
 		builder
 			.addCase(register.pending, state => {
-				state.isLoading = true
+				state.isLoading = true;
 			})
 			.addCase(register.fulfilled, (state, { payload }) => {
-				state.tempToken = payload.token
-				state.isLoading = false
-				state.user.login = payload.login
-				state.user.email = payload.email
+				state.tempToken = payload.token;
+				state.isLoading = false;
+				state.user.login = payload.login;
+				state.user.email = payload.email;
 			})
 			.addCase(register.rejected, state => {
-				state.token = ''
-				state.tempToken = ''
-				state.isLoading = false
-				state.user.login = ''
-				state.user.email = ''
+				state.token = '';
+				state.tempToken = '';
+				state.isLoading = false;
+				state.user.login = '';
+				state.user.email = '';
 			})
 			.addCase(login.pending, state => {
-				state.isLoading = true
+				state.isLoading = true;
 			})
 			.addCase(login.fulfilled, (state, { payload }) => {
-				state.isLoading = false
-				state.token = payload.token
-				state.user.login = payload.login
+				state.isLoading = false;
+				state.token = payload.token;
+				state.user.login = payload.login;
 			})
 			.addCase(login.rejected, state => {
-				state.isLoading = false
-				state.token = ''
-				state.tempToken = ''
-				state.user.login = ''
-				state.user.email = ''
+				state.isLoading = false;
+				state.token = '';
+				state.tempToken = '';
+				state.user.login = '';
+				state.user.email = '';
 			})
 			.addCase(logout.fulfilled, state => {
-				state.isLoading = false
-				state.token = ''
-				state.tempToken = ''
-			})
+				state.isLoading = false;
+				state.token = '';
+				state.tempToken = '';
+			});
 	}
-})
+});
 
-export const { setToken } = authSlice.actions
+export const { setToken } = authSlice.actions;

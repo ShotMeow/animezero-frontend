@@ -1,0 +1,50 @@
+.recommendations {
+	> header {
+		@apply p-12;
+
+		@media (max-width: 500px) {
+			@apply py-4 px-4;
+		}
+	}
+
+	> footer {
+		@apply grid gap-12;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: repeat(2, 300px);
+
+		@media (max-width: 1280px) {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 200px);
+		}
+
+		> a:first-child {
+			grid-row-start: 1;
+			grid-row-end: 3;
+
+			@media (max-width: 1280px) {
+				grid-row-start: 1;
+				grid-row-end: 3;
+			}
+		}
+
+		> a:nth-child(2) {
+			grid-row-start: 1;
+			grid-row-end: 2;
+
+			@media (max-width: 1280px) {
+				grid-row-start: 3;
+				grid-row-end: 4;
+			}
+		}
+
+		> a:last-child {
+			grid-row-start: 2;
+			grid-row-end: 3;
+
+			@media (max-width: 1280px) {
+				grid-row-start: 4;
+				grid-row-end: 5;
+			}
+		}
+	}
+}

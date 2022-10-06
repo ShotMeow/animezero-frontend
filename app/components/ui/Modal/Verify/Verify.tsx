@@ -1,52 +1,52 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
-import Button from '@/components/ui/Button/Button'
-import { api } from '@/store/api/api'
-import cn from 'classnames'
-import styles from '../Modal.module.scss'
-import { useTypedDispatch } from '@/hooks/useTypedDispatch'
-import { setIsShow } from '@/store/modal/modal.slice'
-import { toastr } from 'react-redux-toastr'
-import { IInfo } from '@/components/ui/Modal/Verify/Verify.interface'
-import { setToken } from '@/store/auth/auth.slice'
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { useTypedSelector } from '@/app/hooks/useTypedSelector';
+import Button from '@/app/components/ui/Button';
+import { api } from '@/app/store/api/api';
+import cn from 'classnames';
+import styles from '../Modal.module.scss';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { setIsShow } from '@/app/store/modal/modal.slice';
+import { toastr } from 'react-redux-toastr';
+import { IInfo } from '@/app/components/ui/Modal/Verify/Verify.interface';
+import { setToken } from '@/app/store/auth/auth.slice';
 
 const Verify: FC = () => {
-	const [info, setInfo] = useState<IInfo>({} as IInfo)
-	const [value, setValue] = useState<string>('')
-	const tempToken = useTypedSelector(store => store.auth.tempToken)
-	const [resend] = api.useResendMutation()
-	const [verify] = api.useVerifyMutation()
-	const dispatch = useTypedDispatch()
+	const [info, setInfo] = useState<IInfo>({} as IInfo);
+	const [value, setValue] = useState<string>('');
+	const tempToken = useTypedSelector(store => store.auth.tempToken);
+	const [resend] = api.useResendMutation();
+	const [verify] = api.useVerifyMutation();
+	const dispatch = useTypedDispatch();
 
 	const handleClick = () => {
 		resend().then(data => {
 			// @ts-ignore
 			if (!data.error) {
-				setInfo({ type: 'success', body: 'Письмо успешно отправлено' })
+				setInfo({ type: 'success', body: 'Письмо успешно отправлено' });
 			} else {
 				setInfo({
 					type: 'error',
 					body: 'Слишком много попыток. Попробуйте позже'
-				})
+				});
 			}
-		})
-	}
+		});
+	};
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
+		e.preventDefault();
 		verify(value).then(data => {
 			if (!value.length) {
-				setInfo({ type: 'error', body: 'Введите код из письма' })
+				setInfo({ type: 'error', body: 'Введите код из письма' });
 				// @ts-ignore
 			} else if (!data.error) {
-				toastr.success('Авторизация', 'Ты успешно авторизовался')
-				dispatch(setToken(tempToken))
-				dispatch(setIsShow())
+				toastr.success('Авторизация', 'Ты успешно авторизовался');
+				dispatch(setToken(tempToken));
+				dispatch(setIsShow());
 			} else {
-				setInfo({ type: 'error', body: 'Код введен неверно' })
+				setInfo({ type: 'error', body: 'Код введен неверно' });
 			}
-		})
-	}
+		});
+	};
 
 	return (
 		<form onSubmit={(e: FormEvent<HTMLFormElement>) => handleSubmit(e)}>
@@ -106,7 +106,7 @@ const Verify: FC = () => {
 				</button>
 			</div>
 		</form>
-	)
-}
+	);
+};
 
-export default Verify
+export default Verify;

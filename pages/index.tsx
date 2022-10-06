@@ -1,49 +1,38 @@
-import { GetStaticProps, NextPage } from 'next'
-import Home from '@/components/pages/Home/Home'
-import { FilmsService } from '@/services/films.service'
-import { IFilm } from '@/services/films.interface'
+import Layout from '@/app/layouts/Layout';
+import Welcome from '@/app/components/home/Welcome';
+import Novelties from '@/app/components/home/Novelties';
+import Recommendations from '@/app/components/home/Recommendations';
+import ComingSoon from '@/app/components/home/ComingSoon';
+import { IFilm } from '@/app/interfaces/IFilm';
+import { FilmsService } from '@/app/services/films.service';
 
-const IndexPage: NextPage<{
-	best: IFilm[]
-	newest: IFilm[]
-	ongoing: IFilm[]
-	recommended: IFilm[]
-}> = props => {
-	return <Home {...props} />
+interface IIndexPageProps {
+	best: IFilm[];
+	newest: IFilm[];
+	ongoing: IFilm[];
+	recommended: IFilm[];
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export default function IndexPage(props: IIndexPageProps) {
+	return (
+		<Layout title='AnimeZero'>
+			<Welcome films={props.best} />
+			<Novelties films={props.newest} />
+			{props.recommended?.length > 0 && <Recommendations films={props.recommended} />}
+			<ComingSoon films={props.ongoing} />
+		</Layout>
+	);
+}
+
+export async function getServerSideProps() {
 	try {
-		const { data: films } = await FilmsService.getAll([
-			'best',
-			'newest',
-			'ongoing',
-			'recommended'
-		])
+		const films = await FilmsService.getAll(['best', 'newest', 'ongoing', 'recommended']);
 		return {
-			props: {
-				best: films.data.best as IFilm[],
-				newest: films.data.newest as IFilm[],
-				ongoing: films.data.ongoing as IFilm[],
-				recommended: films.data.recommended as IFilm[]
-			} as {
-				best: IFilm[]
-				newest: IFilm[]
-				ongoing: IFilm[]
-				recommended: IFilm[]
-			},
-			revalidate: 10
-		}
+			props: { ...films }
+		};
 	} catch (e) {
 		return {
-			props: {
-				best: [],
-				newest: [],
-				ongoing: [],
-				recommended: []
-			}
-		}
+			notFound: true
+		};
 	}
 }
-
-export default IndexPage

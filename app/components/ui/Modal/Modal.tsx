@@ -1,20 +1,19 @@
-import { FC } from 'react'
-import styles from './Modal.module.scss'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
-import { useTypedDispatch } from '@/hooks/useTypedDispatch'
-import { IoIosClose } from 'react-icons/io'
-import { setIsShow } from '@/store/modal/modal.slice'
-import Login from '@/components/ui/Modal/Login/Login'
-import Register from '@/components/ui/Modal/Register/Register'
-import Verify from '@/components/ui/Modal/Verify/Verify'
-import UpdateVerify from '@/components/ui/Modal/UpdateVerify/UpdateVerify'
+import styles from './Modal.module.scss';
+import { useTypedSelector } from '@/app/hooks/useTypedSelector';
+import { useTypedDispatch } from '@/app/hooks/useTypedDispatch';
+import { IoIosClose } from 'react-icons/io';
+import { setIsShow } from '@/app/store/modal/modal.slice';
+import Login from '@/app/components/ui/Modal/Login/Login';
+import Register from '@/app/components/ui/Modal/Register/Register';
+import Verify from '@/app/components/ui/Modal/Verify/Verify';
+import UpdateVerify from '@/app/components/ui/Modal/UpdateVerify/UpdateVerify';
 
-const Modal: FC = () => {
-	const type = useTypedSelector(store => store.modal.type)
-	const dispatch = useTypedDispatch()
+export default function Modal() {
+	const type = useTypedSelector(store => store.modal.type);
+	const dispatch = useTypedDispatch();
 
 	return (
-		<article className={styles.modal} onClick={() => dispatch(setIsShow())}>
+		<div className={styles.modal} onClick={() => dispatch(setIsShow())}>
 			<div onClick={e => e.stopPropagation()}>
 				<button onClick={() => dispatch(setIsShow())}>
 					<IoIosClose size={30} />
@@ -24,8 +23,6 @@ const Modal: FC = () => {
 				{type === 'verify' && <Verify />}
 				{type === 'update-verify' && <UpdateVerify />}
 			</div>
-		</article>
-	)
-}
-
-export default Modal
+		</div>
+	);
+};
